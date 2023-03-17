@@ -1,0 +1,17 @@
+$slick-font-path: "~slick-carousel/slick/fonts/";
+$slick-loader-path: "~slick-carousel/slick/";
+
+@use 'settings/index.scss' as *;
+@import '~slick-carousel/slick/slick', '~slick-carousel/slick/slick-theme';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  font-family: Kievit, KievitOT, Helvetica Neue, sans-serif;
+  }
+
+* {
+  box-sizing: border-box;
+}

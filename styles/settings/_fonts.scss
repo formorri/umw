@@ -1,0 +1,188 @@
+@use 'media-query' as *;
+
+// $line-height-multiplier-title: 2.2;
+// $font-size-multiplier-title: 0.4; //% increase or reduction depending on screen size
+// $small-font-title: 1 - $font-size-multiplier-title;
+// $large-font: 1 + $font-size-multiplier-title;
+
+$font-size-multiplier: 0.2; //% increase or reduction depending on screen size
+$line-height-multiplier: 1.18;
+$small-font: 1 - $font-size-multiplier;
+$normal-font: 1;
+$large-font: 1 + $font-size-multiplier;
+
+$url: '../../public/fonts/';
+
+
+@font-face {
+    font-family: 'Kievit';
+    src: url($url +'Kievit-BoldSC.eot');
+    src: url($url +'Kievit-BoldSC.eot?#iefix') format('embedded-opentype'),
+        url($url +'Kievit-BoldSC.woff2') format('woff2'),
+        url($url +'Kievit-BoldSC.woff') format('woff'),
+        url($url +'Kievit-BoldSC.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kievit';
+    src: url($url +'Kievit-RegularSC.eot');
+    src: url($url +'Kievit-RegularSC.eot?#iefix') format('embedded-opentype'),
+        url($url +'Kievit-RegularSC.woff2') format('woff2'),
+        url($url +'Kievit-RegularSC.woff') format('woff'),
+        url($url +'Kievit-RegularSC.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'KievitOT';
+    src: url($url +'KievitOT-Bold.eot');
+    src: url($url +'KievitOT-Bold.eot?#iefix') format('embedded-opentype'),
+        url($url +'KievitOT-Bold.woff2') format('woff2'),
+        url($url +'KievitOT-Bold.woff') format('woff'),
+        url($url +'KievitOT-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'KievitOT';
+    src: url($url +'KievitOT-Regular.eot');
+    src: url($url +'KievitOT-Regular.eot?#iefix') format('embedded-opentype'),
+        url($url +'KievitOT-Regular.woff2') format('woff2'),
+        url($url +'KievitOT-Regular.woff') format('woff'),
+        url($url +'KievitOT-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+// @mixin font-settings-title($desktop-font-size) {
+//     font-size: calc($desktop-font-size * $small-font-title);
+//     line-height: calc(($desktop-font-size * $small-font-title) * $line-height-multiplier-title);
+
+
+//     @include gt-xs {
+//         font-size: $desktop-font-size;
+//         line-height: calc($desktop-font-size * $line-height-multiplier-title);
+//     }
+
+//     @include gt-lg {
+//         font-size: calc($desktop-font-size * $large-font);
+//         line-height: calc(($desktop-font-size * $large-font) * $line-height-multiplier-title);
+//     }
+// }
+
+@mixin font-settings($desktop-font-size) {
+    font-size: calc($desktop-font-size * $small-font);
+    line-height: calc(($desktop-font-size * $small-font) * $line-height-multiplier);
+    // h2{
+    //     margin: 0;
+    // }
+
+    @include gt-xs {
+        font-size: $desktop-font-size;
+        line-height: calc($desktop-font-size * $line-height-multiplier);
+    }
+
+    @include gt-lg {
+        font-size: calc($desktop-font-size * $large-font);
+        line-height: calc(($desktop-font-size * $large-font) * $line-height-multiplier);
+    }
+}
+
+
+.header-1 {
+    @include font-settings-title ($desktop-font-size: 80px);
+    font-family: 'KievitOT';
+    text-transform: capitalize;
+    font-weight: normal;
+}
+
+.header-2-regular {
+    @include font-settings-title ($desktop-font-size: 70px);
+    font-family: 'KievitOT';
+    text-transform: capitalize;
+    font-weight: normal;
+}
+
+.header-2-bold {
+    @include font-settings-title ($desktop-font-size: 70px);
+    font-family: 'KievitOT';
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.title-1 {
+    @include font-settings-title ($desktop-font-size: 50px);
+    font-family: 'KievitOT';
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.text-1-bold {
+    @include font-settings-title ($desktop-font-size: 30px);
+    font-family: 'KievitOT';
+    font-weight: bold;
+}
+
+.text-2-bold {
+    @include font-settings-title ($desktop-font-size: 25px);
+    font-family: 'KievitOT';
+    font-weight: bold;
+}
+
+.text-3-bold {
+    @include font-settings-title ($desktop-font-size: 20px);
+    font-family: 'KievitOT';
+    font-weight: bold;
+}
+
+.text-3-regular {
+    @include font-settings-title ($desktop-font-size: 20px);
+    font-family: 'KievitOT';
+    font-weight: bold;
+}
+
+.text-4-bold {
+    @include font-settings-title ($desktop-font-size: 16px);
+    font-family: 'KievitOT';
+    font-weight: bold;
+}
+
+.text-4-regular {
+    @include font-settings-title ($desktop-font-size: 16px);
+    font-family: 'KievitOT';
+    font-weight: normal;
+}
+
+.text-5-regular {
+    @include font-settings-title ($desktop-font-size: 14px);
+    font-family: 'KievitOT';
+    font-weight: normal;
+}
+
+.number-1 {
+    @include font-settings-title ($desktop-font-size: 60px);
+    font-family: 'Kievit';
+    font-weight: bold;
+}
+
+.number-2 {
+    @include font-settings-title ($desktop-font-size: 40px);
+    font-family: 'Kievit';
+    font-weight: bold;
+}
+
+.number-3 {
+    @include font-settings-title ($desktop-font-size: 16px);
+    font-family: 'Kievit';
+    font-weight: 500;
+}
+

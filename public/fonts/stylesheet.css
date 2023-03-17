@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Kievit';
+    src: url('Kievit-BoldSC.eot');
+    src: url('Kievit-BoldSC.eot?#iefix') format('embedded-opentype'),
+        url('Kievit-BoldSC.woff2') format('woff2'),
+        url('Kievit-BoldSC.woff') format('woff'),
+        url('Kievit-BoldSC.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kievit';
+    src: url('Kievit-RegularSC.eot');
+    src: url('Kievit-RegularSC.eot?#iefix') format('embedded-opentype'),
+        url('Kievit-RegularSC.woff2') format('woff2'),
+        url('Kievit-RegularSC.woff') format('woff'),
+        url('Kievit-RegularSC.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'KievitOT';
+    src: url('KievitOT-Bold.eot');
+    src: url('KievitOT-Bold.eot?#iefix') format('embedded-opentype'),
+        url('KievitOT-Bold.woff2') format('woff2'),
+        url('KievitOT-Bold.woff') format('woff'),
+        url('KievitOT-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'KievitOT';
+    src: url('KievitOT-Regular.eot');
+    src: url('KievitOT-Regular.eot?#iefix') format('embedded-opentype'),
+        url('KievitOT-Regular.woff2') format('woff2'),
+        url('KievitOT-Regular.woff') format('woff'),
+        url('KievitOT-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
