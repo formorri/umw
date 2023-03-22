@@ -1,0 +1,97 @@
+@use '../../styles/settings/index.scss' as *;
+
+.container {
+    background-color: $theme-4;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    place-items: center;
+}
+
+.modal {
+    @include shadow;
+    display: flex;
+    margin: auto;
+}
+
+.cover-image{
+    // height: 90vh;
+    // min-height: 100%;
+    height: clamp(30rem, 90vh, 50rem);
+    width: auto;
+}
+
+.content {
+    background-image: linear-gradient(to right, #FFFFFF, #E8F3F4);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 0 $border-radius $border-radius 0;
+
+    .close-container {
+        align-self: flex-end;
+        .close {
+            font-size: 3rem;
+            color: #ACAEB1;
+        }
+    }
+
+    .text-container {
+        padding: 0 2rem;
+
+        .title {
+            @include text-1-bold;
+            text-transform: uppercase;
+            color: $blue-1;
+            margin: 0;
+        }
+
+        .text {
+            @include text-4-regular;
+            color: $grey-1;
+        }
+    }
+
+
+}
+
+.col1 {
+    // grid-row-start + grid-column-start + grid-row-end + grid-column-end:
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    margin: 0 0 0 $large-padding;
+    z-index: 0;
+    text-transform: uppercase;
+
+    .header {
+        color: $blue-1;
+        margin: 0;
+        @include header-2-regular;
+
+        .bold {
+            @include header-2-bold;
+        }
+    }
+
+}
+
+.col2 {
+    // grid-row-start + grid-column-start + grid-row-end + grid-column-end:
+    grid-area: 1 / 2 / 2 / 3;
+    z-index: 0;
+
+    .video {
+        width: 100%;
+
+    }
+}
+
+.scroll {
+    // grid-row-start + grid-column-start + grid-row-end + grid-column-end:
+    grid-area: 1 / 1 / 2 / 3;
+    z-index: 1;
+    align-self: flex-end;
+}

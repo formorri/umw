@@ -1,0 +1,202 @@
+@use '../../styles/settings/index.scss' as *;
+
+
+$transition-buttons: 0.4s ease-in-out;
+$size: 10px;
+
+.container-desktop {
+    display: none;
+}
+
+.container-phone {
+    position: fixed;
+    top: 0;
+    right: 0.5rem;
+    transition: ease-in-out 0.3s;
+    ul {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 0;
+        padding: 0;
+
+    }
+}
+
+.link {
+    text-transform: capitalize;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+        color: $dark-1;
+        transition: $transition-buttons;
+        background-color: $white-1;
+        padding: 10px 10px;
+        border-radius: $border-radius;
+        text-decoration: none;
+
+        .text {
+            // display: none;
+            writing-mode: vertical-rl;
+        }
+    }
+
+    &::before {
+        transition: $transition-buttons;
+        $size: 10px;
+        content: '';
+        background-color: $theme-4;
+        display: block;
+        width: $size;
+        height: calc($size * 0.9);
+        margin-bottom: 10px;
+        clip-path: polygon(100% 50%, 50% 100%, 0% 50%);
+    }
+
+    &:hover {
+        text-decoration: none;
+
+        &::before {
+            background-color: $theme-4;
+        }
+
+        a {
+            color: $dark-1;
+            background-color: $theme-4;
+        }
+    }
+}
+
+.active {
+    text-transform: capitalize;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+        color: $dark-1;
+        background-color: $theme-4;
+        padding: 10px 10px;
+        border-radius: $border-radius;
+        text-decoration: none;
+
+        .text {
+            // display: none;
+            writing-mode: vertical-rl;
+        }
+
+    }
+
+    &::before {
+        $size: 10px;
+        content: '';
+        background-color: $theme-1;
+        display: block;
+        width: $size;
+        height: calc($size * 0.9);
+        margin-bottom: 10px;
+        clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    }
+}
+
+// @include gt-sm {
+//     $transition-buttons: 0.4s ease-in-out;
+//     $size: 10px;
+
+//     .container-desktop {
+//         width: 100vw;
+//         justify-content: center;
+//         position: fixed;
+//         top: 0;
+//         transition: ease-in-out 0.3s;
+//         display: flex;
+
+//         ul {
+//             display: flex;
+//             column-gap: 2rem;
+//         }
+//     }
+
+//     .container-phone {
+//         display: none;
+//     }
+
+//     .container-desktop-active {
+//         background-color: white;
+//     }
+
+//     .link {
+//         text-transform: capitalize;
+//         position: relative;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+
+//         a {
+//             color: $dark-1;
+//             transition: $transition-buttons;
+//             background-color: $white-1;
+//             padding: 5px 15px;
+//             border-radius: $border-radius;
+//             text-decoration: none;
+//             writing-mode: horizontal-tb;
+//         }
+
+//         &::before {
+//             transition: $transition-buttons;
+//             $size: 10px;
+//             content: '';
+//             background-color: transparent;
+//             display: block;
+//             width: $size;
+//             height: calc($size * 0.9);
+//             margin-bottom: 10px;
+//             clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+//         }
+
+//         &:hover {
+//             text-decoration: none;
+
+//             &::before {
+//                 background-color: $theme-1;
+//             }
+
+//             a {
+//                 color: $dark-1;
+//                 background-color: $theme-1;
+//             }
+//         }
+//     }
+
+//     .active {
+//         text-transform: capitalize;
+//         position: relative;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+
+//         a {
+//             color: $dark-1;
+//             background-color: $theme-1;
+//             padding: 5px 15px;
+//             border-radius: $border-radius;
+//             text-decoration: none;
+//         }
+
+//         &::before {
+//             $size: 10px;
+//             content: '';
+//             background-color: $theme-1;
+//             display: block;
+//             width: $size;
+//             height: calc($size * 0.9);
+//             margin-bottom: 10px;
+//             clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+//         }
+//     }
+// }
