@@ -6,27 +6,69 @@ import Image from "next/image";
 import Modal from "@mui/material/Modal";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Hero = () => {
-  const [play, setPlay] = useState(false);
+  const [playVideo, setPlayVideo] = useState(false);
+  const [triggerAnimation, setTriggerAnimation] = useState(false);
   const [modal, setModal] = useState(true);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5, // Trigger the callback when 50% of the video is in the viewport
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        // Set the playVideo state to true when the video enters the viewport
+        setPlayVideo(true);
+      }
+    }, options);
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    // Clean up the observer
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
   return (
-    <main className={styles.container}>
-      <Modal open={modal} onClose={() => setModal(false)}>
+    <section className={styles.container}>
+      <Modal
+        open={modal}
+        onClose={() => {
+          setModal(false);
+          setPlayVideo(true);
+          setTriggerAnimation(true);
+        }}
+      >
         <div className={styles["modal"]}>
           <Image
             src={images.coverImage}
-            priority
-            alt="scroll"
+            loading='eager'
+            alt="cover-image"
             className={styles["cover-image"]}
           />
           <div className={styles["content"]}>
-            <IconButton onClick={() => setModal(false)} className={styles["close-container"]}>
+            <IconButton
+              onClick={() => {
+                setModal(false);
+                setPlayVideo(true);
+                setTriggerAnimation(true);
+              }}
+              className={styles["close-container"]}
+            >
               <CloseIcon className={styles["close"]} />
             </IconButton>
-            <div className={styles['text-container']}>
-              <h2 className={styles.title}>cover rationale</h2>
+            <div className={styles["text-container"]}>
+              <h3 className={styles.title}>cover rationale</h3>
               <p className={styles.text}>
                 UMW’s approach to comprehensive growth is encircled in our
                 Crest@2021 strategy framework. Leading the way with sustainable
@@ -66,22 +108,38 @@ const Hero = () => {
           </div>
         </div>
       </Modal>
-      <div className={styles.col1}>
-        <h1 className={styles.header}>
-          accelerating <span className={styles.bold}>crest@2021</span>
-        </h1>
-        <Button1
-          link="/"
-          text="Download The Full Report"
-          backgroundColor="#112F5E"
-          textColor="white"
-          icon="download"
-        />
-      </div>
+      <AnimatePresence>
+        {triggerAnimation && (
+          <motion.div
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            // exit={{ y: -10, opacity: 0 }}
+            whileInView={{
+              opacity: [0, 1],
+              x: [-50, 0],
+            }}
+            transition={{ duration: 0.5 }}
+            className={styles.col1}
+          >
+            <h1 className={styles.header}>
+              accelerating <span className={styles.bold}>crest@2021</span>
+            </h1>
+            <Button1
+              link="/"
+              text="Download The Full Report"
+              backgroundColor="#112F5E"
+              textColor="white"
+              icon="download"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className={styles.col2}>
-        <video autoPlay muted className={styles.video}>
-          <source src="assets/cover.mp4" type="video/mp4" />
-        </video>
+        {playVideo && (
+          <video className={styles.video} ref={videoRef} autoPlay={playVideo}>
+            <source src="assets/cover.mp4" type="video/mp4" />
+          </video>
+        )}
       </div>
       <Image
         src={images.scroll}
@@ -89,7 +147,7 @@ const Hero = () => {
         alt="scroll"
         className={styles.scroll}
       />
-    </main>
+    </section>
   );
 };
 

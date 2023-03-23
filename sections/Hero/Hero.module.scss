@@ -12,13 +12,13 @@
 .modal {
     @include shadow;
     display: flex;
-    margin: auto;
+    margin: 1rem 2rem;
 }
 
 .cover-image{
     // height: 90vh;
     // min-height: 100%;
-    height: clamp(30rem, 90vh, 50rem);
+    height: clamp(30rem, 95vh, 50rem);
     width: auto;
 }
 
@@ -72,7 +72,7 @@
         @include header-2-regular;
 
         .bold {
-            @include header-2-bold;
+            @include header-3-bold;
         }
     }
 
