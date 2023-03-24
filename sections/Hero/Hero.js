@@ -9,58 +9,33 @@ import CloseIcon from "@mui/icons-material/Close";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Hero = () => {
-  const [playVideo, setPlayVideo] = useState(false);
   const [triggerAnimation, setTriggerAnimation] = useState(false);
   const [modal, setModal] = useState(true);
   const videoRef = useRef(null);
 
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.5, // Trigger the callback when 50% of the video is in the viewport
-    };
 
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        // Set the playVideo state to true when the video enters the viewport
-        setPlayVideo(true);
-      }
-    }, options);
-
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
-
-    // Clean up the observer
-    return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
-    };
-  }, []);
   return (
     <section className={styles.container}>
       <Modal
         open={modal}
         onClose={() => {
+          videoRef.current.play();
           setModal(false);
-          setPlayVideo(true);
           setTriggerAnimation(true);
         }}
       >
         <div className={styles["modal"]}>
           <Image
             src={images.coverImage}
-            loading='eager'
+            loading="eager"
             alt="cover-image"
             className={styles["cover-image"]}
           />
           <div className={styles["content"]}>
             <IconButton
               onClick={() => {
+                videoRef.current.play();
                 setModal(false);
-                setPlayVideo(true);
                 setTriggerAnimation(true);
               }}
               className={styles["close-container"]}
@@ -135,11 +110,9 @@ const Hero = () => {
         )}
       </AnimatePresence>
       <div className={styles.col2}>
-        {playVideo && (
-          <video className={styles.video} ref={videoRef} autoPlay={playVideo}>
-            <source src="assets/cover.mp4" type="video/mp4" />
-          </video>
-        )}
+        <video className={styles.video} ref={videoRef}>
+          <source src="assets/cover.mp4" type="video/mp4" />
+        </video>
       </div>
       <Image
         src={images.scroll}

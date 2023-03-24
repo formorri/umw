@@ -2,6 +2,7 @@
 import logo from '../public/assets/logo.png';
 import download from '../public/assets/download.svg';
 import play from '../public/assets/play.png';
+import add from '../public/assets/add.png';
 import quote from '../public/assets/quote.png';
 import share from '../public/assets/share.svg';
 import financial from '../public/assets/value-2.png';
@@ -109,6 +110,7 @@ const Images = {
   logo,
   download,
   play,
+  add,
   quote,
   share,
   financial,

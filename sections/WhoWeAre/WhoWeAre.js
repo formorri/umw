@@ -190,7 +190,14 @@ const WhoWeAre = () => {
           </div>
         </motion.div>
       </div>
+
       <div className={styles.reach}>
+        <div className={styles["background-1"]}>
+          <div className={styles['background-inner']}></div>
+        </div>
+        <div className={styles["background-2"]}>
+        <div className={styles['background-inner']}></div>
+        </div>
         <div className={styles.col1}>
           <h2 className={styles.title}>our reach</h2>
           <div className={styles["map-container"]}>
@@ -219,7 +226,7 @@ const WhoWeAre = () => {
                 text="Download The Full Report"
                 backgroundColor="#1683BA"
                 textColor="white"
-                icon="download"
+                icon="add"
                 onClick={() => setModal(true)}
               />
             </div>
@@ -238,14 +245,89 @@ const WhoWeAre = () => {
                 >
                   <CloseIcon className={styles["close"]} />
                 </IconButton>
-                <div className={styles["container"]}>
-
-                </div>
+                <div className={styles["container"]}></div>
               </div>
             </Modal>
           </div>
         </div>
-        <div className={styles.col2}></div>
+        <div className={styles.col2}>
+          <div className={styles["data-1"]}>
+            <p>asset value</p>
+            <p>(rm million)</p>
+            <CountUp
+              start={0}
+              end={12417.1}
+              delay={0}
+              enableScrollSpy={true}
+              scrollSpyDelay={1}
+            >
+              {({ countUpRef }) => (
+                <div>
+                  <p 
+                  className={styles['data-number']}
+                  ref={countUpRef}></p>
+                </div>
+              )}
+            </CountUp>
+          </div>
+          <div className={styles["data-2"]}>
+            <p>net profit</p>
+            <p>(rm million)</p>
+            <CountUp
+              start={0}
+              end={677.9}
+              delay={0}
+              enableScrollSpy={true}
+              scrollSpyDelay={1}
+            >
+              {({ countUpRef }) => (
+                <div>
+                  <p 
+                  className={styles['data-number']}
+                  ref={countUpRef}></p>
+                </div>
+              )}
+            </CountUp>
+          </div>
+          <div className={styles["data-3"]}>
+            <p>market capitalisation</p>
+            <p>(rm million)</p>
+            <CountUp
+              start={0}
+              end={4.1}
+              delay={0}
+              enableScrollSpy={true}
+              scrollSpyDelay={1}
+            >
+              {({ countUpRef }) => (
+                <div>
+                  <p 
+                  className={styles['data-number']}
+                  ref={countUpRef}></p>
+                </div>
+              )}
+            </CountUp>
+          </div>
+          <div className={styles["data-4"]}>
+            <p className={styles['data-text']}>automotive market share</p>
+            <p className={styles['data-text']}>(rm million)</p>
+            <CountUp
+              start={0}
+              end={4.1}
+              delay={0}
+              enableScrollSpy={true}
+              scrollSpyDelay={1}
+            >
+              {({ countUpRef }) => (
+                <div>
+                  <p 
+                  className={styles['data-number']}
+                  ref={countUpRef}> <span className={styles['data-text-1']}>% </span> <span className={styles['data-text-2']}>In Malaysia</span></p>
+                </div>
+              )}
+            </CountUp>
+          </div>
+        </div>
       </div>
     </section>
   );
