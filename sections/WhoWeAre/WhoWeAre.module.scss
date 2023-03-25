@@ -37,8 +37,9 @@ $circle-size: 37rem;
     margin: 5px 0;
 }
 
+
 .who-we-are {
-    margin: 40px $large-padding;
+    padding: $l-y-gap $l-x-gap;
     display: grid;
     place-items: center;
     grid-template-columns: 1fr auto 20px 1fr;
@@ -148,9 +149,10 @@ $circle-size: 37rem;
 
 .reach {
     display: grid;
-    grid-template-columns: auto 30px auto;
+    grid-template-columns: 50vw 60px auto;
     grid-template-rows: auto;
     place-items: center;
+    // padding: $l-y-gap $l-x-gap;
 
     .background-1 {
         grid-area: 1 / 1 / 2 / 2;
@@ -163,23 +165,42 @@ $circle-size: 37rem;
     .col1 {
         grid-area: 1 / 1 / 2 / 3;
         justify-self: flex-start;
-        padding: 0 0 0 $large-padding;
+        padding: 0 0 0 $l-x-gap;
+        z-index: 1;
     }
 
     .col2 {
-        grid-area: 1 / 2 / 2 / 4;
+        grid-area: 1 / 3 / 2 / 4;
+        padding: 0 0 0 $l-x-gap;
+    }
+
+    .background-1,
+    .background-2 {
+        $height: 50rem;
+        height: $height;
+        width: 100%;
+
+        .background-inner {
+            height: $height;
+            width: 100%;
+        }
     }
 
     .background-1 {
         background-color: $theme-4;
-        height: 100%;
-        width: 50vw;
 
         .background-inner {
             background-color: $white-1;
-            border-radius: 0 0 40% 0;
-            width: 100%;
-            height: 100%;
+            border-radius: 0 0 $background-radius 0;
+        }
+    }
+
+    .background-2 {
+        background-color: $white-1;
+
+        .background-inner {
+            background-color: $theme-4;
+            border-radius: $background-radius 0 0 0;
         }
     }
 
@@ -188,20 +209,183 @@ $circle-size: 37rem;
         grid-template-columns: auto;
         grid-template-rows: auto;
         place-items: center;
+
         .map {
             grid-area: 1 / 1 / 2 / 2;
-            margin-left: -2.5rem;
-            width: 40rem;
+            margin-left: -3rem;
+            width: 50rem;
             height: auto;
         }
-        .map-text{
+
+        .map-text {
             grid-area: 1 / 1 / 2 / 2;
             justify-self: flex-start;
             display: flex;
             flex-direction: column;
-            
+            margin: 4rem;
+
+            .text {
+                @include text-1-bold;
+                margin: 0;
+                text-transform: uppercase;
+                color: $purple-2;
+            }
+
+            .number {
+                margin: 0;
+                @include number-1;
+                color: $blue-4;
+            }
 
         }
     }
 
+    .col2 {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        width: 100%;
+        margin: 0 5rem;
+
+        .data-text1,
+        .data-text2 {
+            color: $purple-2;
+        }
+
+        .data-number {
+            color: $blue-4;
+        }
+
+        .data1,
+        .data2,
+        .data3,
+        .data4 {
+            background-color: $white-1;
+            padding: 30px;
+            margin-right: $l-x-gap;
+        }
+    }
+}
+
+.modal-container {
+    display: flex;
+    height: 100vh;
+}
+
+.modal {
+    $margin-top: 2rem;
+
+    @include shadow;
+    margin: auto 2rem;
+    width: 100%;
+    border-radius: $border-radius;
+
+    background-color: $white-1;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: auto;
+    place-items: center;
+
+    .close-container {
+        grid-area: 1 / 1 / 2 / 4;
+        align-self: flex-start;
+        justify-self: end;
+        margin: $margin-top $margin-top 0 0;
+
+        .close {
+            font-size: 3rem;
+            color: #ACAEB1;
+        }
+    }
+
+    .wrapper {
+        grid-area: 1 / 2 / 2 / 3;
+        background-color: $white-1;
+        border-radius: 50rem 50rem 0 0;
+        z-index: 1;
+        margin-top: $margin-top;
+
+    }
+    .content {
+        margin-top: $margin-top;
+        grid-area: 1 / 1 / 2 / 4;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        row-gap: 10px;
+    }
+
+    .country {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 5rem;
+
+        .country-intro {
+            display: flex;
+            flex-direction: row;
+            column-gap: 20px;
+        }
+
+        .country-name {
+            @include text-3-bold;
+            text-transform: uppercase;
+            color: $dark-2;
+        }
+
+        .country-info {
+            @include text-4-bold;
+            color: $grey-1;
+            width: 17rem;
+            padding: 0 1rem;
+
+        }
+
+        .country-image {
+            margin-left: -2rem;
+        }
+    }
+
+}
+
+.financial {
+    padding: $l-y-gap 10px;
+    background-color: $theme-4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2rem;
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        width: 100%;
+        border-radius: $border-radiusx2;
+        overflow: hidden;
+    }
+
+    .data-text1,
+    .data-text2,
+    .data-text3,
+    .data-number {
+        color: $blue-4;
+    }
+
+    .card1,
+    .card2 {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 40px;
+    }
+
+    .card1 {
+        background-color: $white-1;
+    }
+
+    .card2 {
+        background-color: $blue-7;
+    }
 }

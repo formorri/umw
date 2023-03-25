@@ -9,21 +9,76 @@ import Modal from "@mui/material/Modal";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
+
+const countries = [
+  {
+    image: 'malaysia',
+    countryName: 'Malaysia',
+    info: 'Automotive, Equipment, Manufacturing & Engineering, Aerospace',
+    color: '#C5D5E8'
+  },
+  {
+    image: 'singapore',
+    countryName: 'Singapore',
+    info: 'Equipment',
+    color: '#CFE7E8'
+  },
+  {
+    image: 'china',
+    countryName: 'china',
+    info: 'Equipment, Manufacturing & Engineering',
+    color: '#F5F3CC'
+  },
+  {
+    image: 'papua',
+    countryName: 'papua new guinea',
+    info: 'Equipment , Manufacturing & Engineering',
+    color: '#F7E5CC'
+  },
+  {
+    image: 'vietnam',
+    countryName: 'vietnam',
+    info: 'Equipment',
+    color: '#F4E7DA'
+  },
+  {
+    image: 'myanmar',
+    countryName: 'myanmar',
+    info: 'Equipment',
+    color: '#FBD8DD'
+  },
+  {
+    image: 'indonesia',
+    countryName: 'indonesia',
+    info: 'Manufacturing & Engineering',
+    color: '#D6E2CC'
+  },
+  {
+    image: 'brunei',
+    countryName: 'brunei',
+    info: 'Equipment',
+    color: '#D9CEE1'
+  },
+];
 
 const WhoWeAre = () => {
   const { width } = useWindowSize();
   const [modal, setModal] = useState(false);
+  const { ref, inView } = useInView({ threshold: 0.5 });
+  console.log(modal);
 
   const whileInView1 = {
-    x: width > 768 ? [-50, 0] : 0,
-    y: width <= 768 ? [50, 0] : 0,
+    x: width > 1200 ? [-50, 0] : 0,
+    y: width <= 1200 ? [50, 0] : 0,
     opacity: [0, 1],
   };
   const whileInView2 = {
-    x: width > 768 ? [50, 0] : 0,
-    y: width <= 768 ? [50, 0] : 0,
+    x: width > 1200 ? [50, 0] : 0,
+    y: width <= 1200 ? [50, 0] : 0,
     opacity: [0, 1],
   };
+
   return (
     <section className={styles.container}>
       <div className={styles["who-we-are"]}>
@@ -193,12 +248,16 @@ const WhoWeAre = () => {
 
       <div className={styles.reach}>
         <div className={styles["background-1"]}>
-          <div className={styles['background-inner']}></div>
+          <div className={styles["background-inner"]}></div>
         </div>
         <div className={styles["background-2"]}>
-        <div className={styles['background-inner']}></div>
+          <div className={styles["background-inner"]}></div>
         </div>
-        <div className={styles.col1}>
+        <motion.div
+          whileInView={whileInView1}
+          transition={{ duration: 0.8 }}
+          className={styles.col1}
+        >
           <h2 className={styles.title}>our reach</h2>
           <div className={styles["map-container"]}>
             <Image
@@ -217,13 +276,13 @@ const WhoWeAre = () => {
               >
                 {({ countUpRef }) => (
                   <div>
-                    <p>employees</p>
-                    <p ref={countUpRef}></p>
+                    <p className={styles.text}>employees</p>
+                    <p className={styles.number} ref={countUpRef}></p>
                   </div>
                 )}
               </CountUp>
               <Button1Popup
-                text="Download The Full Report"
+                text="Click To Find Out More"
                 backgroundColor="#1683BA"
                 textColor="white"
                 icon="add"
@@ -235,25 +294,64 @@ const WhoWeAre = () => {
               onClose={() => {
                 setModal(false);
               }}
+              sx={{
+                overflow: 'scroll',
+                maxHeight: '100vh'
+              }}
             >
-              <div className={styles["modal"]}>
-                <IconButton
-                  onClick={() => {
-                    setModal(false);
-                  }}
-                  className={styles["close-container"]}
-                >
-                  <CloseIcon className={styles["close"]} />
-                </IconButton>
-                <div className={styles["container"]}></div>
+              <div className={styles["modal-container"]}>
+                <div className={styles["modal"]}>
+                  <IconButton
+                    onClick={() => {
+                      setModal(false);
+                    }}
+                    className={styles["close-container"]}
+                  >
+                    <CloseIcon className={styles["close"]} />
+                  </IconButton>
+                  <div className={styles["wrapper"]}>
+                    <Image
+                      src={images.reachMapVertical}
+                      loading="lazy"
+                      alt="map"
+                      className={styles["modal-map"]}
+                    />
+                  </div>
+                  <div className={styles.content}>
+                    {countries.map(({ image, countryName, info, color,index }) => (
+                      <div
+                        key={index}
+                        className={styles.country}
+                        style={{ backgroundColor: color }}
+                      >
+                      <div className={styles['country-intro']}>
+                        <Image
+                          src={images[image]}
+                          loading="lazy"
+                          alt={countryName}
+                          className={styles["country-image"]}
+                        />
+                        <p className={styles['country-name']}>{countryName}</p>
+                      </div>
+                        <ul className={styles['country-info']}>
+                          <li>{info}</li>
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </Modal>
           </div>
-        </div>
-        <div className={styles.col2}>
-          <div className={styles["data-1"]}>
-            <p>asset value</p>
-            <p>(rm million)</p>
+        </motion.div>
+        <motion.div
+          whileInView={whileInView2}
+          transition={{ duration: 0.8 }}
+          className={styles.col2}
+        >
+          <div className={styles["data1"]}>
+            <p className={styles["data-text1"]}>asset value</p>
+            <p className={styles["data-text2"]}>(rm million)</p>
             <CountUp
               start={0}
               end={12417.1}
@@ -263,16 +361,14 @@ const WhoWeAre = () => {
             >
               {({ countUpRef }) => (
                 <div>
-                  <p 
-                  className={styles['data-number']}
-                  ref={countUpRef}></p>
+                  <p className={styles["data-number"]} ref={countUpRef}></p>
                 </div>
               )}
             </CountUp>
           </div>
-          <div className={styles["data-2"]}>
-            <p>net profit</p>
-            <p>(rm million)</p>
+          <div className={styles["data2"]}>
+            <p className={styles["data-text1"]}>net profit</p>
+            <p className={styles["data-text2"]}>(rm million)</p>
             <CountUp
               start={0}
               end={677.9}
@@ -282,16 +378,14 @@ const WhoWeAre = () => {
             >
               {({ countUpRef }) => (
                 <div>
-                  <p 
-                  className={styles['data-number']}
-                  ref={countUpRef}></p>
+                  <p className={styles["data-number"]} ref={countUpRef}></p>
                 </div>
               )}
             </CountUp>
           </div>
-          <div className={styles["data-3"]}>
-            <p>market capitalisation</p>
-            <p>(rm million)</p>
+          <div className={styles["data3"]}>
+            <p className={styles["data-text1"]}>market capitalisation</p>
+            <p className={styles["data-text2"]}>(rm million)</p>
             <CountUp
               start={0}
               end={4.1}
@@ -301,33 +395,37 @@ const WhoWeAre = () => {
             >
               {({ countUpRef }) => (
                 <div>
-                  <p 
-                  className={styles['data-number']}
-                  ref={countUpRef}></p>
+                  <p className={styles["data-number"]} ref={countUpRef}></p>
                 </div>
               )}
             </CountUp>
           </div>
-          <div className={styles["data-4"]}>
-            <p className={styles['data-text']}>automotive market share</p>
-            <p className={styles['data-text']}>(rm million)</p>
+          <div className={styles["data4"]}>
+            <p className={styles["data-text1"]}>automotive market share</p>
+            <p className={styles["data-text1"]}>(TOYOTA, LEXUS & PERODUA)</p>
+            <p className={styles["data-text2"]}>(rm million)</p>
             <CountUp
               start={0}
-              end={4.1}
+              end={53.1}
               delay={0}
               enableScrollSpy={true}
               scrollSpyDelay={1}
             >
               {({ countUpRef }) => (
                 <div>
-                  <p 
-                  className={styles['data-number']}
-                  ref={countUpRef}> <span className={styles['data-text-1']}>% </span> <span className={styles['data-text-2']}>In Malaysia</span></p>
+                  <p>
+                    <span
+                      ref={countUpRef}
+                      className={styles["data-number"]}
+                    ></span>{" "}
+                    <span className={styles["data-number"]}>% </span>{" "}
+                    <span className={styles["data-text3"]}>In Malaysia</span>
+                  </p>
                 </div>
               )}
             </CountUp>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -82,9 +82,6 @@ $url: '../../public/fonts/';
 @mixin font-settings($desktop-font-size) {
     font-size: calc($desktop-font-size * $small-font);
     line-height: calc(($desktop-font-size * $small-font) * $line-height-multiplier);
-    // h2{
-    //     margin: 0;
-    // }
 
     @include gt-xs {
         font-size: $desktop-font-size;
@@ -188,3 +185,28 @@ $url: '../../public/fonts/';
     font-weight: 500;
 }
 
+.title {
+    @include title-1;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.data-text1,
+.data-text2 {
+    text-transform: uppercase;
+}
+
+.data-text1 {
+    @include text-3-bold;
+    margin: 0;
+}
+
+.data-text2 {
+    @include text-5-regular;
+    margin: 0;
+}
+
+.data-number {
+    @include number-2;
+    margin: 0;
+}
