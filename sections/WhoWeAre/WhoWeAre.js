@@ -13,52 +13,52 @@ import { useInView } from "react-intersection-observer";
 
 const countries = [
   {
-    image: 'malaysia',
-    countryName: 'Malaysia',
-    info: 'Automotive, Equipment, Manufacturing & Engineering, Aerospace',
-    color: '#C5D5E8'
+    image: "malaysia",
+    countryName: "Malaysia",
+    info: "Automotive, Equipment, Manufacturing & Engineering, Aerospace",
+    color: "#C5D5E8",
   },
   {
-    image: 'singapore',
-    countryName: 'Singapore',
-    info: 'Equipment',
-    color: '#CFE7E8'
+    image: "singapore",
+    countryName: "Singapore",
+    info: "Equipment",
+    color: "#CFE7E8",
   },
   {
-    image: 'china',
-    countryName: 'china',
-    info: 'Equipment, Manufacturing & Engineering',
-    color: '#F5F3CC'
+    image: "china",
+    countryName: "china",
+    info: "Equipment, Manufacturing & Engineering",
+    color: "#F5F3CC",
   },
   {
-    image: 'papua',
-    countryName: 'papua new guinea',
-    info: 'Equipment , Manufacturing & Engineering',
-    color: '#F7E5CC'
+    image: "papua",
+    countryName: "papua new guinea",
+    info: "Equipment , Manufacturing & Engineering",
+    color: "#F7E5CC",
   },
   {
-    image: 'vietnam',
-    countryName: 'vietnam',
-    info: 'Equipment',
-    color: '#F4E7DA'
+    image: "vietnam",
+    countryName: "vietnam",
+    info: "Equipment",
+    color: "#F4E7DA",
   },
   {
-    image: 'myanmar',
-    countryName: 'myanmar',
-    info: 'Equipment',
-    color: '#FBD8DD'
+    image: "myanmar",
+    countryName: "myanmar",
+    info: "Equipment",
+    color: "#FBD8DD",
   },
   {
-    image: 'indonesia',
-    countryName: 'indonesia',
-    info: 'Manufacturing & Engineering',
-    color: '#D6E2CC'
+    image: "indonesia",
+    countryName: "indonesia",
+    info: "Manufacturing & Engineering",
+    color: "#D6E2CC",
   },
   {
-    image: 'brunei',
-    countryName: 'brunei',
-    info: 'Equipment',
-    color: '#D9CEE1'
+    image: "brunei",
+    countryName: "brunei",
+    info: "Equipment",
+    color: "#D9CEE1",
   },
 ];
 
@@ -295,8 +295,8 @@ const WhoWeAre = () => {
                 setModal(false);
               }}
               sx={{
-                overflow: 'scroll',
-                maxHeight: '100vh'
+                overflow: "scroll",
+                maxHeight: "100vh",
               }}
             >
               <div className={styles["modal-container"]}>
@@ -316,28 +316,46 @@ const WhoWeAre = () => {
                       alt="map"
                       className={styles["modal-map"]}
                     />
+                    <CountUp
+                      start={0}
+                      end={17813}
+                      delay={0}
+                      enableScrollSpy={true}
+                      scrollSpyDelay={1}
+                    >
+                      {({ countUpRef }) => (
+                        <div className={styles['map-text']}>
+                          <p className={styles.text}>employees</p>
+                          <p className={styles.number} ref={countUpRef}></p>
+                        </div>
+                      )}
+                    </CountUp>
                   </div>
                   <div className={styles.content}>
-                    {countries.map(({ image, countryName, info, color,index }) => (
-                      <div
-                        key={index}
-                        className={styles.country}
-                        style={{ backgroundColor: color }}
-                      >
-                      <div className={styles['country-intro']}>
-                        <Image
-                          src={images[image]}
-                          loading="lazy"
-                          alt={countryName}
-                          className={styles["country-image"]}
-                        />
-                        <p className={styles['country-name']}>{countryName}</p>
-                      </div>
-                        <ul className={styles['country-info']}>
-                          <li>{info}</li>
-                        </ul>
-                      </div>
-                    ))}
+                    {countries.map(
+                      ({ image, countryName, info, color, index }) => (
+                        <div
+                          key={index}
+                          className={styles.country}
+                          style={{ backgroundColor: color }}
+                        >
+                          <div className={styles["country-intro"]}>
+                            <Image
+                              src={images[image]}
+                              loading="lazy"
+                              alt={countryName}
+                              className={styles["country-image"]}
+                            />
+                            <p className={styles["country-name"]}>
+                              {countryName}
+                            </p>
+                          </div>
+                          <ul className={styles["country-info"]}>
+                            <li>{info}</li>
+                          </ul>
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
               </div>

@@ -5,6 +5,7 @@ import Button2 from './Button2';
 import Navbar1 from './Navbar1';
 import TabType from './TabType';
 import TabSwitcher from './TabSwitcher';
+import TabTypeSwitcher from './TabTypeSwitcher';
 import CardStack1 from './CardStack1';
 
 export {
@@ -14,5 +15,6 @@ export {
     Navbar1,
     TabType,
     TabSwitcher,
+    TabTypeSwitcher,
     CardStack1,
 }
