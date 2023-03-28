@@ -7,6 +7,7 @@ import TabType from './TabType';
 import TabSwitcher from './TabSwitcher';
 import TabTypeSwitcher from './TabTypeSwitcher';
 import CardStack1 from './CardStack1';
+import Carousel from './Carousel';
 
 export {
     Button1,
@@ -17,4 +18,5 @@ export {
     TabSwitcher,
     TabTypeSwitcher,
     CardStack1,
+    Carousel
 }

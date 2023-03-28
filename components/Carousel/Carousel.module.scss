@@ -1,0 +1,28 @@
+@use '../../styles/settings/index.scss' as *;
+
+.margin {
+    padding: 2rem;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90vw;
+    justify-content: center;
+}
+
+.slider {
+    padding: 2rem;
+    max-width: 85vw;
+}
+
+.prev {
+    transform: rotate(180deg);
+    margin-right: 0.5rem;
+}
+
+.next {
+    margin-left: 0.5rem;
+
+}

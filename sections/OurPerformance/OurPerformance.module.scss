@@ -1,1 +1,301 @@
 @use '../../styles/settings/index.scss' as *;
+
+
+
+$padding-top: 3rem;
+
+
+
+.container{
+// background-color: aqua;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    place-items: center;
+    // padding: 5rem 0;
+
+    .title {
+        grid-area: 1/1/2/2;
+        justify-self: flex-start;
+        z-index: 1;
+        padding-left: $l-x-gap;
+        padding-top: $padding-top;
+    }
+    
+    .tab-container {
+        grid-area: 1/2/2/3;
+        z-index: 1;
+        padding-top: $padding-top;
+    }
+
+    .switch-container{
+        grid-area: 2/2/3/3;
+        z-index: 1;
+        margin-left: -5rem;
+    }
+
+    .content-wrapper {
+        grid-area: 1/1/4/3;
+        z-index: 0;
+    }
+    
+    .download{
+        grid-area: 1/1/4/3;
+        align-self: flex-end;
+        margin-bottom: 2rem;
+
+    }
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: calc(9rem + $padding-top) auto auto;
+    place-items: center;
+
+    .background {
+        grid-area: 1/1/4/3;
+        z-index: 0;
+    }
+
+    .content {
+        grid-area: 2/1/4/2;
+        z-index: 1;
+        padding: $l-x-gap;
+    }
+
+    .content-image-container {
+        grid-area: 2/2/4/3;
+        z-index: 1;
+    }
+}
+
+
+
+
+.background {
+    display: grid;
+    grid-template-columns: 65% auto;
+    grid-template-rows: auto;
+    height: 100%;
+    width: 100%;
+
+    .background-inner {
+        background-color: $white-1;
+        grid-area: 1/1/2/2;
+        height: 100%;
+        width: 100%;
+        border-radius: 0 $background-radius 0 0;
+    }
+}
+
+.tab-container {
+    $size: 6rem;
+    display: flex;
+    column-gap: 2rem;
+    align-items: flex-end;
+
+    .tab {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: $size;
+
+        .tab-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+
+            .tab-text {
+                @include text-4-bold;
+                text-transform: uppercase;
+                text-align: center;
+                color: $grey-2;
+                margin: 0;
+            }
+
+            &::after {
+                @include triangle;
+                background-color: $grey-2;
+            }
+
+
+        }
+
+        .tab-label-active {
+            .tab-text {
+                color: $dark-2;
+            }
+
+            &::after {
+                background-color: $dark-1;
+            }
+        }
+
+        .icon-container {
+            width: $size;
+            height: $size;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .icon {
+                width: calc($size - 30px);
+                height: auto;
+            }
+        }
+
+
+    }
+
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    .content-title {
+        width: 100%;
+
+        .content-title-text {
+            @include text-1-bold;
+            @include shadow;
+            background-color: $white-1;
+            text-transform: uppercase;
+            margin: 0;
+            padding: 10px;
+        }
+
+        &::before {
+            @include accent;
+            background-color: var(--tab-color);
+        }
+    }
+
+    .content-data-container {
+        display: flex;
+
+        .category {
+            @include header-1;
+            margin: 1rem 0;
+            text-transform: uppercase;
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            text-align: right
+        }
+
+        .content-desc {
+            @include text-3-bold;
+            text-transform: capitalize;
+
+            &::after {
+                @include accent;
+                background-color: var(--tab-color);
+                margin-top: 0.5rem;
+            }
+        }
+
+        .content-data-wrapper{
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+        }
+
+        .card {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.5rem ;
+
+            .data-title, .data-units, .data-year, .data-figure{
+                margin: 0;
+            }
+
+            .data-title {
+                @include text-3-bold;
+            }
+
+            .data-year {
+                @include number-3;
+            }
+            
+            .data-units {
+                @include text-4-regular;
+                &::after {
+                    @include triangle;
+                    margin-top: 0.5rem;
+                    background-color: var(--tab-color);
+                }
+            }
+
+            .data-figure {
+                @include number-2;
+            }
+        }
+    }
+}
+
+.content-image-container {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+
+    .image {
+        width: inherit;
+    }
+}
+
+
+$switcherSize: 80px;
+$switcherWidth: 13rem;
+.switch-container{
+    display: flex;
+    align-items: center;
+}
+
+.switch-wrapper{
+    position: relative;
+}
+
+.switch-text {
+    @include text-4-bold;
+    color: $white-1;
+    align-self: center;
+    justify-content: center;
+    position: absolute;
+    left: 5.5rem;
+    // right: calc($switcherWidth / 2);
+    z-index: 1;
+    text-align: center;
+}
+
+
+.switch {
+    width: $switcherWidth;
+    height: calc($switcherSize / 1.6);
+    background-color: $white-1;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 50px;
+    padding: calc($switcherSize / 16);
+    cursor: pointer;
+    margin: 1rem;
+    background-color: $pink-1;
+}
+
+.switch[data-ison='true'] {
+    justify-content: flex-end;
+    background-color: $theme-2;
+}
+
+.handle {
+    width: calc($switcherSize / 2);
+    height: calc($switcherSize / 2);
+    background-color: white;
+    border-radius: 100%;
+}

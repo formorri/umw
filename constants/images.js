@@ -5,6 +5,7 @@ import play from '../public/assets/play.png';
 import add from '../public/assets/add.png';
 import quote from '../public/assets/quote.png';
 import share from '../public/assets/share.svg';
+import divider from '../public/assets/divider.png';
 import financial from '../public/assets/value-2.png';
 import manufacturing from '../public/assets/value-3.png';
 import human from '../public/assets/value-4.png';
@@ -78,6 +79,7 @@ import value4 from '../public/assets/value-4.png';
 import value5 from '../public/assets/value-5.png';
 import value6 from '../public/assets/value-6.png';
 import value7 from '../public/assets/value-7.png';
+import valueAccent from '../public/assets/value-accent.png';
 
 // ? Sustainability performance
 import pillar1 from '../public/assets/pillar-1.png';
@@ -113,6 +115,7 @@ const Images = {
   add,
   quote,
   share,
+  divider,
   financial,
   manufacturing,
   human,
@@ -186,6 +189,7 @@ const Images = {
   value5,
   value6,
   value7,
+  valueAccent,
 
   // ? Sustainability performance
   pillar1,

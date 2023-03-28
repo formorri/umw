@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import images from "@/constants/images";
 
-const Button1Popup = ({ text, icon, backgroundColor, textColor, onClick }) => {
+const Button1Popup = ({ text, icon, backgroundColor, textColor, onClick, buttonClassName }) => {
   return (
     <div className={styles["container"]}>
       <div
@@ -18,7 +18,7 @@ const Button1Popup = ({ text, icon, backgroundColor, textColor, onClick }) => {
             src={images[icon]}
             priority
             alt={`${icon}icon`}
-            className={styles.icon}
+            className={`${styles.icon} ${buttonClassName}`}
           />
         </div>
       </div>

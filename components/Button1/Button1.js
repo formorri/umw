@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import images from "@/constants/images";
 
-const Button1 = ({ link, text, icon, backgroundColor, textColor }) => {
+const Button1 = ({ link, text, icon, backgroundColor, textColor, className }) => {
   return (
-    <div className={styles["container"]}>
+    <div className={`${styles["container"]} ${className}`}>
       <Link className={styles.link} href={link}>
         <div
           className={styles["inner"]}

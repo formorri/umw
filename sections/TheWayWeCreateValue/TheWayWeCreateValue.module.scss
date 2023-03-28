@@ -1,1 +1,352 @@
 @use '../../styles/settings/index.scss' as *;
+
+.material-wrapper,
+.value-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: $l-x-gap $l-y-gap;
+    flex-wrap: wrap;
+}
+
+.material-wrapper {
+    background-color: $yellow-2;
+}
+
+.value-wrapper {
+    background-color: $orange-2;
+}
+
+.title {
+    text-align: center;
+    max-width: 40vw;
+}
+
+.carousel-container {
+
+    // background-color: transparent;
+    .carousel-card {
+        @include shadow;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // justify-content: center;
+        background-color: $white-1;
+        border-radius: $border-radiusx2;
+        width: fit-content;
+        min-height: 34rem;
+    }
+
+
+    .carousel-text {
+        @include text-3-bold;
+        color: $dark-2;
+        text-align: center;
+        max-width: 15rem;
+        text-transform: capitalize;
+        margin: 15px 0 0 0;
+    }
+}
+
+$margin-top: 2rem;
+
+.modal-container {
+    display: flex;
+    height: 100vh;
+}
+
+.modal {
+    @include shadow;
+    margin: auto 2rem;
+    width: 100%;
+    border-radius: $border-radius;
+    background-color: $yellow-2;
+    display: flex;
+    justify-content: space-between;
+
+    .close-container {
+        margin: $margin-top $margin-top 0 0;
+        align-self: flex-start;
+
+        .close {
+            font-size: 3rem;
+            color: #ACAEB1;
+        }
+    }
+
+    .modal-card-container {
+        margin: 50px 20px 50px 80px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        width: 100%;
+    }
+
+    .list,
+    .title-text {
+        @include text-4-bold;
+        color: $dark-2;
+    }
+
+    .title-text {
+        @include shadow;
+        background-color: $white-1;
+        text-transform: capitalize;
+        padding: 20px;
+        margin: 0;
+    }
+
+    .header {
+        &::before {
+            @include accent;
+        }
+    }
+
+    .risk-header {
+        &::before {
+            background-color: $orange-1;
+        }
+    }
+
+    .opp-header {
+        &::before {
+            background-color: $green-8;
+        }
+    }
+
+    .shortMid-header {
+        &::before {
+            background-color: $blue-3;
+        }
+    }
+
+    .value-header {
+        &::before {
+            background-color: $purple-2;
+        }
+    }
+
+}
+
+.value-card {
+    @include shadow;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: $border-radiusx2;
+    padding: 5px 20px;
+    cursor: pointer;
+
+    .value-header {
+        display: flex;
+        column-gap: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .value-text {
+        @include text-3-bold;
+        text-transform: uppercase;
+        color: $teal-1;
+    }
+
+    .value-button {
+        $size: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: calc($size - 10px);
+        margin: 0;
+        padding: 0;
+        border-radius: 100%;
+        width: $size;
+        height: $size;
+    }
+}
+
+.value-1 {
+    background: linear-gradient(to right, #EEF6F5, #FBFDFD);
+
+    .value-text,
+    .value-button {
+        color: $teal-1;
+    }
+
+    .value-button {
+        border: $border-weight $teal-1;
+    }
+}
+
+.value-2 {
+    background: linear-gradient(to right, #F9ECDB, #FFFEFD);
+    .value-text,
+    .value-button {
+        color: $orange-1;
+    }
+
+    .value-button {
+        border: $border-weight $orange-1;
+    }
+}
+
+.value-3 {
+    background: linear-gradient(to right, #E1D9E5, #F4F1F6);
+}
+
+.value-4 {
+    background: linear-gradient(to right, #ECEFF4, #FEFEFE);
+}
+
+.value-5 {
+    background: linear-gradient(to right, #F6EBE0, #FDFAF7);
+}
+
+.value-6 {
+    background: linear-gradient(to right, #F7F5D4, #FDFCF4);
+}
+
+
+
+.value-modal {
+    $row-gap: 20px;
+
+    @include shadow;
+    margin: auto 2rem;
+    width: 100%;
+    border-radius: $border-radius;
+    background-color: $white-1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+
+    .header,
+    .title,
+    .text,
+    .text-bold,
+    .number,
+    .unit {
+        margin: 0;
+    }
+
+    .header {
+        @include text-3-bold;
+        text-transform: uppercase;
+    }
+
+    .title {
+        @include text-3-bold;
+        text-transform: uppercase;
+    }
+
+    .text {
+        @include text-4-regular;
+    }
+
+    .text-bold {
+        @include text-4-bold;
+    }
+
+    .number {
+        @include number-4;
+    }
+
+    .unit {
+        @include text-3-bold;
+    }
+
+    .border-bottom {
+        border-bottom: 1px solid $grey-2;
+    }
+
+    .modal-top {
+        display: grid;
+        place-items: center;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        width: 100%;
+        margin: 10px 0;
+
+        .modal-header {
+            grid-area: 1/1/2/2;
+            display: flex;
+            column-gap: 20px;
+            align-items: center;
+        }
+
+        .close-container {
+            grid-area: 1/1/2/2;
+            align-self: flex-end;
+            justify-self: flex-end;
+        }
+
+        .close-container {
+            .close {
+                font-size: 3rem;
+                color: #ACAEB1;
+            }
+        }
+    }
+
+    .content-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        column-gap: 10px;
+        padding: 20px;
+    }
+
+    .content-list {
+        padding: 0 20px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        row-gap: $row-gap;
+    }
+
+    .modal-content {
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .item-header {
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            padding-bottom: 20px;
+        }
+
+        .item-content {
+            background-color: $white-1;
+            height: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            row-gap: $row-gap;
+            height: 100%;
+        }
+
+        .figures {
+            padding: 10px 0;
+        }
+
+    }
+}
+
+.value-modal-1 {
+    .title {
+        color: $teal-1;
+    }
+
+    .number,
+    .unit,
+    .text-bold {
+        color: $teal-3;
+    }
+
+    .content-wrapper {
+        background-color: $teal-2;
+    }
+}

@@ -3,6 +3,8 @@ import { images } from "../../constants";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import CountUp from "react-countup";
+import { Button1 } from "@/components";
 
 const tabData = [
   {
@@ -17,6 +19,7 @@ const tabData = [
         backgroundColor: "#F7E8EE",
         title: "UMW Toyota",
         category: "automotive",
+        image: "toyotaPic",
         description:
           "Reclaimed Its Position As The Number-One Non-National Car Manufacturer In Malaysia For The Second Year Running.",
         data: [
@@ -42,6 +45,7 @@ const tabData = [
         backgroundColor: "#EAF7F8",
         title: "Perodua",
         category: "automotive",
+        image: "peroduaPic",
         description:
           "As a national carmaker, Perodua is steadfast about benefitting Malaysians.",
         data: [
@@ -70,6 +74,7 @@ const tabData = [
     backgroundColor: "#FBF0D3",
     title: "equipment",
     category: "equipment",
+    image: "equipmentPic",
     description:
       "Equipment division's key initiatives launched during the pandemic yielded results in 2022",
     data: [
@@ -95,6 +100,7 @@ const tabData = [
     backgroundColor: "#EFE8F3",
     title: "MANUFACTURING & ENGINEERING",
     category: "m & e",
+    image: "mnEPic",
     description:
       "Reopening economies and borders accounted for a boost inmobility,intensifying demand for automotive components and lubricants.",
     data: [
@@ -120,8 +126,9 @@ const tabData = [
     backgroundColor: "#E4EFF9",
     title: "aerospace",
     category: "aerospace",
+    image: "aerospacePic",
     description:
-      "UMW Aerospace is Malaysia’s first homegrown High Performing Supplier Group(HPSG) Tier-1aero engine component supplier.",
+      "UMW Aerospace is Malaysia’s first homegrown High Performing Supplier Group (HPSG) Tier-1 aero engine component supplier.",
     data: [
       {
         title: "REVENUE",
@@ -147,6 +154,7 @@ const tabData = [
     backgroundColor: "#E1D5C8",
     title: "development",
     category: "development",
+    image: "developmentPic",
     description:
       "UMW Aerospace is Malaysia’s first homegrown High Performing Supplier Group(HPSG) Tier-1aero engine component supplier.",
     data: [
@@ -166,18 +174,6 @@ const tabData = [
   },
 ];
 
-// // Accessing the first item in tabData array
-// const firstItem = tabData[0];
-
-// // Accessing the switcher object inside the first item
-// const switcherObject = firstItem.switcher;
-
-// // Accessing the first data object inside the switcher array
-// const firstDataObject = switcherObject[0].data[0];
-
-// // Accessing the title property of the first data object
-// const title = firstDataObject.title;
-
 const spring = {
   type: "spring",
   stiffness: 700,
@@ -191,168 +187,319 @@ const OurPerformance = () => {
   const activeSwitcherData = activeTabData?.switcher?.find(
     (switcher) => switcher.key === activeSwitch
   );
-  console.log("activeTab:", activeTab);
-  console.log("activeTabData:", activeTabData);
-  console.log("activeSwitcherData:", activeSwitcherData);
 
-  const handleTabClick = (index) => () => {
-    setActiveTab(index);
+  const handleTabClick = (key) => () => {
+    setActiveTab(key);
   };
   const toggleSwitch = () => {
     setActiveSwitch(activeSwitch === 0 ? 1 : 0);
   };
   const tabBackgroundColor = activeTabData?.backgroundColor;
+  const tabColor = activeTabData?.color;
   const tabTitle = activeTabData?.title;
   const tabCategory = activeTabData?.category;
+  const tabImage = activeTabData?.image;
   const tabDesc = activeTabData?.description;
   const tabDataItem = activeTabData?.data;
 
   const switcherBackgroundColor = activeSwitcherData?.backgroundColor;
+  const switcherColor = activeSwitcherData?.color;
   const switcherTitle = activeSwitcherData?.title;
   const switcherCategory = activeSwitcherData?.category;
+  const switcherImage = activeSwitcherData?.image;
   const switcherDesc = activeSwitcherData?.description;
   const switcherDataItem = activeSwitcherData?.data;
 
   return (
-    <div className={styles.container}>
+    <motion.div
+      className={styles.container}
+      whileInView={{
+        y: [10, 0],
+        opacity: [0, 1],
+      }}
+      transition={{ duration: 1 }}
+    >
       <div className={styles.wrapper}>
-        <div className={styles.tab}>
+        <h2 className={styles.title}>Our Performance</h2>
+        {/* tabs */}
+        <div className={styles["tab-container"]}>
           {tabData.map((item, index) => (
             <div
               key={index}
               onClick={handleTabClick(index)}
-              className={styles.button}
+              className={styles.tab}
             >
-              <div className={styles["icon-name"]}>
-                <div className={styles["icon-label"]}>
-                  <p className={styles["icon-text"]}>{item.iconText}</p>
-                </div>
-                <div
-                  className={styles["icon-image"]}
-                  style={
-                    activeTab === index
-                      ? { backgroundColor: item.color }
-                      : { backgroundColor: "#BCBEC0" }
-                  }
-                >
-                  <Image
-                    src={images[item.icon]}
-                    loading="lazy"
-                    className={styles.icon}
-                    alt={item.icon}
-                  />
-                </div>
+              <div
+                className={`${styles["tab-label"]} ${
+                  activeTab === index ? styles["tab-label-active"] : ""
+                }`}
+              >
+                <p className={styles["tab-text"]}>{item.iconText}</p>
+              </div>
+              <div
+                className={styles["icon-container"]}
+                style={
+                  activeTab === index
+                    ? { backgroundColor: item.color }
+                    : { backgroundColor: "#BCBEC0" }
+                }
+              >
+                <Image
+                  src={images[item.icon]}
+                  loading="lazy"
+                  className={styles.icon}
+                  alt={item.icon}
+                />
               </div>
             </div>
           ))}
         </div>
+        {activeTabData?.switcher?.length > 0 && (
+          <div className={styles["switch-container"]}>
+            <div className={styles["switch-wrapper"]}>
+              <div
+                className={styles.switch}
+                data-ison={activeSwitch === 1 ? "true" : "false"}
+                onClick={() => toggleSwitch(activeTab === 0 ? 1 : 0)}
+              >
+                <div className={styles["switch-text"]}>{switcherTitle}</div>
+                <motion.div
+                  className={`${styles.handle} ${
+                    activeTab === 1 ? styles.active : ""
+                  }`}
+                  layout
+                  transition={spring}
+                ></motion.div>
+              </div>
+            </div>
+            <p className={styles["switcher-instructions"]}>
+              click to switch between automotive sections
+            </p>
+          </div>
+        )}
         {/* tab content */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeSwitch}
+            key={activeTab}
             initial={{ x: 10, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -10, opacity: 0 }}
             transition={{ duration: 0.2 }}
+            className={styles["content-wrapper"]}
           >
-            <p>{tabBackgroundColor}</p>
-            <p>{tabTitle}</p>
-            <p>{tabCategory}</p>
-            <p>{tabDesc}</p>
-            {tabDataItem &&
-              tabDataItem.map((dataItem) => (
-                <div key={dataItem.key}>
-                  <p>{dataItem.title}</p>
-                  <p>{dataItem.units}</p>
-                  <p>{dataItem.figure}</p>
-                  <p>{dataItem.year}</p>
+            <div
+              className={styles.background}
+              style={{ backgroundColor: tabBackgroundColor }}
+            >
+              <div className={styles["background-inner"]}></div>
+            </div>
+            <div className={styles.content}>
+              <div
+                className={styles["content-title"]}
+                style={{
+                  "--tab-color": tabColor,
+                }}
+              >
+                <h3
+                  className={styles["content-title-text"]}
+                  style={{ color: tabColor }}
+                >
+                  {tabTitle}
+                </h3>
+              </div>
+              <div className={styles["content-data-container"]}>
+                <p
+                  className={styles.category}
+                  style={{
+                    color: tabBackgroundColor,
+                  }}
+                >
+                  {tabCategory}
+                </p>
+                <div className={styles["content-data-wrapper"]}>
+                  <p
+                    className={styles["content-desc"]}
+                    style={{
+                      "--tab-color": tabColor,
+                    }}
+                  >
+                    {tabDesc}
+                  </p>
+                  {tabDataItem &&
+                    tabDataItem.map((dataItem) => (
+                      <div
+                        className={styles.card}
+                        key={dataItem.key}
+                        style={{
+                          background: `linear-gradient(to right, transparent, ${tabBackgroundColor})`,
+                        }}
+                      >
+                        <p
+                          className={styles["data-title"]}
+                          style={{ color: tabColor }}
+                        >
+                          {dataItem.title}
+                        </p>
+                        <p
+                          className={styles["data-units"]}
+                          style={{
+                            "--tab-color": tabColor,
+                          }}
+                        >
+                          {dataItem.units}
+                        </p>
+                        {/* <p className={styles["data-figure"]}>
+                          {dataItem.figure}
+                        </p> */}
+                        <CountUp
+                          start={0}
+                          end={dataItem.figure}
+                          delay={0}
+                          enableScrollSpy={true}
+                          scrollSpyDelay={1}
+                        >
+                          {({ countUpRef }) => (
+                            <div>
+                              <p
+                                className={styles["data-figure"]}
+                                ref={countUpRef}
+                              ></p>
+                            </div>
+                          )}
+                        </CountUp>
+                        <p className={styles["data-year"]}>{dataItem.year}</p>
+                      </div>
+                    ))}
                 </div>
-              ))}
-
-            {/* <div className={styles["tab-content"]}>
-            </div> */}
+              </div>
+            </div>
+            <div className={styles["content-image-container"]}>
+              <Image
+                src={images[tabImage]}
+                loading="lazy"
+                className={styles.image}
+                alt={tabImage}
+              />
+            </div>
           </motion.div>
         </AnimatePresence>
 
         {/* switcher content */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            className={styles.content}
-            key={activeSwitch}
-            initial={{ x: 10, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -10, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            <div
-              className={styles.switch}
-              data-ison={activeSwitcherData === 1 ? "true" : "false"}
-              onClick={toggleSwitch}
+        {activeTabData?.switcher?.length > 0 && (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeSwitch}
+              initial={{ x: 10, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -10, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className={styles["content-wrapper"]}
             >
-              <div className={styles["switch-text"]}>{switcherTitle}</div>
-            </div>
-            <p>{switcherBackgroundColor}</p>
-            <p>{switcherTitle}</p>
-            <p>{switcherCategory}</p>
-            <p>{switcherDesc}</p>
-            {switcherDataItem &&
-              switcherDataItem.map((dataItem) => (
-                <div key={dataItem.key}>
-                  <p>{dataItem.title}</p>
-                  <p>{dataItem.units}</p>
-                  <p>{dataItem.figure}</p>
-                  <p>{dataItem.year}</p>
+              <div
+                className={styles.background}
+                style={{ backgroundColor: switcherBackgroundColor }}
+              >
+                <div className={styles["background-inner"]}></div>
+              </div>
+              <div className={styles.content}>
+                <div
+                  className={styles["content-title"]}
+                  style={{
+                    "--tab-color": switcherColor,
+                  }}
+                >
+                  <h3
+                    className={styles["content-title-text"]}
+                    style={{ color: switcherColor }}
+                  >
+                    {switcherTitle}
+                  </h3>
                 </div>
-              ))}
-          </motion.div>
-        </AnimatePresence>
+                <div className={styles["content-data-container"]}>
+                  <p
+                    className={styles.category}
+                    style={{
+                      color: switcherBackgroundColor,
+                    }}
+                  >
+                    {switcherCategory}
+                  </p>
+                  <div className={styles["content-data-wrapper"]}>
+                    <p
+                      className={styles["content-desc"]}
+                      style={{
+                        "--tab-color": switcherColor,
+                      }}
+                    >
+                      {switcherDesc}
+                    </p>
+                    {switcherDataItem &&
+                      switcherDataItem.map((dataItem) => (
+                        <div
+                          className={styles.card}
+                          key={dataItem.key}
+                          style={{
+                            background: `linear-gradient(to right, transparent, ${switcherBackgroundColor})`,
+                          }}
+                        >
+                          <p
+                            className={styles["data-title"]}
+                            style={{ color: switcherColor }}
+                          >
+                            {dataItem.title}
+                          </p>
+                          <p
+                            className={styles["data-units"]}
+                            style={{
+                              "--tab-color": switcherColor,
+                            }}
+                          >
+                            {dataItem.units}
+                          </p>
+                          <CountUp
+                            start={0}
+                            end={dataItem.figure}
+                            delay={0}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                          >
+                            {({ countUpRef }) => (
+                              <div>
+                                <p
+                                  className={styles["data-figure"]}
+                                  ref={countUpRef}
+                                ></p>
+                              </div>
+                            )}
+                          </CountUp>
+                          <p className={styles["data-year"]}>{dataItem.year}</p>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              </div>
+              <div className={styles["content-image-container"]}>
+                <Image
+                  src={images[switcherImage]}
+                  loading="lazy"
+                  className={styles.image}
+                  alt={switcherImage}
+                />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        )}
+        <Button1
+            link="/"
+            text="Download This Section"
+            backgroundColor="#112F5E"
+            textColor="white"
+            icon="download"
+            className={styles.download}
+          />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export default OurPerformance;
-
-{/* <AnimatePresence mode="wait">
-  <motion.div
-    className={styles.content}
-    key={activeSwitch}
-    initial={{ x: 10, opacity: 0 }}
-    animate={{ x: 0, opacity: 1 }}
-    exit={{ x: -10, opacity: 0 }}
-    transition={{ duration: 0.2 }}
-  >
-    {activeSwitcherData &&
-      activeSwitcherData.switcher &&
-      activeSwitcherData.switcher.map((switcherItem) => (
-        <div
-          className={styles.switch}
-          data-ison={activeSwitcherData === 1 ? "true" : "false"}
-          onClick={toggleSwitch}
-        >
-          <div className={styles["switch-text"]}>{switcherItem.title}</div>
-        </div>
-      ))}
-    <motion.div
-      className={`${styles.handle} ${
-        activeTab === 1 ? styles.activeSwitch : ""
-      }`}
-      layout
-      transition={spring}
-    >
-      <p>{switcherBackgroundColor}</p>
-      <p>{switcherTitle}</p>
-      <p>{switcherCategory}</p>
-      <p>{switcherDesc}</p>
-      <h2>{switcherItem.title}</h2>
-      {switcherDataItem.data.map((dataItem) => (
-        <div key={dataItem.key}>
-          <p>{dataItem.title}</p>
-          <p>{dataItem.units}</p>
-          <p>{dataItem.figure}</p>
-          <p>{dataItem.year}</p>
-        </div>
-      ))}
-    </motion.div>
-  </motion.div>
-</AnimatePresence>; */}
