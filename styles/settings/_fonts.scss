@@ -197,6 +197,10 @@ $url: '../../public/fonts/';
     margin: 0;
 }
 
+.text{
+    @include text-3-regular;
+}
+
 .data-text1,
 .data-text2 {
     text-transform: uppercase;

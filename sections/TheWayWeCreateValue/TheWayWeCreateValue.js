@@ -7,6 +7,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Carousel, Button1, Button1Popup } from "@/components";
 import Image from "next/image";
 import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
+import { motion, AnimatePresence } from "framer-motion";
 
 const carouselData = [
   {
@@ -312,7 +314,38 @@ const modalData = [
   },
 ];
 
+const container1Variants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+  hidden: {
+    opacity: 0,
+  },
+};
+
+const container2Variants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+  hidden: {
+    opacity: 0,
+  },
+};
+
+const itemVariants = {
+  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 30 },
+};
+
 const TheWayWeCreateValue = () => {
+  const { ref: ref1, inView: inView1 } = useInView({ threshold: 0.5 });
+  const { ref: ref2, inView: inView2 } = useInView({ threshold: 0.5 });
   const [activeKey, setActiveKey] = useState(null);
   const activeModal = modalData.find((item) => item.key === activeKey?.key);
   const handleModalClick = (key) => {
@@ -331,38 +364,53 @@ const TheWayWeCreateValue = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles["material-wrapper"]}>
-        <h2 className={styles.title}>Managing our material matters</h2>
-        <Button1
-          link="/"
-          text="Download This Section"
-          backgroundColor="#112F5E"
-          textColor="white"
-          icon="download"
-          className={styles.download}
-        />
-        <Carousel>
-          {carouselData.map((item) => (
-            <div key={item.key} className={styles["carousel-container"]}>
-              <div className={styles["carousel-card"]}>
-                <Image
-                  src={images[item.image]}
-                  loading="lazy"
-                  alt={item.image}
-                  className={styles["carousel-image"]}
-                />
-                <p className={styles["carousel-text"]}>{item.title}</p>
-                <Button1Popup
-                  text="Read More"
-                  backgroundColor="#1683BA"
-                  textColor="white"
-                  icon="add"
-                  onClick={() => handleModalClick(item.key)}
-                />
-              </div>
-            </div>
-          ))}
-        </Carousel>
+      <div className={styles["yellow-wrapper"]}>
+        <motion.div
+          ref={ref1}
+          variants={container1Variants}
+          initial="hidden"
+          animate={inView1 ? "visible" : "hidden"}
+          transition={{ duration: 0.8 }}
+          className={styles["material-wrapper"]}
+        >
+          <motion.div variants={itemVariants}>
+            <h2 className={styles.title}>Managing our material matters</h2>
+          </motion.div>
+          <motion.div variants={itemVariants} className={styles.flex}>
+            <Button1
+              link="/"
+              text="Download This Section"
+              backgroundColor="#112F5E"
+              textColor="white"
+              icon="download"
+              className={styles.download}
+            />
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <Carousel>
+              {carouselData.map((item) => (
+                <div key={item.key} className={styles["carousel-container"]}>
+                  <div className={styles["carousel-card"]}>
+                    <Image
+                      src={images[item.image]}
+                      loading="lazy"
+                      alt={item.image}
+                      className={styles["carousel-image"]}
+                    />
+                    <p className={styles["carousel-text"]}>{item.title}</p>
+                    <Button1Popup
+                      text="Read More"
+                      backgroundColor="#1683BA"
+                      textColor="white"
+                      icon="add"
+                      onClick={() => handleModalClick(item.key)}
+                    />
+                  </div>
+                </div>
+              ))}
+            </Carousel>
+          </motion.div>
+        </motion.div>
         {activeKey && (
           <Modal
             open={true}
@@ -436,240 +484,796 @@ const TheWayWeCreateValue = () => {
           </Modal>
         )}
       </div>
-      <div className={styles["value-wrapper"]}>
-        <h2 className={styles.title}>our value creation business model</h2>
-        <div className={styles["model-container"]}>
-          <Image
-            src={images.value1}
-            loading="lazy"
-            alt="crest infographic"
-            className={styles["crest"]}
-          />
-          {/* Financial button */}
-          <div
-            className={`${styles["value-1"]} ${styles["value-card"]}`}
-            onClick={() => setValue1Modal(true)}
-          >
-            <div className={styles["value-header"]}>
-              <Image
-                src={images.value2}
-                loading="lazy"
-                alt="financial"
-                className={styles["financial"]}
-              />
-              <p className={styles["value-text"]}>financial</p>
-            </div>
-            <div className={styles["value-button"]}>+</div>
-          </div>
-          {/* Manufactured button */}
-          <div
-            className={`${styles["value-2"]} ${styles["value-card"]}`}
-            onClick={() => setValue2Modal(true)}
-          >
-            <div className={styles["value-header"]}>
-              <Image
-                src={images.value3}
-                loading="lazy"
-                alt="manufactured"
-                className={styles["manufactured"]}
-              />
-              <p className={styles["value-text"]}>manufactured</p>
-            </div>
-            <div className={styles["value-button"]}>+</div>
-          </div>
-        </div>
-        <Modal
-          open={value1Modal}
-          onClose={() => {
-            setValue1Modal(false);
-          }}
-          sx={{
-            overflow: "scroll",
-            maxHeight: "100vh",
-          }}
+      <div className={styles["orange-wrapper"]}>
+        <motion.div
+          ref={ref2}
+          variants={container2Variants}
+          initial="hidden"
+          animate={inView2 ? "visible" : "hidden"}
+          transition={{ duration: 0.8 }}
+          className={styles["value-wrapper"]}
         >
-          <div className={styles["modal-container"]}>
+          <motion.div variants={itemVariants}>
+            <h2 className={styles.title}>our value creation business model</h2>
+          </motion.div>
+          <motion.div
+            variants={itemVariants}
+            className={styles["model-container"]}
+          >
+            <Image
+              src={images.value1}
+              loading="lazy"
+              alt="crest infographic"
+              className={styles["crest"]}
+            />
+            {/* Financial button */}
             <div
-              className={`${styles["value-modal"]} ${styles["value-modal-1"]}`}
+              className={`${styles["value-1"]} ${styles["value-card"]}`}
+              onClick={() => setValue1Modal(true)}
             >
-              <div className={styles["modal-top"]}>
-                <div className={styles["modal-header"]}>
-                  <Image
-                    src={images.value2}
-                    loading="lazy"
-                    alt="financial"
-                    className={styles["financial"]}
-                  />
-                  <p className={styles["title"]}>Financial</p>
-                </div>
-                <IconButton
-                  onClick={() => {
-                    setValue1Modal(false);
-                  }}
-                  className={styles["close-container"]}
-                >
-                  <CloseIcon className={styles["close"]} />
-                </IconButton>
+              <div className={styles["value-header"]}>
+                <Image
+                  src={images.value2}
+                  loading="lazy"
+                  alt="financial"
+                  className={styles["financial"]}
+                />
+                <p className={styles["value-text"]}>financial</p>
               </div>
-              <div className={styles["content-wrapper"]}>
-                {/* Key Inputs */}
-                <div className={styles["modal-content"]}>
-                  <div className={styles["item-header"]}>
+              <div className={styles["value-button"]}>+</div>
+            </div>
+            {/* Manufactured button */}
+            <div
+              className={`${styles["value-2"]} ${styles["value-card"]}`}
+              onClick={() => setValue2Modal(true)}
+            >
+              <div className={styles["value-header"]}>
+                <Image
+                  src={images.value3}
+                  loading="lazy"
+                  alt="manufactured"
+                  className={styles["manufactured"]}
+                />
+                <p className={styles["value-text"]}>manufactured</p>
+              </div>
+              <div className={styles["value-button"]}>+</div>
+            </div>
+            {/* Human button */}
+            <div
+              className={`${styles["value-3"]} ${styles["value-card"]}`}
+              onClick={() => setValue3Modal(true)}
+            >
+              <div className={styles["value-header"]}>
+                <Image
+                  src={images.value4}
+                  loading="lazy"
+                  alt="human"
+                  className={styles["human"]}
+                />
+                <p className={styles["value-text"]}>human</p>
+              </div>
+              <div className={styles["value-button"]}>+</div>
+            </div>
+            {/* intellectual button */}
+            <div
+              className={`${styles["value-4"]} ${styles["value-card"]}`}
+              onClick={() => setValue4Modal(true)}
+            >
+              <div className={styles["value-header"]}>
+                <Image
+                  src={images.value5}
+                  loading="lazy"
+                  alt="intellectual"
+                  className={styles["intellectual"]}
+                />
+                <p className={styles["value-text"]}>intellectual</p>
+              </div>
+              <div className={styles["value-button"]}>+</div>
+            </div>
+            {/* social button */}
+            <div
+              className={`${styles["value-5"]} ${styles["value-card"]}`}
+              onClick={() => setValue5Modal(true)}
+            >
+              <div className={styles["value-header"]}>
+                <Image
+                  src={images.value6}
+                  loading="lazy"
+                  alt="social"
+                  className={styles["social"]}
+                />
+                <p className={styles["value-text"]}>social</p>
+              </div>
+              <div className={styles["value-button"]}>+</div>
+            </div>
+            {/* natural button */}
+            <div
+              className={`${styles["value-6"]} ${styles["value-card"]}`}
+              onClick={() => setValue6Modal(true)}
+            >
+              <div className={styles["value-header"]}>
+                <Image
+                  src={images.value7}
+                  loading="lazy"
+                  alt="natural"
+                  className={styles["natural"]}
+                />
+                <p className={styles["value-text"]}>natural</p>
+              </div>
+              <div className={styles["value-button"]}>+</div>
+            </div>
+          </motion.div>
+          <motion.div variants={itemVariants} className={styles.flex}>
+            <Button1
+              link="/"
+              text="Download This Section"
+              backgroundColor="#112F5E"
+              textColor="white"
+              icon="download"
+              className={styles.download}
+            />
+          </motion.div>
+
+          {/* financial modal */}
+          <Modal
+            open={value1Modal}
+            onClose={() => {
+              setValue1Modal(false);
+            }}
+            sx={{
+              overflow: "scroll",
+              maxHeight: "100vh",
+            }}
+          >
+            <div className={styles["modal-container"]}>
+              <div
+                className={`${styles["value-modal"]} ${styles["value-modal-1"]}`}
+              >
+                <div className={styles["modal-top"]}>
+                  <div className={styles["modal-header"]}>
                     <Image
-                      src={images.valueAccent}
+                      src={images.value2}
                       loading="lazy"
-                      alt="bullet"
-                      className={styles["bullet"]}
+                      alt="financial"
+                      className={styles["value-icon"]}
                     />
-                    <p className={styles["header"]}>Key Inputs</p>
+                    <p className={styles["title"]}>Financial</p>
                   </div>
-                  <div className={styles["item-content"]}>
-                    <p className={styles["text"]}>
-                      Financial capital is defined as the pool of funds
-                      available to UMW. We keep our capital structure optimal,
-                      good access to capital, and undertake regular and cautious
-                      investment assessments
-                    </p>
-                    <Image
-                      src={images.divider}
-                      loading="lazy"
-                      alt="divider"
-                      className={styles["divider"]}
-                    />
-                    <CountUp
-                      start={0}
-                      end={15.8}
-                      delay={0}
-                      decimal="."
-                      decimals={1}
-                      enableScrollSpy={true}
-                      scrollSpyDelay={1}
-                    >
-                      {({ countUpRef }) => (
-                        <div className={styles["border-bottom"]}>
+                  <IconButton
+                    onClick={() => {
+                      setValue1Modal(false);
+                    }}
+                    className={styles["close-container"]}
+                  >
+                    <CloseIcon className={styles["close"]} />
+                  </IconButton>
+                </div>
+                <div className={styles["content-wrapper"]}>
+                  {/* Key Inputs */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Key Inputs</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <p className={styles["text"]}>
+                        Financial capital is defined as the pool of funds
+                        available to UMW. We keep our capital structure optimal,
+                        good access to capital, and undertake regular and
+                        cautious investment assessments
+                      </p>
+                      <Image
+                        src={images.divider}
+                        loading="lazy"
+                        alt="divider"
+                        className={styles["divider"]}
+                      />
+                      <CountUp
+                        start={0}
+                        end={15.8}
+                        delay={0}
+                        decimal="."
+                        decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
+                          <div className={styles["border-bottom"]}>
+                            <div className={styles["figures"]}>
+                              <p className={styles.text}>Revenue</p>
+                              <p style={{ margin: 0 }}>
+                                <span
+                                  ref={countUpRef}
+                                  className={styles.number}
+                                ></span>
+                                <span className={styles.unit}> billion</span>
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </CountUp>
+                      <CountUp
+                        start={0}
+                        end={4.1}
+                        delay={0}
+                        decimal="."
+                        decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
+                          <div className={styles["border-bottom"]}>
+                            <div className={styles["figures"]}>
+                              <p className={styles.text}>
+                                Market Capitalization
+                              </p>
+                              <p style={{ margin: 0 }}>
+                                <span
+                                  ref={countUpRef}
+                                  className={styles.number}
+                                ></span>
+                                <span className={styles.unit}> billion</span>
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </CountUp>
+                      <CountUp
+                        start={0}
+                        end={4.3}
+                        delay={0}
+                        decimal="."
+                        decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
+                          <div className={styles["border-bottom"]}>
+                            <div className={styles["figures"]}>
+                              <p className={styles.text}>
+                                Total Shareholders' Fund
+                              </p>
+                              <p style={{ margin: 0 }}>
+                                <span
+                                  ref={countUpRef}
+                                  className={styles.number}
+                                ></span>
+                                <span className={styles.unit}> billion</span>
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </CountUp>
+                      <CountUp
+                        start={0}
+                        end={21.7}
+                        delay={0}
+                        decimal="."
+                        decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
                           <div className={styles["figures"]}>
-                            <p className={styles.text}>Revenue</p>
+                            <p className={styles.text}>Gearing Ratio</p>
                             <p style={{ margin: 0 }}>
                               <span
                                 ref={countUpRef}
                                 className={styles.number}
                               ></span>
-                              <span className={styles.unit}> billion</span>
+                              <span className={styles.unit}> %</span>
                             </p>
                           </div>
-                        </div>
-                      )}
-                    </CountUp>
-                    <CountUp
-                      start={0}
-                      end={4.1}
-                      delay={0}
-                      decimal="."
-                      decimals={1}
-                      enableScrollSpy={true}
-                      scrollSpyDelay={1}
-                    >
-                      {({ countUpRef }) => (
-                        <div className={styles["border-bottom"]}>
-                          <div className={styles["figures"]}>
-                            <p className={styles.text}>Market Capitalization</p>
-                            <p style={{ margin: 0 }}>
-                              <span
-                                ref={countUpRef}
-                                className={styles.number}
-                              ></span>
-                              <span className={styles.unit}> billion</span>
-                            </p>
-                          </div>
-                        </div>
-                      )}
-                    </CountUp>
-                    <CountUp
-                      start={0}
-                      end={4.3}
-                      delay={0}
-                      decimal="."
-                      decimals={1}
-                      enableScrollSpy={true}
-                      scrollSpyDelay={1}
-                    >
-                      {({ countUpRef }) => (
-                        <div className={styles["border-bottom"]}>
-                          <div className={styles["figures"]}>
-                            <p className={styles.text}>
-                              Total Shareholders' Fund
-                            </p>
-                            <p style={{ margin: 0 }}>
-                              <span
-                                ref={countUpRef}
-                                className={styles.number}
-                              ></span>
-                              <span className={styles.unit}> billion</span>
-                            </p>
-                          </div>
-                        </div>
-                      )}
-                    </CountUp>
-                    <CountUp
-                      start={0}
-                      end={21.7}
-                      delay={0}
-                      decimal="."
-                      decimals={1}
-                      enableScrollSpy={true}
-                      scrollSpyDelay={1}
-                    >
-                      {({ countUpRef }) => (
-                        <div className={styles["figures"]}>
-                          <p className={styles.text}>Gearing Ratio</p>
-                          <p style={{ margin: 0 }}>
-                            <span
-                              ref={countUpRef}
-                              className={styles.number}
-                            ></span>
-                            <span className={styles.unit}> %</span>
+                        )}
+                      </CountUp>
+                    </div>
+                  </div>
+                  {/* Initiatives */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Initiatives</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            <span className={styles["text-bold"]}>
+                              Intensifying
+                            </span>{" "}
+                            customer retention and relationship
                           </p>
-                        </div>
-                      )}
-                    </CountUp>
+                        </li>
+                        <li>
+                          <CountUp
+                            start={0}
+                            end={178.4}
+                            delay={0}
+                            decimal="."
+                            decimals={1}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                          >
+                            {({ countUpRef }) => (
+                              <div className={styles["figures-list"]}>
+                                <p className={styles.text}>
+                                  Cost optimisation efforts led to savings of
+                                </p>
+                                <p style={{ margin: 0 }}>
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                  <span className={styles.unit}> million</span>
+                                </p>
+                                <p className={styles.text}>in FY2021</p>
+                              </div>
+                            )}
+                          </CountUp>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Built{" "}
+                            <span className={styles["text-bold"]}>
+                              strong relationships
+                            </span>{" "}
+                            with our principles
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Outputs */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Outputs</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <CountUp
+                            start={0}
+                            end={9.5}
+                            delay={0}
+                            decimal="."
+                            decimals={1}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                          >
+                            {({ countUpRef }) => (
+                              <div className={styles["figures-list"]}>
+                                <p className={styles.text}>Return on Equity</p>
+                                <p style={{ margin: 0 }}>
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                  <span className={styles.unit}> %</span>
+                                </p>
+                              </div>
+                            )}
+                          </CountUp>
+                        </li>
+                        <li>
+                          <CountUp
+                            start={0}
+                            end={14.2}
+                            delay={0}
+                            decimal="."
+                            decimals={1}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                          >
+                            {({ countUpRef }) => (
+                              <div className={styles["figures-list"]}>
+                                <p className={styles.text}>Dividend payout</p>
+                                <p style={{ margin: 0 }}>
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                  <span className={styles.unit}> sen</span>
+                                </p>
+                              </div>
+                            )}
+                          </CountUp>
+                        </li>
+                        <li>
+                          <CountUp
+                            start={0}
+                            end={35.5}
+                            delay={0}
+                            decimal="."
+                            decimals={1}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                          >
+                            {({ countUpRef }) => (
+                              <div className={styles["figures-list"]}>
+                                <p className={styles.text}>
+                                  Earnings per share
+                                </p>
+                                <p style={{ margin: 0 }}>
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                  <span className={styles.unit}> sen</span>
+                                </p>
+                              </div>
+                            )}
+                          </CountUp>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Initiatives */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Outcomes</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>
+                            Financial strength:
+                          </p>{" "}
+                          <p className={styles.text}>
+                            Value comes from prudent financial management and
+                            stringent cost optimisation provided for shareholder
+                            returns.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-                {/* Initiatives */}
-                <div className={styles["modal-content"]}>
-                  <div className={styles["item-header"]}>
+              </div>
+            </div>
+          </Modal>
+          {/* manufactured modal */}
+          <Modal
+            open={value2Modal}
+            onClose={() => {
+              setValue2Modal(false);
+            }}
+            sx={{
+              overflow: "scroll",
+              maxHeight: "100vh",
+            }}
+          >
+            <div className={styles["modal-container"]}>
+              <div
+                className={`${styles["value-modal"]} ${styles["value-modal-2"]}`}
+              >
+                <div className={styles["modal-top"]}>
+                  <div className={styles["modal-header"]}>
                     <Image
-                      src={images.valueAccent}
+                      src={images.value3}
                       loading="lazy"
-                      alt="bullet"
-                      className={styles["bullet"]}
+                      alt="manufactured"
+                      className={styles["value-icon"]}
                     />
-                    <p className={styles["header"]}>Initiatives</p>
+                    <p className={styles["title"]}>MANUFACTURED</p>
                   </div>
-                  <div className={styles["item-content"]}>
-                    <ul className={styles["content-list"]}>
-                      <li>
-                        <p className={styles.text}>
-                          <span className={styles["text-bold"]}>
-                            Intensifying
-                          </span>{" "}
-                          customer retention and relationship
-                        </p>
-                      </li>
-                      <li>
-                        <CountUp
-                          start={0}
-                          end={178.4}
-                          delay={0}
-                          decimal="."
-                          decimals={1}
-                          enableScrollSpy={true}
-                          scrollSpyDelay={1}
-                        >
-                          {({ countUpRef }) => (
-                            <div className={styles["figures-list"]}>
+                  <IconButton
+                    onClick={() => {
+                      setValue2Modal(false);
+                    }}
+                    className={styles["close-container"]}
+                  >
+                    <CloseIcon className={styles["close"]} />
+                  </IconButton>
+                </div>
+                <div className={styles["content-wrapper"]}>
+                  {/* Key Inputs */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Key Inputs</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <p className={styles["text"]}>
+                        Manufactured capital includes the Group’s assets and
+                        infrastructure, i.e. the machinery, equipment and
+                        technology that facilitate the Group’s services to
+                        customers.
+                      </p>
+                      <Image
+                        src={images.divider}
+                        loading="lazy"
+                        alt="divider"
+                        className={styles["divider"]}
+                      />
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>Equipment:</p>{" "}
+                          <p className={styles.text}>
+                            Customer Centre in Kota Kemuning, Shah Alam
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>M&E:</p>{" "}
+                          <p className={styles.text}>
+                            Smart lubricant manufacturing plant in Pulau Indah
+                            and modernised manufactruing plant in Teluk Panglima
+                            Garang for KYB-UMW
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>Development:</p>{" "}
+                          <p className={styles.text}>
+                            Infrastructure at the UMW HVM Park was enhanced and
+                            awarded Green certification
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Initiatives */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Initiatives</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>Automotive:</p>{" "}
+                          <p className={styles.text}>
+                            New model launches, including the Corolla Cross
+                            hybrid electric model from Toyota and Ativa Hybrid
+                            from Perodua
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>Equipment:</p>{" "}
+                          <p className={styles.text}>
+                            A series of successful marketing campaigns was
+                            launched to maximise opportunities during the year
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>M&E:</p>{" "}
+                          <p className={styles.text}>
+                            Launched Grantt Bio VG Hydraulic Oil, its first
+                            range of green, bio hydraulic lubricants
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>Aerospace:</p>{" "}
+                          <p className={styles.text}>
+                            Strong commitment to quality and product excellence
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Outputs */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Outputs</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>Automotive:</p>{" "}
+                          <p className={styles.text}>
+                            Both Toyota and Perodua maintained their lead
+                            positions in the nonnational and national car
+                            markets respectively
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>Automotive:</p>{" "}
+                          <p className={styles.text}>
+                            Introduced the Toyota Mirai which uses experimental
+                            hydrogen-fueled technology and is being trialled in
+                            Malaysia
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>M&E:</p>{" "}
+                          <p className={styles.text}>
+                            GRANTT Bio VG Hydraulic Oil Both obtained MyHijau
+                            certification
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>Equipment:</p>{" "}
+                          <p className={styles.text}>
+                            Industrial segment's business grew in sectors such
+                            as food & beverage, logistics, and warehousing.
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>Aerospace:</p>{" "}
+                          <p className={styles.text}>
+                            Industrial segment's business grew in sectors such
+                            as the Division retained its position in the top 5%
+                            of Rolls-Royce suppliers globally
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>Green Products:</p>{" "}
+                          <p className={styles.text}>
+                            Expansion of BRUSS and Water Reclamation Plant
+                            (in-house membrane)
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Initiatives */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Outcomes</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>Embedded trust:</p>{" "}
+                          <p className={styles.text}>
+                            The strength of our assets serves to bring about a
+                            competitive advantage and provide assurance on our
+                            quality.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Modal>
+          {/* human modal */}
+          <Modal
+            open={value3Modal}
+            onClose={() => {
+              setValue3Modal(false);
+            }}
+            sx={{
+              overflow: "scroll",
+              maxHeight: "100vh",
+            }}
+          >
+            <div className={styles["modal-container"]}>
+              <div
+                className={`${styles["value-modal"]} ${styles["value-modal-3"]}`}
+              >
+                <div className={styles["modal-top"]}>
+                  <div className={styles["modal-header"]}>
+                    <Image
+                      src={images.value4}
+                      loading="lazy"
+                      alt="human"
+                      className={styles["value-icon"]}
+                    />
+                    <p className={styles["title"]}>human</p>
+                  </div>
+                  <IconButton
+                    onClick={() => {
+                      setValue3Modal(false);
+                    }}
+                    className={styles["close-container"]}
+                  >
+                    <CloseIcon className={styles["close"]} />
+                  </IconButton>
+                </div>
+                <div className={styles["content-wrapper"]}>
+                  {/* Key Inputs */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Key Inputs</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <p className={styles["text"]}>
+                        This capital covers the skills and experience of all the
+                        Group’s employees that enable the Group to deliver its
+                        strategy, products and services to create value for
+                        stakeholders.
+                      </p>
+                      <Image
+                        src={images.divider}
+                        loading="lazy"
+                        alt="divider"
+                        className={styles["divider"]}
+                      />
+                      <CountUp
+                        start={0}
+                        end={17813}
+                        delay={0}
+                        // decimal="."
+                        // decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
+                          <div className={styles["border-bottom"]}>
+                            <div className={styles["figures"]}>
                               <p className={styles.text}>
-                                Cost optimisation efforts led to savings of
+                                Total employees more than
                               </p>
+                              <p style={{ margin: 0 }}>
+                                <span
+                                  ref={countUpRef}
+                                  className={styles.number}
+                                ></span>
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </CountUp>
+                      <div className={styles["border-bottom"]}>
+                        <div className={styles["figures"]}>
+                          <p className={styles["text-bold"]}>
+                            Reward structures
+                          </p>
+                          <p className={styles.text}>linked to performance</p>
+                        </div>
+                      </div>
+                      <CountUp
+                        start={0}
+                        end={832}
+                        delay={0}
+                        // decimal="."
+                        // decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
+                          <div className={styles["border-bottom"]}>
+                            <div className={styles["figures"]}>
                               <p style={{ margin: 0 }}>
                                 <span
                                   ref={countUpRef}
@@ -677,141 +1281,1099 @@ const TheWayWeCreateValue = () => {
                                 ></span>
                                 <span className={styles.unit}> million</span>
                               </p>
-                              <p className={styles.text}>in FY2021</p>
+                              <p className={styles.text}>
+                                invested in employees’ salaries and benefits
+                              </p>
                             </div>
-                          )}
-                        </CountUp>
-                      </li>
-                      <li>
-                        <p className={styles.text}>
-                          Built{" "}
-                          <span className={styles["text-bold"]}>
-                            strong relationships
-                          </span>{" "}
-                          with our principles
+                          </div>
+                        )}
+                      </CountUp>
+                      <div className={styles["figures"]}>
+                        <p className={styles["text-bold"]}>
+                          Experienced and diverse
                         </p>
-                      </li>
-                    </ul>
+                        <p className={styles.text}>
+                          Management team and Board of Directors
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Initiatives */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Initiatives</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            Continue to provide training through the UMW
+                            Executive Development Programme (UEDP)
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Organised the CREST@2021 Learning Series which
+                            includes discussions with business leaders and guest
+                            experts on topics and trends related to CREST’s core
+                            pillars and strategic enablers
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Signed Collective Agreement with Kesatuan
+                            Pekerja-Pekerja Perusahaan Kumpulan UMW to
+                            strengthen labour relations with workers
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Outputs */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Outputs</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <CountUp
+                            start={0}
+                            end={30}
+                            delay={0}
+                            // decimal="."
+                            // decimals={1}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                          >
+                            {({ countUpRef }) => (
+                              <div className={styles["figures-list"]}>
+                                <p style={{ margin: 0 }}>
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                  <span className={styles.unit}> %</span>
+                                  <span className={styles.text}>
+                                    {" "}
+                                    women’s representation on the Board of
+                                    Directors
+                                  </span>
+                                </p>
+                              </div>
+                            )}
+                          </CountUp>
+                        </li>
+                        <li>
+                          <div className={styles["figures-list"]}>
+                            <p className={styles.text}>Diversity:</p>
+                            <ul>
+                              <li>
+                                <CountUp
+                                  start={0}
+                                  end={80}
+                                  delay={0}
+                                  decimal="."
+                                  decimals={1}
+                                  enableScrollSpy={true}
+                                  scrollSpyDelay={1}
+                                >
+                                  {({ countUpRef }) => (
+                                    <p style={{ margin: 0 }}>
+                                      <span
+                                        ref={countUpRef}
+                                        className={styles.number}
+                                      ></span>
+                                      <span className={styles.unit}>
+                                        {" "}
+                                        % male
+                                      </span>
+                                    </p>
+                                  )}
+                                </CountUp>
+                              </li>
+                              <li>
+                                <CountUp
+                                  start={0}
+                                  end={20}
+                                  delay={0}
+                                  decimal="."
+                                  decimals={1}
+                                  enableScrollSpy={true}
+                                  scrollSpyDelay={1}
+                                >
+                                  {({ countUpRef }) => (
+                                    <p style={{ margin: 0 }}>
+                                      <span
+                                        ref={countUpRef}
+                                        className={styles.number}
+                                      ></span>
+                                      <span className={styles.unit}>
+                                        {" "}
+                                        % female
+                                      </span>
+                                    </p>
+                                  )}
+                                </CountUp>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <CountUp
+                            start={0}
+                            end={90}
+                            delay={0}
+                            // decimal="."
+                            // decimals={1}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                          >
+                            {({ countUpRef }) => (
+                              <div className={styles["figures-list"]}>
+                                <p style={{ margin: 0 }}>
+                                  <span className={styles.text}>
+                                    Employee Engagement Survey recorded a
+                                    satisfaction level of{" "}
+                                  </span>
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                  <span className={styles.unit}> %</span>
+                                </p>
+                              </div>
+                            )}
+                          </CountUp>
+                        </li>
+                        <li>
+                          <p style={{ margin: 0 }} className={styles.text}>
+                            Zero fatality cases
+                          </p>
+                        </li>
+                        <li>
+                          <p style={{ margin: 0 }} className={styles.text}>
+                            Energize UMW engagements to promote employee
+                            wellness
+                          </p>
+                        </li>
+                        <li>
+                          <p style={{ margin: 0 }} className={styles.text}>
+                            46 high potential young talents selected since 2018
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Initiatives */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Outcomes</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>
+                            Increased productivity:
+                          </p>{" "}
+                          <p className={styles.text}>
+                            Ensuring productivity not only constantly improves,
+                            but is also substantially amplified through
+                            consistent, inclusive engagement and enhanced,
+                            targeted learning, led by an involved Management.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-                {/* Outputs */}
-                <div className={styles["modal-content"]}>
-                  <div className={styles["item-header"]}>
+              </div>
+            </div>
+          </Modal>
+          {/* intellectual modal */}
+          <Modal
+            open={value4Modal}
+            onClose={() => {
+              setValue4Modal(false);
+            }}
+            sx={{
+              overflow: "scroll",
+              maxHeight: "100vh",
+            }}
+          >
+            <div className={styles["modal-container"]}>
+              <div
+                className={`${styles["value-modal"]} ${styles["value-modal-4"]}`}
+              >
+                <div className={styles["modal-top"]}>
+                  <div className={styles["modal-header"]}>
                     <Image
-                      src={images.valueAccent}
+                      src={images.value5}
                       loading="lazy"
-                      alt="bullet"
-                      className={styles["bullet"]}
+                      alt="intellectual"
+                      className={styles["value-icon"]}
                     />
-                    <p className={styles["header"]}>Outputs</p>
+                    <p className={styles["title"]}>intellectual</p>
                   </div>
-                  <div className={styles["item-content"]}>
-                    <ul className={styles["content-list"]}>
-                      <li>
-                        <CountUp
-                          start={0}
-                          end={9.5}
-                          delay={0}
-                          decimal="."
-                          decimals={1}
-                          enableScrollSpy={true}
-                          scrollSpyDelay={1}
-                        >
-                          {({ countUpRef }) => (
-                            <div className={styles["figures-list"]}>
-                              <p className={styles.text}>Return on Equity</p>
-                              <p style={{ margin: 0 }}>
+                  <IconButton
+                    onClick={() => {
+                      setValue4Modal(false);
+                    }}
+                    className={styles["close-container"]}
+                  >
+                    <CloseIcon className={styles["close"]} />
+                  </IconButton>
+                </div>
+                <div className={styles["content-wrapper"]}>
+                  {/* Key Inputs */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Key Inputs</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <p className={styles["text"]}>
+                        This capital encompasses organisational and
+                        knowledge-based intangibles that can include
+                        intellectual property such as licences or proprietary
+                        knowledge, systems or procedures.
+                      </p>
+                      <Image
+                        src={images.divider}
+                        loading="lazy"
+                        alt="divider"
+                        className={styles["divider"]}
+                      />
+                      <div className={styles["border-bottom"]}>
+                        <div className={styles["figures"]}>
+                          <p className={styles.text}>
+                            Corporate policies that uphold integrity such as the{" "}
+                            <span className={styles["text-bold"]}>
+                              UMW Integrity Framework
+                            </span>{" "}
+                            and{" "}
+                            <span className={styles["text-bold"]}>
+                              Integrity Plan
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div className={styles["border-bottom"]}>
+                        <div className={styles["figures"]}>
+                          <p className={styles["text-bold"]}>
+                            Strong research and development capabilities,
+                            innovation capacity, knowledge and expertise
+                          </p>
+                        </div>
+                      </div>
+                      <div className={styles["figures"]}>
+                        <p className={styles.text}>
+                          <span className={styles["text-bold"]}>
+                            Collaborated with TM One{" "}
+                          </span>
+                          towards fast-tracking digitalisation, improving our
+                          current data centre architecture.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Initiatives */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Initiatives</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            Deployed a total of 21 RPA (Robotic Process
+                            Automation) projects to improve productivity
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Collaborated with Telekom Malaysia (TM) on hybrid
+                            cloud, to consolidate and improve our data centre
+                            architecture as part of our efforts to optimise
+                            technology and operations.
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Progressed new research and innovation initiatives
+                            through the UMW Innovation and Research &
+                            Development Centre
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Developed a range of strategic partnerships with
+                            various institutions to expand R&D collaborations
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Outputs */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Outputs</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p style={{ margin: 0 }} className={styles.text}>
+                            Improvement in productivity and work efficiency
+                            through process automation and digitalisation
+                          </p>
+                        </li>
+                        <li>
+                          <p style={{ margin: 0 }} className={styles.text}>
+                            Fully compliant with the Eco-Dealership evaluation
+                          </p>
+                        </li>
+                        <li>
+                          <p style={{ margin: 0 }} className={styles.text}>
+                            Applications modernisation across the business units
+                            in staying updated with the latest functionality and
+                            features
+                          </p>
+                        </li>
+                        <li>
+                          <p style={{ margin: 0 }} className={styles.text}>
+                            Mitigated the risk of cyber threats and cyber
+                            attacks by continuously improving awareness on cyber
+                            security among employees
+                          </p>
+                        </li>
+                        <li>
+                          <p style={{ margin: 0 }} className={styles.text}>
+                            Put in more thorough processing to strictly ensure
+                            supplier compliance with Group's procurement
+                            guidelines
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Initiatives */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Outcomes</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>
+                            Greater innovation;
+                          </p>{" "}
+                          <p className={styles.text}>
+                            Creating limitless value through inventive courses
+                            of action by collaborating with strategic partners
+                            to deploy untapped revenues and efficient systems to
+                            meet progressive market requirements.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Modal>
+          {/* social modal */}
+          <Modal
+            open={value5Modal}
+            onClose={() => {
+              setValue5Modal(false);
+            }}
+            sx={{
+              overflow: "scroll",
+              maxHeight: "100vh",
+            }}
+          >
+            <div className={styles["modal-container"]}>
+              <div
+                className={`${styles["value-modal"]} ${styles["value-modal-5"]}`}
+              >
+                <div className={styles["modal-top"]}>
+                  <div className={styles["modal-header"]}>
+                    <Image
+                      src={images.value6}
+                      loading="lazy"
+                      alt="social"
+                      className={styles["value-icon"]}
+                    />
+                    <p className={styles["title"]}>SOCIAL AND RELATIONSHIP</p>
+                  </div>
+                  <IconButton
+                    onClick={() => {
+                      setValue5Modal(false);
+                    }}
+                    className={styles["close-container"]}
+                  >
+                    <CloseIcon className={styles["close"]} />
+                  </IconButton>
+                </div>
+                <div className={styles["content-wrapper"]}>
+                  {/* Key Inputs */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Key Inputs</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <p className={styles["text"]}>
+                        This capital describes the relationships built between
+                        communities, stakeholders and other relevant groups.
+                        This also includes the Group’s brand and reputation
+                        management.
+                      </p>
+                      <Image
+                        src={images.divider}
+                        loading="lazy"
+                        alt="divider"
+                        className={styles["divider"]}
+                      />
+                      <CountUp
+                        start={0}
+                        end={9.1}
+                        delay={0}
+                        decimal="."
+                        decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
+                          <div className={styles["border-bottom"]}>
+                            <div className={styles["figures"]}>
+                              <p style={{ margin: 0 }} className={styles.text}>
+                                <span
+                                  ref={countUpRef}
+                                  className={styles.number}
+                                ></span>
+                                <span className={styles.unit}> million</span>
+                              </p>
+                              <p className={styles.text}>
+                                invested in community engagement/CSR activities
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </CountUp>
+                      <CountUp
+                        start={0}
+                        end={11344}
+                        delay={0}
+                        // decimal="."
+                        // decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
+                          <div className={styles["border-bottom"]}>
+                            <div className={styles["figures"]}>
+                              <p style={{ margin: 0 }} className={styles.text}>
+                                More than {""}
+                                <span
+                                  ref={countUpRef}
+                                  className={styles.number}
+                                ></span>
+                                <span className={styles["text-bold"]}>
+                                  {" "}
+                                  volunteer hours {""}
+                                </span>
+                                recorded
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </CountUp>
+                      <div className={styles["figures"]}>
+                        <p className={styles.text}>
+                          <span className={styles["text-bold"]}>
+                            Active engagement
+                          </span>{" "}
+                          with various stakeholders
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Initiatives */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Initiatives</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            Provided a range of personal protective equipment in
+                            response to community and frontline requirements
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Provided excellent customer service and met customer
+                            needs
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Established new partnerships with a range of
+                            organisations to drive green innovation, nurture
+                            technological advancement and attract foreign
+                            investment
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Outputs */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Outputs</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <CountUp
+                            start={0}
+                            end={56.7}
+                            delay={0}
+                            decimal="."
+                            decimals={1}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                          >
+                            {({ countUpRef }) => (
+                              <div className={styles["figures-list"]}>
+                                <p
+                                  style={{ margin: 0 }}
+                                  className={styles.text}
+                                >
+                                  In support of our local vendors, the Group
+                                  spent {""}
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                  <span className={styles.unit}> % {""}</span>
+                                  of the Group’s procurement budget on local
+                                  suppliers
+                                </p>
+                              </div>
+                            )}
+                          </CountUp>
+                        </li>
+                        <li>
+                          <div className={styles["figures-list"]}>
+                            <p className={styles.text}>
+                              <CountUp
+                                start={0}
+                                end={2146}
+                                delay={0}
+                                // decimal="."
+                                // decimals={1}
+                                enableScrollSpy={true}
+                                scrollSpyDelay={1}
+                              >
+                                {({ countUpRef }) => (
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                )}
+                              </CountUp>
+                              <span className={styles.text}>
+                                {" "}
+                                UMW Community Champions clocked{" "}
+                              </span>
+                              <CountUp
+                                start={0}
+                                end={11344}
+                                delay={0}
+                                // decimal="."
+                                // decimals={1}
+                                enableScrollSpy={true}
+                                scrollSpyDelay={1}
+                              >
+                                {({ countUpRef }) => (
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                )}
+                              </CountUp>
+                              <span className={styles.text}>
+                                {" "}
+                                voluntary hours{" "}
+                              </span>
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          <p style={{ margin: 0 }} className={styles.text}>
+                            Collaboration between employees and local
+                            communities in reforestation activities under UGS
+                          </p>
+                        </li>
+                        <li>
+                          <p style={{ margin: 0 }} className={styles.text}>
+                            Supported the Trail of National Rivers Program's
+                            bamboo tree planting activities
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Outcomes */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Outcomes</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>
+                            Better relationships:
+                          </p>{" "}
+                          <p className={styles.text}>
+                            Investing in building stronger relationships with
+                            advantageous collaborations within the value chain
+                            and in the communities we operate in to support our
+                            goals in sustaining a better world.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Modal>
+          {/* natural modal */}
+          <Modal
+            open={value6Modal}
+            onClose={() => {
+              setValue6Modal(false);
+            }}
+            sx={{
+              overflow: "scroll",
+              maxHeight: "100vh",
+            }}
+          >
+            <div className={styles["modal-container"]}>
+              <div
+                className={`${styles["value-modal"]} ${styles["value-modal-6"]}`}
+              >
+                <div className={styles["modal-top"]}>
+                  <div className={styles["modal-header"]}>
+                    <Image
+                      src={images.value7}
+                      loading="lazy"
+                      alt="natural"
+                      className={styles["value-icon"]}
+                    />
+                    <p className={styles["title"]}>natural</p>
+                  </div>
+                  <IconButton
+                    onClick={() => {
+                      setValue6Modal(false);
+                    }}
+                    className={styles["close-container"]}
+                  >
+                    <CloseIcon className={styles["close"]} />
+                  </IconButton>
+                </div>
+                <div className={styles["content-wrapper"]}>
+                  {/* Key Inputs */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Key Inputs</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <p className={styles["text"]}>
+                        All renewable and non-renewable environmental resources
+                        and processes that provide goods or services that
+                        support the past, current or future prosperity of an
+                        organisation.
+                      </p>
+                      <Image
+                        src={images.divider}
+                        loading="lazy"
+                        alt="divider"
+                        className={styles["divider"]}
+                      />
+                      <CountUp
+                        start={0}
+                        end={100}
+                        delay={0}
+                        // decimal="."
+                        // decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
+                          <div className={styles["border-bottom"]}>
+                            <div className={styles["figures"]}>
+                              <p style={{ margin: 0 }} className={styles.text}>
                                 <span
                                   ref={countUpRef}
                                   className={styles.number}
                                 ></span>
                                 <span className={styles.unit}> %</span>
                               </p>
+                              <p className={styles.text}>
+                                Carbon Neutrality by 2050
+                              </p>
                             </div>
-                          )}
-                        </CountUp>
-                      </li>
-                      <li>
-                        <CountUp
-                          start={0}
-                          end={14.2}
-                          delay={0}
-                          decimal="."
-                          decimals={1}
-                          enableScrollSpy={true}
-                          scrollSpyDelay={1}
-                        >
-                          {({ countUpRef }) => (
-                            <div className={styles["figures-list"]}>
-                              <p className={styles.text}>Dividend payout</p>
-                              <p style={{ margin: 0 }}>
+                          </div>
+                        )}
+                      </CountUp>
+                      <CountUp
+                        start={0}
+                        end={4}
+                        delay={0}
+                        // decimal="."
+                        // decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
+                          <div className={styles["border-bottom"]}>
+                            <div className={styles["figures"]}>
+                              <p style={{ margin: 0 }} className={styles.text}>
+                                More than {""}
                                 <span
                                   ref={countUpRef}
                                   className={styles.number}
                                 ></span>
-                                <span className={styles.unit}> sen</span>
+                                <span className={styles.unit}>MW</span>
+                                {""}capacity Solar Panels installed
                               </p>
                             </div>
-                          )}
-                        </CountUp>
-                      </li>
-                      <li>
-                        <CountUp
-                          start={0}
-                          end={35.5}
-                          delay={0}
-                          decimal="."
-                          decimals={1}
-                          enableScrollSpy={true}
-                          scrollSpyDelay={1}
-                        >
-                          {({ countUpRef }) => (
-                            <div className={styles["figures-list"]}>
-                              <p className={styles.text}>Earnings per share</p>
-                              <p style={{ margin: 0 }}>
-                                <span
-                                  ref={countUpRef}
-                                  className={styles.number}
-                                ></span>
-                                <span className={styles.unit}> sen</span>
-                              </p>
-                            </div>
-                          )}
-                        </CountUp>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                {/* Initiatives */}
-                <div className={styles["modal-content"]}>
-                  <div className={styles["item-header"]}>
-                    <Image
-                      src={images.valueAccent}
-                      loading="lazy"
-                      alt="bullet"
-                      className={styles["bullet"]}
-                    />
-                    <p className={styles["header"]}>Outcomes</p>
-                  </div>
-                  <div className={styles["item-content"]}>
-                    <ul className={styles["content-list"]}>
-                      <li>
-                        <p className={styles["text-bold"]}>
-                          Financial strength:
-                        </p>{" "}
+                          </div>
+                        )}
+                      </CountUp>
+                      <div className={styles["figures"]}>
                         <p className={styles.text}>
-                          Value comes from prudent financial management and
-                          stringent cost optimisation provided for shareholder
-                          returns.
+                          <span className={styles["text-bold"]}>
+                            Going Paperless
+                          </span>{" "}
+                          Implementing a zeropaper culture across our operations
+                          to reduce waste
                         </p>
-                      </li>
-                    </ul>
+                      </div>
+                      <div className={styles["figures"]}>
+                        <p className={styles.text}>
+                          <span className={styles["text-bold"]}>
+                            Reforestation
+                          </span>{" "}
+                          Planting and rehabilitation of mangrove forests
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Initiatives */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Initiatives</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            Accelerating our sustainability agenda of achieving
+                            net zero carbon by 2050 by further integrating
+                            sustainability into our business operations
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Introduced hybrid electric vehicle (Corolla Cross),
+                            expanded forklift refurbishments and battery-powered
+                            forklift business.
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            UMW Green Shoots (UGS) and Bamboo planting
+                            initiatives
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Outputs */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Outputs</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <CountUp
+                            start={0}
+                            end={100}
+                            delay={0}
+                            // decimal="."
+                            // decimals={1}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                          >
+                            {({ countUpRef }) => (
+                              <div className={styles["figures-list"]}>
+                                <p
+                                  style={{ margin: 0 }}
+                                  className={styles.text}
+                                >
+                                  Solar rooftop PV capacity increased from 2MW
+                                  to 4MW, a {""}
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                  <span className={styles.unit}> % {""}</span>
+                                  increase from the previous year
+                                </p>
+                              </div>
+                            )}
+                          </CountUp>
+                        </li>
+                        <li>
+                          <div className={styles["figures-list"]}>
+                            <p className={styles.text}>
+                              Improved GHG emissions disclosures by reporting
+                              Scope 1 emissions (direct emissions from sources
+                              owned or controlled by UMW Group): XX tCO2e and
+                              Scope 2 emissions (indirect emissions from
+                              purchased energy such as electricity): XX tCO2e
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          <div className={styles["figures-list"]}>
+                            <p className={styles.text}>
+                              <CountUp
+                                start={0}
+                                end={157000}
+                                delay={0}
+                                // decimal="."
+                                // decimals={1}
+                                enableScrollSpy={true}
+                                scrollSpyDelay={1}
+                              >
+                                {({ countUpRef }) => (
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                )}
+                              </CountUp>
+                              <span className={styles.text}>
+                                {" "}
+                                mangrove and{" "}
+                              </span>
+                              <CountUp
+                                start={0}
+                                end={10000}
+                                delay={0}
+                                // decimal="."
+                                // decimals={1}
+                                enableScrollSpy={true}
+                                scrollSpyDelay={1}
+                              >
+                                {({ countUpRef }) => (
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                )}
+                              </CountUp>
+                              <span className={styles.text}>
+                                {" "}
+                                bamboo trees planted{" "}
+                              </span>
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          <div className={styles["figures-list"]}>
+                            <p className={styles.text}>
+                              <span className={styles.text}>
+                                {" "}
+                                Printing was reduced by{" "}
+                              </span>
+                              <CountUp
+                                start={0}
+                                end={484394}
+                                delay={0}
+                                // decimal="."
+                                // decimals={1}
+                                enableScrollSpy={true}
+                                scrollSpyDelay={1}
+                              >
+                                {({ countUpRef }) => (
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                )}
+                              </CountUp>
+                              <span className={styles.text}>
+                                {" "}
+                                , equivalent of{" "}
+                              </span>
+                              <CountUp
+                                start={0}
+                                end={1.3}
+                                delay={0}
+                                decimal="."
+                                decimals={1}
+                                enableScrollSpy={true}
+                                scrollSpyDelay={1}
+                              >
+                                {({ countUpRef }) => (
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                )}
+                              </CountUp>
+                              <span className={styles.unit}> tonnes </span>
+                              <span className={styles.text}>
+                                {" "}
+                                of solid waste avoided compared to the previous
+                                year.
+                              </span>
+                            </p>
+                          </div>
+                        </li>
+                        <li>
+                          <p style={{ margin: 0 }} className={styles.text}>
+                            Awarded with Bronze in Green Rating for UMW Campus
+                            in Serendah by GreenRE
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {/* Outcomes */}
+                  <div className={styles["modal-content"]}>
+                    <div className={styles["item-header"]}>
+                      <Image
+                        src={images.valueAccent}
+                        loading="lazy"
+                        alt="bullet"
+                        className={styles["bullet"]}
+                      />
+                      <p className={styles["header"]}>Outcomes</p>
+                    </div>
+                    <div className={styles["item-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>
+                            Sustainable environment:
+                          </p>{" "}
+                          <p className={styles.text}>
+                            Mitigating our impact on the environment through
+                            concerted efforts to minimise our footprint by
+                            integrating sustainability measures into our
+                            businesses and carrying out conservation
+                            initiatives.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </Modal>
+          </Modal>
+        </motion.div>
       </div>
     </div>
   );
