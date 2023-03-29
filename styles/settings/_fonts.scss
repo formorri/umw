@@ -185,6 +185,12 @@ $url: '../../public/fonts/';
     font-weight: 500;
 }
 
+@mixin number-3-bold {
+    @include font-settings ($desktop-font-size: 16px);
+    font-family: 'Kievit';
+    font-weight: bold;
+}
+
 @mixin number-4 {
     @include font-settings ($desktop-font-size: 30px);
     font-family: 'Kievit';

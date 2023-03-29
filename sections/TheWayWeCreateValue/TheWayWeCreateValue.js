@@ -8,6 +8,7 @@ import { Carousel, Button1, Button1Popup } from "@/components";
 import Image from "next/image";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import { useWindowSize } from "react-use";
 import { motion, AnimatePresence } from "framer-motion";
 
 const carouselData = [
@@ -326,17 +327,17 @@ const container1Variants = {
   },
 };
 
-const container2Variants = {
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-  hidden: {
-    opacity: 0,
-  },
-};
+// const container2Variants = {
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//     },
+//   },
+//   hidden: {
+//     opacity: 0,
+//   },
+// };
 
 const itemVariants = {
   visible: { opacity: 1, y: 0 },
@@ -345,7 +346,8 @@ const itemVariants = {
 
 const TheWayWeCreateValue = () => {
   const { ref: ref1, inView: inView1 } = useInView({ threshold: 0.5 });
-  const { ref: ref2, inView: inView2 } = useInView({ threshold: 0.5 });
+  // const { ref: ref2, inView: inView2 } = useInView({ threshold: 0.5 });
+  const { width } = useWindowSize();
   const [activeKey, setActiveKey] = useState(null);
   const activeModal = modalData.find((item) => item.key === activeKey?.key);
   const handleModalClick = (key) => {
@@ -353,6 +355,16 @@ const TheWayWeCreateValue = () => {
   };
   const handleModalClose = () => {
     setActiveKey(null);
+  };
+  const whileInView1 = {
+    x: width > 1200 ? [-50, 0] : 0,
+    y: width <= 1200 ? [50, 0] : 0,
+    opacity: [0, 1],
+  };
+  const whileInView2 = {
+    x: width > 1200 ? [50, 0] : 0,
+    y: width <= 1200 ? [50, 0] : 0,
+    opacity: [0, 1],
   };
 
   const [value1Modal, setValue1Modal] = useState(false);
@@ -485,29 +497,36 @@ const TheWayWeCreateValue = () => {
         )}
       </div>
       <div className={styles["orange-wrapper"]}>
-        <motion.div
-          ref={ref2}
-          variants={container2Variants}
-          initial="hidden"
-          animate={inView2 ? "visible" : "hidden"}
-          transition={{ duration: 0.8 }}
-          className={styles["value-wrapper"]}
-        >
-          <motion.div variants={itemVariants}>
+        <div className={styles["value-wrapper"]}>
+          <motion.div
+            whileInView={{
+              y: [10, 0],
+              opacity: [0, 1],
+            }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className={styles.title}>our value creation business model</h2>
           </motion.div>
-          <motion.div
-            variants={itemVariants}
-            className={styles["model-container"]}
-          >
-            <Image
-              src={images.value1}
-              loading="lazy"
-              alt="crest infographic"
+          <div className={styles["model-container"]}>
+            <motion.div
+              whileInView={{
+                y: [10, 0],
+                opacity: [0, 1],
+              }}
+              transition={{ duration: 0.8 }}
               className={styles["crest"]}
-            />
+            >
+              <Image
+                src={images.value1}
+                loading="lazy"
+                alt="crest infographic"
+                className={styles["crest-image"]}
+              />
+            </motion.div>
             {/* Financial button */}
-            <div
+            <motion.div
+              whileInView={whileInView1}
+              transition={{ duration: 0.8 }}
               className={`${styles["value-1"]} ${styles["value-card"]}`}
               onClick={() => setValue1Modal(true)}
             >
@@ -521,9 +540,11 @@ const TheWayWeCreateValue = () => {
                 <p className={styles["value-text"]}>financial</p>
               </div>
               <div className={styles["value-button"]}>+</div>
-            </div>
+            </motion.div>
             {/* Manufactured button */}
-            <div
+            <motion.div
+              whileInView={whileInView1}
+              transition={{ duration: 0.8 }}
               className={`${styles["value-2"]} ${styles["value-card"]}`}
               onClick={() => setValue2Modal(true)}
             >
@@ -537,9 +558,11 @@ const TheWayWeCreateValue = () => {
                 <p className={styles["value-text"]}>manufactured</p>
               </div>
               <div className={styles["value-button"]}>+</div>
-            </div>
+            </motion.div>
             {/* Human button */}
-            <div
+            <motion.div
+              whileInView={whileInView1}
+              transition={{ duration: 0.8 }}
               className={`${styles["value-3"]} ${styles["value-card"]}`}
               onClick={() => setValue3Modal(true)}
             >
@@ -553,9 +576,11 @@ const TheWayWeCreateValue = () => {
                 <p className={styles["value-text"]}>human</p>
               </div>
               <div className={styles["value-button"]}>+</div>
-            </div>
+            </motion.div>
             {/* intellectual button */}
-            <div
+            <motion.div
+              whileInView={whileInView2}
+              transition={{ duration: 0.8 }}
               className={`${styles["value-4"]} ${styles["value-card"]}`}
               onClick={() => setValue4Modal(true)}
             >
@@ -569,9 +594,11 @@ const TheWayWeCreateValue = () => {
                 <p className={styles["value-text"]}>intellectual</p>
               </div>
               <div className={styles["value-button"]}>+</div>
-            </div>
+            </motion.div>
             {/* social button */}
-            <div
+            <motion.div
+              whileInView={whileInView2}
+              transition={{ duration: 0.8 }}
               className={`${styles["value-5"]} ${styles["value-card"]}`}
               onClick={() => setValue5Modal(true)}
             >
@@ -585,9 +612,11 @@ const TheWayWeCreateValue = () => {
                 <p className={styles["value-text"]}>social</p>
               </div>
               <div className={styles["value-button"]}>+</div>
-            </div>
+            </motion.div>
             {/* natural button */}
-            <div
+            <motion.div
+              whileInView={whileInView2}
+              transition={{ duration: 0.8 }}
               className={`${styles["value-6"]} ${styles["value-card"]}`}
               onClick={() => setValue6Modal(true)}
             >
@@ -601,9 +630,15 @@ const TheWayWeCreateValue = () => {
                 <p className={styles["value-text"]}>natural</p>
               </div>
               <div className={styles["value-button"]}>+</div>
-            </div>
-          </motion.div>
-          <motion.div variants={itemVariants} className={styles.flex}>
+            </motion.div>
+          </div>
+          <motion.div 
+          whileInView={{
+            y: [10,0],
+            opacity: [0,1]
+          }}
+          transition={{duration: 0.8}}
+           className={styles.flex}>
             <Button1
               link="/"
               text="Download This Section"
@@ -2373,7 +2408,7 @@ const TheWayWeCreateValue = () => {
               </div>
             </div>
           </Modal>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
