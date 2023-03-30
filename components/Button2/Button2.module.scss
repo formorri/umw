@@ -23,10 +23,10 @@
         margin-top: -0.6rem;
         transition: 0.1s ease-in;
         position: relative;
-        bottom: 7px;
+        bottom: 8px;
 
         .text {
-            padding: 0.5rem 1rem 0.3rem;
+            padding: 0.5rem 1rem 0.2rem;
         }
 
         &::after {
@@ -42,12 +42,19 @@
         }
 
         &:hover {
-            bottom: 4px;
+            bottom: 6px;
         }
     }
 }
 
+.icon{
+    width:1.5rem;
+    height: auto;
+}
+
 .dropdown{
+    @include shadow;
+    border-radius: $border-radius;
     background-color: $white-1;
     list-style: none;
     padding: 1rem 0;

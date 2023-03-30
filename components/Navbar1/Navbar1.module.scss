@@ -4,52 +4,184 @@
 $transition-buttons: 0.4s ease-in-out;
 $size: 10px;
 
-.container-desktop {
-    display: none;
+// .container-desktop {
+//     display: none;
+// }
+
+// .container-phone {
+//     position: fixed;
+//     top: 0;
+//     right: 0.5rem;
+//     transition: ease-in-out 0.3s;
+//     ul {
+//         height: 100vh;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-around;
+//         margin: 0;
+//         padding: 0;
+
+//     }
+// }
+
+// .link {
+//     text-transform: capitalize;
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+
+//     a {
+//         color: $dark-1;
+//         transition: $transition-buttons;
+//         background-color: $white-1;
+//         padding: 10px 10px;
+//         border-radius: $border-radius;
+//         text-decoration: none;
+
+//         .text {
+//             // display: none;
+//             writing-mode: vertical-rl;
+//         }
+//     }
+
+//     &::before {
+//         transition: $transition-buttons;
+//         $size: 10px;
+//         content: '';
+//         background-color: $theme-4;
+//         display: block;
+//         width: $size;
+//         height: calc($size * 0.9);
+//         margin-bottom: 10px;
+//         clip-path: polygon(100% 50%, 50% 100%, 0% 50%);
+//     }
+
+//     &:hover {
+//         text-decoration: none;
+
+//         &::before {
+//             background-color: $theme-4;
+//         }
+
+//         a {
+//             color: $dark-1;
+//             background-color: $theme-4;
+//         }
+//     }
+// }
+
+// .active {
+//     text-transform: capitalize;
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+
+//     a {
+//         color: $dark-1;
+//         background-color: $theme-4;
+//         padding: 10px 10px;
+//         border-radius: $border-radius;
+//         text-decoration: none;
+
+//         .text {
+//             // display: none;
+//             writing-mode: vertical-rl;
+//         }
+
+//     }
+
+//     &::before {
+//         $size: 10px;
+//         content: '';
+//         background-color: $theme-1;
+//         display: block;
+//         width: $size;
+//         height: calc($size * 0.9);
+//         margin-bottom: 10px;
+//         clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+//     }
+// }
+
+// @include gt-sm {
+// .container-phone {
+//     display: none;
+// }
+$transition-buttons: 0.4s ease-in-out;
+$size: 10px;
+
+.navbar {
+    width: 100vw;
+    position: fixed;
+    z-index: 1000;
+    top: 10px;
 }
 
-.container-phone {
-    position: fixed;
-    top: 0;
-    right: 0.5rem;
+.container-desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 30px;
     transition: ease-in-out 0.3s;
-    ul {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        margin: 0;
-        padding: 0;
+    display: flex;
+    margin: 0 20px;
+    border-radius: $border-radiusx2;
+    padding: 5px 50px;
 
+}
+
+.container-desktop-active {
+    background-color: white;
+}
+
+.list {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    column-gap: 5px;
+    padding: 0;
+
+    li{
+        a{
+            height: 40px;
+            padding: 15px;
+        }
     }
+
+    li:not(:last-child) {
+        a {
+            border-right: 1px solid $grey-2;
+        }
+    }
+
 }
 
 .link {
+    flex-direction: column;
     text-transform: capitalize;
     position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
-
+    margin-top: -10px;
+    
     a {
-        color: $dark-1;
+        @include text-4-regular;
+        max-width: 130px;
+        color: $dark-2;
         transition: $transition-buttons;
-        background-color: $white-1;
-        padding: 10px 10px;
-        border-radius: $border-radius;
         text-decoration: none;
-
-        .text {
-            // display: none;
-            writing-mode: vertical-rl;
-        }
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     &::before {
         transition: $transition-buttons;
         $size: 10px;
         content: '';
-        background-color: $theme-4;
+        background-color: transparent;
         display: block;
         width: $size;
         height: calc($size * 0.9);
@@ -61,142 +193,30 @@ $size: 10px;
         text-decoration: none;
 
         &::before {
-            background-color: $theme-4;
+            background-color: $dark-1;
         }
 
         a {
+            @include text-4-bold;
             color: $dark-1;
-            background-color: $theme-4;
         }
     }
 }
 
 .active {
-    text-transform: capitalize;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
     a {
+        @include text-4-bold;
         color: $dark-1;
-        background-color: $theme-4;
-        padding: 10px 10px;
-        border-radius: $border-radius;
-        text-decoration: none;
-
-        .text {
-            // display: none;
-            writing-mode: vertical-rl;
-        }
-
     }
 
     &::before {
-        $size: 10px;
-        content: '';
-        background-color: $theme-1;
-        display: block;
-        width: $size;
-        height: calc($size * 0.9);
-        margin-bottom: 10px;
-        clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        background-color: $dark-2;
     }
 }
 
-// @include gt-sm {
-//     $transition-buttons: 0.4s ease-in-out;
-//     $size: 10px;
+.button{
+    display: flex;
+    flex-direction: column;
+}
 
-//     .container-desktop {
-//         width: 100vw;
-//         justify-content: center;
-//         position: fixed;
-//         top: 0;
-//         transition: ease-in-out 0.3s;
-//         display: flex;
-
-//         ul {
-//             display: flex;
-//             column-gap: 2rem;
-//         }
-//     }
-
-//     .container-phone {
-//         display: none;
-//     }
-
-//     .container-desktop-active {
-//         background-color: white;
-//     }
-
-//     .link {
-//         text-transform: capitalize;
-//         position: relative;
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-
-//         a {
-//             color: $dark-1;
-//             transition: $transition-buttons;
-//             background-color: $white-1;
-//             padding: 5px 15px;
-//             border-radius: $border-radius;
-//             text-decoration: none;
-//             writing-mode: horizontal-tb;
-//         }
-
-//         &::before {
-//             transition: $transition-buttons;
-//             $size: 10px;
-//             content: '';
-//             background-color: transparent;
-//             display: block;
-//             width: $size;
-//             height: calc($size * 0.9);
-//             margin-bottom: 10px;
-//             clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-//         }
-
-//         &:hover {
-//             text-decoration: none;
-
-//             &::before {
-//                 background-color: $theme-1;
-//             }
-
-//             a {
-//                 color: $dark-1;
-//                 background-color: $theme-1;
-//             }
-//         }
-//     }
-
-//     .active {
-//         text-transform: capitalize;
-//         position: relative;
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-
-//         a {
-//             color: $dark-1;
-//             background-color: $theme-1;
-//             padding: 5px 15px;
-//             border-radius: $border-radius;
-//             text-decoration: none;
-//         }
-
-//         &::before {
-//             $size: 10px;
-//             content: '';
-//             background-color: $theme-1;
-//             display: block;
-//             width: $size;
-//             height: calc($size * 0.9);
-//             margin-bottom: 10px;
-//             clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-//         }
-//     }
 // }

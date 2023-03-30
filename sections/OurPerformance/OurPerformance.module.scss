@@ -39,6 +39,7 @@ $padding-top: 3rem;
 
     .content-wrapper {
         grid-area: 1/1/4/3;
+        // padding-bottom: 5rem;
         z-index: 0;
     }
     
@@ -64,12 +65,14 @@ $padding-top: 3rem;
     .content {
         grid-area: 2/1/4/2;
         z-index: 1;
-        padding: $l-x-gap;
+        padding: $l-x-gap $l-x-gap 4rem $l-x-gap;
     }
 
     .content-image-container {
         grid-area: 2/2/4/3;
         z-index: 1;
+        align-self: flex-start;
+        margin-top: 8rem;
     }
 }
 
@@ -218,6 +221,7 @@ $padding-top: 3rem;
 
             .data-title {
                 @include text-3-bold;
+                text-transform: uppercase;
             }
 
             .data-year {
@@ -241,12 +245,14 @@ $padding-top: 3rem;
 }
 
 .content-image-container {
-    object-fit: cover;
+
     width: 100%;
     height: auto;
 
     .image {
-        width: inherit;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 }
 
@@ -268,7 +274,10 @@ $switcherWidth: 13rem;
     align-self: center;
     justify-content: center;
     position: absolute;
-    left: 5.5rem;
+    left: 10%;
+    right: 10%;
+    text-transform: uppercase;
+    // left: 5.5rem;
     // right: calc($switcherWidth / 2);
     z-index: 1;
     text-align: center;

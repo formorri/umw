@@ -1,7 +1,11 @@
 import Head from "next/head";
-import Image from "next/image";
+// import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.scss";
+import { Navbar1 } from "@/components";
+import Image from "next/image";
+import images from "@/constants/images";
+
 import {
   Hero,
   WhoWeAre,
@@ -25,15 +29,44 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="favicon.ico" />
       </Head>
-      <Hero />
-      <WhoWeAre />
-      <FinancialHighlights />
-      <ViewsFromOurLeaders />
-      <OurPerformance />
-      <TheWayWeCreateValue />
-      <SustainabilityPerformance />
-      <Leadership />
-      <Downloads />
+
+      <Navbar1/>
+
+      <section id="home">
+        <Hero id="home"/>
+      </section>
+
+      <section id="who-we-are">
+        <WhoWeAre />
+      </section>
+
+      <section id="financial-highlights">
+        <FinancialHighlights />
+      </section>
+
+      <section id="views-from-our-leaders">
+        <ViewsFromOurLeaders />
+      </section>
+
+      <section id="our-performance">
+        <OurPerformance />
+      </section>
+
+      <section id="the-way-we-create-value">
+        <TheWayWeCreateValue />
+      </section>
+
+      <section id="sustainability-performance">
+        <SustainabilityPerformance />
+      </section>
+
+      <section id="leadership">
+        <Leadership />
+      </section>
+
+      <section id="downloads">
+        <Downloads />
+      </section>
     </>
   );
 }
