@@ -8,11 +8,16 @@ import Image from "next/image";
 import { useWindowSize } from "react-use";
 
 const SustainabilityPerformance = () => {
-  const [active, setActive] = useState(3);
+  const defaultActive = 3;
+  const [active, setActive] = useState(defaultActive);
   const { width } = useWindowSize();
-  
+
   const toggleActive = (index) => {
-    setActive(active === index ? null : index);
+    if (active === index) {
+      setActive(defaultActive);
+    } else {
+      setActive(index);
+    }
   };
 
   const whileInView1 = {
@@ -64,14 +69,13 @@ const SustainabilityPerformance = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -50, opacity: 0 }}
         >
-          <div className={styles.header}>
+          <div className={styles.header} onClick={() => toggleActive(0)}>
             <p className={styles["header-text"]}>
               Pillar <span className={styles["number"]}>4 </span>: SUSTAINABLE
               LOCAL COMMUNITIES
             </p>
             <ArrowForwardIcon
               className={`${styles.arrow} ${active === 0 ? styles.active : ""}`}
-              onClick={() => toggleActive(0)}
             />
           </div>
           <AnimatePresence>
@@ -161,14 +165,13 @@ const SustainabilityPerformance = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -50, opacity: 0 }}
         >
-          <div className={styles.header}>
+          <div className={styles.header} onClick={() => toggleActive(1)}>
             <p className={styles["header-text"]}>
               Pillar <span className={styles["number"]}>3 </span>: SUSTAINABLE
               PRODUCTS AND SERVICES
             </p>
             <ArrowForwardIcon
               className={`${styles.arrow} ${active === 1 ? styles.active : ""}`}
-              onClick={() => toggleActive(1)}
             />
           </div>
           <AnimatePresence>
@@ -264,14 +267,13 @@ const SustainabilityPerformance = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -50, opacity: 0 }}
         >
-          <div className={styles.header}>
+          <div className={styles.header} onClick={() => toggleActive(2)}>
             <p className={styles["header-text"]}>
               Pillar <span className={styles["number"]}>2 </span>: SUSTAINABLE
               WORKFORCE
             </p>
             <ArrowForwardIcon
               className={`${styles.arrow} ${active === 2 ? styles.active : ""}`}
-              onClick={() => toggleActive(2)}
             />
           </div>
           <AnimatePresence>
@@ -387,14 +389,13 @@ const SustainabilityPerformance = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -50, opacity: 0 }}
         >
-          <div className={styles.header}>
+          <div className={styles.header} onClick={() => toggleActive(3)}>
             <p className={styles["header-text"]}>
               Pillar <span className={styles["number"]}>1 </span>: SUSTAINABLE
               ENVIRONMENT
             </p>
             <ArrowForwardIcon
               className={`${styles.arrow} ${active === 3 ? styles.active : ""}`}
-              onClick={() => toggleActive(3)}
             />
           </div>
           <AnimatePresence>

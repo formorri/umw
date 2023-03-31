@@ -32,6 +32,8 @@ export default function Home() {
 
       <Navbar1/>
 
+      <p className={styles.watermark}>INTEGRATED ANNUAL REPORT 2022</p>
+
       <section id="home">
         <Hero id="home"/>
       </section>

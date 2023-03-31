@@ -3,3 +3,16 @@
 .container{
     margin: 2rem;
 }
+
+.watermark{
+    @include text-5-regular;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    text-align: right;
+    position: fixed;
+    top: 22%;
+    left:15px;
+    z-index: 1000;
+}

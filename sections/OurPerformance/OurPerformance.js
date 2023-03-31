@@ -1,15 +1,17 @@
 import styles from "./OurPerformance.module.scss";
 import { images } from "../../constants";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import CountUp from "react-countup";
 import { Button1 } from "@/components";
+import { useInView } from "react-intersection-observer";
 
 const tabData = [
   {
     key: 0,
     icon: "automotive",
+    gif: "automotive.gif",
     iconText: "automotive",
     color: "#C65A81",
     switcher: [
@@ -19,14 +21,15 @@ const tabData = [
         backgroundColor: "#F7E8EE",
         title: "UMW Toyota",
         category: "automotive",
-        image: "toyotaPic",
+        // image: "toyotaPic",
+        video: "toyota.mp4",
         description:
           "Reclaimed Its Position As The Number-One Non-National Car Manufacturer In Malaysia For The Second Year Running.",
         data: [
           {
             key: 0,
             title: "toyota sales volume",
-            units: "(units)",
+            units: "(Units)",
             figure: "101035",
             year: "2021: 72,394",
           },
@@ -51,7 +54,7 @@ const tabData = [
         data: [
           {
             title: "perodua sales volume",
-            units: "(units)",
+            units: "(Units)",
             figure: "282019",
             year: "2021: 190,291",
           },
@@ -68,6 +71,7 @@ const tabData = [
   {
     key: 1,
     icon: "equipment",
+    gif: "equipment.gif",
     iconText: "equipment",
     color: "#F2A818",
 
@@ -95,6 +99,7 @@ const tabData = [
   {
     key: 2,
     icon: "MnE",
+    gif: "mnE.gif",
     iconText: "manufacturing & engineering",
     color: "#4B4CA7",
     backgroundColor: "#EFE8F3",
@@ -121,6 +126,7 @@ const tabData = [
   {
     key: 3,
     icon: "aerospace",
+    gif: "aerospace.gif",
     iconText: "aerospace",
     color: "#378DDB",
     backgroundColor: "#E4EFF9",
@@ -149,6 +155,7 @@ const tabData = [
   {
     key: 4,
     icon: "development",
+    gif: "development.gif",
     iconText: "development",
     color: "#9E6D2B",
     backgroundColor: "#E1D5C8",
@@ -194,6 +201,7 @@ const OurPerformance = () => {
   const toggleSwitch = () => {
     setActiveSwitch(activeSwitch === 0 ? 1 : 0);
   };
+
   const tabBackgroundColor = activeTabData?.backgroundColor;
   const tabColor = activeTabData?.color;
   const tabTitle = activeTabData?.title;
@@ -207,8 +215,32 @@ const OurPerformance = () => {
   const switcherTitle = activeSwitcherData?.title;
   const switcherCategory = activeSwitcherData?.category;
   const switcherImage = activeSwitcherData?.image;
+  const switcherVideo = activeSwitcherData?.video;
   const switcherDesc = activeSwitcherData?.description;
   const switcherDataItem = activeSwitcherData?.data;
+
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef(null);
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
+
+  //   useEffect(() => {
+  //     if (inView && videoRef.current && !isPlaying) {
+  //       setIsPlaying(true);
+  //       videoRef.current.play();
+  //     } else if (!inView && videoRef.current && isPlaying) {
+  //       setIsPlaying(false);
+  //       videoRef.current.pause();
+  //     }
+  //   }, [inView, isPlaying]);
+
+  // const handlePlayClick = () => {
+  //   if (videoRef.current) {
+  //     setIsPlaying(true);
+  //     videoRef.current.play();
+  //   }
+  // };
 
   return (
     <motion.div
@@ -238,18 +270,44 @@ const OurPerformance = () => {
               </div>
               <div
                 className={styles["icon-container"]}
-                style={
-                  activeTab === index
-                    ? { backgroundColor: item.color }
-                    : { backgroundColor: "#BCBEC0" }
-                }
+                style={{
+                  backgroundColor: activeTab === index ? item.color : "#BCBEC0",
+                  ":hover": {
+                    backgroundColor: item.color,
+                  },
+                }}
               >
-                <Image
+                {/* <Image
                   src={images[item.icon]}
                   loading="lazy"
                   className={styles.icon}
                   alt={item.icon}
+                /> */}
+                <img
+                  src={`assets/${item.gif}`}
+                  className={styles.icon}
+                  alt={item.icon}
+                  loading="lazy"
                 />
+                {/* <video
+                  src={`assets/${item.gif}`}
+                  autoPlay={true}
+                  muted
+                  playsInline
+                  loop
+                  type="video/quicktime"
+                  controls
+                  className={styles.icon}
+                ></video> */}
+                {/* <video
+                    className={styles.icon}
+                    muted
+                    playsInline
+                    loop
+                    autoPlay={true}
+                  >
+                    <source src={`assets/${item.mov}`} type="video/quicktime" />
+                  </video> */}
               </div>
             </div>
           ))}
@@ -260,7 +318,10 @@ const OurPerformance = () => {
               <div
                 className={styles.switch}
                 data-ison={activeSwitch === 1 ? "true" : "false"}
-                onClick={() => toggleSwitch(activeTab === 0 ? 1 : 0)}
+                onClick={() => {
+                  toggleSwitch(activeTab === 0 ? 1 : 0);
+                  // handlePlayClick()
+                }}
               >
                 <div className={styles["switch-text"]}>{switcherTitle}</div>
                 <motion.div
@@ -478,25 +539,48 @@ const OurPerformance = () => {
                   </div>
                 </div>
               </div>
-              <div className={styles["content-image-container"]}>
-                <Image
-                  src={images[switcherImage]}
-                  loading="lazy"
-                  className={styles.image}
-                  alt={switcherImage}
-                />
-              </div>
+              {activeSwitcherData?.image?.length > 0 && (
+                <div
+                  className={`${styles["content-image-container"]} ${styles["switcher-padding"]}`}
+                >
+                  <Image
+                    src={images[switcherImage]}
+                    loading="lazy"
+                    className={styles.image}
+                    alt={switcherImage}
+                  />
+                </div>
+              )}
+              {activeSwitcherData?.video?.length > 0 && (
+                <div
+                  className={`${styles["content-video-container"]} ${styles["switcher-padding"]}`}
+                  // ref={ref}
+                >
+                  <video
+                    className={styles.video}
+                    // ref={videoRef}
+                    muted
+                    playsInline
+                    loop
+                    width="800"
+                    height="500"
+                    autoPlay={true}
+                  >
+                    <source src={`assets/${switcherVideo}`} type="video/mp4" />
+                  </video>
+                </div>
+              )}
             </motion.div>
           </AnimatePresence>
         )}
         <Button1
-            link="/"
-            text="Download This Section"
-            backgroundColor="#112F5E"
-            textColor="white"
-            icon="download"
-            className={styles.download}
-          />
+          link="/"
+          text="Download This Section"
+          backgroundColor="#112F5E"
+          textColor="white"
+          icon="download"
+          className={styles.download}
+        />
       </div>
     </motion.div>
   );

@@ -105,6 +105,9 @@ $width-card: 35rem;
     &:nth-child(4) {
         margin-top: calc(-1 * ($height-card - 4rem));
     }
+    .header{
+        cursor: pointer;
+    }
 }
 
 .card1 {
@@ -193,7 +196,6 @@ $width-card: 35rem;
 
 
 .arrow {
-    cursor: pointer;
     color: $white-1
 }
 

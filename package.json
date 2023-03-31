@@ -25,6 +25,7 @@
     "react-slick": "^0.29.0",
     "react-use": "^17.4.0",
     "sass": "^1.59.2",
+    "sharp": "^0.32.0",
     "slick-carousel": "^1.8.1"
   }
 }

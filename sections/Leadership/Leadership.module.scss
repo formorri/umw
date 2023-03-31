@@ -96,6 +96,7 @@ $switcherWidth: 23rem;
 .carousel-card-outer{
     width: 100%;
     margin: 0 auto;
+    height: 100%;
 }
 
 .carousel-card{
@@ -107,7 +108,8 @@ $switcherWidth: 23rem;
     flex-direction: column;
     row-gap: 10px;
     padding: 43px;
-    min-height: 28rem;
+    min-height: 30rem;
+    height: 100%;
     .image{
         align-self: center;
     }

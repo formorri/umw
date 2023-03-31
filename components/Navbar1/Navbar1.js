@@ -9,55 +9,54 @@ import { images } from "../../constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const sections = [
+  {
+    key: 0,
+    name: "Home",
+    link: "home",
+  },
+  {
+    key: 1,
+    name: "Who We Are",
+    link: "who-we-are",
+  },
+  {
+    key: 2,
+    name: "Financial Highlights",
+    link: "financial-highlights",
+  },
+  {
+    key: 3,
+    name: "Views From Our Leaders",
+    link: "views-from-our-leaders",
+  },
+  {
+    key: 4,
+    name: "Our Performance",
+    link: "our-performance",
+  },
+  {
+    key: 5,
+    name: "The Way We Create Value",
+    link: "the-way-we-create-value",
+  },
+  {
+    key: 6,
+    name: "Sustainability Performance",
+    link: "sustainability-performance",
+  },
+  {
+    key: 7,
+    name: "Leadership",
+    link: "leadership",
+  },
+  {
+    key: 8,
+    name: "Downloads",
+    link: "downloads",
+  },
+];
 const Navbar1 = ({ children }) => {
-  const sections = [
-    {
-      key: 0,
-      name: "Home",
-      link: "home",
-    },
-    {
-      key: 1,
-      name: "Who We Are",
-      link: "who-we-are",
-    },
-    {
-      key: 2,
-      name: "Financial Highlights",
-      link: "financial-highlights",
-    },
-    {
-      key: 3,
-      name: "Views From Our Leaders",
-      link: "views-from-our-leaders",
-    },
-    {
-      key: 4,
-      name: "Our Performance",
-      link: "our-performance",
-    },
-    {
-      key: 5,
-      name: "The Way We Create Value",
-      link: "the-way-we-create-value",
-    },
-    {
-      key: 6,
-      name: "Sustainability Performance",
-      link: "sustainability-performance",
-    },
-    {
-      key: 7,
-      name: "Leadership",
-      link: "leadership",
-    },
-    {
-      key: 8,
-      name: "Downloads",
-      link: "downloads",
-    },
-  ];
-
   const [active, setActive] = useState("home");
   const [navbarClass, setNavbarClass] = useState(false);
   console.log(navbarClass);
@@ -80,8 +79,7 @@ const Navbar1 = ({ children }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const transitionPoint = document.getElementById(sections[1].link);
-      if (transitionPoint && window.scrollY >= transitionPoint.offsetTop) {
+      if (window.scrollY >= 50) {
         setNavbarClass(true);
       } else {
         setNavbarClass(false);
@@ -90,6 +88,34 @@ const Navbar1 = ({ children }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const transitionPoint = document.getElementById(sections[1].link);
+  //     if (transitionPoint && window.scrollY >= transitionPoint.offsetTop) {
+  //       setNavbarClass(true);
+  //     } else {
+  //       setNavbarClass(false);
+  //     }
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
+
+  // const handleClick = (e, id) => {
+  //   e.preventDefault();
+  //   const element = document.getElementById(id);
+  //   const offset = 30;
+  //   const bodyRect = document.body.getBoundingClientRect().top;
+  //   const elementRect = element.getBoundingClientRect().top;
+  //   const elementPosition = elementRect - bodyRect;
+  //   const offsetPosition = elementPosition - offset;
+
+  //   window.scrollTo({
+  //     top: offsetPosition,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   return (
     <div className={styles.navbar}>
@@ -108,33 +134,46 @@ const Navbar1 = ({ children }) => {
           {sections.map((item) => (
             <li
               key={item.key}
-              className={`${styles.link} ${active.link === item.link ? styles.active : ''}`}
-
+              className={`${styles.link} ${
+                active.link === item.link ? styles.active : ""
+              }`}
             >
+              {/* <a
+                href={`#${item.link}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.querySelector(`#${item.link}`);
+                  const sectionTop = section.offsetTop - 100;
+                  window.scrollTo({ top: sectionTop, behavior: "smooth" });
+                }}
+              >
+                {item.name}
+              </a> */}
+
               <a href={`#${item.link}`}>{item.name}</a>
             </li>
           ))}
         </ul>
         <div className={styles.button}>
-        <Button2
-          icon="share"
-          backgroundColor="#B8DEC7"
-          textColor="white"
-          link={[
-            {
-              content: "fb",
-              link: "/",
-            },
-            {
-              content: "linkedIn",
-              link: "/",
-            },
-            {
-              content: "email",
-              link: "/",
-            },
-          ]}
-        />
+          <Button2
+            icon="share"
+            backgroundColor="#B8DEC7"
+            textColor="white"
+            link={[
+              {
+                content: "fb",
+                link: "/",
+              },
+              {
+                content: "linkedIn",
+                link: "/",
+              },
+              {
+                content: "email",
+                link: "/",
+              },
+            ]}
+          />
         </div>
       </nav>
       {/* <nav className={styles["container-phone"]}>

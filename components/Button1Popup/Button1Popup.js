@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import images from "@/constants/images";
 
-const Button1Popup = ({ text, icon, backgroundColor, textColor, onClick, buttonClassName }) => {
+const Button1Popup = ({ text, icon, backgroundColor, textColor, onClick, className, buttonClassName }) => {
   return (
-    <div className={styles["container"]}>
+    <div className={`${styles["container"]} ${className}`}>
       <div
         className={styles["inner"]}
         style={{ background: backgroundColor }}

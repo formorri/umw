@@ -10,6 +10,9 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { useWindowSize } from "react-use";
 import { motion, AnimatePresence } from "framer-motion";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import AddIcon from '@mui/icons-material/Add';
 
 const carouselData = [
   {
@@ -415,6 +418,7 @@ const TheWayWeCreateValue = () => {
                       backgroundColor="#1683BA"
                       textColor="white"
                       icon="add"
+                      className={styles["carousel-button"]}
                       onClick={() => handleModalClick(item.key)}
                     />
                   </div>
@@ -539,7 +543,7 @@ const TheWayWeCreateValue = () => {
                 />
                 <p className={styles["value-text"]}>financial</p>
               </div>
-              <div className={styles["value-button"]}>+</div>
+              <div className={styles["value-button"]}><AddIcon /></div>
             </motion.div>
             {/* Manufactured button */}
             <motion.div
@@ -557,7 +561,7 @@ const TheWayWeCreateValue = () => {
                 />
                 <p className={styles["value-text"]}>manufactured</p>
               </div>
-              <div className={styles["value-button"]}>+</div>
+              <div className={styles["value-button"]}><AddIcon /></div>
             </motion.div>
             {/* Human button */}
             <motion.div
@@ -575,7 +579,7 @@ const TheWayWeCreateValue = () => {
                 />
                 <p className={styles["value-text"]}>human</p>
               </div>
-              <div className={styles["value-button"]}>+</div>
+              <div className={styles["value-button"]}><AddIcon /></div>
             </motion.div>
             {/* intellectual button */}
             <motion.div
@@ -593,7 +597,7 @@ const TheWayWeCreateValue = () => {
                 />
                 <p className={styles["value-text"]}>intellectual</p>
               </div>
-              <div className={styles["value-button"]}>+</div>
+              <div className={styles["value-button"]}><AddIcon /></div>
             </motion.div>
             {/* social button */}
             <motion.div
@@ -611,7 +615,7 @@ const TheWayWeCreateValue = () => {
                 />
                 <p className={styles["value-text"]}>social</p>
               </div>
-              <div className={styles["value-button"]}>+</div>
+              <div className={styles["value-button"]}><AddIcon /></div>
             </motion.div>
             {/* natural button */}
             <motion.div
@@ -629,16 +633,17 @@ const TheWayWeCreateValue = () => {
                 />
                 <p className={styles["value-text"]}>natural</p>
               </div>
-              <div className={styles["value-button"]}>+</div>
+              <div className={styles["value-button"]}><AddIcon /></div>
             </motion.div>
           </div>
-          <motion.div 
-          whileInView={{
-            y: [10,0],
-            opacity: [0,1]
-          }}
-          transition={{duration: 0.8}}
-           className={styles.flex}>
+          <motion.div
+            whileInView={{
+              y: [10, 0],
+              opacity: [0, 1],
+            }}
+            transition={{ duration: 0.8 }}
+            className={styles.flex}
+          >
             <Button1
               link="/"
               text="Download This Section"
@@ -661,6 +666,15 @@ const TheWayWeCreateValue = () => {
             }}
           >
             <div className={styles["modal-container"]}>
+            <div className={`${styles.next} ${styles['arrow-container']}`}>
+              <ArrowForwardIcon
+                className={styles['arrow-icon']}
+                onClick={() => {
+                  setValue1Modal(false);
+                  setValue2Modal(true);
+                }}
+              />
+            </div>
               <div
                 className={`${styles["value-modal"]} ${styles["value-modal-1"]}`}
               >
@@ -1000,6 +1014,24 @@ const TheWayWeCreateValue = () => {
             }}
           >
             <div className={styles["modal-container"]}>
+            <div className={`${styles.prev} ${styles['arrow-container']}`}>
+              <ArrowBackIcon
+                className={styles['arrow-icon']}
+                onClick={() => {
+                  setValue1Modal(true);
+                  setValue2Modal(false);
+                }}
+              />
+            </div>
+            <div className={`${styles.next} ${styles['arrow-container']}`}>
+              <ArrowForwardIcon
+                className={styles['arrow-icon']}
+                onClick={() => {
+                  setValue2Modal(false);
+                  setValue3Modal(true);
+                }}
+              />
+            </div>
               <div
                 className={`${styles["value-modal"]} ${styles["value-modal-2"]}`}
               >
@@ -1217,6 +1249,24 @@ const TheWayWeCreateValue = () => {
             }}
           >
             <div className={styles["modal-container"]}>
+            <div className={`${styles.prev} ${styles['arrow-container']}`}>
+              <ArrowBackIcon
+                className={styles['arrow-icon']}
+                onClick={() => {
+                  setValue2Modal(true);
+                  setValue3Modal(false);
+                }}
+              />
+            </div>
+            <div className={`${styles.next} ${styles['arrow-container']}`}>
+              <ArrowForwardIcon
+                className={styles['arrow-icon']}
+                onClick={() => {
+                  setValue3Modal(false);
+                  setValue4Modal(true);
+                }}
+              />
+            </div>
               <div
                 className={`${styles["value-modal"]} ${styles["value-modal-3"]}`}
               >
@@ -1555,6 +1605,24 @@ const TheWayWeCreateValue = () => {
             }}
           >
             <div className={styles["modal-container"]}>
+            <div className={`${styles.prev} ${styles['arrow-container']}`}>
+              <ArrowBackIcon
+                className={styles['arrow-icon']}
+                onClick={() => {
+                  setValue3Modal(true);
+                  setValue4Modal(false);
+                }}
+              />
+            </div>
+            <div className={`${styles.next} ${styles['arrow-container']}`}>
+              <ArrowForwardIcon
+                className={styles['arrow-icon']}
+                onClick={() => {
+                  setValue4Modal(false);
+                  setValue5Modal(true);
+                }}
+              />
+            </div>
               <div
                 className={`${styles["value-modal"]} ${styles["value-modal-4"]}`}
               >
@@ -1769,6 +1837,24 @@ const TheWayWeCreateValue = () => {
             }}
           >
             <div className={styles["modal-container"]}>
+            <div className={`${styles.prev} ${styles['arrow-container']}`}>
+              <ArrowBackIcon
+                className={styles['arrow-icon']}
+                onClick={() => {
+                  setValue4Modal(true);
+                  setValue5Modal(false);
+                }}
+              />
+            </div>
+            <div className={`${styles.next} ${styles['arrow-container']}`}>
+              <ArrowForwardIcon
+                className={styles['arrow-icon']}
+                onClick={() => {
+                  setValue5Modal(false);
+                  setValue6Modal(true);
+                }}
+              />
+            </div>
               <div
                 className={`${styles["value-modal"]} ${styles["value-modal-5"]}`}
               >
@@ -2063,6 +2149,16 @@ const TheWayWeCreateValue = () => {
             }}
           >
             <div className={styles["modal-container"]}>
+            <div className={`${styles.prev} ${styles['arrow-container']}`}>
+              <ArrowBackIcon
+                className={styles['arrow-icon']}
+                onClick={() => {
+                  setValue5Modal(true);
+                  setValue6Modal(false);
+                }}
+              />
+            </div>
+
               <div
                 className={`${styles["value-modal"]} ${styles["value-modal-6"]}`}
               >

@@ -7,6 +7,7 @@ import { Button1 } from "@/components";
 import { useWindowSize } from "react-use";
 import { motion, AnimatePresence } from "framer-motion";
 
+
 const ViewsFromOurLeaders = () => {
   const { width } = useWindowSize();
   const whileInView1 = {
@@ -67,7 +68,7 @@ const ViewsFromOurLeaders = () => {
               scrollSpyDelay={1}
             >
               {({ countUpRef }) => (
-                <div>
+                <div className={styles['data-card-inner']}>
                   <p className={styles.unit}>Group Revenue Growth</p>
                   <p style={{ margin: 0 }}>
                     <span className={styles.number} ref={countUpRef}></span>
@@ -88,7 +89,7 @@ const ViewsFromOurLeaders = () => {
               scrollSpyDelay={1}
             >
               {({ countUpRef }) => (
-                <div>
+                <div className={styles['data-card-inner']}>
                   <p style={{ margin: 0 }}>
                     <span className={styles.number}>RM</span>
                     <span className={styles.number} ref={countUpRef}></span>
@@ -223,13 +224,13 @@ const ViewsFromOurLeaders = () => {
               scrollSpyDelay={1}
             >
               {({ countUpRef }) => (
-                <div>
+                <div className={styles['data-card-inner']}>
                   <p className={styles.unit}>Group Revenue Growth</p>
                   <p style={{ margin: 0 }}>
                     <span className={styles.number}>RM</span>
                     <span className={styles.number} ref={countUpRef}></span>
-                    <span className={styles.unit}> billion</span>
                   </p>
+                  <p className={styles.unit}> billion</p>
                 </div>
               )}
             </CountUp>
@@ -245,7 +246,7 @@ const ViewsFromOurLeaders = () => {
               scrollSpyDelay={1}
             >
               {({ countUpRef }) => (
-                <div>
+                <div className={styles['data-card-inner']}>
                   <p className={styles.unit}>Group's Profit Before Tax</p>
                   <p style={{ margin: 0 }}>
                     <span className={styles.number}>RM</span>

@@ -83,6 +83,8 @@
         grid-area: 4/1/5/2;
         z-index: 1;
         justify-self: flex-start;
+        display: flex;
+        flex-direction: column;
     }
 
     .quote-container {
@@ -100,7 +102,10 @@
 }
 
 .data-card {
-    padding: 30px 200px 30px 30px;
+    padding: 30px;
+    .data-card-inner{
+        max-width: 200px;
+    }
 }
 
 .quote-container {
