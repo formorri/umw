@@ -100,7 +100,7 @@ const Hero = () => {
             className={styles.col1}
           >
             <h1 className={styles.header}>
-              accelerating <span className={styles.bold}>crest@2021</span>
+              accelerating <span className={styles.bold}>crest@UMW</span>
             </h1>
             <Button1
               link="/"

@@ -33,7 +33,7 @@ const countries = [
   {
     image: "papua",
     countryName: "papua new guinea",
-    info: "Equipment , Manufacturing & Engineering",
+    info: "Equipment",
     color: "#F7E5CC",
   },
   {
@@ -324,7 +324,7 @@ const WhoWeAre = () => {
                       scrollSpyDelay={1}
                     >
                       {({ countUpRef }) => (
-                        <div className={styles['map-text']}>
+                        <div className={styles["map-text"]}>
                           <p className={styles.text}>employees</p>
                           <p className={styles.number} ref={countUpRef}></p>
                         </div>
@@ -368,11 +368,13 @@ const WhoWeAre = () => {
           className={styles.col2}
         >
           <div className={styles["data1"]}>
-            <p className={styles["data-text1"]}>asset value</p>
+            <p className={styles["data-text1"]}>Total asset value</p>
             <p className={styles["data-text2"]}>(rm million)</p>
             <CountUp
               start={0}
               end={12417.1}
+              decimal='.'
+              decimals={1}
               delay={0}
               enableScrollSpy={true}
               scrollSpyDelay={1}
@@ -383,6 +385,7 @@ const WhoWeAre = () => {
                 </div>
               )}
             </CountUp>
+            <p className={styles["data-text2"]}>(2021: 12,172.7)</p>
           </div>
           <div className={styles["data2"]}>
             <p className={styles["data-text1"]}>net profit</p>
@@ -390,6 +393,8 @@ const WhoWeAre = () => {
             <CountUp
               start={0}
               end={677.9}
+              decimal='.'
+              decimals={1}
               delay={0}
               enableScrollSpy={true}
               scrollSpyDelay={1}
@@ -400,13 +405,16 @@ const WhoWeAre = () => {
                 </div>
               )}
             </CountUp>
+            <p className={styles["data-text2"]}>(2021: 515.6)</p>
           </div>
           <div className={styles["data3"]}>
             <p className={styles["data-text1"]}>market capitalisation</p>
             <p className={styles["data-text2"]}>(rm million)</p>
             <CountUp
               start={0}
-              end={4.1}
+              end={4053.9}
+              decimal='.'
+              decimals={1}
               delay={0}
               enableScrollSpy={true}
               scrollSpyDelay={1}
@@ -417,14 +425,15 @@ const WhoWeAre = () => {
                 </div>
               )}
             </CountUp>
+            <p className={styles["data-text2"]}>(2021: 3,469.8)</p>
           </div>
           <div className={styles["data4"]}>
             <p className={styles["data-text1"]}>automotive market share</p>
             <p className={styles["data-text1"]}>(TOYOTA, LEXUS & PERODUA)</p>
-            <p className={styles["data-text2"]}>(rm million)</p>
             <CountUp
               start={0}
               end={53.1}
+              decimals={1}
               delay={0}
               enableScrollSpy={true}
               scrollSpyDelay={1}

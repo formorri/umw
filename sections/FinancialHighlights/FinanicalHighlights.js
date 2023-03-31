@@ -47,6 +47,8 @@ const FinanicalHighlights = () => {
             start={0}
             end={15814.4}
             delay={0}
+            decimal='.'
+            decimals={1}
             enableScrollSpy={true}
             scrollSpyDelay={1}
           >
@@ -56,6 +58,7 @@ const FinanicalHighlights = () => {
               </div>
             )}
           </CountUp>
+          <p className={styles["data-text2"]}>(2021: 11,060.8)</p>
         </motion.div>
         <motion.div
           variants={itemVariants}
@@ -68,6 +71,8 @@ const FinanicalHighlights = () => {
           <CountUp
             start={0}
             end={896.5}
+            decimal='.'
+            decimals={1}
             delay={0}
             enableScrollSpy={true}
             scrollSpyDelay={1}
@@ -78,6 +83,7 @@ const FinanicalHighlights = () => {
               </div>
             )}
           </CountUp>
+          <p className={styles["data-text2"]}>(2021: 482.8)</p>
         </motion.div>
         <motion.div
           variants={itemVariants}
@@ -90,6 +96,8 @@ const FinanicalHighlights = () => {
           <CountUp
             start={0}
             end={677.9}
+            decimal='.'
+            decimals={1}
             delay={0}
             enableScrollSpy={true}
             scrollSpyDelay={1}
@@ -100,6 +108,7 @@ const FinanicalHighlights = () => {
               </div>
             )}
           </CountUp>
+          <p className={styles["data-text2"]}>(2021: 515.6)</p>
         </motion.div>
         <motion.div
           variants={itemVariants}
@@ -110,6 +119,8 @@ const FinanicalHighlights = () => {
           <CountUp
             start={0}
             end={4350.0}
+            decimal='.'
+            decimals={1}
             delay={0}
             enableScrollSpy={true}
             scrollSpyDelay={1}
@@ -120,6 +131,7 @@ const FinanicalHighlights = () => {
               </div>
             )}
           </CountUp>
+          <p className={styles["data-text2"]}>(2021: 4,004.7)</p>
         </motion.div>
         <motion.div
           variants={itemVariants}
@@ -130,6 +142,8 @@ const FinanicalHighlights = () => {
           <CountUp
             start={0}
             end={35.5}
+            decimal='.'
+            decimals={1}
             delay={0}
             enableScrollSpy={true}
             scrollSpyDelay={1}
@@ -140,6 +154,7 @@ const FinanicalHighlights = () => {
               </div>
             )}
           </CountUp>
+          <p className={styles["data-text2"]}>(2021: 23.0)</p>
         </motion.div>
         <motion.div
           variants={itemVariants}
@@ -150,6 +165,8 @@ const FinanicalHighlights = () => {
           <CountUp
             start={0}
             end={3.7}
+            decimal='.'
+            decimals={1}
             delay={0}
             enableScrollSpy={true}
             scrollSpyDelay={1}
@@ -160,6 +177,7 @@ const FinanicalHighlights = () => {
               </div>
             )}
           </CountUp>
+          <p className={styles["data-text2"]}>(2021: 3.4)</p>
         </motion.div>
       </div>
     </motion.div>

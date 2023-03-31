@@ -80,7 +80,7 @@ $width-card: 35rem;
 }
 
 .card {
-    border-radius: $border-radiusx2;
+    border-radius: calc($border-radiusx2 + 5px) ;
     height: $height-card;
     width: $width-card;
 
