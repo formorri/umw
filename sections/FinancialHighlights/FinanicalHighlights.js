@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
-import styles from './FinancialHighlights.module.scss'
-import { images } from '../../constants';
+import React, { useState, useEffect, useRef } from "react";
+import styles from "./FinancialHighlights.module.scss";
+import { images } from "../../constants";
 import CountUp from "react-countup";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -23,166 +23,191 @@ const itemVariants = {
 
 const FinanicalHighlights = () => {
   const { ref, inView } = useInView({ threshold: 0.5 });
+  const [isPlaying1, setIsPlaying1] = useState(false);
+  const [isPlaying2, setIsPlaying2] = useState(false);
+  const [isPlaying3, setIsPlaying3] = useState(false);
+  const [isPlaying4, setIsPlaying4] = useState(false);
+  const [isPlaying5, setIsPlaying5] = useState(false);
+  const [isPlaying6, setIsPlaying6] = useState(false);
+  const videoRef1 = useRef(null);
+  const videoRef2 = useRef(null);
+  const videoRef3 = useRef(null);
+  const videoRef4 = useRef(null);
+  const videoRef5 = useRef(null);
+  const videoRef6 = useRef(null);
+
+  useEffect(() => {
+    if (inView && videoRef1.current && !isPlaying1) {
+      setIsPlaying1(true);
+      videoRef1.current.play();
+    } else if (!inView && videoRef1.current && isPlaying1) {
+      setIsPlaying1(false);
+      videoRef1.current.pause();
+      videoRef1.current.currentTime = 0;
+    }
+
+    if (inView && videoRef2.current && !isPlaying2) {
+      setIsPlaying2(true);
+      videoRef2.current.play();
+    } else if (!inView && videoRef2.current && isPlaying2) {
+      setIsPlaying2(false);
+      videoRef2.current.pause();
+      videoRef2.current.currentTime = 0;
+    }
+
+    if (inView && videoRef3.current && !isPlaying3) {
+      setIsPlaying3(true);
+      videoRef3.current.play();
+    } else if (!inView && videoRef3.current && isPlaying3) {
+      setIsPlaying3(false);
+      videoRef3.current.pause();
+      videoRef3.current.currentTime = 0;
+    }
+
+    if (inView && videoRef4.current && !isPlaying4) {
+      setIsPlaying4(true);
+      videoRef4.current.play();
+    } else if (!inView && videoRef4.current && isPlaying4) {
+      setIsPlaying4(false);
+      videoRef4.current.pause();
+      videoRef4.current.currentTime = 0;
+    }
+
+    if (inView && videoRef5.current && !isPlaying5) {
+      setIsPlaying5(true);
+      videoRef5.current.play();
+    } else if (!inView && videoRef5.current && isPlaying5) {
+      setIsPlaying5(false);
+      videoRef5.current.pause();
+      videoRef5.current.currentTime = 0;
+    }
+
+    if (inView && videoRef6.current && !isPlaying6) {
+      setIsPlaying6(true);
+      videoRef6.current.play();
+    } else if (!inView && videoRef6.current && isPlaying6) {
+      setIsPlaying6(false);
+      videoRef6.current.pause();
+      videoRef6.current.currentTime = 0;
+    }
+  }, [
+    inView,
+    isPlaying1,
+    isPlaying2,
+    isPlaying3,
+    isPlaying4,
+    isPlaying5,
+    isPlaying6,
+  ]);
+
   return (
     <div className={styles.financial}>
-    <motion.div
-      ref={ref}
-      variants={containerVariants}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      transition={{ duration: 0.8 }}
-      className={styles.financial}
-    >
-      <div>
-        <h2 className={styles.title}>financial highlights</h2>
-      </div>
-      <div className={styles.wrapper}>
-        <motion.div
-          variants={itemVariants}
-          className={`${styles.card1} ${styles["data1"]}`}
-        >
-          <p className={styles["data-text1"]}>revenue</p>
-          <p className={styles["data-text2"]}>(rm million)</p>
-          <CountUp
-            start={0}
-            end={15814.4}
-            delay={0}
-            decimal='.'
-            decimals={1}
-            enableScrollSpy={true}
-            scrollSpyDelay={1}
+      <motion.div
+        ref={ref}
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        transition={{ duration: 0.8 }}
+        className={styles['financial-container']}
+      >
+        <div>
+          <h2 className={styles.title}>financial highlights</h2>
+        </div>
+        <div className={styles.wrapper}>
+          <motion.div
+            variants={itemVariants}
+            className={`${styles.card} ${styles["card1"]}`}
           >
-            {({ countUpRef }) => (
-              <div>
-                <p className={styles["data-number"]} ref={countUpRef}></p>
-              </div>
-            )}
-          </CountUp>
-          <p className={styles["data-text2"]}>(2021: 11,060.8)</p>
-        </motion.div>
-        <motion.div
-          variants={itemVariants}
-          className={`${styles.card2} ${styles["data2"]}`}
-        >
-          <p className={styles["data-text1"]}>
-            PROFIT BEFORE ZAKAT AND TAXATION*
-          </p>
-          <p className={styles["data-text2"]}>(RM MILLION)</p>
-          <CountUp
-            start={0}
-            end={896.5}
-            decimal='.'
-            decimals={1}
-            delay={0}
-            enableScrollSpy={true}
-            scrollSpyDelay={1}
+            <div className={styles.header}>
+              <p className={styles["header-text"]}>
+                revenue <span className={styles["unit"]}>(RM million)</span>
+              </p>
+            </div>
+            <div className={styles["graph-container"]} ref={ref}>
+              <video className={styles.graph} ref={videoRef1} muted playsInline>
+                <source src="assets/graph-1.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </motion.div>
+          <motion.div
+            variants={itemVariants}
+            className={`${styles.card} ${styles["card2"]}`}
           >
-            {({ countUpRef }) => (
-              <div>
-                <p className={styles["data-number"]} ref={countUpRef}></p>
-              </div>
-            )}
-          </CountUp>
-          <p className={styles["data-text2"]}>(2021: 482.8)</p>
-        </motion.div>
-        <motion.div
-          variants={itemVariants}
-          className={`${styles.card1} ${styles["data3"]}`}
-        >
-          <p className={styles["data-text1"]}>
-            PROFIT FOR THE FINANCIAL YEAR
-          </p>
-          <p className={styles["data-text2"]}>(rm million)</p>
-          <CountUp
-            start={0}
-            end={677.9}
-            decimal='.'
-            decimals={1}
-            delay={0}
-            enableScrollSpy={true}
-            scrollSpyDelay={1}
+            <div className={styles.header}>
+              <p className={styles["header-text"]}>
+                revenue <span className={styles["unit"]}>(RM million)</span>
+              </p>
+            </div>
+            <div className={styles["graph-container"]} ref={ref}>
+              <video className={styles.graph} ref={videoRef2} muted playsInline>
+                <source src="assets/graph-2.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </motion.div>
+          <motion.div
+            variants={itemVariants}
+            className={`${styles.card} ${styles["card3"]}`}
           >
-            {({ countUpRef }) => (
-              <div>
-                <p className={styles["data-number"]} ref={countUpRef}></p>
-              </div>
-            )}
-          </CountUp>
-          <p className={styles["data-text2"]}>(2021: 515.6)</p>
-        </motion.div>
-        <motion.div
-          variants={itemVariants}
-          className={`${styles.card2} ${styles["data4"]}`}
-        >
-          <p className={styles["data-text1"]}>SHAREHOLDERS’ FUNDS</p>
-          <p className={styles["data-text2"]}>(RM MILLION)</p>
-          <CountUp
-            start={0}
-            end={4350.0}
-            decimal='.'
-            decimals={1}
-            delay={0}
-            enableScrollSpy={true}
-            scrollSpyDelay={1}
+            <div className={styles.header}>
+              <p className={styles["header-text"]}>
+                revenue <span className={styles["unit"]}>(RM million)</span>
+              </p>
+            </div>
+            <div className={styles["graph-container"]} ref={ref}>
+              <video className={styles.graph} ref={videoRef3} muted playsInline>
+                <source src="assets/graph-3.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </motion.div>
+          <motion.div
+            variants={itemVariants}
+            className={`${styles.card} ${styles["card4"]}`}
           >
-            {({ countUpRef }) => (
-              <div>
-                <p className={styles["data-number"]} ref={countUpRef}></p>
-              </div>
-            )}
-          </CountUp>
-          <p className={styles["data-text2"]}>(2021: 4,004.7)</p>
-        </motion.div>
-        <motion.div
-          variants={itemVariants}
-          className={`${styles.card1} ${styles["data5"]}`}
-        >
-          <p className={styles["data-text1"]}>BASIC EARNINGS PER SHARE</p>
-          <p className={styles["data-text2"]}>(sen)</p>
-          <CountUp
-            start={0}
-            end={35.5}
-            decimal='.'
-            decimals={1}
-            delay={0}
-            enableScrollSpy={true}
-            scrollSpyDelay={1}
+            <div className={styles.header}>
+              <p className={styles["header-text"]}>
+                revenue <span className={styles["unit"]}>(RM million)</span>
+              </p>
+            </div>
+            <div className={styles["graph-container"]} ref={ref}>
+              <video className={styles.graph} ref={videoRef4} muted playsInline>
+                <source src="assets/graph-4.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </motion.div>
+          <motion.div
+            variants={itemVariants}
+            className={`${styles.card} ${styles["card5"]}`}
           >
-            {({ countUpRef }) => (
-              <div>
-                <p className={styles["data-number"]} ref={countUpRef}></p>
-              </div>
-            )}
-          </CountUp>
-          <p className={styles["data-text2"]}>(2021: 23.0)</p>
-        </motion.div>
-        <motion.div
-          variants={itemVariants}
-          className={`${styles.card2} ${styles["data6"]}`}
-        >
-          <p className={styles["data-text1"]}>NET ASSETS PER SHARE</p>
-          <p className={styles["data-text2"]}>(RM)</p>
-          <CountUp
-            start={0}
-            end={3.7}
-            decimal='.'
-            decimals={1}
-            delay={0}
-            enableScrollSpy={true}
-            scrollSpyDelay={1}
+            <div className={styles.header}>
+              <p className={styles["header-text"]}>
+                revenue <span className={styles["unit"]}>(RM million)</span>
+              </p>
+            </div>
+            <div className={styles["graph-container"]} ref={ref}>
+              <video className={styles.graph} ref={videoRef5} muted playsInline>
+                <source src="assets/graph-5.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </motion.div>
+          <motion.div
+            variants={itemVariants}
+            className={`${styles.card} ${styles["card6"]}`}
           >
-            {({ countUpRef }) => (
-              <div>
-                <p className={styles["data-number"]} ref={countUpRef}></p>
-              </div>
-            )}
-          </CountUp>
-          <p className={styles["data-text2"]}>(2021: 3.4)</p>
-        </motion.div>
-      </div>
-    </motion.div>
-  </div>
-  )
-}
+            <div className={styles.header}>
+              <p className={styles["header-text"]}>
+                revenue <span className={styles["unit"]}>(RM million)</span>
+              </p>
+            </div>
+            <div className={styles["graph-container"]} ref={ref}>
+              <video className={styles.graph} ref={videoRef6} muted playsInline>
+                <source src="assets/graph-6.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
 
-export default FinanicalHighlights
+export default FinanicalHighlights;

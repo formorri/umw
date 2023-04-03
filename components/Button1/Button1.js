@@ -13,11 +13,13 @@ const Button1 = ({
   className,
   textClass,
 }) => {
+
+  
   return (
     <div className={`${styles["container"]} ${className}`}>
       <Link className={styles.link} href={link}>
         <div
-          className={styles["inner"]}
+          className={styles["text-container"]}
           style={{ background: backgroundColor }}
         >
           <div
@@ -25,13 +27,18 @@ const Button1 = ({
             style={{ color: textColor }}
           >
             {text}
-            <Image
-              src={images[icon]}
-              priority
-              alt={`${icon}icon`}
-              className={styles.icon}
-            />
           </div>
+        </div>
+        <div
+          className={styles["icon-container"]}
+          style={{ background: backgroundColor }}
+        >
+          <Image
+            src={images[icon]}
+            priority
+            alt={`${icon}icon`}
+            className={styles.icon}
+          />
         </div>
       </Link>
     </div>

@@ -1,28 +1,40 @@
 @use '../../styles/settings/index.scss' as *;
 
 .margin {
-    padding: 2rem;
+    // padding: 2rem;
 }
 
 .wrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 90vw;
+    width: 100vw;
     justify-content: center;
 }
 
 .slider {
     padding: 2rem;
-    max-width: 80vw;
+    max-width: 95vw;
+}
+
+.navigation{
+    $size: 40px;
+    background-color: $blue-1;
+    color: $white-1;
+    width: $size;
+    height: $size;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
 }
 
 .prev {
-    transform: rotate(180deg);
-    margin-right: 0.5rem;
+    margin-right: -1.5rem;
 }
 
 .next {
-    margin-left: 0.5rem;
-
+    margin-left: -1.5rem;
 }

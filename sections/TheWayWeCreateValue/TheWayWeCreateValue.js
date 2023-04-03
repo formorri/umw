@@ -12,7 +12,7 @@ import { useWindowSize } from "react-use";
 import { motion, AnimatePresence } from "framer-motion";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 
 const carouselData = [
   {
@@ -374,8 +374,6 @@ const TheWayWeCreateValue = () => {
   const [value2Modal, setValue2Modal] = useState(false);
   const [value3Modal, setValue3Modal] = useState(false);
   const [value4Modal, setValue4Modal] = useState(false);
-  const [value5Modal, setValue5Modal] = useState(false);
-  const [value6Modal, setValue6Modal] = useState(false);
 
   return (
     <div className={styles.container}>
@@ -391,16 +389,6 @@ const TheWayWeCreateValue = () => {
           <motion.div variants={itemVariants}>
             <h2 className={styles.title}>Managing our material matters</h2>
           </motion.div>
-          <motion.div variants={itemVariants} className={styles.flex}>
-            <Button1
-              link="/"
-              text="Download This Section"
-              backgroundColor="#112F5E"
-              textColor="white"
-              icon="download"
-              className={styles.download}
-            />
-          </motion.div>
           <motion.div variants={itemVariants}>
             <Carousel>
               {carouselData.map((item) => (
@@ -413,18 +401,32 @@ const TheWayWeCreateValue = () => {
                       className={styles["carousel-image"]}
                     />
                     <p className={styles["carousel-text"]}>{item.title}</p>
-                    <Button1Popup
-                      text="Read More"
-                      backgroundColor="#1683BA"
-                      textColor="white"
-                      icon="add"
+                    <div
                       className={styles["carousel-button"]}
                       onClick={() => handleModalClick(item.key)}
-                    />
+                    >
+                      <AddIcon />
+                    </div>
                   </div>
                 </div>
               ))}
             </Carousel>
+          </motion.div>
+          <motion.div
+            whenInView={{
+              y: [10, 0],
+              opacity: [0, 1],
+            }}
+            transition={{ duration: 0.8 }}
+          >
+            <Button1
+              link="/"
+              text="Download This Section"
+              backgroundColor="#112F5E"
+              textColor="white"
+              icon="download"
+              className={styles.download}
+            />
           </motion.div>
         </motion.div>
         {activeKey && (
@@ -438,63 +440,72 @@ const TheWayWeCreateValue = () => {
           >
             <div className={styles["modal-container"]}>
               <div className={styles["modal"]}>
-                <div className={styles["modal-card-container"]}>
-                  <div className={styles["modal-card"]}>
-                    <div
-                      className={`${styles.header} ${styles["risk-header"]}`}
-                    >
-                      <p className={styles["title-text"]}>risks</p>
-                    </div>
-                    {activeModal.risks.map((item, index) => (
-                      <ul className={styles.list} key={index}>
-                        <li>{item}</li>
-                      </ul>
-                    ))}
-                  </div>
-                  <div className={styles["modal-card"]}>
-                    <div className={`${styles.header} ${styles["opp-header"]}`}>
-                      <p className={styles["title-text"]}>opportunities</p>
-                    </div>
-                    {activeModal.opportunities.map((item, index) => (
-                      <ul className={styles.list} key={index}>
-                        <li>{item}</li>
-                      </ul>
-                    ))}
-                  </div>
-                  <div className={styles["modal-card"]}>
-                    <div
-                      className={`${styles.header} ${styles["shortMid-header"]}`}
-                    >
-                      <p className={styles["title-text"]}>
-                        Short-to-Mid-term Approach
-                      </p>
-                    </div>
-                    {activeModal.shortMid.map((item, index) => (
-                      <ul className={styles.list} key={index}>
-                        <li>{item}</li>
-                      </ul>
-                    ))}
-                  </div>
-                  <div className={styles["modal-card"]}>
-                    <div
-                      className={`${styles.header} ${styles["value-header"]}`}
-                    >
-                      <p className={styles["title-text"]}>Value Created</p>
-                    </div>
-                    {activeModal.value.map((item, index) => (
-                      <ul className={styles.list} key={index}>
-                        <li>{item}</li>
-                      </ul>
-                    ))}
-                  </div>
-                </div>
-
                 <IconButton
                   onClick={handleModalClose}
                   className={styles["close-container"]}
                 >
                   <CloseIcon className={styles["close"]} />
                 </IconButton>
+                <div className={styles["modal-card-container"]}>
+                  <div className={styles["modal-card"]}>
+                    <div className={styles["content"]}>
+                      <div
+                        className={`${styles.header} ${styles["risk-header"]}`}
+                      >
+                        <p className={styles["title-text"]}>risks</p>
+                      </div>
+                      <ul className={styles.list}>
+                        {activeModal.risks.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className={styles["modal-card"]}>
+                    <div className={styles["content"]}>
+                      <div
+                        className={`${styles.header} ${styles["opp-header"]}`}
+                      >
+                        <p className={styles["title-text"]}>opportunities</p>
+                      </div>
+                      <ul className={styles.list}>
+                        {activeModal.opportunities.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className={styles["modal-card"]}>
+                    <div className={styles["content"]}>
+                      <div
+                        className={`${styles.header} ${styles["shortMid-header"]}`}
+                      >
+                        <p className={styles["title-text"]}>
+                          Short-to-Mid-term Approach
+                        </p>
+                      </div>
+                      <ul className={styles.list}>
+                        {activeModal.shortMid.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className={styles["modal-card"]}>
+                    <div className={styles["content"]}>
+                      <div
+                        className={`${styles.header} ${styles["value-header"]}`}
+                      >
+                        <p className={styles["title-text"]}>Value Created</p>
+                      </div>
+                      <ul className={styles.list}>
+                        {activeModal.value.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </Modal>
@@ -527,113 +538,132 @@ const TheWayWeCreateValue = () => {
                 className={styles["crest-image"]}
               />
             </motion.div>
-            {/* Financial button */}
+            {/* Key Inputs button */}
             <motion.div
               whileInView={whileInView1}
               transition={{ duration: 0.8 }}
-              className={`${styles["value-1"]} ${styles["value-card"]}`}
-              onClick={() => setValue1Modal(true)}
+              className={styles["input"]}
             >
-              <div className={styles["value-header"]}>
-                <Image
-                  src={images.value2}
-                  loading="lazy"
-                  alt="financial"
-                  className={styles["financial"]}
-                />
-                <p className={styles["value-text"]}>financial</p>
+              <div
+                className={styles["input-header"]}
+                onClick={() => setValue1Modal(true)}
+              >
+                <p className={styles["input-text"]}>key inputs</p>
+                <div className={styles["button-container"]}>
+                  <AddIcon className={styles.icon} />
+                </div>
               </div>
-              <div className={styles["value-button"]}><AddIcon /></div>
-            </motion.div>
-            {/* Manufactured button */}
-            <motion.div
-              whileInView={whileInView1}
-              transition={{ duration: 0.8 }}
-              className={`${styles["value-2"]} ${styles["value-card"]}`}
-              onClick={() => setValue2Modal(true)}
-            >
-              <div className={styles["value-header"]}>
-                <Image
-                  src={images.value3}
-                  loading="lazy"
-                  alt="manufactured"
-                  className={styles["manufactured"]}
-                />
-                <p className={styles["value-text"]}>manufactured</p>
+              <div className={styles["input-content"]}>
+                <div
+                  className={`${styles["input-item"]} ${styles["financial"]}`}
+                >
+                  <Image
+                    src={images.value2}
+                    loading="lazy"
+                    alt="financial"
+                    className={styles["input-icon"]}
+                  />
+                  <p className={styles["input-text"]}>financial</p>
+                </div>
+                <div
+                  className={`${styles["input-item"]} ${styles["manufactured"]}`}
+                >
+                  <Image
+                    src={images.value3}
+                    loading="lazy"
+                    alt="manufactured"
+                    className={styles["input-icon"]}
+                  />
+                  <p className={styles["input-text"]}>manufactured</p>
+                </div>
+                <div className={`${styles["input-item"]} ${styles["human"]}`}>
+                  <Image
+                    src={images.value4}
+                    loading="lazy"
+                    alt="human"
+                    className={styles["input-icon"]}
+                  />
+                  <p className={styles["input-text"]}>human</p>
+                </div>
+                <div
+                  className={`${styles["input-item"]} ${styles["intellectual"]}`}
+                >
+                  <Image
+                    src={images.value5}
+                    loading="lazy"
+                    alt="intellectual"
+                    className={styles["input-icon"]}
+                  />
+                  <p className={styles["input-text"]}>intellectual</p>
+                </div>
+                <div className={`${styles["input-item"]} ${styles["social"]}`}>
+                  <Image
+                    src={images.value6}
+                    loading="lazy"
+                    alt="social"
+                    className={styles["input-icon"]}
+                  />
+                  <p className={styles["input-text"]}>social</p>
+                </div>
+                <div className={`${styles["input-item"]} ${styles["natural"]}`}>
+                  <Image
+                    src={images.value7}
+                    loading="lazy"
+                    alt="natural"
+                    className={styles["input-icon"]}
+                  />
+                  <p className={styles["input-text"]}>natural</p>
+                </div>
               </div>
-              <div className={styles["value-button"]}><AddIcon /></div>
             </motion.div>
-            {/* Human button */}
-            <motion.div
-              whileInView={whileInView1}
-              transition={{ duration: 0.8 }}
-              className={`${styles["value-3"]} ${styles["value-card"]}`}
-              onClick={() => setValue3Modal(true)}
-            >
-              <div className={styles["value-header"]}>
-                <Image
-                  src={images.value4}
-                  loading="lazy"
-                  alt="human"
-                  className={styles["human"]}
-                />
-                <p className={styles["value-text"]}>human</p>
-              </div>
-              <div className={styles["value-button"]}><AddIcon /></div>
-            </motion.div>
-            {/* intellectual button */}
-            <motion.div
-              whileInView={whileInView2}
-              transition={{ duration: 0.8 }}
-              className={`${styles["value-4"]} ${styles["value-card"]}`}
-              onClick={() => setValue4Modal(true)}
-            >
-              <div className={styles["value-header"]}>
-                <Image
-                  src={images.value5}
-                  loading="lazy"
-                  alt="intellectual"
-                  className={styles["intellectual"]}
-                />
-                <p className={styles["value-text"]}>intellectual</p>
-              </div>
-              <div className={styles["value-button"]}><AddIcon /></div>
-            </motion.div>
-            {/* social button */}
-            <motion.div
-              whileInView={whileInView2}
-              transition={{ duration: 0.8 }}
-              className={`${styles["value-5"]} ${styles["value-card"]}`}
-              onClick={() => setValue5Modal(true)}
-            >
-              <div className={styles["value-header"]}>
-                <Image
-                  src={images.value6}
-                  loading="lazy"
-                  alt="social"
-                  className={styles["social"]}
-                />
-                <p className={styles["value-text"]}>social</p>
-              </div>
-              <div className={styles["value-button"]}><AddIcon /></div>
-            </motion.div>
-            {/* natural button */}
+
             <motion.div
               whileInView={whileInView2}
               transition={{ duration: 0.8 }}
-              className={`${styles["value-6"]} ${styles["value-card"]}`}
-              onClick={() => setValue6Modal(true)}
+              className={styles["sequence"]}
             >
-              <div className={styles["value-header"]}>
-                <Image
-                  src={images.value7}
-                  loading="lazy"
-                  alt="natural"
-                  className={styles["natural"]}
-                />
-                <p className={styles["value-text"]}>natural</p>
+              {/* Initiatives button */}
+              <div
+                className={`${styles["initiatives"]} ${styles["sequence-item"]}`}
+                onClick={() => setValue2Modal(true)}
+              >
+                <p className={styles["input-text"]}>initiatives</p>
+                <div className={styles["button-container"]}>
+                  <AddIcon className={styles.icon} />
+                </div>
               </div>
-              <div className={styles["value-button"]}><AddIcon /></div>
+              <Image
+                src={images.valueArrow}
+                loading="lazy"
+                alt="arrow"
+                className={styles["arrow"]}
+              />
+              {/* Outputs button */}
+              <div
+                className={`${styles["outputs"]} ${styles["sequence-item"]}`}
+                onClick={() => setValue3Modal(true)}
+              >
+                <p className={styles["input-text"]}>outputs</p>
+                <div className={styles["button-container"]}>
+                  <AddIcon className={styles.icon} />
+                </div>
+              </div>
+              <Image
+                src={images.valueArrow}
+                loading="lazy"
+                alt="arrow"
+                className={styles["arrow"]}
+              />
+              {/* Outputs button */}
+              <div
+                className={`${styles["outcomes"]} ${styles["sequence-item"]}`}
+                onClick={() => setValue4Modal(true)}
+              >
+                <p className={styles["input-text"]}>outcomes</p>
+                <div className={styles["button-container"]}>
+                  <AddIcon className={styles.icon} />
+                </div>
+              </div>
             </motion.div>
           </div>
           <motion.div
@@ -654,7 +684,7 @@ const TheWayWeCreateValue = () => {
             />
           </motion.div>
 
-          {/* financial modal */}
+          {/* inputs modal */}
           <Modal
             open={value1Modal}
             onClose={() => {
@@ -666,27 +696,19 @@ const TheWayWeCreateValue = () => {
             }}
           >
             <div className={styles["modal-container"]}>
-            <div className={`${styles.next} ${styles['arrow-container']}`}>
-              <ArrowForwardIcon
-                className={styles['arrow-icon']}
-                onClick={() => {
-                  setValue1Modal(false);
-                  setValue2Modal(true);
-                }}
-              />
-            </div>
-              <div
-                className={`${styles["value-modal"]} ${styles["value-modal-1"]}`}
-              >
+              <div className={`${styles.next} ${styles["arrow-container"]}`}>
+                <ArrowForwardIcon
+                  className={styles["arrow-icon"]}
+                  onClick={() => {
+                    setValue1Modal(false);
+                    setValue2Modal(true);
+                  }}
+                />
+              </div>
+              <div className={styles["sequence-modal"]}>
                 <div className={styles["modal-top"]}>
                   <div className={styles["modal-header"]}>
-                    <Image
-                      src={images.value2}
-                      loading="lazy"
-                      alt="financial"
-                      className={styles["value-icon"]}
-                    />
-                    <p className={styles["title"]}>Financial</p>
+                    <p className={styles["title"]}>Key inputs</p>
                   </div>
                   <IconButton
                     onClick={() => {
@@ -698,18 +720,19 @@ const TheWayWeCreateValue = () => {
                   </IconButton>
                 </div>
                 <div className={styles["content-wrapper"]}>
-                  {/* Key Inputs */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["financial-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
                       <Image
-                        src={images.valueAccent}
+                        src={images.value2}
                         loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
+                        alt="financial"
+                        className={styles["icon"]}
                       />
-                      <p className={styles["header"]}>Key Inputs</p>
+                      <p className={styles["header"]}>Financial</p>
                     </div>
-                    <div className={styles["item-content"]}>
+                    <div className={styles["sequence-content"]}>
                       <p className={styles["text"]}>
                         Financial capital is defined as the pool of funds
                         available to UMW. We keep our capital structure optimal,
@@ -822,251 +845,19 @@ const TheWayWeCreateValue = () => {
                       </CountUp>
                     </div>
                   </div>
-                  {/* Initiatives */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Initiatives</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
-                        <li>
-                          <p className={styles.text}>
-                            <span className={styles["text-bold"]}>
-                              Intensifying
-                            </span>{" "}
-                            customer retention and relationship
-                          </p>
-                        </li>
-                        <li>
-                          <CountUp
-                            start={0}
-                            end={178.4}
-                            delay={0}
-                            decimal="."
-                            decimals={1}
-                            enableScrollSpy={true}
-                            scrollSpyDelay={1}
-                          >
-                            {({ countUpRef }) => (
-                              <div className={styles["figures-list"]}>
-                                <p className={styles.text}>
-                                  Cost optimisation efforts led to savings of
-                                </p>
-                                <p style={{ margin: 0 }}>
-                                  <span
-                                    ref={countUpRef}
-                                    className={styles.number}
-                                  ></span>
-                                  <span className={styles.unit}> million</span>
-                                </p>
-                                <p className={styles.text}>in FY2021</p>
-                              </div>
-                            )}
-                          </CountUp>
-                        </li>
-                        <li>
-                          <p className={styles.text}>
-                            Built{" "}
-                            <span className={styles["text-bold"]}>
-                              strong relationships
-                            </span>{" "}
-                            with our principles
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  {/* Outputs */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Outputs</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
-                        <li>
-                          <CountUp
-                            start={0}
-                            end={9.5}
-                            delay={0}
-                            decimal="."
-                            decimals={1}
-                            enableScrollSpy={true}
-                            scrollSpyDelay={1}
-                          >
-                            {({ countUpRef }) => (
-                              <div className={styles["figures-list"]}>
-                                <p className={styles.text}>Return on Equity</p>
-                                <p style={{ margin: 0 }}>
-                                  <span
-                                    ref={countUpRef}
-                                    className={styles.number}
-                                  ></span>
-                                  <span className={styles.unit}> %</span>
-                                </p>
-                              </div>
-                            )}
-                          </CountUp>
-                        </li>
-                        <li>
-                          <CountUp
-                            start={0}
-                            end={14.2}
-                            delay={0}
-                            decimal="."
-                            decimals={1}
-                            enableScrollSpy={true}
-                            scrollSpyDelay={1}
-                          >
-                            {({ countUpRef }) => (
-                              <div className={styles["figures-list"]}>
-                                <p className={styles.text}>Dividend payout</p>
-                                <p style={{ margin: 0 }}>
-                                  <span
-                                    ref={countUpRef}
-                                    className={styles.number}
-                                  ></span>
-                                  <span className={styles.unit}> sen</span>
-                                </p>
-                              </div>
-                            )}
-                          </CountUp>
-                        </li>
-                        <li>
-                          <CountUp
-                            start={0}
-                            end={35.5}
-                            delay={0}
-                            decimal="."
-                            decimals={1}
-                            enableScrollSpy={true}
-                            scrollSpyDelay={1}
-                          >
-                            {({ countUpRef }) => (
-                              <div className={styles["figures-list"]}>
-                                <p className={styles.text}>
-                                  Earnings per share
-                                </p>
-                                <p style={{ margin: 0 }}>
-                                  <span
-                                    ref={countUpRef}
-                                    className={styles.number}
-                                  ></span>
-                                  <span className={styles.unit}> sen</span>
-                                </p>
-                              </div>
-                            )}
-                          </CountUp>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  {/* Initiatives */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Outcomes</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
-                        <li>
-                          <p className={styles["text-bold"]}>
-                            Financial strength:
-                          </p>{" "}
-                          <p className={styles.text}>
-                            Value comes from prudent financial management and
-                            stringent cost optimisation provided for shareholder
-                            returns.
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Modal>
-          {/* manufactured modal */}
-          <Modal
-            open={value2Modal}
-            onClose={() => {
-              setValue2Modal(false);
-            }}
-            sx={{
-              overflow: "scroll",
-              maxHeight: "100vh",
-            }}
-          >
-            <div className={styles["modal-container"]}>
-            <div className={`${styles.prev} ${styles['arrow-container']}`}>
-              <ArrowBackIcon
-                className={styles['arrow-icon']}
-                onClick={() => {
-                  setValue1Modal(true);
-                  setValue2Modal(false);
-                }}
-              />
-            </div>
-            <div className={`${styles.next} ${styles['arrow-container']}`}>
-              <ArrowForwardIcon
-                className={styles['arrow-icon']}
-                onClick={() => {
-                  setValue2Modal(false);
-                  setValue3Modal(true);
-                }}
-              />
-            </div>
-              <div
-                className={`${styles["value-modal"]} ${styles["value-modal-2"]}`}
-              >
-                <div className={styles["modal-top"]}>
-                  <div className={styles["modal-header"]}>
-                    <Image
-                      src={images.value3}
-                      loading="lazy"
-                      alt="manufactured"
-                      className={styles["value-icon"]}
-                    />
-                    <p className={styles["title"]}>MANUFACTURED</p>
-                  </div>
-                  <IconButton
-                    onClick={() => {
-                      setValue2Modal(false);
-                    }}
-                    className={styles["close-container"]}
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["manufactured-card"]}`}
                   >
-                    <CloseIcon className={styles["close"]} />
-                  </IconButton>
-                </div>
-                <div className={styles["content-wrapper"]}>
-                  {/* Key Inputs */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
+                    <div className={styles["header-container"]}>
                       <Image
-                        src={images.valueAccent}
+                        src={images.value3}
                         loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
+                        alt="manufactured"
+                        className={styles["icon"]}
                       />
-                      <p className={styles["header"]}>Key Inputs</p>
+                      <p className={styles["header"]}>manufactured</p>
                     </div>
-                    <div className={styles["item-content"]}>
+                    <div className={styles["sequence-content"]}>
                       <p className={styles["text"]}>
                         Manufactured capital includes the Group’s assets and
                         infrastructure, i.e. the machinery, equipment and
@@ -1079,229 +870,42 @@ const TheWayWeCreateValue = () => {
                         alt="divider"
                         className={styles["divider"]}
                       />
-                      <ul className={styles["content-list"]}>
-                        <li>
-                          <p className={styles["text-bold"]}>Equipment:</p>{" "}
-                          <p className={styles.text}>
-                            Customer Centre in Kota Kemuning, Shah Alam
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles["text-bold"]}>M&E:</p>{" "}
-                          <p className={styles.text}>
-                            Smart lubricant manufacturing plant in Pulau Indah
-                            and modernised manufactruing plant in Teluk Panglima
-                            Garang for KYB-UMW
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles["text-bold"]}>Development:</p>{" "}
-                          <p className={styles.text}>
-                            Infrastructure at the UMW HVM Park was enhanced and
-                            awarded Green certification
-                          </p>
-                        </li>
-                      </ul>
+                      <div className={styles["border-bottom"]}>
+                        <p className={styles["text-bold"]}>Equipment:</p>{" "}
+                        <p className={styles.text}>
+                          Customer Centre in Kota Kemuning, Shah Alam
+                        </p>
+                      </div>
+                      <div className={styles["border-bottom"]}>
+                        <p className={styles["text-bold"]}>M&E:</p>{" "}
+                        <p className={styles.text}>
+                          Smart lubricant manufacturing plant in Pulau Indah and
+                          modernised manufactruing plant in Teluk Panglima
+                          Garang for KYB-UMW
+                        </p>
+                      </div>
+                      <div className={styles[""]}>
+                        <p className={styles["text-bold"]}>Development:</p>{" "}
+                        <p className={styles.text}>
+                          Infrastructure at the UMW HVM Park was enhanced and
+                          awarded Green certification
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  {/* Initiatives */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Initiatives</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
-                        <li>
-                          <p className={styles["text-bold"]}>Automotive:</p>{" "}
-                          <p className={styles.text}>
-                            New model launches, including the Corolla Cross
-                            hybrid electric model from Toyota and Ativa Hybrid
-                            from Perodua
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles["text-bold"]}>Equipment:</p>{" "}
-                          <p className={styles.text}>
-                            A series of successful marketing campaigns was
-                            launched to maximise opportunities during the year
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles["text-bold"]}>M&E:</p>{" "}
-                          <p className={styles.text}>
-                            Launched Grantt Bio VG Hydraulic Oil, its first
-                            range of green, bio hydraulic lubricants
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles["text-bold"]}>Aerospace:</p>{" "}
-                          <p className={styles.text}>
-                            Strong commitment to quality and product excellence
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  {/* Outputs */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Outputs</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
-                        <li>
-                          <p className={styles["text-bold"]}>Automotive:</p>{" "}
-                          <p className={styles.text}>
-                            Both Toyota and Perodua maintained their lead
-                            positions in the nonnational and national car
-                            markets respectively
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles["text-bold"]}>Automotive:</p>{" "}
-                          <p className={styles.text}>
-                            Introduced the Toyota Mirai which uses experimental
-                            hydrogen-fueled technology and is being trialled in
-                            Malaysia
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles["text-bold"]}>M&E:</p>{" "}
-                          <p className={styles.text}>
-                            GRANTT Bio VG Hydraulic Oil Both obtained MyHijau
-                            certification
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles["text-bold"]}>Equipment:</p>{" "}
-                          <p className={styles.text}>
-                            Industrial segment's business grew in sectors such
-                            as food & beverage, logistics, and warehousing.
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles["text-bold"]}>Aerospace:</p>{" "}
-                          <p className={styles.text}>
-                            Industrial segment's business grew in sectors such
-                            as the Division retained its position in the top 5%
-                            of Rolls-Royce suppliers globally
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles["text-bold"]}>Green Products:</p>{" "}
-                          <p className={styles.text}>
-                            Expansion of BRUSS and Water Reclamation Plant
-                            (in-house membrane)
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  {/* Initiatives */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Outcomes</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
-                        <li>
-                          <p className={styles["text-bold"]}>Embedded trust:</p>{" "}
-                          <p className={styles.text}>
-                            The strength of our assets serves to bring about a
-                            competitive advantage and provide assurance on our
-                            quality.
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Modal>
-          {/* human modal */}
-          <Modal
-            open={value3Modal}
-            onClose={() => {
-              setValue3Modal(false);
-            }}
-            sx={{
-              overflow: "scroll",
-              maxHeight: "100vh",
-            }}
-          >
-            <div className={styles["modal-container"]}>
-            <div className={`${styles.prev} ${styles['arrow-container']}`}>
-              <ArrowBackIcon
-                className={styles['arrow-icon']}
-                onClick={() => {
-                  setValue2Modal(true);
-                  setValue3Modal(false);
-                }}
-              />
-            </div>
-            <div className={`${styles.next} ${styles['arrow-container']}`}>
-              <ArrowForwardIcon
-                className={styles['arrow-icon']}
-                onClick={() => {
-                  setValue3Modal(false);
-                  setValue4Modal(true);
-                }}
-              />
-            </div>
-              <div
-                className={`${styles["value-modal"]} ${styles["value-modal-3"]}`}
-              >
-                <div className={styles["modal-top"]}>
-                  <div className={styles["modal-header"]}>
-                    <Image
-                      src={images.value4}
-                      loading="lazy"
-                      alt="human"
-                      className={styles["value-icon"]}
-                    />
-                    <p className={styles["title"]}>human</p>
-                  </div>
-                  <IconButton
-                    onClick={() => {
-                      setValue3Modal(false);
-                    }}
-                    className={styles["close-container"]}
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["human-card"]}`}
                   >
-                    <CloseIcon className={styles["close"]} />
-                  </IconButton>
-                </div>
-                <div className={styles["content-wrapper"]}>
-                  {/* Key Inputs */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
+                    <div className={styles["header-container"]}>
                       <Image
-                        src={images.valueAccent}
+                        src={images.value4}
                         loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
+                        alt="human"
+                        className={styles["icon"]}
                       />
-                      <p className={styles["header"]}>Key Inputs</p>
+                      <p className={styles["header"]}>human</p>
                     </div>
-                    <div className={styles["item-content"]}>
+                    <div className={styles["sequence-content"]}>
                       <p className={styles["text"]}>
                         This capital covers the skills and experience of all the
                         Group’s employees that enable the Group to deliver its
@@ -1383,18 +987,412 @@ const TheWayWeCreateValue = () => {
                       </div>
                     </div>
                   </div>
-                  {/* Initiatives */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["intellectual-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
                       <Image
-                        src={images.valueAccent}
+                        src={images.value5}
                         loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
+                        alt="intellectual"
+                        className={styles["icon"]}
                       />
-                      <p className={styles["header"]}>Initiatives</p>
+                      <p className={styles["header"]}>intellectual</p>
                     </div>
-                    <div className={styles["item-content"]}>
+                    <div className={styles["sequence-content"]}>
+                      <p className={styles["text"]}>
+                        This capital encompasses organisational and
+                        knowledge-based intangibles that can include
+                        intellectual property such as licences or proprietary
+                        knowledge, systems or procedures.
+                      </p>
+                      <Image
+                        src={images.divider}
+                        loading="lazy"
+                        alt="divider"
+                        className={styles["divider"]}
+                      />
+                      <div className={styles["border-bottom"]}>
+                        <p className={styles.text}>
+                          Corporate policies that uphold integrity such as the{" "}
+                          <span className={styles["text-bold"]}>
+                            UMW Integrity Framework
+                          </span>{" "}
+                          and{" "}
+                          <span className={styles["text-bold"]}>
+                            Integrity Plan
+                          </span>
+                        </p>
+                      </div>
+                      <div className={styles["border-bottom"]}>
+                        <p className={styles["text-bold"]}>
+                          Strong research and development capabilities,
+                          innovation capacity, knowledge and expertise
+                        </p>
+                      </div>
+                      <div className={styles[""]}>
+                        <p className={styles.text}>
+                          <span className={styles["text-bold"]}>
+                            Collaborated with TM One{" "}
+                          </span>
+                          towards fast-tracking digitalisation, improving our
+                          current data centre architecture.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["social-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value6}
+                        loading="lazy"
+                        alt="social"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>social & relationship</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                      <p className={styles["text"]}>
+                        This capital describes the relationships built between
+                        communities, stakeholders and other relevant groups.
+                        This also includes the Group’s brand and reputation
+                        management.
+                      </p>
+                      <Image
+                        src={images.divider}
+                        loading="lazy"
+                        alt="divider"
+                        className={styles["divider"]}
+                      />
+                      <CountUp
+                        start={0}
+                        end={9.1}
+                        delay={0}
+                        decimal="."
+                        decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
+                          <div className={styles["border-bottom"]}>
+                            <div className={styles["figures"]}>
+                              <p style={{ margin: 0 }} className={styles.text}>
+                                <span
+                                  ref={countUpRef}
+                                  className={styles.number}
+                                ></span>
+                                <span className={styles.unit}> million</span>
+                              </p>
+                              <p className={styles.text}>
+                                invested in community engagement/CSR activities
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </CountUp>
+                      <CountUp
+                        start={0}
+                        end={11344}
+                        delay={0}
+                        // decimal="."
+                        // decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
+                          <div className={styles["border-bottom"]}>
+                            <div className={styles["figures"]}>
+                              <p style={{ margin: 0 }} className={styles.text}>
+                                More than {""}
+                                <span
+                                  ref={countUpRef}
+                                  className={styles.number}
+                                ></span>
+                                <span className={styles["text-bold"]}>
+                                  {" "}
+                                  volunteer hours {""}
+                                </span>
+                                recorded
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </CountUp>
+                      <div className={styles["figures"]}>
+                        <p className={styles.text}>
+                          <span className={styles["text-bold"]}>
+                            Active engagement
+                          </span>{" "}
+                          with various stakeholders
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["natural-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value7}
+                        loading="lazy"
+                        alt="natural"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>natural</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                      <p className={styles["text"]}>
+                        All renewable and non-renewable environmental resources
+                        and processes that provide goods or services that
+                        support the past, current or future prosperity of an
+                        organisation.
+                      </p>
+                      <Image
+                        src={images.divider}
+                        loading="lazy"
+                        alt="divider"
+                        className={styles["divider"]}
+                      />
+                      <CountUp
+                        start={0}
+                        end={100}
+                        delay={0}
+                        // decimal="."
+                        // decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
+                          <div className={styles["border-bottom"]}>
+                            <div className={styles["figures"]}>
+                              <p style={{ margin: 0 }} className={styles.text}>
+                                <span
+                                  ref={countUpRef}
+                                  className={styles.number}
+                                ></span>
+                                <span className={styles.unit}> %</span>
+                              </p>
+                              <p className={styles.text}>
+                                Carbon Neutrality by 2050
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </CountUp>
+                      <CountUp
+                        start={0}
+                        end={4}
+                        delay={0}
+                        // decimal="."
+                        // decimals={1}
+                        enableScrollSpy={true}
+                        scrollSpyDelay={1}
+                      >
+                        {({ countUpRef }) => (
+                          <div className={styles["border-bottom"]}>
+                            <div className={styles["figures"]}>
+                              <p style={{ margin: 0 }} className={styles.text}>
+                                More than {""}
+                                <span
+                                  ref={countUpRef}
+                                  className={styles.number}
+                                ></span>
+                                <span className={styles.unit}>MW</span>
+                                {""}capacity Solar Panels installed
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </CountUp>
+                      <div className={styles["figures"]}>
+                        <p className={styles.text}>
+                          <span className={styles["text-bold"]}>
+                            Going Paperless
+                          </span>{" "}
+                          Implementing a zeropaper culture across our operations
+                          to reduce waste
+                        </p>
+                      </div>
+                      <div className={styles["figures"]}>
+                        <p className={styles.text}>
+                          <span className={styles["text-bold"]}>
+                            Reforestation
+                          </span>{" "}
+                          Planting and rehabilitation of mangrove forests
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Modal>
+          {/* initiatives modal */}
+          <Modal
+            open={value2Modal}
+            onClose={() => {
+              setValue2Modal(false);
+            }}
+            sx={{
+              overflow: "scroll",
+              maxHeight: "100vh",
+            }}
+          >
+            <div className={styles["modal-container"]}>
+              <div className={`${styles.prev} ${styles["arrow-container"]}`}>
+                <ArrowBackIcon
+                  className={styles["arrow-icon"]}
+                  onClick={() => {
+                    setValue1Modal(true);
+                    setValue2Modal(false);
+                  }}
+                />
+              </div>
+              <div className={`${styles.next} ${styles["arrow-container"]}`}>
+                <ArrowForwardIcon
+                  className={styles["arrow-icon"]}
+                  onClick={() => {
+                    setValue2Modal(false);
+                    setValue3Modal(true);
+                  }}
+                />
+              </div>
+              <div className={styles["sequence-modal"]}>
+                <div className={styles["modal-top"]}>
+                  <div className={styles["modal-header"]}>
+                    <p className={styles["title"]}>Initiatives</p>
+                  </div>
+                  <IconButton
+                    onClick={() => {
+                      setValue2Modal(false);
+                    }}
+                    className={styles["close-container"]}
+                  >
+                    <CloseIcon className={styles["close"]} />
+                  </IconButton>
+                </div>
+                <div className={styles["content-wrapper"]}>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["financial-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value2}
+                        loading="lazy"
+                        alt="financial"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>Financial</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            <span className={styles["text-bold"]}>
+                              Intensifying
+                            </span>{" "}
+                            customer retention and relationship
+                          </p>
+                        </li>
+                        <li>
+                          <CountUp
+                            start={0}
+                            end={178.4}
+                            delay={0}
+                            decimal="."
+                            decimals={1}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                          >
+                            {({ countUpRef }) => (
+                              <div className={styles["figures-list"]}>
+                                <p className={styles.text}>
+                                  Cost optimisation efforts led to savings of
+                                </p>
+                                <p style={{ margin: 0 }}>
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                  <span className={styles.unit}> million</span>
+                                </p>
+                                <p className={styles.text}>in FY2021</p>
+                              </div>
+                            )}
+                          </CountUp>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Built{" "}
+                            <span className={styles["text-bold"]}>
+                              strong relationships
+                            </span>{" "}
+                            with our principles
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["manufactured-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value3}
+                        loading="lazy"
+                        alt="manufactured"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>manufactured</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>Automotive:</p>{" "}
+                          <p className={styles.text}>
+                            New model launches, including the Corolla Cross
+                            hybrid electric model from Toyota and Ativa Hybrid
+                            from Perodua
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>Equipment:</p>{" "}
+                          <p className={styles.text}>
+                            A series of successful marketing campaigns was
+                            launched to maximise opportunities during the year
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>M&E:</p>{" "}
+                          <p className={styles.text}>
+                            Launched Grantt Bio VG Hydraulic Oil, its first
+                            range of green, bio hydraulic lubricants
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>Aerospace:</p>{" "}
+                          <p className={styles.text}>
+                            Strong commitment to quality and product excellence
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["human-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value4}
+                        loading="lazy"
+                        alt="human"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>human</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
                       <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles.text}>
@@ -1420,19 +1418,340 @@ const TheWayWeCreateValue = () => {
                       </ul>
                     </div>
                   </div>
-                  {/* Outputs */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["intellectual-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
                       <Image
-                        src={images.valueAccent}
+                        src={images.value5}
                         loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
+                        alt="intellectual"
+                        className={styles["icon"]}
                       />
-                      <p className={styles["header"]}>Outputs</p>
+                      <p className={styles["header"]}>intellectual</p>
                     </div>
-                    <div className={styles["item-content"]}>
+                    <div className={styles["sequence-content"]}>
                       <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            Deployed a total of 21 RPA (Robotic Process
+                            Automation) projects to improve productivity
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Collaborated with Telekom Malaysia (TM) on hybrid
+                            cloud, to consolidate and improve our data centre
+                            architecture as part of our efforts to optimise
+                            technology and operations.
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Progressed new research and innovation initiatives
+                            through the UMW Innovation and Research &
+                            Development Centre
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Developed a range of strategic partnerships with
+                            various institutions to expand R&D collaborations
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["social-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value6}
+                        loading="lazy"
+                        alt="social"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>social & relationship</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            Provided a range of personal protective equipment in
+                            response to community and frontline requirements
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Provided excellent customer service and met customer
+                            needs
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Established new partnerships with a range of
+                            organisations to drive green innovation, nurture
+                            technological advancement and attract foreign
+                            investment
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["natural-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value7}
+                        loading="lazy"
+                        alt="natural"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>natural</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            Accelerating our sustainability agenda of achieving
+                            net zero carbon by 2050 by further integrating
+                            sustainability into our business operations
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            Introduced hybrid electric vehicle (Corolla Cross),
+                            expanded forklift refurbishments and battery-powered
+                            forklift business.
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles.text}>
+                            UMW Green Shoots (UGS) and Bamboo planting
+                            initiatives
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Modal>
+          {/* outputs modal */}
+          <Modal
+            open={value3Modal}
+            onClose={() => {
+              setValue3Modal(false);
+            }}
+            sx={{
+              overflow: "scroll",
+              maxHeight: "100vh",
+            }}
+          >
+            <div className={styles["modal-container"]}>
+              <div className={`${styles.prev} ${styles["arrow-container"]}`}>
+                <ArrowBackIcon
+                  className={styles["arrow-icon"]}
+                  onClick={() => {
+                    setValue2Modal(true);
+                    setValue3Modal(false);
+                  }}
+                />
+              </div>
+              <div className={`${styles.next} ${styles["arrow-container"]}`}>
+                <ArrowForwardIcon
+                  className={styles["arrow-icon"]}
+                  onClick={() => {
+                    setValue3Modal(false);
+                    setValue4Modal(true);
+                  }}
+                />
+              </div>
+              <div className={styles["sequence-modal"]}>
+                <div className={styles["modal-top"]}>
+                  <div className={styles["modal-header"]}>
+                    <p className={styles["title"]}>Outputs</p>
+                  </div>
+                  <IconButton
+                    onClick={() => {
+                      setValue3Modal(false);
+                    }}
+                    className={styles["close-container"]}
+                  >
+                    <CloseIcon className={styles["close"]} />
+                  </IconButton>
+                </div>
+                <div className={styles["content-wrapper"]}>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["financial-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value2}
+                        loading="lazy"
+                        alt="financial"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>Financial</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <CountUp
+                            start={0}
+                            end={9.5}
+                            delay={0}
+                            decimal="."
+                            decimals={1}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                          >
+                            {({ countUpRef }) => (
+                              <div className={styles["figures-list"]}>
+                                <p className={styles.text}>Return on Equity</p>
+                                <p style={{ margin: 0 }}>
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                  <span className={styles.unit}> %</span>
+                                </p>
+                              </div>
+                            )}
+                          </CountUp>
+                        </li>
+                        <li>
+                          <CountUp
+                            start={0}
+                            end={14.2}
+                            delay={0}
+                            decimal="."
+                            decimals={1}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                          >
+                            {({ countUpRef }) => (
+                              <div className={styles["figures-list"]}>
+                                <p className={styles.text}>Dividend payout</p>
+                                <p style={{ margin: 0 }}>
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                  <span className={styles.unit}> sen</span>
+                                </p>
+                              </div>
+                            )}
+                          </CountUp>
+                        </li>
+                        <li>
+                          <CountUp
+                            start={0}
+                            end={35.5}
+                            delay={0}
+                            decimal="."
+                            decimals={1}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                          >
+                            {({ countUpRef }) => (
+                              <div className={styles["figures-list"]}>
+                                <p className={styles.text}>
+                                  Earnings per share
+                                </p>
+                                <p style={{ margin: 0 }}>
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                  <span className={styles.unit}> sen</span>
+                                </p>
+                              </div>
+                            )}
+                          </CountUp>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["manufactured-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value3}
+                        loading="lazy"
+                        alt="manufactured"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>manufactured</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                    <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>Automotive:</p>{" "}
+                          <p className={styles.text}>
+                            Both Toyota and Perodua maintained their lead
+                            positions in the nonnational and national car
+                            markets respectively
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>Automotive:</p>{" "}
+                          <p className={styles.text}>
+                            Introduced the Toyota Mirai which uses experimental
+                            hydrogen-fueled technology and is being trialled in
+                            Malaysia
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>M&E:</p>{" "}
+                          <p className={styles.text}>
+                            GRANTT Bio VG Hydraulic Oil Both obtained MyHijau
+                            certification
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>Equipment:</p>{" "}
+                          <p className={styles.text}>
+                            Industrial segment's business grew in sectors such
+                            as food & beverage, logistics, and warehousing.
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>Aerospace:</p>{" "}
+                          <p className={styles.text}>
+                            Industrial segment's business grew in sectors such
+                            as the Division retained its position in the top 5%
+                            of Rolls-Royce suppliers globally
+                          </p>
+                        </li>
+                        <li>
+                          <p className={styles["text-bold"]}>Green Products:</p>{" "}
+                          <p className={styles.text}>
+                            Expansion of BRUSS and Water Reclamation Plant
+                            (in-house membrane)
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["human-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value4}
+                        loading="lazy"
+                        alt="human"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>human</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                    <ul className={styles["content-list"]}>
                         <li>
                           <CountUp
                             start={0}
@@ -1562,203 +1881,20 @@ const TheWayWeCreateValue = () => {
                       </ul>
                     </div>
                   </div>
-                  {/* Initiatives */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Outcomes</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
-                        <li>
-                          <p className={styles["text-bold"]}>
-                            Increased productivity:
-                          </p>{" "}
-                          <p className={styles.text}>
-                            Ensuring productivity not only constantly improves,
-                            but is also substantially amplified through
-                            consistent, inclusive engagement and enhanced,
-                            targeted learning, led by an involved Management.
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Modal>
-          {/* intellectual modal */}
-          <Modal
-            open={value4Modal}
-            onClose={() => {
-              setValue4Modal(false);
-            }}
-            sx={{
-              overflow: "scroll",
-              maxHeight: "100vh",
-            }}
-          >
-            <div className={styles["modal-container"]}>
-            <div className={`${styles.prev} ${styles['arrow-container']}`}>
-              <ArrowBackIcon
-                className={styles['arrow-icon']}
-                onClick={() => {
-                  setValue3Modal(true);
-                  setValue4Modal(false);
-                }}
-              />
-            </div>
-            <div className={`${styles.next} ${styles['arrow-container']}`}>
-              <ArrowForwardIcon
-                className={styles['arrow-icon']}
-                onClick={() => {
-                  setValue4Modal(false);
-                  setValue5Modal(true);
-                }}
-              />
-            </div>
-              <div
-                className={`${styles["value-modal"]} ${styles["value-modal-4"]}`}
-              >
-                <div className={styles["modal-top"]}>
-                  <div className={styles["modal-header"]}>
-                    <Image
-                      src={images.value5}
-                      loading="lazy"
-                      alt="intellectual"
-                      className={styles["value-icon"]}
-                    />
-                    <p className={styles["title"]}>intellectual</p>
-                  </div>
-                  <IconButton
-                    onClick={() => {
-                      setValue4Modal(false);
-                    }}
-                    className={styles["close-container"]}
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["intellectual-card"]}`}
                   >
-                    <CloseIcon className={styles["close"]} />
-                  </IconButton>
-                </div>
-                <div className={styles["content-wrapper"]}>
-                  {/* Key Inputs */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
+                    <div className={styles["header-container"]}>
                       <Image
-                        src={images.valueAccent}
+                        src={images.value5}
                         loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
+                        alt="intellectual"
+                        className={styles["icon"]}
                       />
-                      <p className={styles["header"]}>Key Inputs</p>
+                      <p className={styles["header"]}>intellectual</p>
                     </div>
-                    <div className={styles["item-content"]}>
-                      <p className={styles["text"]}>
-                        This capital encompasses organisational and
-                        knowledge-based intangibles that can include
-                        intellectual property such as licences or proprietary
-                        knowledge, systems or procedures.
-                      </p>
-                      <Image
-                        src={images.divider}
-                        loading="lazy"
-                        alt="divider"
-                        className={styles["divider"]}
-                      />
-                      <div className={styles["border-bottom"]}>
-                        <div className={styles["figures"]}>
-                          <p className={styles.text}>
-                            Corporate policies that uphold integrity such as the{" "}
-                            <span className={styles["text-bold"]}>
-                              UMW Integrity Framework
-                            </span>{" "}
-                            and{" "}
-                            <span className={styles["text-bold"]}>
-                              Integrity Plan
-                            </span>
-                          </p>
-                        </div>
-                      </div>
-                      <div className={styles["border-bottom"]}>
-                        <div className={styles["figures"]}>
-                          <p className={styles["text-bold"]}>
-                            Strong research and development capabilities,
-                            innovation capacity, knowledge and expertise
-                          </p>
-                        </div>
-                      </div>
-                      <div className={styles["figures"]}>
-                        <p className={styles.text}>
-                          <span className={styles["text-bold"]}>
-                            Collaborated with TM One{" "}
-                          </span>
-                          towards fast-tracking digitalisation, improving our
-                          current data centre architecture.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Initiatives */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Initiatives</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
-                        <li>
-                          <p className={styles.text}>
-                            Deployed a total of 21 RPA (Robotic Process
-                            Automation) projects to improve productivity
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles.text}>
-                            Collaborated with Telekom Malaysia (TM) on hybrid
-                            cloud, to consolidate and improve our data centre
-                            architecture as part of our efforts to optimise
-                            technology and operations.
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles.text}>
-                            Progressed new research and innovation initiatives
-                            through the UMW Innovation and Research &
-                            Development Centre
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles.text}>
-                            Developed a range of strategic partnerships with
-                            various institutions to expand R&D collaborations
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  {/* Outputs */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Outputs</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
+                    <div className={styles["sequence-content"]}>
+                    <ul className={styles["content-list"]}>
                         <li>
                           <p style={{ margin: 0 }} className={styles.text}>
                             Improvement in productivity and work efficiency
@@ -1794,227 +1930,20 @@ const TheWayWeCreateValue = () => {
                       </ul>
                     </div>
                   </div>
-                  {/* Initiatives */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Outcomes</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
-                        <li>
-                          <p className={styles["text-bold"]}>
-                            Greater innovation;
-                          </p>{" "}
-                          <p className={styles.text}>
-                            Creating limitless value through inventive courses
-                            of action by collaborating with strategic partners
-                            to deploy untapped revenues and efficient systems to
-                            meet progressive market requirements.
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Modal>
-          {/* social modal */}
-          <Modal
-            open={value5Modal}
-            onClose={() => {
-              setValue5Modal(false);
-            }}
-            sx={{
-              overflow: "scroll",
-              maxHeight: "100vh",
-            }}
-          >
-            <div className={styles["modal-container"]}>
-            <div className={`${styles.prev} ${styles['arrow-container']}`}>
-              <ArrowBackIcon
-                className={styles['arrow-icon']}
-                onClick={() => {
-                  setValue4Modal(true);
-                  setValue5Modal(false);
-                }}
-              />
-            </div>
-            <div className={`${styles.next} ${styles['arrow-container']}`}>
-              <ArrowForwardIcon
-                className={styles['arrow-icon']}
-                onClick={() => {
-                  setValue5Modal(false);
-                  setValue6Modal(true);
-                }}
-              />
-            </div>
-              <div
-                className={`${styles["value-modal"]} ${styles["value-modal-5"]}`}
-              >
-                <div className={styles["modal-top"]}>
-                  <div className={styles["modal-header"]}>
-                    <Image
-                      src={images.value6}
-                      loading="lazy"
-                      alt="social"
-                      className={styles["value-icon"]}
-                    />
-                    <p className={styles["title"]}>SOCIAL AND RELATIONSHIP</p>
-                  </div>
-                  <IconButton
-                    onClick={() => {
-                      setValue5Modal(false);
-                    }}
-                    className={styles["close-container"]}
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["social-card"]}`}
                   >
-                    <CloseIcon className={styles["close"]} />
-                  </IconButton>
-                </div>
-                <div className={styles["content-wrapper"]}>
-                  {/* Key Inputs */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
+                    <div className={styles["header-container"]}>
                       <Image
-                        src={images.valueAccent}
+                        src={images.value6}
                         loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
+                        alt="social"
+                        className={styles["icon"]}
                       />
-                      <p className={styles["header"]}>Key Inputs</p>
+                      <p className={styles["header"]}>social & relationship</p>
                     </div>
-                    <div className={styles["item-content"]}>
-                      <p className={styles["text"]}>
-                        This capital describes the relationships built between
-                        communities, stakeholders and other relevant groups.
-                        This also includes the Group’s brand and reputation
-                        management.
-                      </p>
-                      <Image
-                        src={images.divider}
-                        loading="lazy"
-                        alt="divider"
-                        className={styles["divider"]}
-                      />
-                      <CountUp
-                        start={0}
-                        end={9.1}
-                        delay={0}
-                        decimal="."
-                        decimals={1}
-                        enableScrollSpy={true}
-                        scrollSpyDelay={1}
-                      >
-                        {({ countUpRef }) => (
-                          <div className={styles["border-bottom"]}>
-                            <div className={styles["figures"]}>
-                              <p style={{ margin: 0 }} className={styles.text}>
-                                <span
-                                  ref={countUpRef}
-                                  className={styles.number}
-                                ></span>
-                                <span className={styles.unit}> million</span>
-                              </p>
-                              <p className={styles.text}>
-                                invested in community engagement/CSR activities
-                              </p>
-                            </div>
-                          </div>
-                        )}
-                      </CountUp>
-                      <CountUp
-                        start={0}
-                        end={11344}
-                        delay={0}
-                        // decimal="."
-                        // decimals={1}
-                        enableScrollSpy={true}
-                        scrollSpyDelay={1}
-                      >
-                        {({ countUpRef }) => (
-                          <div className={styles["border-bottom"]}>
-                            <div className={styles["figures"]}>
-                              <p style={{ margin: 0 }} className={styles.text}>
-                                More than {""}
-                                <span
-                                  ref={countUpRef}
-                                  className={styles.number}
-                                ></span>
-                                <span className={styles["text-bold"]}>
-                                  {" "}
-                                  volunteer hours {""}
-                                </span>
-                                recorded
-                              </p>
-                            </div>
-                          </div>
-                        )}
-                      </CountUp>
-                      <div className={styles["figures"]}>
-                        <p className={styles.text}>
-                          <span className={styles["text-bold"]}>
-                            Active engagement
-                          </span>{" "}
-                          with various stakeholders
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Initiatives */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Initiatives</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
-                        <li>
-                          <p className={styles.text}>
-                            Provided a range of personal protective equipment in
-                            response to community and frontline requirements
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles.text}>
-                            Provided excellent customer service and met customer
-                            needs
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles.text}>
-                            Established new partnerships with a range of
-                            organisations to drive green innovation, nurture
-                            technological advancement and attract foreign
-                            investment
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  {/* Outputs */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Outputs</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
+                    <div className={styles["sequence-content"]}>
+                    <ul className={styles["content-list"]}>
                         <li>
                           <CountUp
                             start={0}
@@ -2106,225 +2035,20 @@ const TheWayWeCreateValue = () => {
                       </ul>
                     </div>
                   </div>
-                  {/* Outcomes */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Outcomes</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
-                        <li>
-                          <p className={styles["text-bold"]}>
-                            Better relationships:
-                          </p>{" "}
-                          <p className={styles.text}>
-                            Investing in building stronger relationships with
-                            advantageous collaborations within the value chain
-                            and in the communities we operate in to support our
-                            goals in sustaining a better world.
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Modal>
-          {/* natural modal */}
-          <Modal
-            open={value6Modal}
-            onClose={() => {
-              setValue6Modal(false);
-            }}
-            sx={{
-              overflow: "scroll",
-              maxHeight: "100vh",
-            }}
-          >
-            <div className={styles["modal-container"]}>
-            <div className={`${styles.prev} ${styles['arrow-container']}`}>
-              <ArrowBackIcon
-                className={styles['arrow-icon']}
-                onClick={() => {
-                  setValue5Modal(true);
-                  setValue6Modal(false);
-                }}
-              />
-            </div>
-
-              <div
-                className={`${styles["value-modal"]} ${styles["value-modal-6"]}`}
-              >
-                <div className={styles["modal-top"]}>
-                  <div className={styles["modal-header"]}>
-                    <Image
-                      src={images.value7}
-                      loading="lazy"
-                      alt="natural"
-                      className={styles["value-icon"]}
-                    />
-                    <p className={styles["title"]}>natural</p>
-                  </div>
-                  <IconButton
-                    onClick={() => {
-                      setValue6Modal(false);
-                    }}
-                    className={styles["close-container"]}
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["natural-card"]}`}
                   >
-                    <CloseIcon className={styles["close"]} />
-                  </IconButton>
-                </div>
-                <div className={styles["content-wrapper"]}>
-                  {/* Key Inputs */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
+                    <div className={styles["header-container"]}>
                       <Image
-                        src={images.valueAccent}
+                        src={images.value7}
                         loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
+                        alt="natural"
+                        className={styles["icon"]}
                       />
-                      <p className={styles["header"]}>Key Inputs</p>
+                      <p className={styles["header"]}>natural</p>
                     </div>
-                    <div className={styles["item-content"]}>
-                      <p className={styles["text"]}>
-                        All renewable and non-renewable environmental resources
-                        and processes that provide goods or services that
-                        support the past, current or future prosperity of an
-                        organisation.
-                      </p>
-                      <Image
-                        src={images.divider}
-                        loading="lazy"
-                        alt="divider"
-                        className={styles["divider"]}
-                      />
-                      <CountUp
-                        start={0}
-                        end={100}
-                        delay={0}
-                        // decimal="."
-                        // decimals={1}
-                        enableScrollSpy={true}
-                        scrollSpyDelay={1}
-                      >
-                        {({ countUpRef }) => (
-                          <div className={styles["border-bottom"]}>
-                            <div className={styles["figures"]}>
-                              <p style={{ margin: 0 }} className={styles.text}>
-                                <span
-                                  ref={countUpRef}
-                                  className={styles.number}
-                                ></span>
-                                <span className={styles.unit}> %</span>
-                              </p>
-                              <p className={styles.text}>
-                                Carbon Neutrality by 2050
-                              </p>
-                            </div>
-                          </div>
-                        )}
-                      </CountUp>
-                      <CountUp
-                        start={0}
-                        end={4}
-                        delay={0}
-                        // decimal="."
-                        // decimals={1}
-                        enableScrollSpy={true}
-                        scrollSpyDelay={1}
-                      >
-                        {({ countUpRef }) => (
-                          <div className={styles["border-bottom"]}>
-                            <div className={styles["figures"]}>
-                              <p style={{ margin: 0 }} className={styles.text}>
-                                More than {""}
-                                <span
-                                  ref={countUpRef}
-                                  className={styles.number}
-                                ></span>
-                                <span className={styles.unit}>MW</span>
-                                {""}capacity Solar Panels installed
-                              </p>
-                            </div>
-                          </div>
-                        )}
-                      </CountUp>
-                      <div className={styles["figures"]}>
-                        <p className={styles.text}>
-                          <span className={styles["text-bold"]}>
-                            Going Paperless
-                          </span>{" "}
-                          Implementing a zeropaper culture across our operations
-                          to reduce waste
-                        </p>
-                      </div>
-                      <div className={styles["figures"]}>
-                        <p className={styles.text}>
-                          <span className={styles["text-bold"]}>
-                            Reforestation
-                          </span>{" "}
-                          Planting and rehabilitation of mangrove forests
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Initiatives */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Initiatives</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
-                        <li>
-                          <p className={styles.text}>
-                            Accelerating our sustainability agenda of achieving
-                            net zero carbon by 2050 by further integrating
-                            sustainability into our business operations
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles.text}>
-                            Introduced hybrid electric vehicle (Corolla Cross),
-                            expanded forklift refurbishments and battery-powered
-                            forklift business.
-                          </p>
-                        </li>
-                        <li>
-                          <p className={styles.text}>
-                            UMW Green Shoots (UGS) and Bamboo planting
-                            initiatives
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  {/* Outputs */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
-                      <Image
-                        src={images.valueAccent}
-                        loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
-                      />
-                      <p className={styles["header"]}>Outputs</p>
-                    </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
+                    <div className={styles["sequence-content"]}>
+                    <ul className={styles["content-list"]}>
                         <li>
                           <CountUp
                             start={0}
@@ -2472,19 +2196,196 @@ const TheWayWeCreateValue = () => {
                       </ul>
                     </div>
                   </div>
-                  {/* Outcomes */}
-                  <div className={styles["modal-content"]}>
-                    <div className={styles["item-header"]}>
+                </div>
+              </div>
+            </div>
+          </Modal>
+          {/* outcomes modal */}
+          <Modal
+            open={value4Modal}
+            onClose={() => {
+              setValue4Modal(false);
+            }}
+            sx={{
+              overflow: "scroll",
+              maxHeight: "100vh",
+            }}
+          >
+            <div className={styles["modal-container"]}>
+              <div className={`${styles.prev} ${styles["arrow-container"]}`}>
+                <ArrowBackIcon
+                  className={styles["arrow-icon"]}
+                  onClick={() => {
+                    setValue3Modal(true);
+                    setValue4Modal(false);
+                  }}
+                />
+              </div>
+              <div className={styles["sequence-modal"]}>
+                <div className={styles["modal-top"]}>
+                  <div className={styles["modal-header"]}>
+                    <p className={styles["title"]}>Outcomes</p>
+                  </div>
+                  <IconButton
+                    onClick={() => {
+                      setValue4Modal(false);
+                    }}
+                    className={styles["close-container"]}
+                  >
+                    <CloseIcon className={styles["close"]} />
+                  </IconButton>
+                </div>
+                <div className={styles["content-wrapper"]}>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["financial-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
                       <Image
-                        src={images.valueAccent}
+                        src={images.value2}
                         loading="lazy"
-                        alt="bullet"
-                        className={styles["bullet"]}
+                        alt="financial"
+                        className={styles["icon"]}
                       />
-                      <p className={styles["header"]}>Outcomes</p>
+                      <p className={styles["header"]}>Financial</p>
                     </div>
-                    <div className={styles["item-content"]}>
-                      <ul className={styles["content-list"]}>
+                    <div className={styles["sequence-content"]}>
+                    <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>
+                            Financial strength:
+                          </p>{" "}
+                          <p className={styles.text}>
+                            Value comes from prudent financial management and
+                            stringent cost optimisation provided for shareholder
+                            returns.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["manufactured-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value3}
+                        loading="lazy"
+                        alt="manufactured"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>manufactured</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                    <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>Embedded trust:</p>{" "}
+                          <p className={styles.text}>
+                            The strength of our assets serves to bring about a
+                            competitive advantage and provide assurance on our
+                            quality.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["human-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value4}
+                        loading="lazy"
+                        alt="human"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>human</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                    <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>
+                            Increased productivity:
+                          </p>{" "}
+                          <p className={styles.text}>
+                            Ensuring productivity not only constantly improves,
+                            but is also substantially amplified through
+                            consistent, inclusive engagement and enhanced,
+                            targeted learning, led by an involved Management.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["intellectual-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value5}
+                        loading="lazy"
+                        alt="intellectual"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>intellectual</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                    <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>
+                            Greater innovation;
+                          </p>{" "}
+                          <p className={styles.text}>
+                            Creating limitless value through inventive courses
+                            of action by collaborating with strategic partners
+                            to deploy untapped revenues and efficient systems to
+                            meet progressive market requirements.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["social-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value6}
+                        loading="lazy"
+                        alt="social"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>social & relationship</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                    <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles["text-bold"]}>
+                            Better relationships:
+                          </p>{" "}
+                          <p className={styles.text}>
+                            Investing in building stronger relationships with
+                            advantageous collaborations within the value chain
+                            and in the communities we operate in to support our
+                            goals in sustaining a better world.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["natural-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value7}
+                        loading="lazy"
+                        alt="natural"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>natural</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                    <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles["text-bold"]}>
                             Sustainable environment:

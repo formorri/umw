@@ -29,10 +29,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="favicon.ico" />
       </Head>
-
+{/* 
       <Navbar1/>
 
-      <p className={styles.watermark}>INTEGRATED ANNUAL REPORT 2022</p>
+      <p className={styles.watermark}>INTEGRATED ANNUAL REPORT 2022</p> */}
 
       <section id="home">
         <Hero id="home"/>
@@ -58,17 +58,17 @@ export default function Home() {
         <TheWayWeCreateValue />
       </section>
 
-      <section id="sustainability-performance">
+      {/* <section id="sustainability-performance">
         <SustainabilityPerformance />
-      </section>
+      </section> */}
 
-      <section id="leadership">
+      {/* <section id="leadership">
         <Leadership />
-      </section>
+      </section> */}
 
-      <section id="downloads">
+      {/* <section id="downloads">
         <Downloads />
-      </section>
+      </section> */}
     </>
   );
 }

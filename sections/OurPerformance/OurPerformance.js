@@ -48,7 +48,8 @@ const tabData = [
         backgroundColor: "#EAF7F8",
         title: "Perodua",
         category: "automotive",
-        image: "peroduaPic",
+        // image: "peroduaPic",
+        video: "perodua.mp4",
         description:
           "As a national carmaker, Perodua is steadfast about benefitting Malaysians.",
         data: [
@@ -78,7 +79,8 @@ const tabData = [
     backgroundColor: "#FBF0D3",
     title: "equipment",
     category: "equipment",
-    image: "equipmentPic",
+    // image: "equipmentPic",
+    video: "equipment.mp4",
     description:
       "Equipment division's key initiatives launched during the pandemic yielded results in 2022",
     data: [
@@ -105,7 +107,8 @@ const tabData = [
     backgroundColor: "#EFE8F3",
     title: "MANUFACTURING & ENGINEERING",
     category: "m & e",
-    image: "mnEPic",
+    // image: "mnEPic",
+    video: "mnE.mp4",
     description:
       "Reopening economies and borders accounted for a boost inmobility,intensifying demand for automotive components and lubricants.",
     data: [
@@ -207,6 +210,7 @@ const OurPerformance = () => {
   const tabTitle = activeTabData?.title;
   const tabCategory = activeTabData?.category;
   const tabImage = activeTabData?.image;
+  const tabVideo = activeTabData?.video;
   const tabDesc = activeTabData?.description;
   const tabDataItem = activeTabData?.data;
 
@@ -312,7 +316,7 @@ const OurPerformance = () => {
             </div>
           ))}
         </div>
-        {activeTabData?.switcher?.length > 0 && (
+        {/* {activeTabData?.switcher?.length > 0 && (
           <div className={styles["switch-container"]}>
             <div className={styles["switch-wrapper"]}>
               <div
@@ -337,7 +341,7 @@ const OurPerformance = () => {
               click to switch between automotive sections
             </p>
           </div>
-        )}
+        )} */}
         {/* tab content */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -434,14 +438,37 @@ const OurPerformance = () => {
                 </div>
               </div>
             </div>
-            <div className={styles["content-image-container"]}>
-              <Image
-                src={images[tabImage]}
-                loading="lazy"
-                className={styles.image}
-                alt={tabImage}
-              />
-            </div>
+            {activeTabData?.image?.length > 0 && (
+              <div
+                className={`${styles["content-image-container"]} ${styles["switcher-padding"]}`}
+              >
+                <Image
+                  src={images[tabImage]}
+                  loading="lazy"
+                  className={styles.image}
+                  alt={tabImage}
+                />
+              </div>
+            )}
+            {activeTabData?.video?.length > 0 && (
+              <div
+                className={`${styles["content-video-container"]} ${styles["switcher-padding"]}`}
+                // ref={ref}
+              >
+                <video
+                  className={styles.video}
+                  // ref={videoRef}
+                  muted
+                  playsInline
+                  loop
+                  width="800"
+                  height="500"
+                  autoPlay={true}
+                >
+                  <source src={`assets/${tabVideo}`} type="video/mp4" />
+                </video>
+              </div>
+            )}
           </motion.div>
         </AnimatePresence>
 
@@ -463,7 +490,37 @@ const OurPerformance = () => {
                 <div className={styles["background-inner"]}></div>
               </div>
               <div className={styles.content}>
-                <div
+                <div className={styles["inner-tab"]}>
+                  <div
+                    className={styles["inner-tab-content"]}
+                    onClick={() => {
+                      setActiveSwitch(0);
+                    }}
+                    style={{
+                      backgroundColor:
+                        activeSwitch === 0 ? "#C65A81" : "#F7E8EE",
+
+                      color: activeSwitch === 0 ? "#F7E8EE" : "#C65A81",
+                    }}
+                  >
+                    <p>UMW Toyota</p>
+                  </div>
+                  <div
+                    className={styles["inner-tab-content"]}
+                    onClick={() => {
+                      setActiveSwitch(1);
+                    }}
+                    style={{
+                      backgroundColor:
+                        activeSwitch === 0 ? "#EBF7F8" : "#85CECC",
+
+                      color: activeSwitch === 0 ? "#85CECC" : "#EBF7F8",
+                    }}
+                  >
+                    <p>UMW Perodua</p>
+                  </div>
+                </div>
+                {/* <div
                   className={styles["content-title"]}
                   style={{
                     "--tab-color": switcherColor,
@@ -475,7 +532,7 @@ const OurPerformance = () => {
                   >
                     {switcherTitle}
                   </h3>
-                </div>
+                </div> */}
                 <div className={styles["content-data-container"]}>
                   <p
                     className={styles.category}

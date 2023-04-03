@@ -1,42 +1,61 @@
 @use '../../styles/settings/index.scss' as *;
 
+
+.header-text {
+    @include text-4-bold;
+    text-transform: uppercase;
+}
+
+.unit {
+    @include text-4-regular;
+}
+
 .financial {
-    padding: $s-y-gap 10px;
+    padding: calc($l-y-gap / 2) $l-x-gap;
     background-color: $theme-4;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    row-gap: 2rem;
+    align-items: left;
+    row-gap: 30px;
+}
 
-    .wrapper {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        width: 100%;
-        border-radius: $border-radiusx2;
-        overflow: hidden;
-    }
+.wrapper {
+    $gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 100%;
+    border-radius: $border-radiusx2;
+    overflow: hidden;
+    row-gap: $gap;
+    column-gap: $gap;
+}
 
-    .data-text1,
-    .data-text2,
-    .data-text3,
-    .data-number {
-        color: $blue-4;
-    }
 
-    .card1,
-    .card2 {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        padding: 40px;
-    }
+.card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 10px;
 
-    .card1 {
+    .header,
+    .graph-container {
+        @include shadow;
         background-color: $white-1;
+        border-radius: $border-radiusx2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    .card2 {
-        background-color: $blue-7;
+    .graph-container {
+        width: 100%;
+        height: auto;
+        padding: 10px 5px;
+
+        .graph {
+            width: 380px;
+            height: auto;
+        }
     }
 }

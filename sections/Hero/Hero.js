@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./Hero.module.scss";
 import { images } from "../../constants";
-import { Button1 } from "@/components";
+import { Button1Popup } from "@/components";
 import Image from "next/image";
 import Modal from "@mui/material/Modal";
 import IconButton from "@mui/material/IconButton";
@@ -9,8 +9,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Hero = () => {
-  const [triggerAnimation, setTriggerAnimation] = useState(false);
-  const [modal, setModal] = useState(true);
+  // const [triggerAnimation, setTriggerAnimation] = useState(false);
+  const [modal, setModal] = useState(false);
   const videoRef = useRef(null);
 
   return (
@@ -18,9 +18,9 @@ const Hero = () => {
       <Modal
         open={modal}
         onClose={() => {
-          videoRef.current.play();
+          // videoRef.current.play();
           setModal(false);
-          setTriggerAnimation(true);
+          // setTriggerAnimation(true);
         }}
       >
         <div className={styles["modal-container"]}>
@@ -34,9 +34,9 @@ const Hero = () => {
             <div className={styles["content"]}>
               <IconButton
                 onClick={() => {
-                  videoRef.current.play();
+                  // videoRef.current.play();
                   setModal(false);
-                  setTriggerAnimation(true);
+                  // setTriggerAnimation(true);
                 }}
                 className={styles["close-container"]}
               >
@@ -87,33 +87,39 @@ const Hero = () => {
         </div>
       </Modal>
       <AnimatePresence>
-        {triggerAnimation && (
+        {/* {triggerAnimation && ( */}
           <motion.div
-            initial={{ x: -50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
+            // initial={{ x: -50, opacity: 0 }}
+            // animate={{ x: 0, opacity: 1 }}
             // exit={{ y: -10, opacity: 0 }}
             whileInView={{
               opacity: [0, 1],
-              x: [-50, 0],
+              x: [50, 0],
             }}
             transition={{ duration: 0.5 }}
-            className={styles.col1}
+            className={styles['text-col']}
           >
+          <p className={styles['header-subtitle']}>INTEGRATED ANNUAL REPORT 2022</p>
             <h1 className={styles.header}>
               accelerating <span className={styles.bold}>crest@UMW</span>
             </h1>
-            <Button1
+            <Button1Popup
               link="/"
-              text="Download The Full Report"
+              text="Read our cover rationale"
               backgroundColor="#112F5E"
               textColor="white"
-              icon="download"
+              icon="add"
+              onClick={()=> setModal(true)}
             />
           </motion.div>
-        )}
+        {/* )} */}
       </AnimatePresence>
-      <div className={styles.col2}>
-        <video className={styles.video} ref={videoRef}>
+      <div className={styles['video-col']}>
+        <video 
+        className={styles.video} 
+        autoPlay={true} 
+        muted
+        >
           <source src="assets/cover.mp4" type="video/mp4" />
         </video>
       </div>

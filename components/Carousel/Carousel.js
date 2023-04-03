@@ -4,6 +4,9 @@ import Slider from "react-slick";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Button1Popup from "../Button1Popup";
+import Image from "next/image";
+import { images } from "../../constants";
+
 
 const Carousel = ({ children }) => {
   const slider = useRef(null);
@@ -11,8 +14,8 @@ const Carousel = ({ children }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 4,
+    slidesToScroll: 1,
     initialSlide: 0,
     arrows: false,
     // autoplay: true,
@@ -22,8 +25,8 @@ const Carousel = ({ children }) => {
         // desktop
         breakpoint: 1200,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 4,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -51,22 +54,21 @@ const Carousel = ({ children }) => {
   return (
     <div>
       <div className={styles.wrapper}>
-        <Button1Popup
-          backgroundColor="#B5DCDE"
-          icon="play"
+        <div
+          className={`${styles.navigation} ${styles['prev']}`}
           onClick={() => slider?.current?.slickPrev()}
-          buttonClassName={styles.prev}
-        />
+        >
+          <ArrowBackIcon/>
+        </div>
         <Slider ref={slider} {...settings} className={styles.slider}>
           {children}
         </Slider>
-
-        <Button1Popup
-          backgroundColor="#B5DCDE"
-          icon="play"
+        <div
+          className={`${styles.navigation} ${styles['next']}`}
           onClick={() => slider?.current?.slickNext()}
-          buttonClassName={styles.next}
-        />
+        >
+          <ArrowForwardIcon/>
+        </div>
       </div>
     </div>
   );
