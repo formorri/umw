@@ -30,13 +30,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="favicon.ico" />
       </Head>
-{/* 
-      <Navbar1/>
-
-      <p className={styles.watermark}>INTEGRATED ANNUAL REPORT 2022</p> */}
+    
+      {/* <p className={styles.watermark}>INTEGRATED ANNUAL REPORT 2022</p> */}
+      <Navbar1 className={styles.navbar}/>
 
       <section id="home">
-        <Hero id="home"/>
+        <Hero id="home" />
       </section>
 
       <section id="who-we-are">
@@ -71,9 +70,16 @@ export default function Home() {
         <AGM />
       </section>
 
-      {/* <section id="downloads">
+      <section id="downloads">
         <Downloads />
-      </section> */}
+      </section>
+
+      <div className={styles.copyright}>
+        <p className={styles["text"]}>
+          © 2023 UMW Holdings Berhad 198201010554 (90278-P). All rights
+          reserved.
+        </p>
+      </div>
     </>
   );
 }

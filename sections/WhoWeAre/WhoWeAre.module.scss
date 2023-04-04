@@ -73,7 +73,7 @@ $circle-size: 37rem;
     place-items: center;
     grid-template-columns: auto auto;
     grid-template-rows: auto;
-    column-gap: 30px;
+    column-gap: 50px;
 
     .col1 {
         grid-area: 1 / 1 / 2 / 2;
@@ -88,7 +88,7 @@ $circle-size: 37rem;
         z-index: 1;
         display: flex;
         flex-direction: column;
-        row-gap: 10px;
+        row-gap: 30px;
 
         .card1,
         .card2,
@@ -152,7 +152,8 @@ $circle-size: 37rem;
         grid-area: 1 / 1 / 2 / 4;
         display: flex;
         flex-direction: column;
-        width: 95%;
+        width: 100%;
+        padding-left: calc($l-x-gap - 40px);
         row-gap: 10px;
     }
 

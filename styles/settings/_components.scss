@@ -4,7 +4,7 @@ $border-radiusx2: 20px;
 $border-weight: 2px solid;
 
 $s-x-gap: 20px;
-$l-x-gap: 40px;
+$l-x-gap: 80px;
 $xl-x-gap: 250px;
 
 $s-y-gap: 10px;
@@ -114,7 +114,8 @@ $background-radius: 15rem;
     transition: 0.3s ease-in-out;
 
     &:hover {
-        transform: scale(1.02);
+        // transform: scale(1.02);
+        transform: translateX(10px);
     }
 }
 

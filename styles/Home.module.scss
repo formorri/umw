@@ -1,7 +1,8 @@
 @use 'settings/index.scss' as *;
 
 .container{
-    margin: 2rem;
+    // margin: 2rem;
+    position: relative;
 }
 
 .watermark{
@@ -16,3 +17,15 @@
     left:15px;
     z-index: 1000;
 }
+
+.copyright{
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: $blue-1;
+    .text{
+        @include text-4-regular;
+        color: $white-1
+    }
+}
+

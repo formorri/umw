@@ -21,6 +21,7 @@ const Button1 = ({
         <div
           className={styles["text-container"]}
           style={{ background: backgroundColor }}
+          
         >
           <div
             className={`${styles["text"]} ${textClass}`}

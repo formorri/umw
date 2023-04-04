@@ -1,222 +1,119 @@
 @use '../../styles/settings/index.scss' as *;
 
 
-$transition-buttons: 0.4s ease-in-out;
-$size: 10px;
-
-// .container-desktop {
-//     display: none;
-// }
-
-// .container-phone {
-//     position: fixed;
-//     top: 0;
-//     right: 0.5rem;
-//     transition: ease-in-out 0.3s;
-//     ul {
-//         height: 100vh;
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: space-around;
-//         margin: 0;
-//         padding: 0;
-
-//     }
-// }
-
-// .link {
-//     text-transform: capitalize;
-//     position: relative;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-
-//     a {
-//         color: $dark-1;
-//         transition: $transition-buttons;
-//         background-color: $white-1;
-//         padding: 10px 10px;
-//         border-radius: $border-radius;
-//         text-decoration: none;
-
-//         .text {
-//             // display: none;
-//             writing-mode: vertical-rl;
-//         }
-//     }
-
-//     &::before {
-//         transition: $transition-buttons;
-//         $size: 10px;
-//         content: '';
-//         background-color: $theme-4;
-//         display: block;
-//         width: $size;
-//         height: calc($size * 0.9);
-//         margin-bottom: 10px;
-//         clip-path: polygon(100% 50%, 50% 100%, 0% 50%);
-//     }
-
-//     &:hover {
-//         text-decoration: none;
-
-//         &::before {
-//             background-color: $theme-4;
-//         }
-
-//         a {
-//             color: $dark-1;
-//             background-color: $theme-4;
-//         }
-//     }
-// }
-
-// .active {
-//     text-transform: capitalize;
-//     position: relative;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-
-//     a {
-//         color: $dark-1;
-//         background-color: $theme-4;
-//         padding: 10px 10px;
-//         border-radius: $border-radius;
-//         text-decoration: none;
-
-//         .text {
-//             // display: none;
-//             writing-mode: vertical-rl;
-//         }
-
-//     }
-
-//     &::before {
-//         $size: 10px;
-//         content: '';
-//         background-color: $theme-1;
-//         display: block;
-//         width: $size;
-//         height: calc($size * 0.9);
-//         margin-bottom: 10px;
-//         clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-//     }
-// }
-
-// @include gt-sm {
-// .container-phone {
-//     display: none;
-// }
-$transition-buttons: 0.4s ease-in-out;
-$size: 10px;
 
 .navbar {
     width: 100vw;
     position: fixed;
+    top: 0px;
     z-index: 1000;
-    top: 10px;
+    padding: 0px $l-x-gap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    transition: ease-in-out 0.3s;
+
 }
 
-.container-desktop {
+.icon-container{
+    // background-color: $white-1;
+    padding: 5px;
+}
+
+.logo{
+    pointer-events: all;
+    width: 50px;
+    height: auto;
+}
+
+.burger-button {
+    @include shadow;
+    cursor: pointer;
+    background-color: $blue-1;
+    border: $border-weight $white-1;
+    border-radius: $border-radius;
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 30px;
-    transition: ease-in-out 0.3s;
-    display: flex;
-    margin: 0 20px;
-    border-radius: $border-radiusx2;
-    padding: 5px 50px;
-
+    padding: 20px 25px;
+    height: fit-content;
+    pointer-events: all;
 }
 
-.container-desktop-active {
-    background-color: white;
+.open-navbar {
+    @include shadow;
+    position: fixed;
+    right: 0;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    background-color: $white-1;
+    height: 100vh;
+    width: auto;
+    justify-content: space-between;
+}
+
+.top-flex {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 30px 0px 30px;
+}
+
+.close-container {
+    align-self: flex-end;
+
+    .close {
+        font-size: 3rem;
+        color: $grey-1
+    }
 }
 
 .list {
+    margin: 0;
+    list-style: none;
+    padding: 0 0 30px 0;
     display: flex;
-    width: 100%;
-    justify-content: space-between;
-    column-gap: 5px;
-    padding: 0;
-
-    li{
-        a{
-            height: 40px;
-            padding: 15px;
-        }
-    }
-
-    li:not(:last-child) {
-        a {
-            border-right: 1px solid $grey-2;
-        }
-    }
-
-}
-
-.link {
     flex-direction: column;
-    text-transform: capitalize;
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-top: -10px;
-    
+    row-gap: 20px;
     a {
-        @include text-4-regular;
-        max-width: 130px;
-        color: $dark-2;
-        transition: $transition-buttons;
+        @include text-3-regular;
         text-decoration: none;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    &::before {
-        transition: $transition-buttons;
-        $size: 10px;
-        content: '';
-        background-color: transparent;
-        display: block;
-        width: $size;
-        height: calc($size * 0.9);
-        margin-bottom: 10px;
-        clip-path: polygon(100% 50%, 50% 100%, 0% 50%);
-    }
-
-    &:hover {
-        text-decoration: none;
-
-        &::before {
-            background-color: $dark-1;
-        }
-
-        a {
-            @include text-4-bold;
-            color: $dark-1;
-        }
-    }
-}
-
-.active {
-    a {
-        @include text-4-bold;
         color: $dark-1;
-    }
-
-    &::before {
-        background-color: $dark-2;
+        transition: ease 0.2s;
+        
+        &:hover {
+            @include text-3-bold;
+            color: $teal-3;
+        }
     }
 }
 
-.button{
-    display: flex;
-    flex-direction: column;
+.social-wrapper{
+    margin: 0 30px;
+    padding: 10px 0 20px;
+    border-top: $border-weight $grey-2;
+    .social-links{
+        display: flex;
+        column-gap: 30px;
+        align-items: flex-end;
+    }
+    .social-icon{
+        fill: $dark-1;
+        transition: ease 0.2s;
+        &:hover{            
+            fill: $teal-3;
+        }
+    }
 }
 
-// }
+.feedback-wrapper {
+    background-color: $teal-2;
+    padding: 20px 30px;
+}
+
+.text {
+    @include text-3-bold;
+    text-transform: uppercase;
+    margin: 10px 0;
+}

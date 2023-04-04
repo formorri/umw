@@ -119,6 +119,12 @@ $url: '../../public/fonts/';
     font-weight: bold;
 }
 
+@mixin header-4-bold {
+    @include font-settings ($desktop-font-size: 50px);
+    font-family: 'Kievit';
+    font-weight: bold;
+}
+
 @mixin title-1 {
     @include font-settings ($desktop-font-size: 50px);
     font-family: 'KievitOT';
@@ -165,6 +171,12 @@ $url: '../../public/fonts/';
     @include font-settings ($desktop-font-size: 14px);
     font-family: 'KievitOT';
     font-weight: normal;
+}
+
+@mixin number-0 {
+    @include font-settings ($desktop-font-size: 75px);
+    font-family: 'Kievit';
+    font-weight: bold;
 }
 
 @mixin number-1 {

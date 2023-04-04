@@ -107,6 +107,24 @@ const WhoWeAre = () => {
           transition={{ duration: 0.8 }}
           className={styles.col3}
         >
+          <div className={styles.card2}>
+            <div className={styles["value-title-deco"]}>
+              <h3 className={styles["value-title"]}>vision</h3>
+            </div>
+            <p className={styles["inner-text"]}>
+              To be an innovative global conglomerate with sustainable core
+              businesses.
+            </p>
+          </div>
+          <div className={styles.card3}>
+            <div className={styles["value-title-deco"]}>
+              <h3 className={styles["value-title"]}>mission</h3>
+            </div>
+            <p className={styles["inner-text"]}>
+              Committed to delivering excellence and sustained value creation
+              for our stakeholders through products and services.
+            </p>
+          </div>
           <div className={styles.card1}>
             <div className={styles["value-title-deco"]}>
               <h3 className={styles["value-title"]}>our core values</h3>
@@ -121,24 +139,6 @@ const WhoWeAre = () => {
               <span className={styles.bold}>
                 We Are One, We Drive Change and We Deliver Promises.
               </span>
-            </p>
-          </div>
-          <div className={styles.card2}>
-            <div className={styles["value-title-deco"]}>
-              <h3 className={styles["value-title"]}>vision</h3>
-            </div>
-            <p className={styles["bold"]}>
-              To be an innovative global conglomerate with sustainable core
-              businesses.
-            </p>
-          </div>
-          <div className={styles.card3}>
-            <div className={styles["value-title-deco"]}>
-              <h3 className={styles["value-title"]}>mission</h3>
-            </div>
-            <p className={styles["bold"]}>
-              Committed to delivering excellence and sustained value creation
-              for our stakeholders through products and services.
             </p>
           </div>
         </motion.div>

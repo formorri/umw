@@ -24,6 +24,8 @@ import peroduaToyota from "../public/assets/perodua-toyota.png";
 import fb from "../public/assets/fb.png";
 import linkedIn from "../public/assets/linkedin.png";
 import email from "../public/assets/email.png";
+import link from "../public/assets/link.png";
+import feedback from "../public/assets/feedback.png";
 
 // ? Home
 // import coverVid from '../public/assets/cover.mp4';
@@ -138,6 +140,8 @@ import leadershipBackground from "../public/assets/leadership-background.png";
 import apple from "../public/assets/apple.png";
 import google from "../public/assets/google.png";
 import outlook from "../public/assets/outlook.png";
+import calendar from "../public/assets/calendar.png";
+import time from "../public/assets/time.png";
 
 // ? Download
 import mockup from "../public/assets/mockup.png";
@@ -169,6 +173,8 @@ const Images = {
   fb,
   linkedIn,
   email,
+  link,
+  feedback,
 
   // ? Home
   // coverVid,
@@ -283,6 +289,8 @@ const Images = {
   apple,
   google,
   outlook,
+  calendar,
+  time,
 
   // ? Download
   mockup,

@@ -41,7 +41,7 @@ const leaderData = [
         key: 3,
         image: "A3",
         name: "DATO’ ESHAH MEOR SULEIMAN",
-        title: "Independent Non-Executive 66 Director",
+        title: "Independent Non-Executive Director",
       },
       {
         key: 4,
@@ -53,7 +53,7 @@ const leaderData = [
         key: 5,
         image: "A5",
         name: "RAZALEE AMIN",
-        title: "Independent Non-Executive 61 Director",
+        title: "Independent Non-Executive Director",
       },
       {
         key: 6,
@@ -65,7 +65,7 @@ const leaderData = [
         key: 7,
         image: "A7",
         name: "DATO’ AZMI MOHD ALI",
-        title: "Independent Non-Executive 58 Director",
+        title: "Independent Non-Executive Director",
       },
       {
         key: 8,

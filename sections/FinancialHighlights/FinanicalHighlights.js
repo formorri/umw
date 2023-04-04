@@ -22,7 +22,7 @@ import { useInView } from "react-intersection-observer";
 // };
 
 const FinanicalHighlights = () => {
-  const { ref, inView } = useInView({ threshold: 0.5 });
+  const { ref, inView } = useInView({ threshold: 0.1 });
   const [isPlaying1, setIsPlaying1] = useState(false);
   const [isPlaying2, setIsPlaying2] = useState(false);
   const [isPlaying3, setIsPlaying3] = useState(false);
@@ -134,7 +134,7 @@ const FinanicalHighlights = () => {
         <div className={`${styles.card} ${styles["card2"]}`}>
           <div className={styles.header}>
             <p className={styles["header-text"]}>
-              revenue <span className={styles["unit"]}>(RM million)</span>
+            PROFIT BEFORE ZAKAT AND TAXATION <span className={styles["unit"]}>(RM million)</span>
             </p>
           </div>
           <div className={styles["graph-container"]} ref={ref}>
@@ -146,7 +146,7 @@ const FinanicalHighlights = () => {
         <div className={`${styles.card} ${styles["card3"]}`}>
           <div className={styles.header}>
             <p className={styles["header-text"]}>
-              revenue <span className={styles["unit"]}>(RM million)</span>
+            PROFIT FOR THE FINANCIAL YEAR <span className={styles["unit"]}>(RM million)</span>
             </p>
           </div>
           <div className={styles["graph-container"]} ref={ref}>
@@ -158,7 +158,7 @@ const FinanicalHighlights = () => {
         <div className={`${styles.card} ${styles["card4"]}`}>
           <div className={styles.header}>
             <p className={styles["header-text"]}>
-              revenue <span className={styles["unit"]}>(RM million)</span>
+            SHAREHOLDER’S FUNDS <span className={styles["unit"]}>(RM million)</span>
             </p>
           </div>
           <div className={styles["graph-container"]} ref={ref}>
@@ -170,7 +170,7 @@ const FinanicalHighlights = () => {
         <div className={`${styles.card} ${styles["card5"]}`}>
           <div className={styles.header}>
             <p className={styles["header-text"]}>
-              revenue <span className={styles["unit"]}>(RM million)</span>
+            BASIC EARNINGS PER SHARE <span className={styles["unit"]}>(RM million)</span>
             </p>
           </div>
           <div className={styles["graph-container"]} ref={ref}>
@@ -182,7 +182,7 @@ const FinanicalHighlights = () => {
         <div className={`${styles.card} ${styles["card6"]}`}>
           <div className={styles.header}>
             <p className={styles["header-text"]}>
-              revenue <span className={styles["unit"]}>(RM million)</span>
+            NET ASSETS PER SHARE <span className={styles["unit"]}>(RM million)</span>
             </p>
           </div>
           <div className={styles["graph-container"]} ref={ref}>

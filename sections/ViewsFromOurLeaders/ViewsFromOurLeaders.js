@@ -22,7 +22,7 @@ const ViewsFromOurLeaders = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Views From Our Leader</h2>
+      <h2 className={styles.title}>Views From Our Leaders</h2>
       <div className={styles["leader-wrapper"]}>
         <div className={styles["chairman-wrapper"]}>
           <div className={styles["background-container"]}>

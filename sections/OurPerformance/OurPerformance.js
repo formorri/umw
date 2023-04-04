@@ -435,6 +435,14 @@ const OurPerformance = () => {
                         <p className={styles["data-year"]}>{dataItem.year}</p>
                       </div>
                     ))}
+                  <Button1
+                    link="/"
+                    text="Download This Section"
+                    backgroundColor="#112F5E"
+                    textColor="white"
+                    icon="download"
+                    className={styles.download}
+                  />
                 </div>
               </div>
             </div>
@@ -593,6 +601,14 @@ const OurPerformance = () => {
                           <p className={styles["data-year"]}>{dataItem.year}</p>
                         </div>
                       ))}
+                    <Button1
+                      link="/"
+                      text="Download This Section"
+                      backgroundColor="#112F5E"
+                      textColor="white"
+                      icon="download"
+                      className={styles.download}
+                    />
                   </div>
                 </div>
               </div>
@@ -630,14 +646,6 @@ const OurPerformance = () => {
             </motion.div>
           </AnimatePresence>
         )}
-        <Button1
-          link="/"
-          text="Download This Section"
-          backgroundColor="#112F5E"
-          textColor="white"
-          icon="download"
-          className={styles.download}
-        />
       </div>
     </motion.div>
   );

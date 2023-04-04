@@ -8,6 +8,7 @@
 
 .unit {
     @include text-4-regular;
+    color: $dark-1;
 }
 
 .financial {
@@ -20,7 +21,7 @@
 }
 
 .wrapper {
-    $gap: 10px;
+    $gap: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -58,4 +59,23 @@
             height: auto;
         }
     }
+}
+
+.card1{
+    .header-text{color: $teal-3;}
+}
+.card2{
+    .header-text{color: $purple-2;}
+}
+.card3{
+    .header-text{color: $green-6;}
+}
+.card4{
+    .header-text{color: $orange-1;}
+}
+.card5{
+    .header-text{color: $blue-4;}
+}
+.card6{
+    .header-text{color: $red-1;}
 }
