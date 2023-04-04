@@ -1,4 +1,5 @@
 import Downloads from './Downloads';
+import AGM from './AGM';
 import FinancialHighlights from './FinancialHighlights';
 import Hero from './Hero';
 import Leadership from './Leadership';
@@ -17,5 +18,6 @@ export {
     TheWayWeCreateValue,
     SustainabilityPerformance,
     Leadership,
+    AGM,
     Downloads,
 }

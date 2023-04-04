@@ -138,22 +138,22 @@ const leaderData = [
   },
 ];
 
-const containerVariants = {
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-  hidden: {
-    opacity: 0,
-  },
-};
+// const containerVariants = {
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//     },
+//   },
+//   hidden: {
+//     opacity: 0,
+//   },
+// };
 
-const itemVariants = {
-  visible: { opacity: 1, y: 0 },
-  hidden: { opacity: 0, y: 30 },
-};
+// const itemVariants = {
+//   visible: { opacity: 1, y: 0 },
+//   hidden: { opacity: 0, y: 30 },
+// };
 
 const Leadership = () => {
   const { ref, inView } = useInView({ threshold: 0.5 });
@@ -165,91 +165,114 @@ const Leadership = () => {
 
   return (
     <div className={styles.container}>
-      <motion.div
-        ref={ref}
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        transition={{ duration: 0.8 }}
-        className={styles.wrapper}
-      >
-        <motion.div variants={itemVariants}>
+      <div className={styles["wrapper-top"]}>
+        <motion.div
+          whileInView={{
+            y: [10, 0],
+            opacity: [0, 1],
+          }}
+          transition={{ duration: 0.8 }}
+        >
           <h2 className={styles.title}>Leadership</h2>
         </motion.div>
-        <motion.div variants={itemVariants} className={styles.indicator}>
-          <p className={styles["indicator-text"]}>
-            click to view umw leadership members
-          </p>
-          <Image
-            src={images.switcher}
-            loading="lazy"
-            alt="switcher-icon"
-            className={styles["switcher-icon"]}
-          />
-        </motion.div>
         <motion.div
-          variants={itemVariants}
-          className={styles["switch-container"]}
+          whileInView={{
+            y: [10, 0],
+            opacity: [0, 1],
+          }}
+          transition={{ duration: 0.8 }}
+          className={styles["instructions"]}
         >
-          <div className={styles["switch-wrapper"]}>
-            <div
-              className={styles.switch}
-              data-ison={activeSwitcher === 1 ? "true" : "false"}
-              onClick={() => setActiveSwitcher(activeSwitcher === 0 ? 1 : 0)}
-            >
-              <div className={styles["switch-text"]}>
-                {activeSwitcherData.switcherName}
+          <div className={styles.indicator}>
+            <p className={styles["indicator-text"]}>
+              click to view umw leadership members
+            </p>
+            <Image
+              src={images.switcher}
+              loading="lazy"
+              alt="switcher-icon"
+              className={styles["switcher-icon"]}
+            />
+          </div>
+          <div
+            whileInView={{
+              y: [10, 0],
+              opacity: [0, 1],
+            }}
+            className={styles["switch-container"]}
+          >
+            <div className={styles["switch-wrapper"]}>
+              <div
+                className={styles.switch}
+                data-ison={activeSwitcher === 1 ? "true" : "false"}
+                onClick={() => setActiveSwitcher(activeSwitcher === 0 ? 1 : 0)}
+              >
+                <div className={styles["switch-text"]}>
+                  {activeSwitcherData.switcherName}
+                </div>
+                <motion.div
+                  className={`${styles.handle} ${
+                    activeSwitcher === 1 ? styles.active : ""
+                  }`}
+                  layout
+                  transition={spring}
+                ></motion.div>
               </div>
-              <motion.div
-                className={`${styles.handle} ${
-                  activeSwitcher === 1 ? styles.active : ""
-                }`}
-                layout
-                transition={spring}
-              ></motion.div>
             </div>
           </div>
         </motion.div>
-        <motion.div variants={itemVariants}>
-          {activeSwitcherData?.switcher?.length > 0 && (
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeSwitcherData.key}
-                initial={{ x: 10, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -10, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className={styles["content-wrapper"]}
-              >
-                <Carousel>
-                  {activeCarouselData &&
-                    activeCarouselData.map((dataItem) => (
-                      <div
-                        key={dataItem.key}
-                        className={styles["carousel-card-outer"]}
-                      >
-                        <div className={styles["carousel-card"]}>
-                          <Image
-                            src={images[dataItem.image]}
-                            alt={dataItem.name}
-                            width={254}
-                            height={254}
-                            className={styles.image}
-                          />
-                          <p className={styles["leader-name"]}>
-                            {dataItem.name}
-                          </p>
-                          <p className={styles["leader-title"]}>
-                            {dataItem.title}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                </Carousel>
-              </motion.div>
-            </AnimatePresence>
-          )}
-        </motion.div>
+      </div>
+      <div>
+        {activeSwitcherData?.switcher?.length > 0 && (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeSwitcherData.key}
+              initial={{ x: 10, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -10, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className={styles["content-wrapper"]}
+            >
+              {activeCarouselData &&
+                activeCarouselData.map((dataItem) => (
+                  <motion.div
+                    whileInView={{
+                      y: [10, 0],
+                      opacity: [0, 1],
+                    }}
+                    transition={{ duration: 0.8 }}
+                    className={styles["card"]}
+                  >
+                    <Image
+                      src={images[dataItem.image]}
+                      alt={dataItem.name}
+                      className={styles.image}
+                    />
+                    <div className={styles["content"]}>
+                      <p className={styles["leader-name"]}>{dataItem.name}</p>
+                      <p className={styles["leader-title"]}>{dataItem.title}</p>
+                    </div>
+                  </motion.div>
+                ))}
+            </motion.div>
+          </AnimatePresence>
+        )}
+      </div>
+      <motion.div
+        whileInView={{
+          y: [10, 0],
+          opacity: [0, 1],
+        }}
+        transition={{ duration: 0.8 }}
+      >
+        <Button1
+          link="/"
+          text="Download This Section"
+          backgroundColor="#112F5E"
+          textColor="white"
+          icon="download"
+          className={styles.download}
+        />
       </motion.div>
     </div>
   );

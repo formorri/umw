@@ -7,6 +7,106 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
 import { useWindowSize } from "react-use";
 
+const cardData = [
+  {
+    key: 0,
+    pillarNum: 1,
+    pillar: "SUSTAINABLE ENVIRONMENT",
+    pillarIcon: "pillar1",
+    title: "ENVIRONMENTAL STEWARDSHIP",
+    tagline: "100% Carbon Neutrality by 2050",
+    action: [
+      "Environmental leadership via sustainable operational excellence",
+      "Invest in nature-based solution for CO2 sequestration",
+    ],
+    target: ["45% CO2 neutrality by 2030", "100% CO2 neutrality by 2050"],
+    focus: [
+      "Renewable Energy (Solar PV installations, Green Electricity Tarriff subscription)",
+      "Reforestation",
+    ],
+    highlights: [
+      "KYB-UMW and UMWT subscribed to GET",
+      "ASSB, Aerospace and KYB-UMW installed rooftop solar PV",
+    ],
+    sdg: ["sdg7", "sdg11", "sdg12", "sdg13", "sdg15", "sdg17"],
+  },
+  {
+    key: 1,
+    pillarNum: 2,
+    pillar: "SUSTAINABLE WORKFORCE",
+    pillarIcon: "pillar2",
+    title: "DYNAMIC WORKFORCE",
+    tagline: "Build a Progressive and Innovative Workforce",
+    action: [
+      "Foster sustainable culture, support and funding for employee wellbeing",
+    ],
+    target: [
+      "Accident rate not more than 2.13",
+      "Scholarship programme to nurture talent",
+      "25% women’s representation in Senior Management roles",
+    ],
+    focus: ["Employee wellbeing", "Education", "Diversity and inclusivity"],
+    highlights: [
+      "RM1 mil spent, 92% utilisation of scholarship fund",
+      "UMW Aerospace has achieved zero LTI since started its operation in 2016, with 2,343 days of zero LTI as of to date",
+      "EnergizeUMW: 24/7 helpline to provide remote therapy sessions for employees",
+      "UMW Executive Development Programme (UEDP) for employees strategic and targeted leadership",
+      "Flexible Benefit Scheme for employees",
+      "46 high potential young talents selected since 2018",
+    ],
+    sdg: ["sdg1", "sdg2", "sdg3", "sdg4", "sdg5", "sdg8", "sdg10"],
+  },
+  {
+    key: 2,
+    pillarNum: 3,
+    pillar: "SUSTAINABLE PRODUCTS AND SERVICES",
+    pillarIcon: "pillar3",
+    title: "INNOVATIVE & HIGH-PERFORMANCE",
+    tagline: "Achieve Excellence in Products and Services",
+    action: [
+      "Focusing into value generating green assets",
+      "Accelerate innovation for products stewardship",
+    ],
+    target: ["Production of Green Energy", "Production of Green Products"],
+    focus: [
+      "Value chain of H2",
+      "Electrification (components & 2-wheeler)",
+      "Products (Bio-Lubricant & Membrane)",
+      "Recycling (BRUSS)",
+    ],
+    highlights: [
+      "Introduction of Mirai as an alternative new energy vehicle technology that is being trialled in Sarawak",
+      "Launched of The Grantt Bio VG Hydraulic Oil",
+      "Expansion of BRUSS and Water Reclamation Plant (in-house membrane)",
+      "Parts manufacturer for E2W",
+    ],
+    sdg: ["sdg6", "sdg7", "sdg9", "sdg12", "sdg13"],
+  },
+  {
+    key: 3,
+    pillarNum: 4,
+    pillar: "SUSTAINABLE LOCAL COMMUNITIES",
+    pillarIcon: "pillar4",
+    title: "NURTURING COMMUNITY & SOCIETY",
+    tagline: "Create a Positive Impact and Well-being of Local Communities",
+    action: [
+      "Foster sustainable culture, support and funding for community well-being",
+    ],
+    target: [
+      "1% of PATAMI goes to community investments by 2025",
+      "2% of PATAMI goes to community investments by 2030",
+    ],
+    focus: ["Community", "Education"],
+    highlights: [
+      "2,187 community champions",
+      "Employees received 63,716 training hours",
+      "11,344 volunteer hours",
+      "RM9.1 mil spent on initiatives, sponsorship, donations and zakat contributions",
+    ],
+    sdg: ["sdg1", "sdg2", "sdg3", "sdg4", "sdg8", "sdg10"],
+  },
+];
+
 const SustainabilityPerformance = () => {
   const defaultActive = 3;
   const [active, setActive] = useState(defaultActive);
@@ -20,44 +120,23 @@ const SustainabilityPerformance = () => {
     }
   };
 
-  const whileInView1 = {
-    x: width > 1200 ? [-50, 0] : 0,
-    y: width <= 1200 ? [50, 0] : 0,
-    opacity: [0, 1],
-  };
-  const whileInView2 = {
-    x: width > 1200 ? [50, 0] : 0,
-    y: width <= 1200 ? [50, 0] : 0,
-    opacity: [0, 1],
-  };
-
   return (
     <div className={styles.container}>
       <motion.div
-        whileInView={whileInView1}
+        whileInView={{
+          y:[10,0],
+          opacity:[0,1]
+        }}
         transition={{ duration: 0.8 }}
         className={styles["text-wrapper"]}
       >
         <h2 className={styles.title}>Sustainability Performance</h2>
-        <p className={styles.text}>
-          UMW’s sustainability performance in 2021 was guided by its new
-          Sustainability Roadmap and the Group’s commitment to redefining
-          sustainability. Our new sustainability strategy enabled us to
-          implement various robust sustainability initiatives and programmes to
-          generate long-lasting positive impact for our business growth and our
-          stakeholders.
-        </p>
-        <Button1
-          link="/"
-          text="Download This Section"
-          backgroundColor="#112F5E"
-          textColor="white"
-          icon="download"
-          className={styles.download}
-        />
       </motion.div>
       <motion.div
-        whileInView={whileInView2}
+        whileInView={{
+          y:[10,0],
+          opacity:[0,1]
+        }}
         transition={{ duration: 0.8 }}
         className={styles["card-wrapper"]}
       >
@@ -71,8 +150,9 @@ const SustainabilityPerformance = () => {
         >
           <div className={styles.header} onClick={() => toggleActive(0)}>
             <p className={styles["header-text"]}>
-              Pillar <span className={styles["number"]}>4 </span>: SUSTAINABLE
-              LOCAL COMMUNITIES
+              Pillar{" "}
+              <span className={styles["number"]}>{cardData[3].pillarNum} </span>
+              : {cardData[3].pillar}
             </p>
             <ArrowForwardIcon
               className={`${styles.arrow} ${active === 0 ? styles.active : ""}`}
@@ -90,66 +170,95 @@ const SustainabilityPerformance = () => {
               >
                 <div className={styles.subheader}>
                   <Image
-                    src={images.pillar4}
+                    src={images[cardData[3].pillarIcon]}
                     loading="lazy"
                     className={styles["pillar-icon"]}
-                    alt="pillar3 icon"
+                    alt="pillar1 icon"
                   />
                   <div className={styles["subheader-text-container"]}>
                     <h3 className={styles["subheader-header"]}>
-                      Nurturing Community & Society
+                      {cardData[3].title}
                     </h3>
                     <p className={styles["subheader-text"]}>
-                      Create a Positive Impact and Well-being of Local
-                      Communities
+                      {cardData[3].tagline}
                     </p>
                   </div>
                 </div>
-                <div className={styles["item-wrapper"]}>
-                  <div className={styles["item-header"]}>
-                    <p className={styles["item-header-text"]}>
-                      Alignment to UN SDGs
-                    </p>
+                <div className={styles["item-container"]}>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Strategic Action Plan
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[3].action.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className={styles["sdg-icon-wrapper"]}>
-                    {["sdg1", "sdg2", "sdg3", "sdg4", "sdg8", "sdg10"].map(
-                      (item) => (
-                        <Image
-                          key={item}
-                          src={images[item]}
-                          loading="lazy"
-                          alt={item}
-                          className={styles["sdg-icon"]}
-                        />
-                      )
-                    )}
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Target Milestone
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[3].target.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-                <div className={styles["item-wrapper"]}>
-                  <div className={styles["item-header"]}>
-                    <p className={styles["item-header-text"]}>Key Highlights</p>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Key Focus Areas
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[3].focus.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className={styles["item-list-wrapper"]}>
-                    <ul className={styles["item-list"]}>
-                      <li className={styles["text-normal"]}>
-                        <span className={styles["text-bold"]}>2,187 </span>
-                        community champions
-                      </li>
-                      <li className={styles["text-normal"]}>
-                        Employees received{" "}
-                        <span className={styles["text-bold"]}>63,716 </span>
-                        training hours
-                      </li>
-                      <li className={styles["text-normal"]}>
-                        <span className={styles["text-bold"]}>11,344 </span>{" "}
-                        volunteer hours
-                      </li>
-                      <li className={styles["text-normal"]}>
-                        <span className={styles["text-bold"]}>RM9.1 mil </span>
-                        spent on initiatives, sponsorship, donations and zakat
-                        contributions
-                      </li>
-                    </ul>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Key Highlights
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[3].highlights.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Alignment to UN SDGs
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <div className={styles["sdg-wrapper"]}>
+                        {cardData[3].sdg.map((item, index) => (
+                          <Image
+                            key={index}
+                            src={images[item]}
+                            alt={item}
+                            className={styles["sdg-icon"]}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -167,8 +276,9 @@ const SustainabilityPerformance = () => {
         >
           <div className={styles.header} onClick={() => toggleActive(1)}>
             <p className={styles["header-text"]}>
-              Pillar <span className={styles["number"]}>3 </span>: SUSTAINABLE
-              PRODUCTS AND SERVICES
+              Pillar{" "}
+              <span className={styles["number"]}>{cardData[2].pillarNum} </span>
+              : {cardData[2].pillar}
             </p>
             <ArrowForwardIcon
               className={`${styles.arrow} ${active === 1 ? styles.active : ""}`}
@@ -186,72 +296,95 @@ const SustainabilityPerformance = () => {
               >
                 <div className={styles.subheader}>
                   <Image
-                    src={images.pillar3}
+                    src={images[cardData[2].pillarIcon]}
                     loading="lazy"
                     className={styles["pillar-icon"]}
-                    alt="pillar3 icon"
+                    alt="pillar1 icon"
                   />
                   <div className={styles["subheader-text-container"]}>
                     <h3 className={styles["subheader-header"]}>
-                      Innovative & High-Performance
+                      {cardData[2].title}
                     </h3>
                     <p className={styles["subheader-text"]}>
-                      Achieve Excellence in Products and Services
+                      {cardData[2].tagline}
                     </p>
                   </div>
                 </div>
-                <div className={styles["item-wrapper"]}>
-                  <div className={styles["item-header"]}>
-                    <p className={styles["item-header-text"]}>
-                      Alignment to UN SDGs
-                    </p>
+                <div className={styles["item-container"]}>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Strategic Action Plan
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[2].action.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className={styles["sdg-icon-wrapper"]}>
-                    {["sdg6", "sdg7", "sdg9", "sdg12", "sdg13"].map((item) => (
-                      <Image
-                        key={item}
-                        src={images[item]}
-                        loading="lazy"
-                        alt={item}
-                        className={styles["sdg-icon"]}
-                      />
-                    ))}
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Target Milestone
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[2].target.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-                <div className={styles["item-wrapper"]}>
-                  <div className={styles["item-header"]}>
-                    <p className={styles["item-header-text"]}>Key Highlights</p>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Key Focus Areas
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[2].focus.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className={styles["item-list-wrapper"]}>
-                    <ul className={styles["item-list"]}>
-                      <li className={styles["text-normal"]}>
-                        Introduction of Mirai as an{" "}
-                        <span className={styles["text-bold"]}>
-                          alternative new energy vehicle technology{" "}
-                        </span>
-                        that is being trialled in Sarawak.
-                      </li>
-                      <li className={styles["text-normal"]}>
-                        Launched of{" "}
-                        <span className={styles["text-bold"]}>
-                          The Grantt Bio VG Hydraulic Oil{" "}
-                        </span>
-                      </li>
-                      <li className={styles["text-normal"]}>
-                        Expansion of
-                        <span className={styles["text-bold"]}> BRUSS </span>
-                        and
-                        <span className={styles["text-bold"]}>
-                          {" "}
-                          Water Reclamation Plant
-                        </span>
-                        (in-house membrane)
-                      </li>
-                      <li className={styles["text-normal"]}>
-                        Parts manufacturer for
-                        <span className={styles["text-bold"]}> E2W </span>
-                      </li>
-                    </ul>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Key Highlights
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[2].highlights.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Alignment to UN SDGs
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <div className={styles["sdg-wrapper"]}>
+                        {cardData[2].sdg.map((item, index) => (
+                          <Image
+                            key={index}
+                            src={images[item]}
+                            alt={item}
+                            className={styles["sdg-icon"]}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -269,8 +402,9 @@ const SustainabilityPerformance = () => {
         >
           <div className={styles.header} onClick={() => toggleActive(2)}>
             <p className={styles["header-text"]}>
-              Pillar <span className={styles["number"]}>2 </span>: SUSTAINABLE
-              WORKFORCE
+              Pillar{" "}
+              <span className={styles["number"]}>{cardData[1].pillarNum} </span>
+              : {cardData[1].pillar}
             </p>
             <ArrowForwardIcon
               className={`${styles.arrow} ${active === 2 ? styles.active : ""}`}
@@ -288,92 +422,95 @@ const SustainabilityPerformance = () => {
               >
                 <div className={styles.subheader}>
                   <Image
-                    src={images.pillar2}
+                    src={images[cardData[1].pillarIcon]}
                     loading="lazy"
                     className={styles["pillar-icon"]}
-                    alt="pillar2 icon"
+                    alt="pillar1 icon"
                   />
                   <div className={styles["subheader-text-container"]}>
                     <h3 className={styles["subheader-header"]}>
-                      Dynamic Workforce
+                      {cardData[1].title}
                     </h3>
                     <p className={styles["subheader-text"]}>
-                      Build a Progressive and Innovative Workforce
+                      {cardData[1].tagline}
                     </p>
                   </div>
                 </div>
-                <div className={styles["item-wrapper"]}>
-                  <div className={styles["item-header"]}>
-                    <p className={styles["item-header-text"]}>
-                      Alignment to UN SDGs
-                    </p>
+                <div className={styles["item-container"]}>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Strategic Action Plan
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[1].action.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className={styles["sdg-icon-wrapper"]}>
-                    {[
-                      "sdg1",
-                      "sdg2",
-                      "sdg3",
-                      "sdg4",
-                      "sdg5",
-                      "sdg8",
-                      "sdg10",
-                    ].map((item) => (
-                      <Image
-                        key={item}
-                        src={images[item]}
-                        loading="lazy"
-                        alt={item}
-                        className={styles["sdg-icon"]}
-                      />
-                    ))}
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Target Milestone
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[1].target.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-                <div className={styles["item-wrapper"]}>
-                  <div className={styles["item-header"]}>
-                    <p className={styles["item-header-text"]}>Key Highlights</p>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Key Focus Areas
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[1].focus.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className={styles["item-list-wrapper"]}>
-                    <ul className={styles["item-list"]}>
-                      <li className={styles["text-normal"]}>
-                        <span className={styles["text-bold"]}>RM1 mil </span>
-                        spent,
-                        <span className={styles["text-bold"]}> 92% </span>
-                        utilisation of scholarship fund
-                      </li>
-                      <li className={styles["text-normal"]}>
-                        UMW Aerospace has achieved{" "}
-                        <span className={styles["text-bold"]}>zero LTI </span>
-                        since started its operation in 2016, with
-                        <span className={styles["text-bold"]}>
-                          {" "}
-                          2,343 days of zero LTI{" "}
-                        </span>
-                        as of to date
-                      </li>
-                      <li className={styles["text-normal"]}>
-                        <span className={styles["text-bold"]}>11,344 </span>{" "}
-                        volunteer hours
-                      </li>
-                      <li className={styles["text-normal"]}>
-                        <span className={styles["text-bold"]}>
-                          EnergizeUMW:{" "}
-                        </span>
-                        4/7 helpline to provide remote therapy sessions for
-                        employees
-                      </li>
-                      <li className={styles["text-normal"]}>
-                        <span className={styles["text-bold"]}>
-                          UMW Executive Development Programme (UEDP){" "}
-                        </span>
-                        for employees strategic and targeted leadership
-                      </li>
-                      <li className={styles["text-normal"]}>
-                        <span className={styles["text-bold"]}>
-                          46 high potential young talents{" "}
-                        </span>
-                        selected since 2018
-                      </li>
-                    </ul>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Key Highlights
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[1].highlights.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Alignment to UN SDGs
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <div className={styles["sdg-wrapper"]}>
+                        {cardData[1].sdg.map((item, index) => (
+                          <Image
+                            key={index}
+                            src={images[item]}
+                            alt={item}
+                            className={styles["sdg-icon"]}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -391,8 +528,9 @@ const SustainabilityPerformance = () => {
         >
           <div className={styles.header} onClick={() => toggleActive(3)}>
             <p className={styles["header-text"]}>
-              Pillar <span className={styles["number"]}>1 </span>: SUSTAINABLE
-              ENVIRONMENT
+              Pillar{" "}
+              <span className={styles["number"]}>{cardData[0].pillarNum} </span>
+              : {cardData[0].pillar}
             </p>
             <ArrowForwardIcon
               className={`${styles.arrow} ${active === 3 ? styles.active : ""}`}
@@ -410,75 +548,95 @@ const SustainabilityPerformance = () => {
               >
                 <div className={styles.subheader}>
                   <Image
-                    src={images.pillar1}
+                    src={images[cardData[0].pillarIcon]}
                     loading="lazy"
                     className={styles["pillar-icon"]}
                     alt="pillar1 icon"
                   />
                   <div className={styles["subheader-text-container"]}>
                     <h3 className={styles["subheader-header"]}>
-                      Environmental Stewardship
+                      {cardData[0].title}
                     </h3>
                     <p className={styles["subheader-text"]}>
-                      100% Carbon Neutrality by 2050
+                      {cardData[0].tagline}
                     </p>
                   </div>
                 </div>
-                <div className={styles["item-wrapper"]}>
-                  <div className={styles["item-header"]}>
-                    <p className={styles["item-header-text"]}>
-                      Alignment to UN SDGs
-                    </p>
+                <div className={styles["item-container"]}>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Strategic Action Plan
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[0].action.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className={styles["sdg-icon-wrapper"]}>
-                    {["sdg7", "sdg11", "sdg12", "sdg13", "sdg15", "sdg17"].map(
-                      (item) => (
-                        <Image
-                          key={item}
-                          src={images[item]}
-                          loading="lazy"
-                          alt={item}
-                          className={styles["sdg-icon"]}
-                        />
-                      )
-                    )}
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Target Milestone
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[0].target.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-                <div className={styles["item-wrapper"]}>
-                  <div className={styles["item-header"]}>
-                    <p className={styles["item-header-text"]}>Key Highlights</p>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Key Focus Areas
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[0].focus.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className={styles["item-list-wrapper"]}>
-                    <ul className={styles["item-list"]}>
-                      <li className={styles["text-normal"]}>
-                        <span className={styles["text-bold"]}>KYB-UMW </span>
-                        and
-                        <span className={styles["text-bold"]}> UMWT </span>
-                        subscribed to GET
-                      </li>
-                      <li className={styles["text-normal"]}>
-                        Launched of{" "}
-                        <span className={styles["text-bold"]}>
-                          ASSB, Aerospace{" "}
-                        </span>
-                        and
-                        <span className={styles["text-bold"]}> KYB-UMW </span>
-                        installed rooftop solar PV
-                      </li>
-                      <li className={styles["text-normal"]}>
-                        Expansion of
-                        <span className={styles["text-bold"]}>
-                          {" "}
-                          157,000 mangrove{" "}
-                        </span>
-                        and
-                        <span className={styles["text-bold"]}>
-                          {" "}
-                          10,000 bamboo trees{" "}
-                        </span>
-                        planted
-                      </li>
-                    </ul>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Key Highlights
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <ul>
+                        {cardData[0].highlights.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className={styles["item-wrapper"]}>
+                    <div className={styles["item-header"]}>
+                      <p className={styles["item-header-text"]}>
+                        Alignment to UN SDGs
+                      </p>
+                    </div>
+                    <div className={styles["content-wrapper"]}>
+                      <div className={styles["sdg-wrapper"]}>
+                        {cardData[0].sdg.map((item, index) => (
+                          <Image
+                            key={index}
+                            src={images[item]}
+                            alt={item}
+                            className={styles["sdg-icon"]}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -486,6 +644,23 @@ const SustainabilityPerformance = () => {
           </AnimatePresence>
         </motion.div>
       </motion.div>
+      <motion.div
+        whileInView={{
+          y:[10,0],
+          opacity:[0,1]
+        }}
+        transition={{ duration: 0.8 }}
+        className={styles["text-wrapper"]}
+      >
+        <Button1
+          link="/"
+          text="Download This Section"
+          backgroundColor="#112F5E"
+          textColor="white"
+          icon="download"
+          className={styles.download}
+        />
+        </motion.div>
     </div>
   );
 };

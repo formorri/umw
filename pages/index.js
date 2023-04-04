@@ -15,6 +15,7 @@ import {
   TheWayWeCreateValue,
   SustainabilityPerformance,
   Leadership,
+  AGM,
   Downloads,
 } from "@/sections";
 
@@ -58,13 +59,17 @@ export default function Home() {
         <TheWayWeCreateValue />
       </section>
 
-      {/* <section id="sustainability-performance">
+      <section id="sustainability-performance">
         <SustainabilityPerformance />
-      </section> */}
+      </section>
 
-      {/* <section id="leadership">
+      <section id="leadership">
         <Leadership />
-      </section> */}
+      </section>
+
+      <section id="agm">
+        <AGM />
+      </section>
 
       {/* <section id="downloads">
         <Downloads />

@@ -1,8 +1,8 @@
 @use '../../styles/settings/index.scss' as *;
 
 $margin-card: 3rem;
-$height-card: 38rem;
-$width-card: 35rem;
+$height-card: 33rem;
+$width-card: 90%;
 
 .text-bold,
 .item-header-text,
@@ -13,7 +13,7 @@ $width-card: 35rem;
     margin: 0;
 }
 
-.number{
+.number {
     @include number-3-bold;
 }
 
@@ -46,19 +46,22 @@ $width-card: 35rem;
 .container {
     background-color: $theme-4;
     padding: $l-y-gap $l-x-gap;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    // display: grid;
+    // grid-template-columns: auto auto;
+    // grid-template-rows: auto;
+    // place-items: center;
 
-    .text-wrapper {
-        grid-area: 1/1/2/2;
-    }
+    // .text-wrapper {
+    //     grid-area: 1/1/2/2;
+    // }
 
-    .card-wrapper {
-        grid-area: 1/2/2/3;
-        // margin-right: 0;
-    }
+    // .card-wrapper {
+    //     grid-area: 1/2/2/3;
+    //     // margin-right: 0;
+    // }
 }
 
 
@@ -73,14 +76,14 @@ $width-card: 35rem;
 }
 
 .card-wrapper {
-    padding: 0 0 0 2rem;
+    // padding: 0 0 0 2rem;
     display: flex;
     flex-direction: column;
     border-radius: $border-radiusx2;
 }
 
 .card {
-    border-radius: calc($border-radiusx2 + 5px) ;
+    border-radius: calc($border-radiusx2 + 5px);
     height: $height-card;
     width: $width-card;
 
@@ -105,7 +108,8 @@ $width-card: 35rem;
     &:nth-child(4) {
         margin-top: calc(-1 * ($height-card - 4rem));
     }
-    .header{
+
+    .header {
         cursor: pointer;
     }
 }
@@ -121,12 +125,10 @@ $width-card: 35rem;
     .subheader-header {
         color: $green-5
     }
-    
+
     .item-wrapper {
-        .item-header {            
-            &::before {
-                background-color: $green-5;
-            }
+        .item-header {
+            background-color: $green-5;
         }
     }
 }
@@ -144,10 +146,8 @@ $width-card: 35rem;
     }
 
     .item-wrapper {
-        .item-header {            
-            &::before {
-                background-color: $green-6;
-            }
+        .item-header {
+            background-color: $green-6;
         }
     }
 }
@@ -165,10 +165,8 @@ $width-card: 35rem;
     }
 
     .item-wrapper {
-        .item-header {            
-            &::before {
-                background-color: $green-7;
-            }
+        .item-header {
+            background-color: $green-7;
         }
     }
 }
@@ -186,10 +184,8 @@ $width-card: 35rem;
     }
 
     .item-wrapper {
-        .item-header {            
-            &::before {
-                background-color: $green-8;
-            }
+        .item-header {
+            background-color: $green-8;
         }
     }
 }
@@ -239,34 +235,72 @@ $width-card: 35rem;
     }
 }
 
+.item-container {
+    display: grid;
+    grid-template-columns: auto auto auto 30% auto;
+    grid-template-rows: auto;
+    column-gap: 10px;
+}
+
+
 .item-wrapper {
     margin: 20px 0;
+    height: 100%;
+    background-color: $white-1;
+    height: inherit;
+    border-radius: $border-radius;
+
+
     .item-header {
-        margin-bottom: 10px;
+        // margin-bottom: 10px;
+        border-radius: $border-radius $border-radius 0 0;
+        min-height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         .item-header-text {
-            @include shadow;
-            background-color: $white-1;
             padding: 10px 20px;
+            color: $white-1;
+            text-align: center;
+        }
+    }
+
+    .content-wrapper {
+        @include text-4-regular;
+        height: inherit;
+        padding: 10px 5px ;
+
+        ul {
+            margin: 0;
         }
 
-        &::before {
-            @include accent;
+        .sdg-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            row-gap: 5px;
+            column-gap: 5px;
         }
     }
 }
 
-.sdg-icon-wrapper{
+
+
+.sdg-icon-wrapper {
     display: flex;
     column-gap: 3px;
-    .sdg-icon{
+
+    .sdg-icon {
         width: 3.5rem;
         height: auto;
     }
 }
 
-.item-list-wrapper{
+.item-list-wrapper {
     margin: 20px 0;
-    .item-list{
+
+    .item-list {
         display: flex;
         flex-direction: column;
         row-gap: 10px;

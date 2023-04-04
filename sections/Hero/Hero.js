@@ -22,6 +22,10 @@ const Hero = () => {
           setModal(false);
           // setTriggerAnimation(true);
         }}
+        sx={{
+          overflow: "scroll",
+          maxHeight: "100vh",
+        }}
       >
         <div className={styles["modal-container"]}>
           <div className={styles["modal"]}>
@@ -88,38 +92,36 @@ const Hero = () => {
       </Modal>
       <AnimatePresence>
         {/* {triggerAnimation && ( */}
-          <motion.div
-            // initial={{ x: -50, opacity: 0 }}
-            // animate={{ x: 0, opacity: 1 }}
-            // exit={{ y: -10, opacity: 0 }}
-            whileInView={{
-              opacity: [0, 1],
-              x: [50, 0],
-            }}
-            transition={{ duration: 0.5 }}
-            className={styles['text-col']}
-          >
-          <p className={styles['header-subtitle']}>INTEGRATED ANNUAL REPORT 2022</p>
-            <h1 className={styles.header}>
-              accelerating <span className={styles.bold}>crest@UMW</span>
-            </h1>
-            <Button1Popup
-              link="/"
-              text="Read our cover rationale"
-              backgroundColor="#112F5E"
-              textColor="white"
-              icon="add"
-              onClick={()=> setModal(true)}
-            />
-          </motion.div>
+        <motion.div
+          // initial={{ x: -50, opacity: 0 }}
+          // animate={{ x: 0, opacity: 1 }}
+          // exit={{ y: -10, opacity: 0 }}
+          whileInView={{
+            opacity: [0, 1],
+            x: [50, 0],
+          }}
+          transition={{ duration: 0.5 }}
+          className={styles["text-col"]}
+        >
+          <p className={styles["header-subtitle"]}>
+            INTEGRATED ANNUAL REPORT 2022
+          </p>
+          <h1 className={styles.header}>
+            accelerating <span className={styles.bold}>crest@UMW</span>
+          </h1>
+          <Button1Popup
+            link="/"
+            text="Read our cover rationale"
+            backgroundColor="#112F5E"
+            textColor="white"
+            icon="add"
+            onClick={() => setModal(true)}
+          />
+        </motion.div>
         {/* )} */}
       </AnimatePresence>
-      <div className={styles['video-col']}>
-        <video 
-        className={styles.video} 
-        autoPlay={true} 
-        muted
-        >
+      <div className={styles["video-col"]}>
+        <video className={styles.video} autoPlay={true} muted>
           <source src="assets/cover.mp4" type="video/mp4" />
         </video>
       </div>

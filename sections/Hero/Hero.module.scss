@@ -28,7 +28,8 @@
 }
 
 .cover-image {
-    height: clamp(30rem, 95vh, 50rem);
+    height: auto;
+    max-width: 40rem;
     width: auto;
 }
 

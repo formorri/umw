@@ -4,22 +4,22 @@ import { images } from "../../constants";
 import CountUp from "react-countup";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-const containerVariants = {
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1, // This is the property to stagger children
-    },
-  },
-  hidden: {
-    opacity: 0,
-  },
-};
+// const containerVariants = {
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1, // This is the property to stagger children
+//     },
+//   },
+//   hidden: {
+//     opacity: 0,
+//   },
+// };
 
-const itemVariants = {
-  visible: { opacity: 1, y: 0 },
-  hidden: { opacity: 0, y: 30 },
-};
+// const itemVariants = {
+//   visible: { opacity: 1, y: 0 },
+//   hidden: { opacity: 0, y: 30 },
+// };
 
 const FinanicalHighlights = () => {
   const { ref, inView } = useInView({ threshold: 0.5 });
@@ -103,107 +103,93 @@ const FinanicalHighlights = () => {
   return (
     <div className={styles.financial}>
       <motion.div
-        ref={ref}
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
+        whileInView={{
+          y: [10, 0],
+          opacity: [0, 1],
+        }}
         transition={{ duration: 0.8 }}
-        className={styles['financial-container']}
       >
-        <div>
-          <h2 className={styles.title}>financial highlights</h2>
+        <h2 className={styles.title}>financial highlights</h2>
+      </motion.div>
+      <motion.div
+        whileInView={{
+          y: [10, 0],
+          opacity: [0, 1],
+        }}
+        transition={{ duration: 0.8 }}
+        className={styles.wrapper}
+      >
+        <div className={`${styles.card} ${styles["card1"]}`}>
+          <div className={styles.header}>
+            <p className={styles["header-text"]}>
+              revenue <span className={styles["unit"]}>(RM million)</span>
+            </p>
+          </div>
+          <div className={styles["graph-container"]} ref={ref}>
+            <video className={styles.graph} ref={videoRef1} muted playsInline>
+              <source src="assets/graph-1.mp4" type="video/mp4" />
+            </video>
+          </div>
         </div>
-        <div className={styles.wrapper}>
-          <motion.div
-            variants={itemVariants}
-            className={`${styles.card} ${styles["card1"]}`}
-          >
-            <div className={styles.header}>
-              <p className={styles["header-text"]}>
-                revenue <span className={styles["unit"]}>(RM million)</span>
-              </p>
-            </div>
-            <div className={styles["graph-container"]} ref={ref}>
-              <video className={styles.graph} ref={videoRef1} muted playsInline>
-                <source src="assets/graph-1.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </motion.div>
-          <motion.div
-            variants={itemVariants}
-            className={`${styles.card} ${styles["card2"]}`}
-          >
-            <div className={styles.header}>
-              <p className={styles["header-text"]}>
-                revenue <span className={styles["unit"]}>(RM million)</span>
-              </p>
-            </div>
-            <div className={styles["graph-container"]} ref={ref}>
-              <video className={styles.graph} ref={videoRef2} muted playsInline>
-                <source src="assets/graph-2.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </motion.div>
-          <motion.div
-            variants={itemVariants}
-            className={`${styles.card} ${styles["card3"]}`}
-          >
-            <div className={styles.header}>
-              <p className={styles["header-text"]}>
-                revenue <span className={styles["unit"]}>(RM million)</span>
-              </p>
-            </div>
-            <div className={styles["graph-container"]} ref={ref}>
-              <video className={styles.graph} ref={videoRef3} muted playsInline>
-                <source src="assets/graph-3.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </motion.div>
-          <motion.div
-            variants={itemVariants}
-            className={`${styles.card} ${styles["card4"]}`}
-          >
-            <div className={styles.header}>
-              <p className={styles["header-text"]}>
-                revenue <span className={styles["unit"]}>(RM million)</span>
-              </p>
-            </div>
-            <div className={styles["graph-container"]} ref={ref}>
-              <video className={styles.graph} ref={videoRef4} muted playsInline>
-                <source src="assets/graph-4.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </motion.div>
-          <motion.div
-            variants={itemVariants}
-            className={`${styles.card} ${styles["card5"]}`}
-          >
-            <div className={styles.header}>
-              <p className={styles["header-text"]}>
-                revenue <span className={styles["unit"]}>(RM million)</span>
-              </p>
-            </div>
-            <div className={styles["graph-container"]} ref={ref}>
-              <video className={styles.graph} ref={videoRef5} muted playsInline>
-                <source src="assets/graph-5.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </motion.div>
-          <motion.div
-            variants={itemVariants}
-            className={`${styles.card} ${styles["card6"]}`}
-          >
-            <div className={styles.header}>
-              <p className={styles["header-text"]}>
-                revenue <span className={styles["unit"]}>(RM million)</span>
-              </p>
-            </div>
-            <div className={styles["graph-container"]} ref={ref}>
-              <video className={styles.graph} ref={videoRef6} muted playsInline>
-                <source src="assets/graph-6.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </motion.div>
+        <div className={`${styles.card} ${styles["card2"]}`}>
+          <div className={styles.header}>
+            <p className={styles["header-text"]}>
+              revenue <span className={styles["unit"]}>(RM million)</span>
+            </p>
+          </div>
+          <div className={styles["graph-container"]} ref={ref}>
+            <video className={styles.graph} ref={videoRef2} muted playsInline>
+              <source src="assets/graph-2.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div className={`${styles.card} ${styles["card3"]}`}>
+          <div className={styles.header}>
+            <p className={styles["header-text"]}>
+              revenue <span className={styles["unit"]}>(RM million)</span>
+            </p>
+          </div>
+          <div className={styles["graph-container"]} ref={ref}>
+            <video className={styles.graph} ref={videoRef3} muted playsInline>
+              <source src="assets/graph-3.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div className={`${styles.card} ${styles["card4"]}`}>
+          <div className={styles.header}>
+            <p className={styles["header-text"]}>
+              revenue <span className={styles["unit"]}>(RM million)</span>
+            </p>
+          </div>
+          <div className={styles["graph-container"]} ref={ref}>
+            <video className={styles.graph} ref={videoRef4} muted playsInline>
+              <source src="assets/graph-4.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div className={`${styles.card} ${styles["card5"]}`}>
+          <div className={styles.header}>
+            <p className={styles["header-text"]}>
+              revenue <span className={styles["unit"]}>(RM million)</span>
+            </p>
+          </div>
+          <div className={styles["graph-container"]} ref={ref}>
+            <video className={styles.graph} ref={videoRef5} muted playsInline>
+              <source src="assets/graph-5.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div className={`${styles.card} ${styles["card6"]}`}>
+          <div className={styles.header}>
+            <p className={styles["header-text"]}>
+              revenue <span className={styles["unit"]}>(RM million)</span>
+            </p>
+          </div>
+          <div className={styles["graph-container"]} ref={ref}>
+            <video className={styles.graph} ref={videoRef6} muted playsInline>
+              <source src="assets/graph-6.mp4" type="video/mp4" />
+            </video>
+          </div>
         </div>
       </motion.div>
     </div>

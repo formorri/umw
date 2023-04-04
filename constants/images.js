@@ -134,6 +134,11 @@ import B5 from "../public/assets/B-5.png";
 import B6 from "../public/assets/B-6.png";
 import leadershipBackground from "../public/assets/leadership-background.png";
 
+// ? AGM
+import apple from "../public/assets/apple.png";
+import google from "../public/assets/google.png";
+import outlook from "../public/assets/outlook.png";
+
 // ? Download
 import mockup from "../public/assets/mockup.png";
 
@@ -273,6 +278,11 @@ const Images = {
   B5,
   B6,
   leadershipBackground,
+
+  // ? AGM
+  apple,
+  google,
+  outlook,
 
   // ? Download
   mockup,
