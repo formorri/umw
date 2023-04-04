@@ -16,7 +16,7 @@
 
     .title,
     .download {
-        padding-left: calc($l-x-gap + 30px);
+        padding-left: calc($l-x-gap + 0px);
     }
 }
 
@@ -38,6 +38,7 @@
 .carousel-container {
     display: flex !important;
     justify-content: center;
+    height: 100%;
     // column-gap: 10px;
 
     .carousel-card {
@@ -47,7 +48,8 @@
         background-color: $white-1;
         border-radius: $border-radiusx2;
         width: 100%;
-        min-height: 31rem;
+        height: 100%;
+        // min-height: 32rem;
         margin: 0 5px;
     }
 

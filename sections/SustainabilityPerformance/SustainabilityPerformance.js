@@ -27,6 +27,7 @@ const cardData = [
     highlights: [
       "KYB-UMW and UMWT subscribed to GET",
       "ASSB, Aerospace and KYB-UMW installed rooftop solar PV",
+      "157,000 mangrove and 10,000 bamboo trees planted"
     ],
     sdg: ["sdg7", "sdg11", "sdg12", "sdg13", "sdg15", "sdg17"],
   },
@@ -53,6 +54,7 @@ const cardData = [
       "UMW Executive Development Programme (UEDP) for employees strategic and targeted leadership",
       "Flexible Benefit Scheme for employees",
       "46 high potential young talents selected since 2018",
+      "Employees received 63,716 training hours"
     ],
     sdg: ["sdg1", "sdg2", "sdg3", "sdg4", "sdg5", "sdg8", "sdg10"],
   },
@@ -70,6 +72,7 @@ const cardData = [
     target: ["Production of Green Energy", "Production of Green Products"],
     focus: [
       "Value chain of H2",
+      "Hybrid vehicle",
       "Electrification (components & 2-wheeler)",
       "Products (Bio-Lubricant & Membrane)",
       "Recycling (BRUSS)",
@@ -99,9 +102,8 @@ const cardData = [
     focus: ["Community", "Education"],
     highlights: [
       "2,187 community champions",
-      "Employees received 63,716 training hours",
       "11,344 volunteer hours",
-      "RM9.1 mil spent on initiatives, sponsorship, donations and zakat contributions",
+      "RM9.1 million spent on initiatives, sponsorship, donations",
     ],
     sdg: ["sdg1", "sdg2", "sdg3", "sdg4", "sdg8", "sdg10"],
   },

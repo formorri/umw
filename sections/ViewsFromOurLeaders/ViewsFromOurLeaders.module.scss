@@ -144,12 +144,17 @@
 
     .data-card {
         padding: 30px;
-        height: 12rem;
+        max-height: 8rem;
 
         .data-card-inner {
             max-width: 200px;
         }
     }
+}
+
+.leader-image{
+    height: auto;
+    width: 14rem;
 }
 
 .chairman-wrapper{

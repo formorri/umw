@@ -49,41 +49,51 @@ const Hero = () => {
               <div className={styles["text-container"]}>
                 <h3 className={styles.title}>cover rationale</h3>
                 <p className={styles.text}>
-                  UMW’s approach to comprehensive growth is encircled in our
-                  Crest@2021 strategy framework. Leading the way with
-                  sustainable core businesses based on our five vital pillars,
-                  we at UMW commit to driving change and delivering on our
-                  promises. In meeting challenges and allaying prevailing
-                  uncertainties, our CREST@2021 strategy creates a firm pathway
-                  toward resolving emergent economic and sustainability
-                  concerns.
+                  UMW's approach to comprehensive growth is encircled in our
+                  CREST@UMW strategy framework. Launched in January 2021 as
+                  CREST@2021, it has since been retitled to CREST@UMW. The
+                  numbers 20-2-1 inscribed in the CREST@UMW logo not only refers
+                  to the year it was launched but also the strategic framework’s
+                  aspirations: to achieve RM20 billion in revenue, RM2 billion
+                  PBT and RM1 billion PATAMI by 2030. The goal is to lead the
+                  way with sustainable core businesses based on our five vital
+                  pillars, Customer, Relationship, Excellence, Sustainability
+                  and Teamwork, as we at UMW commit to driving change and
+                  delivering on our promises. In order to fully realise the
+                  objectives of CREST@ UMW, the core framework is bolstered by
+                  distinct underlying enablers. These include the ingenuity to
+                  innovate, a continuous push towards digitalisation and the
+                  cultivation of a shared attitude towards success. In meeting
+                  challenges and allaying prevailing uncertainties, our
+                  CREST@UMW strategy creates a firm pathway toward resolving
+                  emergent economic and sustainability concerns.
                 </p>
                 <p className={styles.text}>
-                  As a major national industry leader, it is our responsibility
-                  to forge new and innovative paths, paving the way for
-                  long-term sustainable growth. We cultivate strategic global
-                  alliances, adopt the latest technological advances and pursue
-                  excellence and sustained stakeholder value, while at all times
-                  striving to break new ground.
+                  As one of the industry leaders, it is our responsibility to
+                  forge new and innovative paths, paving the way for long-term
+                  sustainable growth. We cultivate strategic global alliances,
+                  adopt the latest technological advances and pursue excellence
+                  and sustained stakeholder value, while at all times striving
+                  to break new ground.
                 </p>
                 <p className={styles.text}>
-                  The cover reflects UMW’s central role, sustained by its five
-                  core pillars of its CREST@2021 transformation strategy, in a
+                  The cover reflects UMW's central role, sustained by its five
+                  core pillars of its CREST@UMW transformation strategy, in a
                   constantly evolving ecosystem. Spearheading support, each core
-                  pillar and enabler drives UMW’s determination to reinvigorate
-                  the various industries in which we operate. The design’s
-                  dynamic shapes encapsulate UMW’s diverse endeavours within the
-                  automotive, equipment, engineering, aerospace and development
-                  industries.
+                  pillar and enabler drives UMW's determination to reinvigorate
+                  the various industries in which we operate. The design's
+                  dynamic shapes encapsulate UMW's diverse endeavours within the
+                  automotive, equipment, manufacturing & engineering, aerospace
+                  and property development sectors.
                 </p>
                 <p className={styles.text}>
                   The cyclical aesthetic of the design, as well as the
                   shape-shifting shades of green, highlight UMW’s dedication to
-                  long-term sustainability. CREST@2021 core components are
-                  embedded within the cover to accentuate the framework’s
-                  augmentation of UMW’s overall performance, accelerating
-                  progress in our CREST@2021 aspirations. Hence, Accelerating
-                  CREST@2021.
+                  long-term sustainability in innovising mobility. CREST@UMW
+                  core components are embedded within the cover to accentuate
+                  the framework's augmentation of UMW's overall performance,
+                  accelerating progress in realising our CREST@UMW aspirations.
+                  Hence, accelerating CREST@UMW.
                 </p>
               </div>
             </div>

@@ -19,12 +19,12 @@ const tabData = [
         key: 0,
         color: "#C65A81",
         backgroundColor: "#F7E8EE",
-        title: "UMW Toyota",
+        title: "Toyota",
         category: "automotive",
         // image: "toyotaPic",
         video: "toyota.mp4",
         description:
-          "Reclaimed Its Position As The Number-One Non-National Car Manufacturer In Malaysia For The Second Year Running.",
+          "Reclaimed its position as the number-one non-national car manufacturer in Malaysia for the second year running",
         data: [
           {
             key: 0,
@@ -37,7 +37,7 @@ const tabData = [
             key: 1,
             title: "TOYOTA CAPITAL MANAGED ASSETS",
             units: "(RM billion)",
-            figure: "7.34",
+            figure: "7.3",
             year: "2021: 6.3",
           },
         ],
@@ -51,7 +51,7 @@ const tabData = [
         // image: "peroduaPic",
         video: "perodua.mp4",
         description:
-          "As a national carmaker, Perodua is steadfast about benefitting Malaysians.",
+          "As a national carmaker, Perodua is steadfast about benefitting Malaysians",
         data: [
           {
             title: "perodua sales volume",
@@ -110,19 +110,19 @@ const tabData = [
     // image: "mnEPic",
     video: "mnE.mp4",
     description:
-      "Reopening economies and borders accounted for a boost inmobility,intensifying demand for automotive components and lubricants.",
+      "Reopening economies and borders accounted for a boost in mobility, intensifying demand for automotive components and lubricants",
     data: [
       {
         title: "REVENUE",
         units: "(RM million)",
         figure: "758.1",
-        year: "2021: 579 million",
+        year: "2021: 578.7 million",
       },
       {
         title: "PROFIT BEFORE TAX (PBT)",
         units: "(RM million)",
-        figure: "75.6",
-        year: "2021: 56 million",
+        figure: "75.7",
+        year: "2021: 56.0 million",
       },
     ],
   },
@@ -135,9 +135,10 @@ const tabData = [
     backgroundColor: "#E4EFF9",
     title: "aerospace",
     category: "aerospace",
-    image: "aerospacePic",
+    // image: "aerospacePic",
+    video: "aerospace.mp4",
     description:
-      "UMW Aerospace is Malaysia’s first homegrown High Performing Supplier Group (HPSG) Tier-1 aero engine component supplier.",
+      "UMW Aerospace is Malaysia’s first homegrown High Performing Supplier Group (HPSG) Tier-1 aero engine component supplier",
     data: [
       {
         title: "REVENUE",
@@ -166,7 +167,7 @@ const tabData = [
     category: "development",
     image: "developmentPic",
     description:
-      "UMW Aerospace is Malaysia’s first homegrown High Performing Supplier Group(HPSG) Tier-1aero engine component supplier.",
+      "UMW Development Sdn Bhd’s primary role is to unlock the Group’s landbank in Serendah, with the development of UMW High Value Manufacturing (HVM) Park as a managed and greenrated industrial park.",
     data: [
       {
         title: "INKED SALES AND PURCHASE AGREEMENTS VALUED AT",
@@ -177,7 +178,7 @@ const tabData = [
       {
         title: "REVENUE",
         units: "(RM million)",
-        figure: "74",
+        figure: "73.7",
         year: "2021: 17.1",
       },
     ],
@@ -420,6 +421,8 @@ const OurPerformance = () => {
                           start={0}
                           end={dataItem.figure}
                           delay={0}
+                          decimal="."
+                          decimals={1}
                           enableScrollSpy={true}
                           scrollSpyDelay={1}
                         >
@@ -586,6 +589,8 @@ const OurPerformance = () => {
                             start={0}
                             end={dataItem.figure}
                             delay={0}
+                            decimal="."
+                            decimals={1}
                             enableScrollSpy={true}
                             scrollSpyDelay={1}
                           >

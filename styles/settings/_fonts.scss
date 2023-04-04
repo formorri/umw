@@ -96,115 +96,115 @@ $url: '../../public/fonts/';
 
 
 @mixin header-1 {
-    @include font-settings ($desktop-font-size: 80px);
+    @include font-settings ($desktop-font-size: 70px);
     font-family: 'KievitOT';
     font-weight: bold;
 }
 
 @mixin header-2-regular {
-    @include font-settings ($desktop-font-size: 70px);
+    @include font-settings ($desktop-font-size: 60px);
     font-family: 'KievitOT';
     font-weight: normal;
 }
 
 @mixin header-2-bold {
-    @include font-settings ($desktop-font-size: 70px);
+    @include font-settings ($desktop-font-size: 60px);
     font-family: 'KievitOT';
     font-weight: bold;
 }
 
 @mixin header-3-bold {
-    @include font-settings ($desktop-font-size: 70px);
-    font-family: 'Kievit';
-    font-weight: bold;
-}
-
-@mixin header-4-bold {
-    @include font-settings ($desktop-font-size: 50px);
-    font-family: 'Kievit';
-    font-weight: bold;
-}
-
-@mixin title-1 {
-    @include font-settings ($desktop-font-size: 50px);
-    font-family: 'KievitOT';
-    font-weight: bold;
-}
-
-@mixin text-1-bold {
-    @include font-settings ($desktop-font-size: 30px);
-    font-family: 'KievitOT';
-    font-weight: bold;
-}
-
-@mixin text-2-bold {
-    @include font-settings ($desktop-font-size: 25px);
-    font-family: 'KievitOT';
-    font-weight: bold;
-}
-
-@mixin text-3-bold {
-    @include font-settings ($desktop-font-size: 20px);
-    font-family: 'KievitOT';
-    font-weight: bold;
-}
-
-@mixin text-3-regular {
-    @include font-settings ($desktop-font-size: 20px);
-    font-family: 'KievitOT';
-    font-weight: normal;
-}
-
-@mixin text-4-bold {
-    @include font-settings ($desktop-font-size: 16px);
-    font-family: 'KievitOT';
-    font-weight: bold;
-}
-
-@mixin text-4-regular {
-    @include font-settings ($desktop-font-size: 16px);
-    font-family: 'KievitOT';
-    font-weight: normal;
-}
-
-@mixin text-5-regular {
-    @include font-settings ($desktop-font-size: 14px);
-    font-family: 'KievitOT';
-    font-weight: normal;
-}
-
-@mixin number-0 {
-    @include font-settings ($desktop-font-size: 75px);
-    font-family: 'Kievit';
-    font-weight: bold;
-}
-
-@mixin number-1 {
     @include font-settings ($desktop-font-size: 60px);
     font-family: 'Kievit';
     font-weight: bold;
 }
 
-@mixin number-2 {
+@mixin header-4-bold {
     @include font-settings ($desktop-font-size: 40px);
     font-family: 'Kievit';
     font-weight: bold;
 }
 
+@mixin title-1 {
+    @include font-settings ($desktop-font-size: 40px);
+    font-family: 'KievitOT';
+    font-weight: bold;
+}
+
+@mixin text-1-bold {
+    @include font-settings ($desktop-font-size: 25px);
+    font-family: 'KievitOT';
+    font-weight: bold;
+}
+
+@mixin text-2-bold {
+    @include font-settings ($desktop-font-size: 30px);
+    font-family: 'KievitOT';
+    font-weight: bold;
+}
+
+@mixin text-3-bold {
+    @include font-settings ($desktop-font-size: 18px);
+    font-family: 'KievitOT';
+    font-weight: bold;
+}
+
+@mixin text-3-regular {
+    @include font-settings ($desktop-font-size: 18px);
+    font-family: 'KievitOT';
+    font-weight: normal;
+}
+
+@mixin text-4-bold {
+    @include font-settings ($desktop-font-size: 14px);
+    font-family: 'KievitOT';
+    font-weight: bold;
+}
+
+@mixin text-4-regular {
+    @include font-settings ($desktop-font-size: 14px);
+    font-family: 'KievitOT';
+    font-weight: normal;
+}
+
+@mixin text-5-regular {
+    @include font-settings ($desktop-font-size: 12px);
+    font-family: 'KievitOT';
+    font-weight: normal;
+}
+
+@mixin number-0 {
+    @include font-settings ($desktop-font-size: 65px);
+    font-family: 'Kievit';
+    font-weight: bold;
+}
+
+@mixin number-1 {
+    @include font-settings ($desktop-font-size: 50px);
+    font-family: 'Kievit';
+    font-weight: bold;
+}
+
+@mixin number-2 {
+    @include font-settings ($desktop-font-size: 30px);
+    font-family: 'Kievit';
+    font-weight: bold;
+}
+
 @mixin number-3 {
-    @include font-settings ($desktop-font-size: 16px);
+    @include font-settings ($desktop-font-size: 14px);
     font-family: 'Kievit';
     font-weight: 500;
 }
 
 @mixin number-3-bold {
-    @include font-settings ($desktop-font-size: 16px);
+    @include font-settings ($desktop-font-size: 14px);
     font-family: 'Kievit';
     font-weight: bold;
 }
 
 @mixin number-4 {
-    @include font-settings ($desktop-font-size: 30px);
+    @include font-settings ($desktop-font-size: 20px);
     font-family: 'Kievit';
     font-weight: bold;
 }

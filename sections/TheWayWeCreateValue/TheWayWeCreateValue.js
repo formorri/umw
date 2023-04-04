@@ -53,7 +53,7 @@ const carouselData = [
   },
   {
     key: 7,
-    title: "Labour Management Relations",
+    title: "Labour/Management Relations",
     image: "material7",
     onClick: () => handleModalClick("modal7"),
   },
@@ -71,7 +71,7 @@ const carouselData = [
   },
   {
     key: 10,
-    title: "Occupational Health & Safety (OHS)",
+    title: "Occupational Health & Safety",
     image: "material10",
     onClick: () => handleModalClick("modal10"),
   },
@@ -89,11 +89,11 @@ const modalData = [
     title: "Climate Change",
     risks: [
       "Destruction of property and assets resulting from severe weather conditions",
-      "The effects of climate change can disrupt supply chains and lead to financial loss through reduced production.",
-      "Transition risk pertains to the impact of shifting strategies, regulations, or investments as society and industry move towards reducing their carbon dependency and mitigating the resulting environmental impact.",
+      "The effects of climate change can disrupt supply chains and lead to financial loss through reduced production",
+      "Transition risk pertains to the impact of shifting strategies, regulations, or investments as society and industry move towards reducing their carbon dependency and mitigating the resulting environmental impact",
     ],
     opportunities: [
-      "Bolster climate action and commit to investing in nature-based solutions that facilitate carbon sequestration to achieve 45% and 100% carbon neutrality by 2030 and 2050.",
+      "Bolster climate action and commit to investing in naturebased solutions that facilitate carbon sequestration to achieve 45% and 100% carbon neutrality by 2030 and 2050",
     ],
     shortMid: [
       "Investing in renewable energy by installing solar panels at our KYB-UMW and Aerospace plants.",
@@ -102,9 +102,8 @@ const modalData = [
     ],
     value: [
       "Broadened reporting scope to disclose GHG emissions according to Scope 1, Scope 2 and Scope 3",
-      "GHG emissions intensity reduced by XXX in 2022.",
-      "Planted 150,000 mangrove trees in various states throughout Malaysia in 2022",
-      "Embarked on developing a solar farm in HVM Park in Serendah, Selangor.",
+      "GHG emissions intensity reduced by 19.2% in 2022",
+      "Planted 157,000 mangrove trees in various states throughout Malaysia in 2022",
     ],
   },
   {
@@ -797,7 +796,7 @@ const TheWayWeCreateValue = () => {
                       </CountUp>
                       <CountUp
                         start={0}
-                        end={4.3}
+                        end={4.4}
                         delay={0}
                         decimal="."
                         decimals={1}
@@ -880,7 +879,7 @@ const TheWayWeCreateValue = () => {
                         <p className={styles["text-bold"]}>M&E:</p>{" "}
                         <p className={styles.text}>
                           Smart lubricant manufacturing plant in Pulau Indah and
-                          modernised manufactruing plant in Teluk Panglima
+                          modernised manufacturing plant in Teluk Panglima
                           Garang for KYB-UMW
                         </p>
                       </div>
@@ -920,7 +919,7 @@ const TheWayWeCreateValue = () => {
                       />
                       <CountUp
                         start={0}
-                        end={17813}
+                        end={6313}
                         delay={0}
                         // decimal="."
                         // decimals={1}
@@ -1026,8 +1025,9 @@ const TheWayWeCreateValue = () => {
                       </div>
                       <div className={styles["border-bottom"]}>
                         <p className={styles["text-bold"]}>
-                          Strong research and development capabilities,
-                          innovation capacity, knowledge and expertise
+                          In-house R&D capabilities focusing on green
+                          innovations, in collaboration with local universities
+                          and government agencies (triple helix)
                         </p>
                       </div>
                       <div className={styles[""]}>
@@ -1516,7 +1516,7 @@ const TheWayWeCreateValue = () => {
                         <li>
                           <p className={styles.text}>
                             Accelerating our sustainability agenda of achieving
-                            net zero carbon by 2050 by further integrating
+                            carbon neutrality by 2050 by further integrating
                             sustainability into our business operations
                           </p>
                         </li>
@@ -1689,50 +1689,51 @@ const TheWayWeCreateValue = () => {
                       <p className={styles["header"]}>manufactured</p>
                     </div>
                     <div className={styles["sequence-content"]}>
-                    <ul className={styles["content-list"]}>
+                      <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles["text-bold"]}>Automotive:</p>{" "}
                           <p className={styles.text}>
-                            Both Toyota and Perodua maintained their lead
-                            positions in the nonnational and national car
-                            markets respectively
+                            Automotive: Both Toyota and Perodua maintained their
+                            leading positions in the nonnational and national
+                            car markets respectively
                           </p>
                         </li>
                         <li>
                           <p className={styles["text-bold"]}>Automotive:</p>{" "}
                           <p className={styles.text}>
-                            Introduced the Toyota Mirai which uses experimental
-                            hydrogen-fueled technology and is being trialled in
-                            Malaysia
+                            Automotive: Introduced the Toyota Mirai which uses
+                            hydrogen fuel cell technology currently being used
+                            in Sarawak
                           </p>
                         </li>
                         <li>
                           <p className={styles["text-bold"]}>M&E:</p>{" "}
                           <p className={styles.text}>
-                            GRANTT Bio VG Hydraulic Oil Both obtained MyHijau
-                            certification
+                            M&E: Grantt Bio VG Hydraulic Oil (VG46 and VG68)
+                            both obtained MyHijau certification
                           </p>
                         </li>
                         <li>
                           <p className={styles["text-bold"]}>Equipment:</p>{" "}
                           <p className={styles.text}>
-                            Industrial segment's business grew in sectors such
-                            as food & beverage, logistics, and warehousing.
+                            Equipment: Industrial segment's business grew in
+                            sectors such as food & beverage, logistics, and
+                            warehousing.
                           </p>
                         </li>
                         <li>
                           <p className={styles["text-bold"]}>Aerospace:</p>{" "}
                           <p className={styles.text}>
-                            Industrial segment's business grew in sectors such
-                            as the Division retained its position in the top 5%
-                            of Rolls-Royce suppliers globally
+                            Aerospace: the Division retained its position in the
+                            top 5% of Rolls-Royce’s high performing suppliers
+                            group
                           </p>
                         </li>
                         <li>
                           <p className={styles["text-bold"]}>Green Products:</p>{" "}
                           <p className={styles.text}>
-                            Expansion of BRUSS and Water Reclamation Plant
-                            (in-house membrane)
+                            Green Products: Expansion of BRUSS and Water
+                            Reclamation Plant (in-house membrane)
                           </p>
                         </li>
                       </ul>
@@ -1751,7 +1752,7 @@ const TheWayWeCreateValue = () => {
                       <p className={styles["header"]}>human</p>
                     </div>
                     <div className={styles["sequence-content"]}>
-                    <ul className={styles["content-list"]}>
+                      <ul className={styles["content-list"]}>
                         <li>
                           <CountUp
                             start={0}
@@ -1894,7 +1895,7 @@ const TheWayWeCreateValue = () => {
                       <p className={styles["header"]}>intellectual</p>
                     </div>
                     <div className={styles["sequence-content"]}>
-                    <ul className={styles["content-list"]}>
+                      <ul className={styles["content-list"]}>
                         <li>
                           <p style={{ margin: 0 }} className={styles.text}>
                             Improvement in productivity and work efficiency
@@ -1922,9 +1923,8 @@ const TheWayWeCreateValue = () => {
                         </li>
                         <li>
                           <p style={{ margin: 0 }} className={styles.text}>
-                            Put in more thorough processing to strictly ensure
-                            supplier compliance with Group's procurement
-                            guidelines
+                            Improved procurement process to strictly ensure
+                            compliance with Group's procurement guidelines
                           </p>
                         </li>
                       </ul>
@@ -1943,7 +1943,7 @@ const TheWayWeCreateValue = () => {
                       <p className={styles["header"]}>social & relationship</p>
                     </div>
                     <div className={styles["sequence-content"]}>
-                    <ul className={styles["content-list"]}>
+                      <ul className={styles["content-list"]}>
                         <li>
                           <CountUp
                             start={0}
@@ -1959,15 +1959,12 @@ const TheWayWeCreateValue = () => {
                                 <p
                                   style={{ margin: 0 }}
                                   className={styles.text}
-                                >
-                                  In support of our local vendors, the Group
-                                  spent {""}
-                                  <span
+                                > In support of our local vendors, <span
                                     ref={countUpRef}
                                     className={styles.number}
                                   ></span>
                                   <span className={styles.unit}> % {""}</span>
-                                  of the Group’s procurement budget on local
+                                  of the Group’s procurement was spent on local
                                   suppliers
                                 </p>
                               </div>
@@ -2023,12 +2020,13 @@ const TheWayWeCreateValue = () => {
                         <li>
                           <p style={{ margin: 0 }} className={styles.text}>
                             Collaboration between employees and local
-                            communities in reforestation activities under UGS
+                            communities in reforestation activities under the
+                            UGS initiative
                           </p>
                         </li>
                         <li>
                           <p style={{ margin: 0 }} className={styles.text}>
-                            Supported the Trail of National Rivers Program's
+                            Supported the Trail of National Rivers Programme's
                             bamboo tree planting activities
                           </p>
                         </li>
@@ -2048,7 +2046,7 @@ const TheWayWeCreateValue = () => {
                       <p className={styles["header"]}>natural</p>
                     </div>
                     <div className={styles["sequence-content"]}>
-                    <ul className={styles["content-list"]}>
+                      <ul className={styles["content-list"]}>
                         <li>
                           <CountUp
                             start={0}
@@ -2160,7 +2158,7 @@ const TheWayWeCreateValue = () => {
                               </CountUp>
                               <span className={styles.text}>
                                 {" "}
-                                , equivalent of{" "}
+                                prints which is equivalent to{" "}
                               </span>
                               <CountUp
                                 start={0}
@@ -2181,8 +2179,7 @@ const TheWayWeCreateValue = () => {
                               <span className={styles.unit}> tonnes </span>
                               <span className={styles.text}>
                                 {" "}
-                                of solid waste avoided compared to the previous
-                                year.
+                                of solid waste avoided
                               </span>
                             </p>
                           </div>
@@ -2249,7 +2246,7 @@ const TheWayWeCreateValue = () => {
                       <p className={styles["header"]}>Financial</p>
                     </div>
                     <div className={styles["sequence-content"]}>
-                    <ul className={styles["content-list"]}>
+                      <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles["text-bold"]}>
                             Financial strength:
@@ -2276,7 +2273,7 @@ const TheWayWeCreateValue = () => {
                       <p className={styles["header"]}>manufactured</p>
                     </div>
                     <div className={styles["sequence-content"]}>
-                    <ul className={styles["content-list"]}>
+                      <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles["text-bold"]}>Embedded trust:</p>{" "}
                           <p className={styles.text}>
@@ -2301,7 +2298,7 @@ const TheWayWeCreateValue = () => {
                       <p className={styles["header"]}>human</p>
                     </div>
                     <div className={styles["sequence-content"]}>
-                    <ul className={styles["content-list"]}>
+                      <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles["text-bold"]}>
                             Increased productivity:
@@ -2329,7 +2326,7 @@ const TheWayWeCreateValue = () => {
                       <p className={styles["header"]}>intellectual</p>
                     </div>
                     <div className={styles["sequence-content"]}>
-                    <ul className={styles["content-list"]}>
+                      <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles["text-bold"]}>
                             Greater innovation;
@@ -2357,7 +2354,7 @@ const TheWayWeCreateValue = () => {
                       <p className={styles["header"]}>social & relationship</p>
                     </div>
                     <div className={styles["sequence-content"]}>
-                    <ul className={styles["content-list"]}>
+                      <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles["text-bold"]}>
                             Better relationships:
@@ -2385,7 +2382,7 @@ const TheWayWeCreateValue = () => {
                       <p className={styles["header"]}>natural</p>
                     </div>
                     <div className={styles["sequence-content"]}>
-                    <ul className={styles["content-list"]}>
+                      <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles["text-bold"]}>
                             Sustainable environment:

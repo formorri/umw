@@ -172,7 +172,7 @@ const WhoWeAre = () => {
             />
             <CountUp
               start={0}
-              end={17813}
+              end={6313}
               delay={0}
               enableScrollSpy={true}
               scrollSpyDelay={1}

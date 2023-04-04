@@ -56,9 +56,9 @@ const ViewsFromOurLeaders = () => {
             <p className={styles["quote-header"]}>Group Chairman message</p>
             <p className={styles["quote-dear"]}>Dear Valued Shareholders,</p>
             <p className={styles["quote-text"]}>
-              The Board’s priority in 2022 for the UMW Group was to build
-              resilience by actively managing risk, while operating in a world
-              facing global macroeconomic and geo-political headwinds.
+              The Board's priority in 2022 for the UMW Group was to strengthen
+              resilience by actively managing risks, while operating in a world
+              facing global macro-economic and geo-political headwinds.
             </p>
             <div className={styles["designation-container"]}>
               <p className={styles["leader-name"]}>
@@ -96,7 +96,7 @@ const ViewsFromOurLeaders = () => {
             <div className={styles["data-card"]}>
               <CountUp
                 start={0}
-                end={15.0}
+                end={15.8}
                 delay={0}
                 decimal="."
                 decimals={1}

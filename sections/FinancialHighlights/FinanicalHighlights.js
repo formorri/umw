@@ -170,7 +170,7 @@ const FinanicalHighlights = () => {
         <div className={`${styles.card} ${styles["card5"]}`}>
           <div className={styles.header}>
             <p className={styles["header-text"]}>
-            BASIC EARNINGS PER SHARE <span className={styles["unit"]}>(RM million)</span>
+            BASIC EARNINGS PER SHARE <span className={styles["unit"]}>(Sen)</span>
             </p>
           </div>
           <div className={styles["graph-container"]} ref={ref}>
@@ -182,7 +182,7 @@ const FinanicalHighlights = () => {
         <div className={`${styles.card} ${styles["card6"]}`}>
           <div className={styles.header}>
             <p className={styles["header-text"]}>
-            NET ASSETS PER SHARE <span className={styles["unit"]}>(RM million)</span>
+            NET ASSETS PER SHARE <span className={styles["unit"]}>(RM)</span>
             </p>
           </div>
           <div className={styles["graph-container"]} ref={ref}>

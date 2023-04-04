@@ -23,67 +23,70 @@ const leaderData = [
         key: 0,
         image: "A1",
         name: "TAN SRI DATO’ SRI HAMAD KAMA PIAH CHE OTHMAN",
-        title: "Group Chairman, Non-Independent Non-Executive Director",
+        title: ["Group Chairman,", "Non-Independent Non-Executive Director"],
       },
       {
         key: 1,
         image: "AB",
         name: "DATO’ AHMAD FUAAD KENALI",
-        title: "President & Group Chief Executive Officer/ Executive Director",
+        title: [
+          "President & Group Chief Executive Officer/",
+          "Executive Director",
+        ],
       },
       {
         key: 2,
         image: "A2",
         name: "DR. VEERINDERJEET SINGH",
-        title: "Senior Independent Non-Executive Director",
+        title: ["Senior Independent","Non-Executive Director"],
       },
       {
         key: 3,
         image: "A3",
         name: "DATO’ ESHAH MEOR SULEIMAN",
-        title: "Independent Non-Executive Director",
+        title: ["Independent","Non-Executive Director"],
       },
       {
         key: 4,
         image: "A4",
         name: "DATIN PADUKA KARTINI HJ ABDUL MANAF",
-        title: "Non-Independent Non-Executive Director",
+        title: ["Non-Independent","Non-Executive Director"],
       },
       {
         key: 5,
         image: "A5",
         name: "RAZALEE AMIN",
-        title: "Independent Non-Executive Director",
+        title: ["Independent","Non-Executive Director"],
       },
       {
         key: 6,
         image: "A6",
         name: "DATO’ SERI PROF. DR. IR. ZAINI UJANG",
-        title: "Independent Non-Executive Director",
+        title: ["Independent","Non-Executive Director"],
       },
       {
         key: 7,
         image: "A7",
         name: "DATO’ AZMI MOHD ALI",
-        title: "Independent Non-Executive Director",
+        title: ["Independent","Non-Executive Director"],
       },
       {
         key: 8,
         image: "A8",
         name: "SHAHIN FAROUQUE JAMMAL AHMAD",
-        title: "Non-Independent Non-Executive Director",
+        title: ["Non-Independent","Non-Executive Director"],
       },
       {
         key: 9,
         image: "A9",
         name: "MOHD SHAHAZWAN MOHD HARRIS",
-        title: "Non-Independent Non-Executive Director",
+        title: ["Non-Independent","Non-Executive Director"],
       },
       {
         key: 10,
         image: "A10",
         name: "DATUK (DR.) YASMIN MAHMOOD",
-        title: "Non-Independent Non-Executive Director",
+        title: ["Non-Independent","Non-Executive Director"],
       },
     ],
   },
@@ -95,44 +98,44 @@ const leaderData = [
         key: 0,
         image: "AB",
         name: "DATO’ AHMAD FUAAD KENALI",
-        title: "President & Group Chief Executive Officer/ Executive Director",
+        title: ["President & Group Chief Executive Officer/", "Executive Director"],
       },
       {
         key: 1,
         image: "B1",
         name: "DATUK RAVINDRAN KURUSAMY",
-        title: "President, UMW Toyota Motor Sdn Bhd",
+        title: ["President,", "UMW Toyota Motor Sdn Bhd"],
       },
       {
         key: 2,
         image: "B2",
         name: "MEGAT SHAHRUL AZMIR NORDIN",
-        title: "President, Equipment Division",
+        title:["President,","Equipment Division"],
       },
       {
         key: 3,
         image: "B3",
         name: "DATO’ ABDUL RASHID MUSA",
         title:
-          "Group Chief Mobility & Innovation Officer/ President, Aerospace Division",
+          ["Group Chief Mobility & Innovation Officer/ President,", "Aerospace Division"]
       },
       {
         key: 4,
         image: "B4",
         name: "ZAILANI ALI",
-        title: "Group Chief Human Resources Officer",
+        title: ["Group Chief Human Resources Officer"],
       },
       {
         key: 5,
         image: "B5",
         name: "FARNIDA NGAH",
-        title: "Group Chief Financial Officer",
+        title: ["Group Chief Financial Officer"],
       },
       {
         key: 6,
         image: "B6",
         name: "MUZAFAR MUNZIR",
-        title: "Senior Group General Counsel, Group Legal",
+        title: ["Senior Group General Counsel,", "Group Legal"],
       },
     ],
   },
@@ -250,7 +253,10 @@ const Leadership = () => {
                     />
                     <div className={styles["content"]}>
                       <p className={styles["leader-name"]}>{dataItem.name}</p>
-                      <p className={styles["leader-title"]}>{dataItem.title}</p>
+                      {Array.isArray(dataItem.title) &&
+                        dataItem.title.map((item) => (
+                          <p className={styles["leader-title"]}>{item}</p>
+                        ))}
                     </div>
                   </motion.div>
                 ))}
