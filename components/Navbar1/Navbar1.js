@@ -79,7 +79,7 @@ const Navbar1 = ({ children, className }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
+
   const handleEsc = (event) => {
     if (event.keyCode === 27) {
       closeNavbar();
@@ -98,20 +98,23 @@ const Navbar1 = ({ children, className }) => {
 
   return (
     <navbar className={className}>
-      <div 
-      className={styles.navbar}
-      style={{
-        backgroundColor: navbarClass ? 'white': ''
-      }}
+      <div
+        className={styles.navbar}
+        style={{
+          backgroundColor: navbarClass ? "white" : "",
+        }}
       >
-        <a href="/" target="_blank" className={styles["icon-container"]}>
+        <Link href="/" className={styles["icon-container"]}>
           <Image
             src={images.logo}
             loading="lazy"
             alt="logo"
             className={styles["logo"]}
+            style={{
+              opacity: navbarClass ? "1" : "0",
+            }}
           />
-        </a>
+        </Link>
 
         <div
           onClick={() => setOpenNavbar(true)}
@@ -155,7 +158,7 @@ const Navbar1 = ({ children, className }) => {
           <div className={styles["social-wrapper"]}>
             <p className={styles["text"]}>Contact Us</p>
             <div className={styles["social-links"]}>
-              <a href="/" target="_blank">
+              <a href="https://www.facebook.com/UMWofficial/" target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="13.006"
@@ -171,7 +174,10 @@ const Navbar1 = ({ children, className }) => {
                   />
                 </svg>
               </a>
-              <a href="/" target="_blank">
+              <a
+                href="https://www.linkedin.com/company/umw-corporation/"
+                target="_blank"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="25.111"
@@ -205,7 +211,10 @@ const Navbar1 = ({ children, className }) => {
                   </g>
                 </svg>
               </a>
-              <a href="/" target="_blank">
+              <a
+                href="mailto:?subject=Here is the Annual Review Website for UMW&amp;body=Check out this site https://www.annualreport.umw.com.my/."
+                target="_blank"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="25.094"

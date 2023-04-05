@@ -7,7 +7,7 @@
     position: fixed;
     top: 0px;
     z-index: 1000;
-    padding: 0px $l-x-gap;
+    padding: 0px $s-x-gap;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,17 +28,21 @@
 }
 
 .burger-button {
-    @include shadow;
+    // @include shadow;
     cursor: pointer;
-    background-color: $blue-1;
-    border: $border-weight $white-1;
-    border-radius: $border-radius;
+    // background-color: $blue-1;
+    // border: $border-weight $white-1;
+    // border-radius: $border-radius;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 25px;
+    // padding: 12px 15px;
     height: fit-content;
     pointer-events: all;
+    .burger{
+        width: 20px;
+        height: auto
+    }
 }
 
 .open-navbar {
@@ -52,19 +56,20 @@
     height: 100vh;
     width: auto;
     justify-content: space-between;
+    width: 70vw;
 }
 
 .top-flex {
     display: flex;
     flex-direction: column;
-    padding: 0px 30px 0px 30px;
+    padding: 0px 0px 0px $s-x-gap;
 }
 
 .close-container {
     align-self: flex-end;
 
     .close {
-        font-size: 3rem;
+        font-size: $s-close-button;
         color: $grey-1
     }
 }
@@ -90,12 +95,12 @@
 }
 
 .social-wrapper{
-    margin: 0 30px;
-    padding: 10px 0 20px;
+    margin: 0 $s-x-gap;
+    padding: 10px 0 $s-x-gap;
     border-top: $border-weight $grey-2;
     .social-links{
         display: flex;
-        column-gap: 30px;
+        column-gap: $l-gap;
         align-items: flex-end;
     }
     .social-icon{
@@ -109,11 +114,31 @@
 
 .feedback-wrapper {
     background-color: $teal-2;
-    padding: 20px 30px;
+    padding: 20px $s-x-gap;
 }
 
 .text {
     @include text-3-bold;
     text-transform: uppercase;
     margin: 10px 0;
+}
+
+@include gt-sm{
+    .navbar {
+        padding: 0px $l-x-gap;
+    
+    }
+    .close-container {
+        .close {
+            font-size: $l-close-button;
+        }
+    }
+    .top-flex {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 30px 0px 30px;
+    }
+    .open-navbar {
+        width: auto;
+    }
 }

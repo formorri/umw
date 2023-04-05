@@ -1,9 +1,28 @@
 @use '../../styles/settings/index.scss' as *;
 
+.card1{
+    .header-text{color: $teal-3;}
+}
+.card2{
+    .header-text{color: $purple-2;}
+}
+.card3{
+    .header-text{color: $green-6;}
+}
+.card4{
+    .header-text{color: $orange-1;}
+}
+.card5{
+    .header-text{color: $blue-4;}
+}
+.card6{
+    .header-text{color: $red-1;}
+}
 
 .header-text {
     @include text-4-bold;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .unit {
@@ -12,24 +31,23 @@
 }
 
 .financial {
-    padding: calc($l-y-gap / 2) $l-x-gap;
+    padding: $s-y-gap $s-x-gap 0;
     background-color: $theme-4;
     display: flex;
     flex-direction: column;
     align-items: left;
-    row-gap: 30px;
+    row-gap: $s-gap;
 }
 
 .wrapper {
-    $gap: 30px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     width: 100%;
     border-radius: $border-radiusx2;
     overflow: hidden;
-    row-gap: $gap;
-    column-gap: $gap;
+    row-gap: $l-gap;
+    column-gap: $l-gap;
 }
 
 
@@ -55,27 +73,72 @@
         padding: 10px 5px;
 
         .graph {
-            width: 380px;
+            width: inherit;
             height: auto;
         }
     }
 }
 
-.card1{
-    .header-text{color: $teal-3;}
+@include gt-xs{
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 100%;
+    border-radius: $border-radiusx2;
+    overflow: hidden;
+    row-gap: $l-gap;
+    column-gap: $l-gap;
 }
-.card2{
-    .header-text{color: $purple-2;}
 }
-.card3{
-    .header-text{color: $green-6;}
-}
-.card4{
-    .header-text{color: $orange-1;}
-}
-.card5{
-    .header-text{color: $blue-4;}
-}
-.card6{
-    .header-text{color: $red-1;}
+
+@include gt-sm{
+    .financial {
+        padding: $l-y-gap $l-x-gap 0;
+        background-color: $theme-4;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        row-gap: $l-gap;
+    }
+    
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        width: 100%;
+        border-radius: $border-radiusx2;
+        overflow: hidden;
+        row-gap: $l-gap;
+        column-gap: $l-gap;
+    }
+    
+    
+    .card {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        row-gap: 10px;
+    
+        .header,
+        .graph-container {
+            @include shadow;
+            background-color: $white-1;
+            border-radius: $border-radiusx2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .graph-container {
+            width: 100%;
+            height: auto;
+            padding: 10px 5px;
+    
+            .graph {
+                width: inherit;
+                height: auto;
+            }
+        }
+    }
 }

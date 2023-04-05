@@ -14,10 +14,10 @@
 
 .slider {
     padding: 2rem;
-    max-width: 95vw;
+    max-width: 90vw;
 }
 
-.navigation{
+.navigation {
     $size: 40px;
     background-color: $blue-1;
     color: $white-1;
@@ -30,16 +30,61 @@
     z-index: 10;
     cursor: pointer;
     transition: ease 0.2s;
-    &:hover{
+
+    &:hover {
         transform: scale(1.05);
     }
 
 }
 
 .prev {
-    margin-right: -1.5rem;
+    margin-right: -2.5rem;
 }
 
 .next {
-    margin-left: -1.5rem;
+    margin-left: -2.5rem;
+}
+
+@include gt-sm{
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100vw;
+        justify-content: center;
+    }
+    
+    .slider {
+        padding: 2rem;
+        max-width: 95vw;
+    }
+    
+    .navigation {
+        $size: 40px;
+        background-color: $blue-1;
+        color: $white-1;
+        width: $size;
+        height: $size;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        cursor: pointer;
+        transition: ease 0.2s;
+    
+        &:hover {
+            transform: scale(1.05);
+        }
+    
+    }
+    
+    .prev {
+        margin-right: -1.5rem;
+    }
+    
+    .next {
+        margin-left: -1.5rem;
+    }
+    
 }

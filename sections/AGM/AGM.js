@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Button1 } from "@/components";
 import { useWindowSize } from "react-use";
 import AddIcon from "@mui/icons-material/Add";
+import Link from "next/link";
 
 const AGM = () => {
   const { width } = useWindowSize();
@@ -80,30 +81,30 @@ const AGM = () => {
             <AddIcon />
           </div>
           <div className={styles.after}>
-            <a href="/" target="_blank">
+            <Link href="/" target="_blank">
               <Image
                 src={images.apple}
                 loading="lazy"
                 alt="apple"
                 className={styles.icon}
               />
-            </a>
-            <a href="/" target="_blank">
+            </Link>
+            <Link href="/" target="_blank">
               <Image
                 src={images.google}
                 loading="lazy"
                 alt="google"
                 className={styles.icon}
               />
-            </a>
-            <a href="/" target="_blank">
+            </Link>
+            <Link href="/" target="_blank">
               <Image
                 src={images.outlook}
                 loading="lazy"
                 alt="outlook"
                 className={styles.icon}
               />
-            </a>
+            </Link>
           </div>
         </div>
       </motion.div>

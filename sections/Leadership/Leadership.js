@@ -4,7 +4,6 @@ import { images } from "../../constants";
 import { Carousel } from "@/components";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import CountUp from "react-countup";
 import { Button1 } from "@/components";
 import { useInView } from "react-intersection-observer";
 
@@ -165,6 +164,7 @@ const Leadership = () => {
     (switcher) => switcher.key === activeSwitcher
   );
   const activeCarouselData = activeSwitcherData?.switcher;
+  
 
   return (
     <div className={styles.container}>

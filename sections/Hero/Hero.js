@@ -7,14 +7,37 @@ import Modal from "@mui/material/Modal";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Hero = () => {
   // const [triggerAnimation, setTriggerAnimation] = useState(false);
   const [modal, setModal] = useState(false);
   const videoRef = useRef(null);
+  const { ref, inView } = useInView({ threshold: 0.1 });
+  const videoRefs = {
+    videoRef1: useRef(null),
+  };
+  
+  const [isPlaying, setIsPlaying] = useState({
+    videoRef1: false,
+  });
+
+  useEffect(() => {
+    const playVideoOnce = (videoRefName) => {
+      if (inView && videoRefs[videoRefName].current && !isPlaying[videoRefName]) {
+        setIsPlaying((prevState) => ({
+          ...prevState,
+          [videoRefName]: true,
+        }));
+        videoRefs[videoRefName].current.play();
+      }
+    };
+  
+    playVideoOnce("videoRef1");
+  }, [inView, isPlaying]);
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} ref={ref}>
       <Modal
         open={modal}
         onClose={() => {
@@ -100,47 +123,44 @@ const Hero = () => {
           </div>
         </div>
       </Modal>
-      <AnimatePresence>
-        {/* {triggerAnimation && ( */}
-        <motion.div
-          // initial={{ x: -50, opacity: 0 }}
-          // animate={{ x: 0, opacity: 1 }}
-          // exit={{ y: -10, opacity: 0 }}
-          whileInView={{
-            opacity: [0, 1],
-            x: [50, 0],
-          }}
-          transition={{ duration: 0.5 }}
-          className={styles["text-col"]}
-        >
-          <p className={styles["header-subtitle"]}>
-            INTEGRATED ANNUAL REPORT 2022
-          </p>
-          <h1 className={styles.header}>
-            accelerating <span className={styles.bold}>crest@UMW</span>
-          </h1>
-          <Button1Popup
-            link="/"
-            text="Read our cover rationale"
-            backgroundColor="#112F5E"
-            textColor="white"
-            icon="add"
-            onClick={() => setModal(true)}
-          />
-        </motion.div>
-        {/* )} */}
-      </AnimatePresence>
+
       <div className={styles["video-col"]}>
-        <video className={styles.video} autoPlay={true} muted>
+        <video className={styles.video} ref={videoRefs.videoRef1} muted playsInline>
           <source src="assets/cover.mp4" type="video/mp4" />
         </video>
       </div>
-      <Image
-        src={images.scroll}
-        priority
-        alt="scroll"
-        className={styles.scroll}
-      />
+
+      <motion.div
+        whileInView={{
+          opacity: [0, 1],
+          x: [50, 0],
+        }}
+        transition={{ duration: 0.5 }}
+        className={styles["text-col"]}
+      >
+        <p className={styles["header-subtitle"]}>
+          INTEGRATED ANNUAL REPORT <span className={styles.number}>2022</span>
+        </p>
+        <h1 className={styles.header}>
+          accelerating <span className={styles.bold}>crest@UMW</span>
+        </h1>
+        <Button1Popup
+          link="/"
+          text="Read our cover rationale"
+          backgroundColor="#112F5E"
+          textColor="white"
+          icon="add"
+          onClick={() => setModal(true)}
+        />
+      </motion.div>
+      <a href="#who-we-are" className={styles["scroll"]}>
+        <Image
+          src={images.scroll}
+          priority
+          alt="scroll"
+          className={styles["scroll-icon"]}
+        />
+      </a>
     </section>
   );
 };

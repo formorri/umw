@@ -30,29 +30,31 @@
     @include text-3-regular;
 }
 
-.container {
-    background-color: $theme-4;
-    padding: calc($l-y-gap / 2) $l-x-gap;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto;
-    column-gap: 30px;
-}
-
-.superscript{
+.superscript {
     @include text-2-bold;
 }
+
+.container {
+    background-color: $theme-4;
+    padding: $s-y-gap $s-x-gap;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    column-gap: $s-gap;
+    row-gap: $s-gap;
+}
+
 
 .text-wrapper {
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: $s-gap;
 }
 
 .paragraph-wrapper {
     background-color: $white-1;
     border-radius: $border-radius;
-    padding: 20px;
+    padding: $s-gap;
 }
 
 .button {
@@ -69,7 +71,7 @@
         display: flex;
         align-items: center;
         text-transform: capitalize;
-        column-gap: 20px;
+        column-gap: $s-gap;
         padding: 10px 20px;
         transition: ease-in-out 0.2s;
 
@@ -86,8 +88,8 @@
         padding: 10px 30px;
         transform: translateY(50px);
         transition: ease-in-out 0.2s;
-        // background-color: $dark-1;
-        a{
+
+        a {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -109,14 +111,14 @@
 .info-container {
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: $s-gap;
 
     .countdown-wrapper {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: auto;
         place-items: center;
-        column-gap: 10px;
+        column-gap: $s-gap;
         border-bottom: 1px solid $dark-2;
         padding-bottom: 30px;
     }
@@ -125,7 +127,7 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        row-gap: 10px;
+        row-gap: $s-gap;
     }
 
     .countdown-number {
@@ -134,20 +136,201 @@
         padding: 20px 0;
     }
 
-    .text{
+    .text {
         text-align: center;
     }
 
-    .info-wrapper{
+    .info-wrapper {
         display: flex;
         justify-content: space-between;
         margin-top: 30px;
     }
 
-    .info{
+    .info {
         display: flex;
         column-gap: 10px;
         align-items: center;
     }
 }
 
+@include gt-xs {
+    .info-container {
+        display: flex;
+        flex-direction: row;
+        row-gap: $s-gap;
+        // justify-content: space-between;
+
+        .countdown-wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            place-items: center;
+            column-gap: $s-gap;
+            border-bottom: none;
+            // border-right: 1px solid $dark-2;
+            padding-bottom: 0px;
+            padding-right: 30px;
+        }
+
+        .countdown {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            row-gap: $s-gap;
+        }
+
+        .countdown-number {
+            @include shadow;
+            background-color: $white-1;
+            padding: 20px 0px;
+            min-width: 6rem;
+        }
+
+        .text {
+            text-align: center;
+        }
+
+        .info-wrapper {
+            display: flex;
+            flex-direction: column;
+            margin-top: 0px;
+            row-gap: $s-gap;
+            justify-content: center;
+            padding-left: 30px;
+            border-left: $border-weight $dark-1;
+        }
+
+        .info {
+            display: flex;
+            column-gap: 10px;
+            align-items: center;
+        }
+    }
+}
+
+
+@include gt-sm {
+    .container {
+        background-color: $theme-4;
+        padding: $l-y-gap $l-x-gap;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+        column-gap: $l-gap;
+    }
+
+
+    .text-wrapper {
+        display: flex;
+        flex-direction: column;
+        row-gap: $l-gap;
+    }
+
+    .paragraph-wrapper {
+        background-color: $white-1;
+        border-radius: $border-radius;
+        padding: $l-gap;
+    }
+
+    .button {
+        $height: 44px;
+        background-color: $blue-1;
+        border-radius: 10rem;
+        position: relative;
+        width: fit-content;
+        height: $height;
+        overflow: hidden;
+
+        .before {
+            color: $white-1;
+            display: flex;
+            align-items: center;
+            text-transform: capitalize;
+            column-gap: $l-gap;
+            padding: 10px 20px;
+            transition: ease-in-out 0.2s;
+
+            .button-text {
+                margin: 0;
+                @include text-3-regular;
+            }
+        }
+
+        .after {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 30px;
+            transform: translateY(50px);
+            transition: ease-in-out 0.2s;
+
+            // background-color: $dark-1;
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+        }
+
+        &:hover {
+            .before {
+                transform: translateY(50px);
+            }
+
+            .after {
+                transform: translateY(-$height);
+            }
+        }
+    }
+
+    .info-container {
+        display: flex;
+        flex-direction: column;
+        row-gap: $l-gap;
+
+        .countdown-wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            place-items: center;
+            column-gap: $l-gap;
+            border-bottom: 1px solid $dark-2;
+            // border-right: none;
+            padding-bottom: 30px;
+        }
+
+        .countdown {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            row-gap: $l-gap;
+        }
+
+        .countdown-number {
+            @include shadow;
+            background-color: $white-1;
+            padding: 20px 0;
+            min-width: 0;
+        }
+
+        .text {
+            text-align: center;
+        }
+
+        .info-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: $l-gap;
+            padding-left: 0;
+            border-left: none;
+        }
+
+        .info {
+            display: flex;
+            column-gap: 10px;
+            align-items: center;
+        }
+    }
+}

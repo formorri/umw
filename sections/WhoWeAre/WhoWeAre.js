@@ -10,6 +10,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import Link from "next/link";
 
 const countries = [
   {
@@ -85,20 +86,20 @@ const WhoWeAre = () => {
           whileInView={whileInView1}
           transition={{ duration: 0.8 }}
         >
-          <h2 className={styles.title}>who we are</h2>
+          <h2 className={`${styles['title']} ${styles['title1']}`}>who we are</h2>
           <Image
             src={images.wow}
             loading="lazy"
             alt="wow"
             className={styles.wow}
           />
-
           <Button1
             link="/"
             text="Download This Section"
             backgroundColor="#112F5E"
             textColor="white"
             icon="download"
+            className={styles["download-large"]}
           />
         </motion.div>
 
@@ -141,6 +142,15 @@ const WhoWeAre = () => {
               </span>
             </p>
           </div>
+
+          <Button1
+            link="/"
+            text="Download This Section"
+            backgroundColor="#112F5E"
+            textColor="white"
+            icon="download"
+            className={styles["download-small"]}
+          />
         </motion.div>
       </div>
 
@@ -151,9 +161,9 @@ const WhoWeAre = () => {
             opacity: [0, 1],
           }}
           transition={{ duration: 0.8 }}
-          className={styles['reach-title']}
+          className={styles["reach-title"]}
         >
-          <h2 className={styles.title}>OUR REGIONAL PRESENCE</h2>
+          <h2 className={`${styles['title']} ${styles['title2']}`}>OUR REGIONAL PRESENCE</h2>
         </motion.div>
         <motion.div
           whileInView={{
@@ -176,6 +186,7 @@ const WhoWeAre = () => {
               delay={0}
               enableScrollSpy={true}
               scrollSpyDelay={1}
+              scrollSpyOnce={true}
             >
               {({ countUpRef }) => (
                 <div className={styles["map-text"]}>
@@ -203,7 +214,10 @@ const WhoWeAre = () => {
                 <li>
                   <span className={styles.automotive}>Automotive</span>,
                   <span className={styles.equipment}> Equipment</span>,
-                  <span className={styles.mnE}> Manufacturing & Engineering</span>
+                  <span className={styles.mnE}>
+                    {" "}
+                    Manufacturing & Engineering
+                  </span>
                   ,<span className={styles.aerospace}> Aerospace</span>
                 </li>
               </ul>
@@ -243,7 +257,10 @@ const WhoWeAre = () => {
               <ul className={styles["country-info"]}>
                 <li>
                   <span className={styles.equipment}>Equipment</span>,
-                  <span className={styles.mnE}> Manufacturing & Engineering</span>
+                  <span className={styles.mnE}>
+                    {" "}
+                    Manufacturing & Engineering
+                  </span>
                 </li>
               </ul>
             </div>

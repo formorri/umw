@@ -17,7 +17,7 @@ const Button1 = ({
   
   return (
     <div className={`${styles["container"]} ${className}`}>
-      <Link className={styles.link} href={link}>
+      <Link className={styles.link} href={link} target="_blank">
         <div
           className={styles["text-container"]}
           style={{ background: backgroundColor }}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./FinancialHighlights.module.scss";
 import { images } from "../../constants";
-import CountUp from "react-countup";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 // const containerVariants = {
@@ -23,85 +22,46 @@ import { useInView } from "react-intersection-observer";
 
 const FinanicalHighlights = () => {
   const { ref, inView } = useInView({ threshold: 0.1 });
-  const [isPlaying1, setIsPlaying1] = useState(false);
-  const [isPlaying2, setIsPlaying2] = useState(false);
-  const [isPlaying3, setIsPlaying3] = useState(false);
-  const [isPlaying4, setIsPlaying4] = useState(false);
-  const [isPlaying5, setIsPlaying5] = useState(false);
-  const [isPlaying6, setIsPlaying6] = useState(false);
-  const videoRef1 = useRef(null);
-  const videoRef2 = useRef(null);
-  const videoRef3 = useRef(null);
-  const videoRef4 = useRef(null);
-  const videoRef5 = useRef(null);
-  const videoRef6 = useRef(null);
 
+  const videoRefs = {
+    videoRef1: useRef(null),
+    videoRef2: useRef(null),
+    videoRef3: useRef(null),
+    videoRef4: useRef(null),
+    videoRef5: useRef(null),
+    videoRef6: useRef(null),
+  };
+  
+  const [isPlaying, setIsPlaying] = useState({
+    videoRef1: false,
+    videoRef2: false,
+    videoRef3: false,
+    videoRef4: false,
+    videoRef5: false,
+    videoRef6: false,
+  });
+  
   useEffect(() => {
-    if (inView && videoRef1.current && !isPlaying1) {
-      setIsPlaying1(true);
-      videoRef1.current.play();
-    } else if (!inView && videoRef1.current && isPlaying1) {
-      setIsPlaying1(false);
-      videoRef1.current.pause();
-      videoRef1.current.currentTime = 0;
-    }
-
-    if (inView && videoRef2.current && !isPlaying2) {
-      setIsPlaying2(true);
-      videoRef2.current.play();
-    } else if (!inView && videoRef2.current && isPlaying2) {
-      setIsPlaying2(false);
-      videoRef2.current.pause();
-      videoRef2.current.currentTime = 0;
-    }
-
-    if (inView && videoRef3.current && !isPlaying3) {
-      setIsPlaying3(true);
-      videoRef3.current.play();
-    } else if (!inView && videoRef3.current && isPlaying3) {
-      setIsPlaying3(false);
-      videoRef3.current.pause();
-      videoRef3.current.currentTime = 0;
-    }
-
-    if (inView && videoRef4.current && !isPlaying4) {
-      setIsPlaying4(true);
-      videoRef4.current.play();
-    } else if (!inView && videoRef4.current && isPlaying4) {
-      setIsPlaying4(false);
-      videoRef4.current.pause();
-      videoRef4.current.currentTime = 0;
-    }
-
-    if (inView && videoRef5.current && !isPlaying5) {
-      setIsPlaying5(true);
-      videoRef5.current.play();
-    } else if (!inView && videoRef5.current && isPlaying5) {
-      setIsPlaying5(false);
-      videoRef5.current.pause();
-      videoRef5.current.currentTime = 0;
-    }
-
-    if (inView && videoRef6.current && !isPlaying6) {
-      setIsPlaying6(true);
-      videoRef6.current.play();
-    } else if (!inView && videoRef6.current && isPlaying6) {
-      setIsPlaying6(false);
-      videoRef6.current.pause();
-      videoRef6.current.currentTime = 0;
-    }
-  }, [
-    inView,
-    isPlaying1,
-    isPlaying2,
-    isPlaying3,
-    isPlaying4,
-    isPlaying5,
-    isPlaying6,
-  ]);
+    const playVideoOnce = (videoRefName) => {
+      if (inView && videoRefs[videoRefName].current && !isPlaying[videoRefName]) {
+        setIsPlaying((prevState) => ({
+          ...prevState,
+          [videoRefName]: true,
+        }));
+        videoRefs[videoRefName].current.play();
+      }
+    };
+  
+    playVideoOnce("videoRef1");
+    playVideoOnce("videoRef2");
+    playVideoOnce("videoRef3");
+    playVideoOnce("videoRef4");
+    playVideoOnce("videoRef5");
+    playVideoOnce("videoRef6");
+  }, [inView, isPlaying]);
 
   return (
-    <div className={styles.financial}>
+    <div className={styles.financial} ref={ref}>
       <motion.div
         whileInView={{
           y: [10, 0],
@@ -125,8 +85,8 @@ const FinanicalHighlights = () => {
               revenue <span className={styles["unit"]}>(RM million)</span>
             </p>
           </div>
-          <div className={styles["graph-container"]} ref={ref}>
-            <video className={styles.graph} ref={videoRef1} muted playsInline>
+          <div className={styles["graph-container"]}>
+            <video className={styles.graph} ref={videoRefs.videoRef1} muted playsInline>
               <source src="assets/graph-1.mp4" type="video/mp4" />
             </video>
           </div>
@@ -137,8 +97,8 @@ const FinanicalHighlights = () => {
             PROFIT BEFORE ZAKAT AND TAXATION <span className={styles["unit"]}>(RM million)</span>
             </p>
           </div>
-          <div className={styles["graph-container"]} ref={ref}>
-            <video className={styles.graph} ref={videoRef2} muted playsInline>
+          <div className={styles["graph-container"]}>
+            <video className={styles.graph} ref={videoRefs.videoRef2} muted playsInline>
               <source src="assets/graph-2.mp4" type="video/mp4" />
             </video>
           </div>
@@ -149,8 +109,8 @@ const FinanicalHighlights = () => {
             PROFIT FOR THE FINANCIAL YEAR <span className={styles["unit"]}>(RM million)</span>
             </p>
           </div>
-          <div className={styles["graph-container"]} ref={ref}>
-            <video className={styles.graph} ref={videoRef3} muted playsInline>
+          <div className={styles["graph-container"]}>
+            <video className={styles.graph} ref={videoRefs.videoRef3} muted playsInline>
               <source src="assets/graph-3.mp4" type="video/mp4" />
             </video>
           </div>
@@ -161,8 +121,8 @@ const FinanicalHighlights = () => {
             SHAREHOLDER’S FUNDS <span className={styles["unit"]}>(RM million)</span>
             </p>
           </div>
-          <div className={styles["graph-container"]} ref={ref}>
-            <video className={styles.graph} ref={videoRef4} muted playsInline>
+          <div className={styles["graph-container"]}>
+            <video className={styles.graph} ref={videoRefs.videoRef4} muted playsInline>
               <source src="assets/graph-4.mp4" type="video/mp4" />
             </video>
           </div>
@@ -173,8 +133,8 @@ const FinanicalHighlights = () => {
             BASIC EARNINGS PER SHARE <span className={styles["unit"]}>(Sen)</span>
             </p>
           </div>
-          <div className={styles["graph-container"]} ref={ref}>
-            <video className={styles.graph} ref={videoRef5} muted playsInline>
+          <div className={styles["graph-container"]}>
+            <video className={styles.graph} ref={videoRefs.videoRef5} muted playsInline>
               <source src="assets/graph-5.mp4" type="video/mp4" />
             </video>
           </div>
@@ -185,8 +145,8 @@ const FinanicalHighlights = () => {
             NET ASSETS PER SHARE <span className={styles["unit"]}>(RM)</span>
             </p>
           </div>
-          <div className={styles["graph-container"]} ref={ref}>
-            <video className={styles.graph} ref={videoRef6} muted playsInline>
+          <div className={styles["graph-container"]}>
+            <video className={styles.graph} ref={videoRefs.videoRef6} muted playsInline>
               <source src="assets/graph-6.mp4" type="video/mp4" />
             </video>
           </div>

@@ -81,6 +81,7 @@ const ViewsFromOurLeaders = () => {
                 decimals={1}
                 enableScrollSpy={true}
                 scrollSpyDelay={1}
+                scrollSpyOnce={true}
               >
                 {({ countUpRef }) => (
                   <div className={styles["data-card-inner"]}>
@@ -102,6 +103,7 @@ const ViewsFromOurLeaders = () => {
                 decimals={1}
                 enableScrollSpy={true}
                 scrollSpyDelay={1}
+                scrollSpyOnce={true}
               >
                 {({ countUpRef }) => (
                   <div className={styles["data-card-inner"]}>
@@ -193,6 +195,7 @@ const ViewsFromOurLeaders = () => {
                 decimals={1}
                 enableScrollSpy={true}
                 scrollSpyDelay={1}
+                scrollSpyOnce={true}
               >
                 {({ countUpRef }) => (
                   <div className={styles["data-card-inner"]}>
@@ -215,6 +218,7 @@ const ViewsFromOurLeaders = () => {
                 decimals={1}
                 enableScrollSpy={true}
                 scrollSpyDelay={1}
+                scrollSpyOnce={true}
               >
                 {({ countUpRef }) => (
                   <div className={styles["data-card-inner"]}>

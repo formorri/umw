@@ -165,7 +165,7 @@ const modalData = [
       "Technical and leadership skills via a focused development course",
     ],
     value: [
-      "Employees received training for XXX hours",
+      "Employees received training for 63,716 hours",
       "Launched Transformation Leadership Programme with IMD Business School to shape potential future leaders.",
     ],
   },
@@ -399,12 +399,14 @@ const TheWayWeCreateValue = () => {
                       alt={item.image}
                       className={styles["carousel-image"]}
                     />
-                    <p className={styles["carousel-text"]}>{item.title}</p>
-                    <div
-                      className={styles["carousel-button"]}
-                      onClick={() => handleModalClick(item.key)}
-                    >
-                      <AddIcon />
+                    <div className={styles["carousel-info-wrapper"]}>
+                      <p className={styles["carousel-text"]}>{item.title}</p>
+                      <div
+                        className={styles["carousel-button"]}
+                        onClick={() => handleModalClick(item.key)}
+                      >
+                        <AddIcon />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -412,7 +414,7 @@ const TheWayWeCreateValue = () => {
             </Carousel>
           </motion.div>
           <motion.div
-            whenInView={{
+            whileInView={{
               y: [10, 0],
               opacity: [0, 1],
             }}
@@ -522,21 +524,6 @@ const TheWayWeCreateValue = () => {
             <h2 className={styles.title}>our value creation business model</h2>
           </motion.div>
           <div className={styles["model-container"]}>
-            <motion.div
-              whileInView={{
-                y: [10, 0],
-                opacity: [0, 1],
-              }}
-              transition={{ duration: 0.8 }}
-              className={styles["crest"]}
-            >
-              <Image
-                src={images.value1}
-                loading="lazy"
-                alt="crest infographic"
-                className={styles["crest-image"]}
-              />
-            </motion.div>
             {/* Key Inputs button */}
             <motion.div
               whileInView={whileInView1}
@@ -614,6 +601,22 @@ const TheWayWeCreateValue = () => {
                   <p className={styles["input-text"]}>natural</p>
                 </div>
               </div>
+            </motion.div>
+
+            <motion.div
+              whileInView={{
+                y: [10, 0],
+                opacity: [0, 1],
+              }}
+              transition={{ duration: 0.8 }}
+              className={styles["crest"]}
+            >
+              <Image
+                src={images.value1}
+                loading="lazy"
+                alt="crest infographic"
+                className={styles["crest-image"]}
+              />
             </motion.div>
 
             <motion.div
@@ -752,6 +755,7 @@ const TheWayWeCreateValue = () => {
                         decimals={1}
                         enableScrollSpy={true}
                         scrollSpyDelay={1}
+                        scrollSpyOnce={true}
                       >
                         {({ countUpRef }) => (
                           <div className={styles["border-bottom"]}>
@@ -776,6 +780,7 @@ const TheWayWeCreateValue = () => {
                         decimals={1}
                         enableScrollSpy={true}
                         scrollSpyDelay={1}
+                        scrollSpyOnce={true}
                       >
                         {({ countUpRef }) => (
                           <div className={styles["border-bottom"]}>
@@ -802,6 +807,7 @@ const TheWayWeCreateValue = () => {
                         decimals={1}
                         enableScrollSpy={true}
                         scrollSpyDelay={1}
+                        scrollSpyOnce={true}
                       >
                         {({ countUpRef }) => (
                           <div className={styles["border-bottom"]}>
@@ -828,6 +834,7 @@ const TheWayWeCreateValue = () => {
                         decimals={1}
                         enableScrollSpy={true}
                         scrollSpyDelay={1}
+                        scrollSpyOnce={true}
                       >
                         {({ countUpRef }) => (
                           <div className={styles["figures"]}>
@@ -925,6 +932,7 @@ const TheWayWeCreateValue = () => {
                         // decimals={1}
                         enableScrollSpy={true}
                         scrollSpyDelay={1}
+                        scrollSpyOnce={true}
                       >
                         {({ countUpRef }) => (
                           <div className={styles["border-bottom"]}>
@@ -958,6 +966,7 @@ const TheWayWeCreateValue = () => {
                         // decimals={1}
                         enableScrollSpy={true}
                         scrollSpyDelay={1}
+                        scrollSpyOnce={true}
                       >
                         {({ countUpRef }) => (
                           <div className={styles["border-bottom"]}>
@@ -1074,6 +1083,7 @@ const TheWayWeCreateValue = () => {
                         decimals={1}
                         enableScrollSpy={true}
                         scrollSpyDelay={1}
+                        scrollSpyOnce={true}
                       >
                         {({ countUpRef }) => (
                           <div className={styles["border-bottom"]}>
@@ -1100,6 +1110,7 @@ const TheWayWeCreateValue = () => {
                         // decimals={1}
                         enableScrollSpy={true}
                         scrollSpyDelay={1}
+                        scrollSpyOnce={true}
                       >
                         {({ countUpRef }) => (
                           <div className={styles["border-bottom"]}>
@@ -1163,6 +1174,7 @@ const TheWayWeCreateValue = () => {
                         // decimals={1}
                         enableScrollSpy={true}
                         scrollSpyDelay={1}
+                        scrollSpyOnce={true}
                       >
                         {({ countUpRef }) => (
                           <div className={styles["border-bottom"]}>
@@ -1189,6 +1201,7 @@ const TheWayWeCreateValue = () => {
                         // decimals={1}
                         enableScrollSpy={true}
                         scrollSpyDelay={1}
+                        scrollSpyOnce={true}
                       >
                         {({ countUpRef }) => (
                           <div className={styles["border-bottom"]}>
@@ -1305,6 +1318,7 @@ const TheWayWeCreateValue = () => {
                             decimals={1}
                             enableScrollSpy={true}
                             scrollSpyDelay={1}
+                            scrollSpyOnce={true}
                           >
                             {({ countUpRef }) => (
                               <div className={styles["figures-list"]}>
@@ -1608,6 +1622,7 @@ const TheWayWeCreateValue = () => {
                             decimals={1}
                             enableScrollSpy={true}
                             scrollSpyDelay={1}
+                            scrollSpyOnce={true}
                           >
                             {({ countUpRef }) => (
                               <div className={styles["figures-list"]}>
@@ -1632,6 +1647,7 @@ const TheWayWeCreateValue = () => {
                             decimals={1}
                             enableScrollSpy={true}
                             scrollSpyDelay={1}
+                            scrollSpyOnce={true}
                           >
                             {({ countUpRef }) => (
                               <div className={styles["figures-list"]}>
@@ -1656,6 +1672,7 @@ const TheWayWeCreateValue = () => {
                             decimals={1}
                             enableScrollSpy={true}
                             scrollSpyDelay={1}
+                            scrollSpyOnce={true}
                           >
                             {({ countUpRef }) => (
                               <div className={styles["figures-list"]}>
@@ -1762,6 +1779,7 @@ const TheWayWeCreateValue = () => {
                             // decimals={1}
                             enableScrollSpy={true}
                             scrollSpyDelay={1}
+                            scrollSpyOnce={true}
                           >
                             {({ countUpRef }) => (
                               <div className={styles["figures-list"]}>
@@ -1794,6 +1812,7 @@ const TheWayWeCreateValue = () => {
                                   decimals={1}
                                   enableScrollSpy={true}
                                   scrollSpyDelay={1}
+                                  scrollSpyOnce={true}
                                 >
                                   {({ countUpRef }) => (
                                     <p style={{ margin: 0 }}>
@@ -1818,6 +1837,7 @@ const TheWayWeCreateValue = () => {
                                   decimals={1}
                                   enableScrollSpy={true}
                                   scrollSpyDelay={1}
+                                  scrollSpyOnce={true}
                                 >
                                   {({ countUpRef }) => (
                                     <p style={{ margin: 0 }}>
@@ -1845,6 +1865,7 @@ const TheWayWeCreateValue = () => {
                             // decimals={1}
                             enableScrollSpy={true}
                             scrollSpyDelay={1}
+                            scrollSpyOnce={true}
                           >
                             {({ countUpRef }) => (
                               <div className={styles["figures-list"]}>
@@ -1953,13 +1974,17 @@ const TheWayWeCreateValue = () => {
                             decimals={1}
                             enableScrollSpy={true}
                             scrollSpyDelay={1}
+                            scrollSpyOnce={true}
                           >
                             {({ countUpRef }) => (
                               <div className={styles["figures-list"]}>
                                 <p
                                   style={{ margin: 0 }}
                                   className={styles.text}
-                                > In support of our local vendors, <span
+                                >
+                                  {" "}
+                                  In support of our local vendors,{" "}
+                                  <span
                                     ref={countUpRef}
                                     className={styles.number}
                                   ></span>
@@ -1982,6 +2007,7 @@ const TheWayWeCreateValue = () => {
                                 // decimals={1}
                                 enableScrollSpy={true}
                                 scrollSpyDelay={1}
+                                scrollSpyOnce={true}
                               >
                                 {({ countUpRef }) => (
                                   <span
@@ -2002,6 +2028,7 @@ const TheWayWeCreateValue = () => {
                                 // decimals={1}
                                 enableScrollSpy={true}
                                 scrollSpyDelay={1}
+                                scrollSpyOnce={true}
                               >
                                 {({ countUpRef }) => (
                                   <span
@@ -2056,6 +2083,7 @@ const TheWayWeCreateValue = () => {
                             // decimals={1}
                             enableScrollSpy={true}
                             scrollSpyDelay={1}
+                            scrollSpyOnce={true}
                           >
                             {({ countUpRef }) => (
                               <div className={styles["figures-list"]}>
@@ -2098,6 +2126,7 @@ const TheWayWeCreateValue = () => {
                                 // decimals={1}
                                 enableScrollSpy={true}
                                 scrollSpyDelay={1}
+                                scrollSpyOnce={true}
                               >
                                 {({ countUpRef }) => (
                                   <span
@@ -2118,6 +2147,7 @@ const TheWayWeCreateValue = () => {
                                 // decimals={1}
                                 enableScrollSpy={true}
                                 scrollSpyDelay={1}
+                                scrollSpyOnce={true}
                               >
                                 {({ countUpRef }) => (
                                   <span
@@ -2148,6 +2178,7 @@ const TheWayWeCreateValue = () => {
                                 // decimals={1}
                                 enableScrollSpy={true}
                                 scrollSpyDelay={1}
+                                scrollSpyOnce={true}
                               >
                                 {({ countUpRef }) => (
                                   <span
@@ -2168,6 +2199,7 @@ const TheWayWeCreateValue = () => {
                                 decimals={1}
                                 enableScrollSpy={true}
                                 scrollSpyDelay={1}
+                                scrollSpyOnce={true}
                               >
                                 {({ countUpRef }) => (
                                   <span

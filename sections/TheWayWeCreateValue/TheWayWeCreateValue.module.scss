@@ -1,300 +1,5 @@
 @use '../../styles/settings/index.scss' as *;
 
-.material-wrapper,
-.value-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: center;
-    flex-wrap: wrap;
-    padding: $l-y-gap $l-x-gap;
-}
-
-.yellow-wrapper {
-    background-color: $yellow-2;
-
-    .title,
-    .download {
-        padding-left: calc($l-x-gap + 0px);
-    }
-}
-
-.orange-wrapper {
-    background-color: $orange-2;
-}
-
-.flex {
-    display: flex;
-}
-
-.title {
-    text-align: left;
-    // padding-left: $l-x-gap;
-    // max-width: 40vw;
-}
-
-
-.carousel-container {
-    display: flex !important;
-    justify-content: center;
-    height: 100%;
-    // column-gap: 10px;
-
-    .carousel-card {
-        @include shadow;
-        display: grid;
-        place-items: center;
-        background-color: $white-1;
-        border-radius: $border-radiusx2;
-        width: 100%;
-        height: 100%;
-        // min-height: 32rem;
-        margin: 0 5px;
-    }
-
-    .carousel-image {
-        align-self: start;
-        width: inherit;
-        height: auto
-    }
-
-    .carousel-text {
-        @include text-3-bold;
-        color: $dark-2;
-        text-align: center;
-        max-width: 15rem;
-        text-transform: capitalize;
-        margin: 15px 0 0 0;
-    }
-
-    .carousel-button {
-        $size: 30px;
-        align-self: flex-end;
-        margin-bottom: 20px;
-        color: $dark-1;
-        border: $border-weight $dark-1;
-        width: $size;
-        height: $size;
-        border-radius: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition: ease-in-out 0.2s;
-
-        &:hover {
-            color: $white-1;
-            background-color: $blue-1;
-            border: $border-weight $blue-1;
-        }
-    }
-
-}
-
-$margin-top: 2rem;
-
-.modal-container {
-    display: flex;
-    height: 100vh;
-}
-
-.modal {
-    @include shadow;
-    margin: auto 2rem;
-    width: 100%;
-    border-radius: $border-radius;
-    background-color: $yellow-2;
-    display: flex;
-    // justify-content: space-between;
-    flex-direction: column;
-
-    .close-container {
-        margin: $margin-top $margin-top 0 0;
-        align-self: flex-end;
-
-        .close {
-            font-size: 3rem;
-            color: #ACAEB1;
-        }
-    }
-
-    .modal-card-container {
-        padding: 20px 20px 50px 20px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
-        // display: flex;
-        // height: 100%;
-        column-gap: 10px;
-
-    }
-
-    .list,
-    .title-text {
-        @include text-4-bold;
-        color: $dark-2;
-    }
-
-
-
-    .content {
-        background-color: $white-1;
-        height: 100%;
-        border-radius: $border-radius;
-        display: flex;
-        flex-direction: column;
-        row-gap: 10px;
-
-        .title-text {
-            text-transform: capitalize;
-            padding: 20px;
-            text-align: center;
-            color: $white-1;
-            margin: 0;
-            text-transform: uppercase;
-
-        }
-
-        .risk-header,
-        .opp-header,
-        .shortMid-header,
-        .value-header {
-            border-radius: $border-radius $border-radius 0 0;
-        }
-
-        .list {
-            margin: 20px 10px;
-            display: flex;
-            flex-direction: column;
-            row-gap: 10px;
-        }
-    }
-
-    .risk-header {
-        background-color: $orange-1;
-    }
-
-    .opp-header {
-        background-color: $green-8;
-    }
-
-    .shortMid-header {
-        background-color: $blue-3;
-    }
-
-    .value-header {
-        background-color: $purple-2;
-    }
-
-}
-
-.input-text {
-    @include text-3-bold;
-    margin: 0;
-    text-transform: uppercase;
-}
-
-.model-container {
-    display: grid;
-    margin-top: 30px;
-    grid-template-columns: 1fr 30px 50% 1fr;
-    grid-template-rows: 1fr auto auto auto 1fr;
-    place-items: center;
-    row-gap: 10px;
-    width: 100%;
-
-    .crest {
-        grid-area: 1/2/6/4;
-        z-index: 0;
-
-        .crest-image {
-            width: 100%;
-            height: auto;
-        }
-    }
-
-    .input {
-        grid-area: 2/1/3/3;
-        z-index: 1;
-    }
-
-    .sequence {
-        grid-area: 2/4/3/5;
-        z-index: 1;
-    }
-
-    // .value-1 {
-    //     grid-area: 2/1/3/3;
-    // }
-
-    // .value-2 {
-    //     grid-area: 3/1/4/3;
-    // }
-
-    // .value-3 {
-    //     grid-area: 4/1/5/3;
-    // }
-
-    // .value-4 {
-    //     grid-area: 2/4/3/6;
-    // }
-
-    // .value-5 {
-    //     grid-area: 3/4/4/6;
-    // }
-
-    // .value-6 {
-    //     grid-area: 4/4/5/6;
-    // }
-}
-
-.button-container {
-    $size: 30px;
-    border: $border-weight $white-1;
-    width: $size;
-    height: $size;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $white-1;
-}
-
-.input {
-    @include shadow;
-    border-radius: $border-radiusx2;
-    width: 100%;
-
-    .input-header {
-        background-color: $teal-3;
-        color: $white-1;
-        display: flex;
-        justify-content: center;
-        column-gap: 20px;
-        align-items: center;
-        border-radius: $border-radiusx2 $border-radiusx2 0 0;
-        padding: 10px 20px;
-        cursor: pointer;
-    }
-
-    .input-content {
-        display: flex;
-        // align-items: center;
-        // justify-content: center;
-        flex-direction: column;
-        row-gap: 20px;
-        padding: 20px;
-        background-color: $white-1;
-        border-radius: 0 0 $border-radiusx2 $border-radiusx2;
-
-        .input-item {
-            display: flex;
-            column-gap: 20px;
-            align-items: center;
-        }
-    }
-}
 
 .financial {
     color: $teal-3;
@@ -319,291 +24,6 @@ $margin-top: 2rem;
 .natural {
     color: $green-8
 }
-
-.sequence {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 20px;
-    width: 100%;
-
-    .sequence-item {
-        display: flex;
-        background-color: $teal-3;
-        padding: 20px;
-        width: inherit;
-        border-radius: $border-radiusx2;
-        color: $white-1;
-        align-items: center;
-        justify-content: center;
-        column-gap: 20px;
-        cursor: pointer;
-    }
-
-    .arrow {
-        height: 90px;
-    }
-}
-
-// .value-card {
-//     @include shadow;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     border-radius: $border-radiusx2;
-//     padding: 5px 20px;
-//     cursor: pointer;
-//     width: 100%;
-
-//     .value-header {
-//         display: flex;
-//         column-gap: 20px;
-//         align-items: center;
-//         justify-content: center;
-//     }
-
-//     .value-text {
-//         @include text-3-bold;
-//         text-transform: uppercase;
-//         color: $teal-1;
-//     }
-
-//     .value-button {
-//         $size: 40px;
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         font-size: calc($size - 15px);
-//         line-height: 0;
-//         margin: 0;
-//         padding: 0;
-//         border-radius: 100%;
-//         width: $size;
-//         height: $size;
-//     }
-// }
-
-// .value-1 {
-//     background: linear-gradient(to right, #EEF6F5, #FBFDFD);
-
-//     .value-text,
-//     .value-button {
-//         color: $teal-1;
-//     }
-
-//     .value-button {
-//         border: $border-weight $teal-1;
-//     }
-// }
-
-// .value-2 {
-//     background: linear-gradient(to right, #F9ECDB, #FFFEFD);
-
-//     .value-text,
-//     .value-button {
-//         color: $orange-1;
-//     }
-
-//     .value-button {
-//         border: $border-weight $orange-1;
-//     }
-// }
-
-// .value-3 {
-//     background: linear-gradient(to right, #E1D9E5, #F4F1F6);
-
-//     .value-text,
-//     .value-button {
-//         color: $purple-1;
-//     }
-
-//     .value-button {
-//         border: $border-weight $purple-1;
-//     }
-// }
-
-// .value-4 {
-//     background: linear-gradient(to right, #ECEFF4, #FEFEFE);
-
-//     .value-text,
-//     .value-button {
-//         color: $blue-6;
-//     }
-
-//     .value-button {
-//         border: $border-weight $blue-6;
-//     }
-// }
-
-// .value-5 {
-//     background: linear-gradient(to right, #F6EBE0, #FDFAF7);
-
-//     .value-text,
-//     .value-button {
-//         color: $brown-1;
-//     }
-
-//     .value-button {
-//         border: $border-weight $brown-1;
-//     }
-// }
-
-// .value-6 {
-//     background: linear-gradient(to right, #F7F5D4, #FDFCF4);
-
-//     .value-text,
-//     .value-button {
-//         color: $green-8;
-//     }
-
-//     .value-button {
-//         border: $border-weight $green-8;
-//     }
-// }
-
-.arrow-container {
-    // @include shadow;
-    cursor: pointer;
-    border: 3px solid $white-1;
-    $size: 60px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: $blue-1;
-    border-radius: 100%;
-    width: $size;
-    height: $size;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: ease-in-out 0.2s;
-
-    .arrow-icon {
-        color: $white-1;
-    }
-
-    &:hover {
-        background-color: $blue-2;
-    }
-}
-
-.next {
-    right: 10px;
-}
-
-.prev {
-    left: 10px;
-}
-
-
-.modal-container {
-    width: 100vw;
-
-    .header,
-    .title,
-    .text,
-    .text-bold,
-    .number,
-    .unit {
-        margin: 0;
-    }
-
-    .header {
-        @include text-3-bold;
-        text-transform: uppercase;
-    }
-
-    .title {
-        @include text-1-bold;
-        text-transform: uppercase;
-    }
-
-    .text {
-        @include text-4-regular;
-    }
-
-    .text-bold {
-        @include text-4-bold;
-    }
-
-    .number {
-        @include number-4;
-    }
-
-    .unit {
-        @include text-3-bold;
-    }
-
-    .sequence-modal {
-        @include shadow;
-        margin: auto 2rem;
-        border-radius: $border-radius;
-        background-color: $white-1;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding: 30px;
-
-        .modal-top {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .close-container {
-            .close {
-                font-size: 3rem;
-                color: #ACAEB1;
-            }
-        }
-
-        .content-wrapper {
-            $gap: 20px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: auto;
-            column-gap: $gap;
-            row-gap: $gap;
-
-        }
-    }
-}
-
-.sequence-card {
-    @include shadow;
-    border-radius: $border-radiusx2;
-
-    .header-container {
-        display: flex;
-        align-items: center;
-        column-gap: 20px;
-        justify-content: center;
-        padding: 10px;
-        border-radius: $border-radiusx2 $border-radiusx2 0 0;
-    }
-
-    .sequence-content {
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        row-gap: 15px;
-        height: 100%;
-    }
-
-    .border-bottom {
-        border-bottom: 1px solid $grey-2;
-        padding-bottom: 10px;
-    }
-
-    .content-list {
-        padding: 0 20px;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        row-gap: 10px;
-    }
-}
-
 
 .financial-card {
     .header-container {
@@ -683,226 +103,914 @@ $margin-top: 2rem;
     }
 }
 
+.material-wrapper,
+.value-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+    padding: $s-y-gap $s-x-gap;
+}
+
+.yellow-wrapper {
+    background-color: $yellow-2;
+
+    .title,
+    .download {
+        padding-left: calc($s-x-gap + 0px);
+    }
+}
+
+.orange-wrapper {
+    background-color: $orange-2;
+}
+
+.flex {
+    display: flex;
+}
+
+.title {
+    text-align: left;
+}
 
 
-// .modal-container {
-//     $row-gap: 20px;
+.carousel-container {
+    display: flex !important;
+    justify-content: center;
+    height: 100%;
 
-//     @include shadow;
-//     margin: auto 2rem;
-//     width: 100%;
-//     border-radius: $border-radius;
-//     background-color: $white-1;
-//     display: flex;
-//     flex-direction: column;
-//     padding: 10px 20px;
+    .carousel-info-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: $s-gap;
+        min-height: 130px;
+        // padding: 0 50px;
+    }
 
-//     .header,
-//     .title,
-//     .text,
-//     .text-bold,
-//     .number,
-//     .unit {
-//         margin: 0;
-//     }
+    .carousel-card {
+        @include shadow;
+        background-color: $white-1;
+        border-radius: $border-radiusx2;
+        width: 100%;
+        height: 100%;
+        // height: 30rem;
+        // min-height: 32rem;
+        margin: 0 20px;
+    }
 
-//     .header {
-//         @include text-3-bold;
-//         text-transform: uppercase;
-//     }
+    .carousel-image {
+        align-self: start;
+        width: inherit;
+        height: auto
+    }
 
-//     .title {
-//         @include text-3-bold;
-//         text-transform: uppercase;
-//     }
+    .carousel-text {
+        @include text-3-bold;
+        color: $dark-2;
+        text-align: center;
+        max-width: 15rem;
+        text-transform: capitalize;
+        margin: 15px 0 0 0;
+    }
 
-//     .text {
-//         @include text-4-regular;
-//     }
+    .carousel-button {
+        $size: 30px;
+        margin-bottom: 20px;
+        color: $dark-1;
+        border: $border-weight $dark-1;
+        width: $size;
+        height: $size;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: ease-in-out 0.2s;
 
-//     .text-bold {
-//         @include text-4-bold;
-//     }
+        &:hover {
+            color: $white-1;
+            background-color: $blue-1;
+            border: $border-weight $blue-1;
+        }
+    }
 
-//     .number {
-//         @include number-4;
-//     }
+}
 
-//     .unit {
-//         @include text-3-bold;
-//     }
+$margin-top: $s-gap;
 
-//     .border-bottom {
-//         border-bottom: 1px solid $grey-2;
-//     }
+.modal-container {
+    display: flex;
+    height: 100vh;
+}
 
-//     .modal-top {
-//         display: grid;
-//         place-items: center;
-//         grid-template-columns: auto;
-//         grid-template-rows: auto;
-//         width: 100%;
-//         margin: 10px 0;
+.modal {
+    @include shadow;
+    margin: auto 2rem;
+    width: 100%;
+    border-radius: $border-radius;
+    background-color: $yellow-2;
+    display: flex;
+    flex-direction: column;
 
-//         .modal-header {
-//             grid-area: 1/1/2/2;
-//             display: flex;
-//             column-gap: 20px;
-//             align-items: center;
-//         }
+    .close-container {
+        margin: $margin-top $margin-top 0 0;
+        align-self: flex-end;
 
-//         .close-container {
-//             grid-area: 1/1/2/2;
-//             align-self: flex-end;
-//             justify-self: flex-end;
-//         }
+        .close {
+            font-size: $s-close-button;
+            color: #ACAEB1;
+        }
+    }
 
-//         .close-container {
-//             .close {
-//                 font-size: 3rem;
-//                 color: #ACAEB1;
-//             }
-//         }
-//     }
+    .modal-card-container {
+        padding: $s-gap $s-gap $s-y-gap $s-gap;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        // display: flex;
+        // height: 100%;
+        column-gap: $s-gap;
+        row-gap: $s-gap;
 
-//     .content-wrapper {
-//         display: grid;
-//         grid-template-columns: repeat(4, 1fr);
-//         grid-template-rows: auto;
-//         column-gap: 10px;
-//         padding: 20px;
-//     }
+    }
 
-//     .content-list {
-//         padding: 0 20px;
-//         margin: 0;
-//         display: flex;
-//         flex-direction: column;
-//         row-gap: $row-gap;
-//     }
+    .list,
+    .title-text {
+        @include text-4-bold;
+        color: $dark-2;
+    }
 
-//     .modal-content {
-//         padding: 20px 0;
-//         display: flex;
-//         flex-direction: column;
-//         height: 100%;
 
-//         .item-header {
-//             display: flex;
-//             align-items: center;
-//             column-gap: 10px;
-//             padding-bottom: 20px;
-//         }
 
-//         .item-content {
-//             background-color: $white-1;
-//             height: auto;
-//             padding: 20px;
-//             display: flex;
-//             flex-direction: column;
-//             row-gap: $row-gap;
-//             height: 100%;
-//         }
+    .content {
+        background-color: $white-1;
+        height: 100%;
+        border-radius: $border-radius;
+        display: flex;
+        flex-direction: column;
+        row-gap: $s-gap;
 
-//         .figures {
-//             padding: 10px 0;
-//         }
+        .title-text {
+            text-transform: capitalize;
+            padding: 20px;
+            text-align: center;
+            color: $white-1;
+            margin: 0;
+            text-transform: uppercase;
 
-//     }
-// }
+        }
 
-// .value-modal-1 {
-//     .title {
-//         color: $teal-1;
-//     }
+        .risk-header,
+        .opp-header,
+        .shortMid-header,
+        .value-header {
+            border-radius: $border-radius $border-radius 0 0;
+        }
 
-//     .number,
-//     .unit,
-//     .text-bold {
-//         color: $teal-3;
-//     }
+        .list {
+            margin: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            row-gap: $s-gap;
+        }
+    }
 
-//     .content-wrapper {
-//         background-color: $teal-2;
-//     }
-// }
+    .risk-header {
+        background-color: $orange-1;
+    }
 
-// .value-modal-2 {
-//     .title {
-//         color: $orange-1;
-//     }
+    .opp-header {
+        background-color: $green-8;
+    }
 
-//     .number,
-//     .unit,
-//     .text-bold {
-//         color: $orange-1;
-//     }
+    .shortMid-header {
+        background-color: $blue-3;
+    }
 
-//     .content-wrapper {
-//         background-color: $orange-2;
-//     }
-// }
+    .value-header {
+        background-color: $purple-2;
+    }
 
-// .value-modal-3 {
-//     .title {
-//         color: $purple-1;
-//     }
+}
 
-//     .number,
-//     .unit,
-//     .text-bold {
-//         color: $purple-1;
-//     }
+.input-text {
+    @include text-3-bold;
+    margin: 0;
+    text-transform: uppercase;
+}
 
-//     .content-wrapper {
-//         background-color: $purple-3;
-//     }
-// }
+.model-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: $l-gap;
+    width: 100%;
+    margin: $s-gap 0;
 
-// .value-modal-4 {
-//     .title {
-//         color: $blue-6;
-//     }
+    .crest {
+        grid-area: 1/2/6/4;
+        z-index: 0;
 
-//     .number,
-//     .unit,
-//     .text-bold {
-//         color: $blue-6;
-//     }
+        .crest-image {
+            width: 100%;
+            height: auto;
+        }
+    }
 
-//     .content-wrapper {
-//         background-color: $blue-8;
-//     }
-// }
+    .input {
+        grid-area: 2/1/3/3;
+        z-index: 1;
+    }
 
-// .value-modal-5 {
-//     .title {
-//         color: $brown-1;
-//     }
+    .sequence {
+        grid-area: 2/4/3/5;
+        z-index: 1;
+    }
+}
 
-//     .number,
-//     .unit,
-//     .text-bold {
-//         color: $brown-1;
-//     }
+.button-container {
+    $size: 30px;
+    border: $border-weight $white-1;
+    width: $size;
+    height: $size;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white-1;
+}
 
-//     .content-wrapper {
-//         background-color: $orange-2;
-//     }
-// }
+.input {
+    @include shadow;
+    border-radius: $border-radiusx2;
+    width: 100%;
 
-// .value-modal-6 {
-//     .title {
-//         color: $green-8;
-//     }
+    .input-header {
+        background-color: $teal-3;
+        color: $white-1;
+        display: flex;
+        justify-content: center;
+        column-gap: $s-gap;
+        align-items: center;
+        border-radius: $border-radiusx2 $border-radiusx2 0 0;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
 
-//     .number,
-//     .unit,
-//     .text-bold {
-//         color: $green-8;
-//     }
+    .input-content {
+        display: flex;
+        flex-direction: column;
+        row-gap: $s-gap;
+        padding: 20px;
+        background-color: $white-1;
+        border-radius: 0 0 $border-radiusx2 $border-radiusx2;
 
-//     .content-wrapper {
-//         background-color: $green-9;
-//     }
-// }
+        .input-item {
+            display: flex;
+            column-gap: $s-gap;
+            align-items: center;
+        }
+    }
+}
+
+.sequence {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: $s-gap;
+    width: 100%;
+
+    .sequence-item {
+        display: flex;
+        background-color: $teal-3;
+        padding: 20px;
+        width: inherit;
+        border-radius: $border-radiusx2;
+        color: $white-1;
+        align-items: center;
+        justify-content: center;
+        column-gap: $s-gap;
+        cursor: pointer;
+    }
+
+    .arrow {
+        height: 90px;
+    }
+}
+
+.arrow-container {
+    cursor: pointer;
+    border: 3px solid $white-1;
+    $size: 60px;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $blue-1;
+    border-radius: 100%;
+    width: $size;
+    height: $size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out 0.2s;
+
+    .arrow-icon {
+        color: $white-1;
+    }
+
+    &:hover {
+        background-color: $blue-2;
+    }
+}
+
+.next {
+    right: 10px;
+}
+
+.prev {
+    left: 10px;
+}
+
+
+.modal-container {
+    width: 100vw;
+
+    .header,
+    .title,
+    .text,
+    .text-bold,
+    .number,
+    .unit {
+        margin: 0;
+    }
+
+    .header {
+        @include text-3-bold;
+        text-transform: uppercase;
+    }
+
+    .title {
+        @include text-1-bold;
+        text-transform: uppercase;
+    }
+
+    .text {
+        @include text-4-regular;
+    }
+
+    .text-bold {
+        @include text-4-bold;
+    }
+
+    .number {
+        @include number-4;
+    }
+
+    .unit {
+        @include text-3-bold;
+    }
+
+    .sequence-modal {
+        @include shadow;
+        margin: auto 2rem;
+        border-radius: $border-radius;
+        background-color: $white-1;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: $s-x-gap;
+
+        .modal-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-container {
+            .close {
+                font-size: $s-close-button;
+                color: #ACAEB1;
+            }
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+
+            column-gap: $s-gap;
+            row-gap: $s-gap;
+
+        }
+    }
+}
+
+.sequence-card {
+    @include shadow;
+    border-radius: $border-radiusx2;
+
+    .header-container {
+        display: flex;
+        align-items: center;
+        column-gap: $s-gap;
+        justify-content: center;
+        padding: 10px;
+        border-radius: $border-radiusx2 $border-radiusx2 0 0;
+    }
+
+    .sequence-content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: $s-gap;
+        height: 100%;
+    }
+
+    .border-bottom {
+        border-bottom: 1px solid $grey-2;
+        padding-bottom: 10px;
+    }
+
+    .content-list {
+        padding: 0 20px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        row-gap: $s-gap;
+    }
+}
+
+@include gt-xs {
+    .modal {
+        .modal-card-container {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+
+        }
+    }
+
+    .input {
+        .input-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            row-gap: $s-gap;
+            column-gap: $s-gap;
+        }
+    }
+
+    .modal-conatainer {
+        .sequence-modal {}
+    }
+}
+
+
+@include gt-sm {
+
+    .material-wrapper,
+    .value-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: center;
+        flex-wrap: wrap;
+        padding: $l-y-gap $l-x-gap;
+    }
+
+    .yellow-wrapper {
+        background-color: $yellow-2;
+
+        .title,
+        .download {
+            padding-left: calc($l-x-gap + 0px);
+        }
+    }
+
+    .orange-wrapper {
+        background-color: $orange-2;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .title {
+        text-align: left;
+    }
+
+
+    .carousel-container {
+        display: flex !important;
+        justify-content: center;
+        height: 100%;
+
+        .carousel-info-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            row-gap: $l-gap;
+            min-height: 130px;
+            // padding: 0 50px;
+        }
+
+        .carousel-card {
+            @include shadow;
+            background-color: $white-1;
+            border-radius: $border-radiusx2;
+            width: 100%;
+            height: 100%;
+            // height: 30rem;
+            // min-height: 32rem;
+            margin: 0 20px;
+        }
+
+        .carousel-image {
+            align-self: start;
+            width: inherit;
+            height: auto
+        }
+
+        .carousel-text {
+            @include text-3-bold;
+            color: $dark-2;
+            text-align: center;
+            max-width: 15rem;
+            text-transform: capitalize;
+            margin: 15px 0 0 0;
+        }
+
+        .carousel-button {
+            $size: 30px;
+            margin-bottom: 20px;
+            color: $dark-1;
+            border: $border-weight $dark-1;
+            width: $size;
+            height: $size;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: ease-in-out 0.2s;
+
+            &:hover {
+                color: $white-1;
+                background-color: $blue-1;
+                border: $border-weight $blue-1;
+            }
+        }
+
+    }
+
+    $margin-top: $l-gap;
+
+    .modal-container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .modal {
+        @include shadow;
+        margin: auto 2rem;
+        width: 100%;
+        border-radius: $border-radius;
+        background-color: $yellow-2;
+        display: flex;
+        // justify-content: space-between;
+        flex-direction: column;
+
+        .close-container {
+            margin: $margin-top $margin-top 0 0;
+            align-self: flex-end;
+
+            .close {
+                font-size: $l-close-button;
+                color: #ACAEB1;
+            }
+        }
+
+        .modal-card-container {
+            padding: $l-gap $l-gap $l-y-gap $l-gap;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            // display: flex;
+            // height: 100%;
+            column-gap: $l-gap;
+
+        }
+
+        .list,
+        .title-text {
+            @include text-4-bold;
+            color: $dark-2;
+        }
+
+
+
+        .content {
+            background-color: $white-1;
+            height: 100%;
+            border-radius: $border-radius;
+            display: flex;
+            flex-direction: column;
+            row-gap: $l-gap;
+
+            .title-text {
+                text-transform: capitalize;
+                padding: 20px;
+                text-align: center;
+                color: $white-1;
+                margin: 0;
+                text-transform: uppercase;
+
+            }
+
+            .risk-header,
+            .opp-header,
+            .shortMid-header,
+            .value-header {
+                border-radius: $border-radius $border-radius 0 0;
+            }
+
+            .list {
+                margin: 20px 10px;
+                display: flex;
+                flex-direction: column;
+                row-gap: $l-gap;
+            }
+        }
+
+        .risk-header {
+            background-color: $orange-1;
+        }
+
+        .opp-header {
+            background-color: $green-8;
+        }
+
+        .shortMid-header {
+            background-color: $blue-3;
+        }
+
+        .value-header {
+            background-color: $purple-2;
+        }
+
+    }
+
+    .input-text {
+        @include text-3-bold;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    .model-container {
+        display: grid;
+        margin-top: 30px;
+        grid-template-columns: 1fr 30px 50% 1fr;
+        grid-template-rows: 1fr auto auto auto 1fr;
+        place-items: center;
+        row-gap: $l-gap;
+        width: 100%;
+
+        .crest {
+            grid-area: 1/2/6/4;
+            z-index: 0;
+
+            .crest-image {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .input {
+            grid-area: 2/1/3/3;
+            z-index: 1;
+        }
+
+        .sequence {
+            grid-area: 2/4/3/5;
+            z-index: 1;
+        }
+    }
+
+    .button-container {
+        $size: 30px;
+        border: $border-weight $white-1;
+        width: $size;
+        height: $size;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $white-1;
+    }
+
+    .input {
+        @include shadow;
+        border-radius: $border-radiusx2;
+        width: 100%;
+
+        .input-header {
+            background-color: $teal-3;
+            color: $white-1;
+            display: flex;
+            justify-content: center;
+            column-gap: $l-gap;
+            align-items: center;
+            border-radius: $border-radiusx2 $border-radiusx2 0 0;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .input-content {
+            display: flex;
+            // align-items: center;
+            // justify-content: center;
+            flex-direction: column;
+            row-gap: $l-gap;
+            padding: 20px;
+            background-color: $white-1;
+            border-radius: 0 0 $border-radiusx2 $border-radiusx2;
+
+            .input-item {
+                display: flex;
+                column-gap: $l-gap;
+                align-items: center;
+            }
+        }
+    }
+
+    .sequence {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: $l-gap;
+        width: 100%;
+
+        .sequence-item {
+            display: flex;
+            background-color: $teal-3;
+            padding: 20px;
+            width: inherit;
+            border-radius: $border-radiusx2;
+            color: $white-1;
+            align-items: center;
+            justify-content: center;
+            column-gap: $l-gap;
+            cursor: pointer;
+        }
+
+        .arrow {
+            height: 90px;
+        }
+    }
+
+    .arrow-container {
+        cursor: pointer;
+        border: 3px solid $white-1;
+        $size: 60px;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: $blue-1;
+        border-radius: 100%;
+        width: $size;
+        height: $size;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: ease-in-out 0.2s;
+
+        .arrow-icon {
+            color: $white-1;
+        }
+
+        &:hover {
+            background-color: $blue-2;
+        }
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+
+    .modal-container {
+        width: 100vw;
+
+        .header,
+        .title,
+        .text,
+        .text-bold,
+        .number,
+        .unit {
+            margin: 0;
+        }
+
+        .header {
+            @include text-3-bold;
+            text-transform: uppercase;
+        }
+
+        .title {
+            @include text-1-bold;
+            text-transform: uppercase;
+        }
+
+        .text {
+            @include text-4-regular;
+        }
+
+        .text-bold {
+            @include text-4-bold;
+        }
+
+        .number {
+            @include number-4;
+        }
+
+        .unit {
+            @include text-3-bold;
+        }
+
+        .sequence-modal {
+            @include shadow;
+            margin: auto 2rem;
+            border-radius: $border-radius;
+            background-color: $white-1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 30px;
+
+            .modal-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .close-container {
+                .close {
+                    font-size: $l-close-button;
+                    color: #ACAEB1;
+                }
+            }
+
+            .content-wrapper {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: auto;
+                column-gap: $l-gap;
+                row-gap: $l-gap;
+
+            }
+        }
+    }
+
+    .sequence-card {
+        @include shadow;
+        border-radius: $border-radiusx2;
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            column-gap: $l-gap;
+            justify-content: center;
+            padding: 10px;
+            border-radius: $border-radiusx2 $border-radiusx2 0 0;
+        }
+
+        .sequence-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            row-gap: $l-gap;
+            height: 100%;
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid $grey-2;
+            padding-bottom: 10px;
+        }
+
+        .content-list {
+            padding: 0 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            row-gap: $l-gap;
+        }
+    }
+}

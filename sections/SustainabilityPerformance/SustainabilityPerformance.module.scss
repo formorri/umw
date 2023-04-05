@@ -1,8 +1,8 @@
 @use '../../styles/settings/index.scss' as *;
 
-$margin-card: 3rem;
-$height-card: 29rem;
-$width-card: 90%;
+$margin-card: 0rem;
+$height-card: auto;
+$width-card: calc(90vw - ($margin-card * 3));
 
 .text-bold,
 .item-header-text,
@@ -43,76 +43,6 @@ $width-card: 90%;
     @include text-4-bold;
 }
 
-.container {
-    background-color: $theme-4;
-    padding: $l-y-gap $l-x-gap;
-    display: flex;
-    flex-direction: column;
-    row-gap: 30px;
-    // display: grid;
-    // grid-template-columns: auto auto;
-    // grid-template-rows: auto;
-    // place-items: center;
-
-    // .text-wrapper {
-    //     grid-area: 1/1/2/2;
-    // }
-
-    // .card-wrapper {
-    //     grid-area: 1/2/2/3;
-    //     // margin-right: 0;
-    // }
-}
-
-
-.text-wrapper {
-    display: flex;
-    flex-direction: column;
-    padding-right: 30px;
-
-    .text {
-        margin: 20px 0;
-    }
-}
-
-.card-wrapper {
-    // padding: 0 0 0 2rem;
-    display: flex;
-    flex-direction: column;
-    border-radius: $border-radiusx2;
-}
-
-.card {
-    border-radius: calc($border-radiusx2 + 5px);
-    min-height: $height-card;
-    width: $width-card;
-
-    &:nth-child(1) {
-        margin-left: 0rem;
-    }
-
-    &:nth-child(2) {
-        margin-left: calc($margin-card * 1);
-    }
-
-    &:nth-child(3) {
-        margin-left: calc($margin-card * 2);
-    }
-
-    &:nth-child(4) {
-        margin-left: calc($margin-card * 3);
-    }
-
-    &:nth-child(2),
-    &:nth-child(3),
-    &:nth-child(4) {
-        margin-top: calc(-1 * ($height-card - 4rem));
-    }
-
-    .header {
-        cursor: pointer;
-    }
-}
 
 .card1 {
     border: 2px solid $green-5;
@@ -199,13 +129,70 @@ $width-card: 90%;
     transform: rotate(90deg);
 }
 
+.container {
+    background-color: $theme-4;
+    padding: $s-y-gap $s-x-gap;
+    display: flex;
+    flex-direction: column;
+    row-gap: $s-gap;
+}
+
+
+.text-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
+
+    .text {
+        margin: 20px 0;
+    }
+}
+
+.card-wrapper {
+    display: flex;
+    flex-direction: column;
+    border-radius: $border-radius;
+}
+
+.card {
+    border-radius: calc($border-radius + 5px) calc($border-radius + 5px) 0 0;
+    min-height: $height-card;
+    width: $width-card;
+
+    &:nth-child(1) {
+        margin-top: 0rem;
+    }
+
+    &:nth-child(2) {
+        margin-top: -10px;
+    }
+
+    &:nth-child(3) {
+        margin-top: -10px;
+    }
+
+    &:nth-child(4) {
+        margin-top: -10px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
+        margin-top: calc(-1 * ($height-card - 4rem));
+    }
+
+    .header {
+        cursor: pointer;
+    }
+}
+
 
 .header {
-    padding: 0 20px;
+    padding: 10px 10px 10px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: $border-radiusx2 $border-radiusx2 0 0;
+    border-radius: $border-radius $border-radius 0 0;
 
     .header-text {
         @include text-4-bold;
@@ -215,17 +202,18 @@ $width-card: 90%;
 }
 
 .content {
-    padding: 20px 30px;
+    padding: 10px;
 }
 
 .subheader {
     display: flex;
-    column-gap: 20px;
-    margin: 10px 0;
+    flex-direction: column;
+    row-gap: $s-gap;
+    margin: 0 0 10px 0;
 
     .pillar-icon {
-        height: 3rem;
-        width: auto;
+        height: auto;
+        width: 3rem;
     }
 
     .subheader-text-container {
@@ -236,34 +224,13 @@ $width-card: 90%;
 }
 
 .item-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    column-gap: 10px;
-    row-gap: 10px;
-    .item-wrapper{
-
-        &:nth-child(1){
-            grid-area: 1/1/2/2
-        }
-        &:nth-child(2){
-            grid-area: 1/2/2/3
-        }
-        &:nth-child(3){
-            grid-area: 1/3/2/4
-        }
-        &:nth-child(4){
-            grid-area: 2/1/3/3
-        }
-        &:nth-child(5){
-            grid-area: 2/3/3/4
-        }
-    }
+    display: flex;
+    flex-direction: column;
+    row-gap: $s-gap;
 }
 
 
 .item-wrapper {
-    // margin: 20px 0;
     height: 100%;
     background-color: $white-1;
     height: inherit;
@@ -271,9 +238,7 @@ $width-card: 90%;
 
 
     .item-header {
-        // margin-bottom: 10px;
         border-radius: $border-radius $border-radius 0 0;
-        // min-height: 4rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -288,7 +253,7 @@ $width-card: 90%;
     .content-wrapper {
         @include text-4-regular;
         height: inherit;
-        padding: 10px 5px ;
+        padding: 10px 5px;
 
         ul {
             margin: 0;
@@ -308,7 +273,6 @@ $width-card: 90%;
 
 .sdg-icon-wrapper {
     display: flex;
-    column-gap: 3px;
 
     .sdg-icon {
         width: 3.5rem;
@@ -322,8 +286,298 @@ $width-card: 90%;
     .item-list {
         display: flex;
         flex-direction: column;
-        row-gap: 10px;
+        row-gap: $s-gap;
         margin: 0;
         padding: 0 20px;
+    }
+}
+
+@include gt-xs {
+    $margin-card: 2rem;
+    $height-card: 30rem;
+    $width-card: calc(93vw - ($margin-card * 3));
+
+    .content {
+        padding: $s-x-gap;
+    }
+
+
+
+    .header {
+        padding: 0 10px;
+    }
+
+    .card {
+        border-radius: calc($border-radius + 5px);
+        min-height: $height-card;
+        width: $width-card;
+
+        &:nth-child(1) {
+            margin-left: 0rem;
+        }
+
+        &:nth-child(2) {
+            margin-left: calc($margin-card * 1);
+        }
+
+        &:nth-child(3) {
+            margin-left: calc($margin-card * 2);
+        }
+
+        &:nth-child(4) {
+            margin-left: calc($margin-card * 3);
+        }
+
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+            margin-top: calc(-1 * ($height-card - 4rem));
+        }
+
+        .header {
+            cursor: pointer;
+        }
+    }
+
+    .subheader {
+        display: flex;
+        flex-direction: row;
+        column-gap: $s-gap;
+        margin: 10px 0;
+
+        .pillar-icon {
+            height: 3rem;
+            width: auto;
+        }
+
+        .subheader-text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    .item-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        column-gap: $s-gap;
+        row-gap: $s-gap;
+
+        .item-wrapper {
+
+            &:nth-child(1) {
+                grid-area: 1/1/2/2
+            }
+
+            &:nth-child(2) {
+                grid-area: 1/2/2/3
+            }
+
+            &:nth-child(3) {
+                grid-area: 1/3/2/4
+            }
+
+            &:nth-child(4) {
+                grid-area: 2/1/3/3
+            }
+
+            &:nth-child(5) {
+                grid-area: 2/3/3/4
+            }
+        }
+    }
+}
+
+@include gt-sm {
+    $margin-card: 2.5rem;
+    $height-card: 29rem;
+    $width-card: calc(90vw - ($margin-card * 3));
+
+    .container {
+        background-color: $theme-4;
+        padding: $l-y-gap $l-x-gap;
+        display: flex;
+        flex-direction: column;
+        row-gap: $s-gap;
+    }
+
+
+    .text-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding-right: 30px;
+
+        .text {
+            margin: 20px 0;
+        }
+    }
+
+    .card-wrapper {
+        display: flex;
+        flex-direction: column;
+        border-radius: $border-radiusx2;
+    }
+
+    .card {
+        border-radius: calc($border-radius + 5px);
+        min-height: $height-card;
+        width: $width-card;
+
+        &:nth-child(1) {
+            margin-left: 0rem;
+        }
+
+        &:nth-child(2) {
+            margin-left: calc($margin-card * 1);
+        }
+
+        &:nth-child(3) {
+            margin-left: calc($margin-card * 2);
+        }
+
+        &:nth-child(4) {
+            margin-left: calc($margin-card * 3);
+        }
+
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+            margin-top: calc(-1 * ($height-card - 4rem));
+        }
+
+        .header {
+            cursor: pointer;
+        }
+    }
+
+
+    .header {
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: $border-radius $border-radius 0 0;
+
+        .header-text {
+            @include text-4-bold;
+            text-transform: uppercase;
+            color: $white-1;
+        }
+    }
+
+    .content {
+        padding: 20px 30px;
+    }
+
+    .subheader {
+        display: flex;
+        column-gap: $s-gap;
+        margin: 10px 0;
+
+        .pillar-icon {
+            height: 3rem;
+            width: auto;
+        }
+
+        .subheader-text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    .item-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        column-gap: $s-gap;
+        row-gap: $s-gap;
+
+        .item-wrapper {
+
+            &:nth-child(1) {
+                grid-area: 1/1/2/2
+            }
+
+            &:nth-child(2) {
+                grid-area: 1/2/2/3
+            }
+
+            &:nth-child(3) {
+                grid-area: 1/3/2/4
+            }
+
+            &:nth-child(4) {
+                grid-area: 2/1/3/3
+            }
+
+            &:nth-child(5) {
+                grid-area: 2/3/3/4
+            }
+        }
+    }
+
+
+    .item-wrapper {
+        height: 100%;
+        background-color: $white-1;
+        height: inherit;
+        border-radius: $border-radius;
+
+
+        .item-header {
+            border-radius: $border-radius $border-radius 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .item-header-text {
+                padding: 10px 20px;
+                color: $white-1;
+                text-align: center;
+            }
+        }
+
+        .content-wrapper {
+            @include text-4-regular;
+            height: inherit;
+            padding: 10px 5px;
+
+            ul {
+                margin: 0;
+            }
+
+            .sdg-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                row-gap: 5px;
+                column-gap: 5px;
+            }
+        }
+    }
+
+
+
+    .sdg-icon-wrapper {
+        display: flex;
+
+        .sdg-icon {
+            width: 3.5rem;
+            height: auto;
+        }
+    }
+
+    .item-list-wrapper {
+        margin: 20px 0;
+
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            row-gap: $s-gap;
+            margin: 0;
+            padding: 0 20px;
+        }
     }
 }

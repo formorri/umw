@@ -344,145 +344,155 @@ const OurPerformance = () => {
           </div>
         )} */}
         {/* tab content */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ x: 10, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -10, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className={styles["content-wrapper"]}
-          >
-            <div
-              className={styles.background}
-              style={{ backgroundColor: tabBackgroundColor }}
+        {activeTabData && (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ x: 10, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -10, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className={styles["content-wrapper"]}
             >
-              <div className={styles["background-inner"]}></div>
-            </div>
-            <div className={styles.content}>
               <div
-                className={styles["content-title"]}
-                style={{
-                  "--tab-color": tabColor,
-                }}
+                className={styles.background}
+                style={{ backgroundColor: tabBackgroundColor }}
               >
-                <h3
-                  className={styles["content-title-text"]}
-                  style={{ color: tabColor }}
-                >
-                  {tabTitle}
-                </h3>
+                <div className={styles["background-inner"]}></div>
               </div>
-              <div className={styles["content-data-container"]}>
-                <p
-                  className={styles.category}
+              <div className={styles.content}>
+                <div
+                  className={styles["content-title"]}
                   style={{
-                    color: tabBackgroundColor,
+                    "--tab-color": tabColor,
                   }}
                 >
-                  {tabCategory}
-                </p>
-                <div className={styles["content-data-wrapper"]}>
+                  <h3
+                    className={styles["content-title-text"]}
+                    style={{ color: tabColor }}
+                  >
+                    {tabTitle}
+                  </h3>
+                </div>
+                <div className={styles["content-data-container"]}>
                   <p
-                    className={styles["content-desc"]}
+                    className={styles.category}
                     style={{
-                      "--tab-color": tabColor,
+                      color: tabBackgroundColor,
                     }}
                   >
-                    {tabDesc}
+                    {tabCategory}
                   </p>
-                  {tabDataItem &&
-                    tabDataItem.map((dataItem) => (
-                      <div
-                        className={styles.card}
-                        key={dataItem.key}
-                        style={{
-                          background: `linear-gradient(to right, transparent, ${tabBackgroundColor})`,
-                        }}
-                      >
-                        <p
-                          className={styles["data-title"]}
-                          style={{ color: tabColor }}
-                        >
-                          {dataItem.title}
-                        </p>
-                        <p
-                          className={styles["data-units"]}
+                  <div className={styles["content-data-wrapper"]}>
+                    <p
+                      className={styles["content-desc"]}
+                      style={{
+                        "--tab-color": tabColor,
+                      }}
+                    >
+                      {tabDesc}
+                    </p>
+                    {tabDataItem &&
+                      tabDataItem.map((dataItem) => (
+                        <div
+                          className={styles.card}
+                          key={dataItem.key}
                           style={{
-                            "--tab-color": tabColor,
+                            background: `linear-gradient(to right, transparent, ${tabBackgroundColor})`,
                           }}
                         >
-                          {dataItem.units}
-                        </p>
-                        {/* <p className={styles["data-figure"]}>
+                          <p
+                            className={styles["data-title"]}
+                            style={{ color: tabColor }}
+                          >
+                            {dataItem.title}
+                          </p>
+                          <p
+                            className={styles["data-units"]}
+                            style={{
+                              "--tab-color": tabColor,
+                            }}
+                          >
+                            {dataItem.units}
+                          </p>
+                          {/* <p className={styles["data-figure"]}>
                           {dataItem.figure}
                         </p> */}
-                        <CountUp
-                          start={0}
-                          end={dataItem.figure}
-                          delay={0}
-                          decimal="."
-                          decimals={1}
-                          enableScrollSpy={true}
-                          scrollSpyDelay={1}
-                        >
-                          {({ countUpRef }) => (
-                            <div>
-                              <p
-                                className={styles["data-figure"]}
-                                ref={countUpRef}
-                              ></p>
-                            </div>
-                          )}
-                        </CountUp>
-                        <p className={styles["data-year"]}>{dataItem.year}</p>
-                      </div>
-                    ))}
-                  <Button1
-                    link="/"
-                    text="Download This Section"
-                    backgroundColor="#112F5E"
-                    textColor="white"
-                    icon="download"
-                    className={styles.download}
-                  />
+                          <CountUp
+                            start={0}
+                            end={dataItem.figure}
+                            delay={0}
+                            decimal="."
+                            decimals={1}
+                            enableScrollSpy={true}
+                            scrollSpyDelay={1}
+                            scrollSpyOnce={true}
+                          >
+                            {({ countUpRef }) => (
+                              <div>
+                                <p
+                                  className={styles["data-figure"]}
+                                  ref={countUpRef}
+                                ></p>
+                              </div>
+                            )}
+                          </CountUp>
+                          <p className={styles["data-year"]}>{dataItem.year}</p>
+                        </div>
+                      ))}
+                    <Button1
+                      link="/"
+                      text="Download This Section"
+                      backgroundColor="#112F5E"
+                      textColor="white"
+                      icon="download"
+                      className={`${styles.download} ${styles["download-large"]}`}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            {activeTabData?.image?.length > 0 && (
-              <div
-                className={`${styles["content-image-container"]} ${styles["switcher-padding"]}`}
-              >
-                <Image
-                  src={images[tabImage]}
-                  loading="lazy"
-                  className={styles.image}
-                  alt={tabImage}
-                />
-              </div>
-            )}
-            {activeTabData?.video?.length > 0 && (
-              <div
-                className={`${styles["content-video-container"]} ${styles["switcher-padding"]}`}
-                // ref={ref}
-              >
-                <video
-                  className={styles.video}
-                  // ref={videoRef}
-                  muted
-                  playsInline
-                  loop
-                  width="800"
-                  height="500"
-                  autoPlay={true}
+              {activeTabData?.image?.length > 0 && (
+                <div
+                  className={`${styles["content-image-container"]} ${styles["switcher-padding"]}`}
                 >
-                  <source src={`assets/${tabVideo}`} type="video/mp4" />
-                </video>
-              </div>
-            )}
-          </motion.div>
-        </AnimatePresence>
-
+                  <Image
+                    src={images[tabImage]}
+                    loading="lazy"
+                    className={styles.image}
+                    alt={tabImage}
+                  />
+                </div>
+              )}
+              {activeTabData?.video?.length > 0 && (
+                <div
+                  className={`${styles["content-video-container"]} ${styles["switcher-padding"]}`}
+                  // ref={ref}
+                >
+                  <video
+                    className={styles.video}
+                    // ref={videoRef}
+                    muted
+                    playsInline
+                    loop
+                    width="800"
+                    height="500"
+                    autoPlay={true}
+                  >
+                    <source src={`assets/${tabVideo}`} type="video/mp4" />
+                  </video>
+                </div>
+              )}
+              <Button1
+                link="/"
+                text="Download This Section"
+                backgroundColor="#112F5E"
+                textColor="white"
+                icon="download"
+                className={`${styles.download} ${styles["download-small"]}`}
+              />
+            </motion.div>
+          </AnimatePresence>
+        )}
         {/* switcher content */}
         {activeTabData?.switcher?.length > 0 && (
           <AnimatePresence mode="wait">
@@ -593,6 +603,7 @@ const OurPerformance = () => {
                             decimals={1}
                             enableScrollSpy={true}
                             scrollSpyDelay={1}
+                            scrollSpyOnce={true}
                           >
                             {({ countUpRef }) => (
                               <div>
@@ -612,7 +623,7 @@ const OurPerformance = () => {
                       backgroundColor="#112F5E"
                       textColor="white"
                       icon="download"
-                      className={styles.download}
+                      className={`${styles.download} ${styles["download-large"]}`}
                     />
                   </div>
                 </div>
@@ -648,6 +659,14 @@ const OurPerformance = () => {
                   </video>
                 </div>
               )}
+              <Button1
+                link="/"
+                text="Download This Section"
+                backgroundColor="#112F5E"
+                textColor="white"
+                icon="download"
+                className={`${styles.download} ${styles["download-small"]}`}
+              />
             </motion.div>
           </AnimatePresence>
         )}

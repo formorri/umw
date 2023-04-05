@@ -21,6 +21,9 @@
     @include text-3-regular;
     text-transform: capitalize;
     padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .icon-container {
@@ -35,110 +38,3 @@
         height: auto;
     }
 }
-
-// .container{
-//     position: relative;
-//     border: none;
-//     background-color: $dark-1;
-//     border-radius: $border-button-radius;
-//     height: 2.5rem;
-//     padding: 0 5px 4px;
-//     cursor: pointer;
-//     width: fit-content;
-//     margin-top: 1.5rem;
-
-//     .inner {
-//         border: 0.5px solid $dark-1;
-//         border-radius: $border-button-radius;
-//         z-index: 1;
-//         margin-top: -0.6rem;
-//         transition: 0.1s ease-in;
-//         position: relative;
-//         bottom: 3px;
-
-//         .text {
-//             @include text-4-regular;
-//             padding: 0.5rem 1rem 0.3rem;
-//             display: flex;
-//             column-gap: 10px;
-//             text-transform: capitalize;
-
-//             .icon{
-//                 width: auto;
-//                 height: auto;
-//             }
-//         }
-
-
-//         &::after {
-//             content: '';
-//             background-color: white;
-//             width: 100%;
-//             height: 0.3rem;
-//             display: block;
-//             border-radius: 0 0 3px 3px;
-//             transition: 0.1s ease-in;
-//             position: relative;
-//             top: 5.5px;
-//         }
-
-//         &:hover {
-//             bottom: 0px;
-//         }
-//     }
-// }
-// .link{
-//     text-decoration: none;
-// }
-
-// .container{
-//     position: relative;
-//     border: none;
-//     background-color: $dark-1;
-//     border-radius: $border-button-radius;
-//     height: 2.5rem;
-//     padding: 0 5px 4px;
-//     cursor: pointer;
-//     width: fit-content;
-//     margin-top: 1.5rem;
-    
-//     .inner {
-//         border: 0.5px solid $dark-1;
-//         border-radius: $border-button-radius;
-//         z-index: 1;
-//         margin-top: -0.6rem;
-//         transition: 0.1s ease-in;
-//         position: relative;
-//         bottom: 3px;
-
-//         .text {
-//             @include text-4-regular;
-//             padding: 0.5rem 1rem 0.3rem;
-//             display: flex;
-//             column-gap: 10px;
-//             text-transform: capitalize;
-
-//             .icon{
-//                 width: auto;
-//                 height: auto;
-//             }
-//         }
-
-
-//         &::after {
-//             content: '';
-//             background-color: white;
-//             width: 100%;
-//             height: 0.3rem;
-//             display: block;
-//             border-radius: 0 0 3px 3px;
-//             transition: 0.1s ease-in;
-//             position: relative;
-//             top: 5.5px;
-//         }
-
-//         &:hover {
-//             bottom: 0px;
-//         }
-//     }
-// }

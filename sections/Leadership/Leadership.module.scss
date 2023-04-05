@@ -1,39 +1,42 @@
 @use '../../styles/settings/index.scss' as *;
 
-.container{
+.container {
     background-color: $white-1;
-    padding: $l-y-gap $l-x-gap;
+    padding: $s-y-gap $s-x-gap;
 }
 
-.leader-name, .leader-title{
+.leader-name,
+.leader-title {
     margin: 0;
 }
 
-.leader-name{
+.leader-name {
     @include text-3-bold;
 }
 
-.leader-title{
+.leader-title {
     @include text-4-regular;
     text-transform: capitalize;
 }
 
 
-.wrapper-top{
+.wrapper-top {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .instructions{
+    flex-direction: column;
+
+    .instructions {
         display: flex;
         flex-direction: column;
-        row-gap: 5px;
-        align-items: flex-end;
+        row-gap: $s-gap;
+        align-items: flex-start;
     }
-    .indicator{
+
+    .indicator {
         display: flex;
         align-items: center;
-        column-gap: 10px;
-        .indicator-text{
+        column-gap: $s-gap;
+
+        .indicator-text {
             @include text-4-bold;
             text-transform: uppercase;
         }
@@ -42,24 +45,15 @@
 }
 
 
-// .indicator{
-//     display: flex;
-//     align-items: center;
-//     column-gap: 10px;
-//     .indicator-text{
-//         @include text-4-bold;
-//         text-transform: uppercase;
-//     }
-// }
+$switcherSize: 50px;
+$switcherWidth: 18rem;
 
-$switcherSize: 80px;
-$switcherWidth: 23rem;
-.switch-container{
+.switch-container {
     display: flex;
     align-items: center;
 }
 
-.switch-wrapper{
+.switch-wrapper {
     position: relative;
 }
 
@@ -70,9 +64,6 @@ $switcherWidth: 23rem;
     justify-content: center;
     position: absolute;
     text-transform: uppercase;
-    // right: 7rem;
-    // left: 8rem;
-    // right: calc($switcherWidth / 2);
     left: 10%;
     right: 10%;
     z-index: 1;
@@ -104,42 +95,208 @@ $switcherWidth: 23rem;
 }
 
 
-.content-wrapper{
+.content-wrapper {
     margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
-.card{
+.card {
     width: 100%;
-    .image{
+
+    .image {
         width: inherit;
         height: auto;
     }
-    .content{
+
+    .content {
         padding: 10px 10px 30px 10px;
     }
 
 }
 
-// .carousel-card-outer{
-//     width: 100%;
-//     margin: 0 auto;
-//     height: 100%;
-// }
+@include gt-xs {
+    .wrapper-top {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
 
-// .carousel-card{
-//     @include shadow;
-//     background-color: $white-1;
-//     border-radius: 50px 50px 0 0;
-//     margin: 0 10px;
-//     display: flex;
-//     flex-direction: column;
-//     row-gap: 10px;
-//     padding: 43px;
-//     min-height: 30rem;
-//     height: 100%;
-//     .image{
-//         align-self: center;
-//     }
-// }
+        .instructions {
+            display: flex;
+            flex-direction: column;
+            row-gap: $s-gap;
+            align-items: flex-end;
+        }
+
+        .indicator {
+            display: flex;
+            align-items: center;
+            column-gap: $s-gap;
+
+            .indicator-text {
+                @include text-4-bold;
+                text-transform: uppercase;
+            }
+        }
+    }
+    $switcherSize: 80px;
+    $switcherWidth: 23rem;
+
+    .switch-text {
+        @include text-4-bold;
+        color: $white-1;
+        align-self: center;
+        justify-content: center;
+        position: absolute;
+        text-transform: uppercase;
+        left: 10%;
+        right: 10%;
+        z-index: 1;
+        text-align: center;
+    }
+    .switch {
+        width: $switcherWidth;
+        height: calc($switcherSize / 1.6);
+        background-color: $blue-3;
+        display: flex;
+        justify-content: flex-start;
+        border-radius: 50px;
+        padding: calc($switcherSize / 16);
+        cursor: pointer;
+    }
+    .handle {
+        width: calc($switcherSize / 2);
+        height: calc($switcherSize / 2);
+        background-color: white;
+        border-radius: 100%;
+    }
+    .content-wrapper {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@include gt-sm {
+
+    .container {
+        background-color: $white-1;
+        padding: $l-y-gap $l-x-gap;
+    }
+
+    .leader-name,
+    .leader-title {
+        margin: 0;
+    }
+
+    .leader-name {
+        @include text-3-bold;
+    }
+
+    .leader-title {
+        @include text-4-regular;
+        text-transform: capitalize;
+    }
+
+
+    .wrapper-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .instructions {
+            display: flex;
+            flex-direction: column;
+            row-gap: $l-gap;
+            align-items: flex-end;
+        }
+
+        .indicator {
+            display: flex;
+            align-items: center;
+            column-gap: $l-gap;
+
+            .indicator-text {
+                @include text-4-bold;
+                text-transform: uppercase;
+            }
+        }
+
+    }
+
+
+    $switcherSize: 80px;
+    $switcherWidth: 23rem;
+
+    .switch-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .switch-wrapper {
+        position: relative;
+    }
+
+    .switch-text {
+        @include text-4-bold;
+        color: $white-1;
+        align-self: center;
+        justify-content: center;
+        position: absolute;
+        text-transform: uppercase;
+        // right: 7rem;
+        // left: 8rem;
+        // right: calc($switcherWidth / 2);
+        left: 10%;
+        right: 10%;
+        z-index: 1;
+        text-align: center;
+    }
+
+
+    .switch {
+        width: $switcherWidth;
+        height: calc($switcherSize / 1.6);
+        background-color: $blue-3;
+        display: flex;
+        justify-content: flex-start;
+        border-radius: 50px;
+        padding: calc($switcherSize / 16);
+        cursor: pointer;
+    }
+
+    .switch[data-ison='true'] {
+        justify-content: flex-end;
+        background-color: $blue-3;
+    }
+
+    .handle {
+        width: calc($switcherSize / 2);
+        height: calc($switcherSize / 2);
+        background-color: white;
+        border-radius: 100%;
+    }
+
+
+    .content-wrapper {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card {
+        width: 100%;
+
+        .image {
+            width: inherit;
+            height: auto;
+        }
+
+        .content {
+            padding: 10px 10px 30px 10px;
+        }
+
+    }
+}
