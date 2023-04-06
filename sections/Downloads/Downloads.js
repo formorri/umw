@@ -62,7 +62,7 @@ const Downloads = () => {
               </p>
               <div className={styles["icon-container"]}>
                 <Image
-                  src={images.download}
+                  src={images.touch}
                   loading="lazy"
                   alt="download"
                   className={styles["download-icon"]}
@@ -75,7 +75,7 @@ const Downloads = () => {
               <p className={styles["item-text"]}>Sustainability Report 2022</p>
               <div className={styles["icon-container"]}>
                 <Image
-                  src={images.download}
+                  src={images.touch}
                   loading="lazy"
                   alt="download"
                   className={styles["download-icon"]}
@@ -90,7 +90,7 @@ const Downloads = () => {
               </p>
               <div className={styles["icon-container"]}>
                 <Image
-                  src={images.download}
+                  src={images.touch}
                   loading="lazy"
                   alt="download"
                   className={styles["download-icon"]}
@@ -103,7 +103,7 @@ const Downloads = () => {
               <p className={styles["item-text"]}>Circular To Shareholders</p>
               <div className={styles["icon-container"]}>
                 <Image
-                  src={images.download}
+                  src={images.touch}
                   loading="lazy"
                   alt="download"
                   className={styles["download-icon"]}
@@ -116,7 +116,7 @@ const Downloads = () => {
               <p className={styles["item-text"]}>Notice of 40th AGM</p>
               <div className={styles["icon-container"]}>
                 <Image
-                  src={images.download}
+                  src={images.touch}
                   loading="lazy"
                   alt="download"
                   className={styles["download-icon"]}
@@ -129,7 +129,7 @@ const Downloads = () => {
               <p className={styles["item-text"]}>Proxy Form</p>
               <div className={styles["icon-container"]}>
                 <Image
-                  src={images.download}
+                  src={images.touch}
                   loading="lazy"
                   alt="download"
                   className={styles["download-icon"]}
@@ -142,7 +142,7 @@ const Downloads = () => {
               <p className={styles["item-text"]}>Administrative Guide</p>
               <div className={styles["icon-container"]}>
                 <Image
-                  src={images.download}
+                  src={images.touch}
                   loading="lazy"
                   alt="download"
                   className={styles["download-icon"]}

@@ -16,15 +16,21 @@ const Hero = () => {
   const { ref, inView } = useInView({ threshold: 0.1 });
   const videoRefs = {
     videoRef1: useRef(null),
+    videoRef2: useRef(null),
   };
-  
+
   const [isPlaying, setIsPlaying] = useState({
     videoRef1: false,
+    videoRef2: false,
   });
 
   useEffect(() => {
     const playVideoOnce = (videoRefName) => {
-      if (inView && videoRefs[videoRefName].current && !isPlaying[videoRefName]) {
+      if (
+        inView &&
+        videoRefs[videoRefName].current &&
+        !isPlaying[videoRefName]
+      ) {
         setIsPlaying((prevState) => ({
           ...prevState,
           [videoRefName]: true,
@@ -32,8 +38,9 @@ const Hero = () => {
         videoRefs[videoRefName].current.play();
       }
     };
-  
+
     playVideoOnce("videoRef1");
+    playVideoOnce("videoRef2");
   }, [inView, isPlaying]);
 
   return (
@@ -125,31 +132,47 @@ const Hero = () => {
       </Modal>
 
       <div className={styles["video-col"]}>
-        <video className={styles.video} ref={videoRefs.videoRef1} muted playsInline>
+        <video
+          className={styles.video}
+          ref={videoRefs.videoRef1}
+          muted
+          playsInline
+        >
           <source src="assets/cover.mp4" type="video/mp4" />
+        </video>
+        <video
+          className={styles['video-small']}
+          ref={videoRefs.videoRef2}
+          muted
+          playsInline
+        >
+          <source src="assets/cover-small.mp4" type="video/mp4" />
         </video>
       </div>
 
       <motion.div
         whileInView={{
           opacity: [0, 1],
-          x: [50, 0],
+          x: [-50, 0],
         }}
         transition={{ duration: 0.5 }}
         className={styles["text-col"]}
       >
-        <p className={styles["header-subtitle"]}>
-          INTEGRATED ANNUAL REPORT <span className={styles.number}>2022</span>
-        </p>
-        <h1 className={styles.header}>
-          accelerating <span className={styles.bold}>crest@UMW</span>
-        </h1>
+        <div className={styles["hero-text-container"]}>
+          <h1 className={styles.header}>
+            accelerating <span className={styles.bold}>crest@UMW</span>
+          </h1>
+          <h2 className={styles["header-subtitle"]}>
+            INTEGRATED ANNUAL REPORT <span className={styles.number}>2022</span>
+          </h2>
+          <p className={styles["header-subtitle-1"]}>UMW Holdings Berhad</p>
+        </div>
         <Button1Popup
           link="/"
           text="Read our cover rationale"
           backgroundColor="#112F5E"
           textColor="white"
-          icon="add"
+          icon="touch"
           onClick={() => setModal(true)}
         />
       </motion.div>

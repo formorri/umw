@@ -344,7 +344,6 @@ $margin-top: $s-gap;
 }
 
 .input {
-    @include shadow;
     border-radius: $border-radiusx2;
     width: 100%;
 
@@ -365,8 +364,10 @@ $margin-top: $s-gap;
         flex-direction: column;
         row-gap: $s-gap;
         padding: 20px;
-        background-color: $white-1;
+        border: $border-weight $teal-3;
         border-radius: 0 0 $border-radiusx2 $border-radiusx2;
+        background-color: $orange-2;
+
 
         .input-item {
             display: flex;
@@ -381,7 +382,6 @@ $margin-top: $s-gap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    row-gap: $s-gap;
     width: 100%;
 
     .sequence-item {
@@ -773,7 +773,7 @@ $margin-top: $s-gap;
     .model-container {
         display: grid;
         margin-top: 30px;
-        grid-template-columns: 1fr 30px 50% 1fr;
+        grid-template-columns: 1fr 30px 40% 1fr;
         grid-template-rows: 1fr auto auto auto 1fr;
         place-items: center;
         row-gap: $l-gap;
@@ -813,7 +813,6 @@ $margin-top: $s-gap;
     }
 
     .input {
-        @include shadow;
         border-radius: $border-radiusx2;
         width: 100%;
 
@@ -836,8 +835,6 @@ $margin-top: $s-gap;
             flex-direction: column;
             row-gap: $l-gap;
             padding: 20px;
-            background-color: $white-1;
-            border-radius: 0 0 $border-radiusx2 $border-radiusx2;
 
             .input-item {
                 display: flex;
@@ -852,7 +849,6 @@ $margin-top: $s-gap;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        row-gap: $l-gap;
         width: 100%;
 
         .sequence-item {
@@ -869,7 +865,7 @@ $margin-top: $s-gap;
         }
 
         .arrow {
-            height: 90px;
+            height: 70px;
         }
     }
 

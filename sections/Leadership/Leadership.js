@@ -95,7 +95,7 @@ const leaderData = [
     switcher: [
       {
         key: 0,
-        image: "AB",
+        image: "B0",
         name: "DATO’ AHMAD FUAAD KENALI",
         title: ["President & Group Chief Executive Officer/", "Executive Director"],
       },
@@ -187,15 +187,15 @@ const Leadership = () => {
           className={styles["instructions"]}
         >
           <div className={styles.indicator}>
-            <p className={styles["indicator-text"]}>
-              click to view umw leadership members
-            </p>
             <Image
               src={images.switcher}
               loading="lazy"
               alt="switcher-icon"
               className={styles["switcher-icon"]}
             />
+            <p className={styles["indicator-text"]}>
+              click to view umw leadership members
+            </p>
           </div>
           <div
             whileInView={{
@@ -276,7 +276,7 @@ const Leadership = () => {
           text="Download This Section"
           backgroundColor="#112F5E"
           textColor="white"
-          icon="download"
+          icon="touch"
           className={styles.download}
         />
       </motion.div>

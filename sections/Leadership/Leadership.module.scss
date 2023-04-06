@@ -99,6 +99,13 @@ $switcherWidth: 18rem;
     margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    .card {
+        &:nth-child(1) {
+            grid-column: 1/3;
+            width: calc(50vw - $s-x-gap);
+        }
+    }
 }
 
 .card {
@@ -140,6 +147,7 @@ $switcherWidth: 18rem;
             }
         }
     }
+
     $switcherSize: 80px;
     $switcherWidth: 23rem;
 
@@ -155,6 +163,7 @@ $switcherWidth: 18rem;
         z-index: 1;
         text-align: center;
     }
+
     .switch {
         width: $switcherWidth;
         height: calc($switcherSize / 1.6);
@@ -165,16 +174,28 @@ $switcherWidth: 18rem;
         padding: calc($switcherSize / 16);
         cursor: pointer;
     }
+
     .handle {
         width: calc($switcherSize / 2);
         height: calc($switcherSize / 2);
         background-color: white;
         border-radius: 100%;
     }
+
     .content-wrapper {
         margin-top: 30px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+
+
+        .card {
+            &:nth-child(1) {
+                grid-column: 1/1;
+                width: 100%;
+            }
+        }
+
+
     }
 }
 
@@ -284,6 +305,14 @@ $switcherWidth: 18rem;
         margin-top: 30px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+
+        .card {
+
+            &:nth-child(1) {
+                grid-column: 1/1;
+                width: 100%;
+            }
+        }
     }
 
     .card {

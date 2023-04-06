@@ -11,6 +11,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
+import { styled } from "@mui/material/styles";
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+import Button from "@mui/material/Button";
 
 const countries = [
   {
@@ -63,9 +66,33 @@ const countries = [
   },
 ];
 
+const LightTooltip = styled(({ className, ...props }) => (
+  <Tooltip
+    {...props}
+    classes={{ popper: className }}
+    placement="top"
+    enterTouchDelay={0}
+  />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: theme.palette.common.white,
+    color: "rgba(0, 0, 0, 0.87)",
+    // padding: '10',
+    // margin: '0',
+    boxShadow: theme.shadows[1],
+  },
+}));
+
+const TooltipContent = styled("div")({
+  "& p": {
+    "& span": {},
+  },
+});
+
 const WhoWeAre = () => {
   const { width } = useWindowSize();
   const { ref, inView } = useInView({ threshold: 0.5 });
+  const [showTooltip, setShowTooltip] = useState(false);
 
   const whileInView1 = {
     x: width > 1200 ? [-50, 0] : 0,
@@ -86,7 +113,9 @@ const WhoWeAre = () => {
           whileInView={whileInView1}
           transition={{ duration: 0.8 }}
         >
-          <h2 className={`${styles['title']} ${styles['title1']}`}>who we are</h2>
+          <h2 className={`${styles["title"]} ${styles["title1"]}`}>
+            who we are
+          </h2>
           <Image
             src={images.wow}
             loading="lazy"
@@ -98,7 +127,7 @@ const WhoWeAre = () => {
             text="Download This Section"
             backgroundColor="#112F5E"
             textColor="white"
-            icon="download"
+            icon="touch"
             className={styles["download-large"]}
           />
         </motion.div>
@@ -148,38 +177,44 @@ const WhoWeAre = () => {
             text="Download This Section"
             backgroundColor="#112F5E"
             textColor="white"
-            icon="download"
+            icon="touch"
             className={styles["download-small"]}
           />
         </motion.div>
       </div>
 
-      <div className={styles.reach}>
-        <motion.div
-          whileInView={{
-            y: [10, 0],
-            opacity: [0, 1],
-          }}
-          transition={{ duration: 0.8 }}
-          className={styles["reach-title"]}
-        >
-          <h2 className={`${styles['title']} ${styles['title2']}`}>OUR REGIONAL PRESENCE</h2>
-        </motion.div>
-        <motion.div
-          whileInView={{
-            y: [10, 0],
-            opacity: [0, 1],
-          }}
-          transition={{ duration: 0.8 }}
-          className={styles["reach-container"]}
-        >
-          <div className={styles["wrapper"]}>
-            <Image
-              src={images.reachMapVertical}
-              loading="lazy"
-              alt="map"
-              className={styles["modal-map"]}
-            />
+      <div className={styles["region-wrapper"]}>
+        <div className={styles["region-info-wrapper-phone"]}>
+          <div className={styles["region-title"]}>
+            <h2 className={`${styles["title"]} ${styles["title2"]}`}>
+              OUR REGIONAL PRESENCE
+            </h2>
+          </div>
+          <CountUp
+            start={0}
+            end={6313}
+            delay={0}
+            enableScrollSpy={true}
+            scrollSpyDelay={1}
+            scrollSpyOnce={true}
+          >
+            {({ countUpRef }) => (
+              <div className={styles["map-text"]}>
+                <p className={styles.text}>employees</p>
+                <p className={styles.number} ref={countUpRef}></p>
+              </div>
+            )}
+          </CountUp>
+        </div>
+
+        <div className={styles.region}>
+          <div className={styles["region-info-wrapper"]}>
+            <div className={styles["region-title"]}>
+              <h2 className={`${styles["title"]} ${styles["title2"]}`}>
+                OUR REGIONAL PRESENCE
+              </h2>
+            </div>
+          </div>
             <CountUp
               start={0}
               end={6313}
@@ -195,174 +230,180 @@ const WhoWeAre = () => {
                 </div>
               )}
             </CountUp>
+          <Image
+            src={images.map}
+            loading="lazy"
+            alt="map"
+            className={styles["map-image"]}
+          />
+          <Image
+            src={images.mapSmall}
+            loading="lazy"
+            alt="map"
+            className={styles["map-image-small"]}
+          />
+          <div
+            className={`${styles["tooltip-wrapper"]} ${styles["tooltip-1"]}`}
+          >
+            <LightTooltip
+              title={
+                <TooltipContent>
+                  <p className={styles["tooltip-text"]}>
+                    <span className={styles.automotive}>Automative</span>,{" "}
+                    <span className={styles.equipment}>Equipment</span>,{" "}
+                    <span className={styles.mnE}>
+                      Manufacturing & Engineering
+                    </span>
+                    , <span className={styles.aerospace}>Aerospace</span>
+                  </p>
+                </TooltipContent>
+              }
+            >
+              <div
+                className={`${styles.tooltip} ${styles["tooltip-malaysia"]}`}
+              ></div>
+            </LightTooltip>
+            <p className={styles["tooltip-country"]}>Malaysia</p>
           </div>
-          <div className={styles.content}>
-            <div
-              className={styles.country}
-              style={{ backgroundColor: "#DCEAF8" }}
+
+          <div
+            className={`${styles["tooltip-wrapper"]} ${styles["tooltip-2"]}`}
+          >
+            <LightTooltip
+              title={
+                <TooltipContent>
+                  <p className={styles["tooltip-text"]}>
+                    <span className={styles.equipment}>Equipment</span>
+                  </p>
+                </TooltipContent>
+              }
             >
-              <div className={styles["country-intro"]}>
-                <Image
-                  src={images.malaysia}
-                  loading="lazy"
-                  alt="malaysia"
-                  className={styles["country-image"]}
-                />
-                <p className={styles["country-name"]}>Malaysia</p>
-              </div>
-              <ul className={styles["country-info"]}>
-                <li>
-                  <span className={styles.automotive}>Automotive</span>,
-                  <span className={styles.equipment}> Equipment</span>,
-                  <span className={styles.mnE}>
-                    {" "}
-                    Manufacturing & Engineering
-                  </span>
-                  ,<span className={styles.aerospace}> Aerospace</span>
-                </li>
-              </ul>
-            </div>
-            <div
-              className={styles.country}
-              style={{ backgroundColor: "#D7EBEC" }}
-            >
-              <div className={styles["country-intro"]}>
-                <Image
-                  src={images.singapore}
-                  loading="lazy"
-                  alt="singapore"
-                  className={styles["country-image"]}
-                />
-                <p className={styles["country-name"]}>Singapore</p>
-              </div>
-              <ul className={styles["country-info"]}>
-                <li>
-                  <span className={styles.equipment}>Equipment</span>
-                </li>
-              </ul>
-            </div>
-            <div
-              className={styles.country}
-              style={{ backgroundColor: "#FEF3B6" }}
-            >
-              <div className={styles["country-intro"]}>
-                <Image
-                  src={images.china}
-                  loading="lazy"
-                  alt="china"
-                  className={styles["country-image"]}
-                />
-                <p className={styles["country-name"]}>China</p>
-              </div>
-              <ul className={styles["country-info"]}>
-                <li>
-                  <span className={styles.equipment}>Equipment</span>,
-                  <span className={styles.mnE}>
-                    {" "}
-                    Manufacturing & Engineering
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div
-              className={styles.country}
-              style={{ backgroundColor: "#F7F6D4" }}
-            >
-              <div className={styles["country-intro"]}>
-                <Image
-                  src={images.papua}
-                  loading="lazy"
-                  alt="papua"
-                  className={styles["country-image"]}
-                />
-                <p className={styles["country-name"]}>Papua New Guinea</p>
-              </div>
-              <ul className={styles["country-info"]}>
-                <li>
-                  <span className={styles.equipment}>Equipment</span>
-                </li>
-              </ul>
-            </div>
-            <div
-              className={styles.country}
-              style={{ backgroundColor: "#F5E8DA" }}
-            >
-              <div className={styles["country-intro"]}>
-                <Image
-                  src={images.vietnam}
-                  loading="lazy"
-                  alt="vietnam"
-                  className={styles["country-image"]}
-                />
-                <p className={styles["country-name"]}>Vietnam</p>
-              </div>
-              <ul className={styles["country-info"]}>
-                <li>
-                  <span className={styles.equipment}>Equipment</span>
-                </li>
-              </ul>
-            </div>
-            <div
-              className={styles.country}
-              style={{ backgroundColor: "#FCDFE2" }}
-            >
-              <div className={styles["country-intro"]}>
-                <Image
-                  src={images.myanmar}
-                  loading="lazy"
-                  alt="myanmar"
-                  className={styles["country-image"]}
-                />
-                <p className={styles["country-name"]}>Myanmar</p>
-              </div>
-              <ul className={styles["country-info"]}>
-                <li>
-                  <span className={styles.equipment}>Equipment</span>
-                </li>
-              </ul>
-            </div>
-            <div
-              className={styles.country}
-              style={{ backgroundColor: "#DEE7D5" }}
-            >
-              <div className={styles["country-intro"]}>
-                <Image
-                  src={images.indonesia}
-                  loading="lazy"
-                  alt="indonesia"
-                  className={styles["country-image"]}
-                />
-                <p className={styles["country-name"]}>Indonesia</p>
-              </div>
-              <ul className={styles["country-info"]}>
-                <li>
-                  <span className={styles.mnE}>
-                    Manufacturing & Engineering
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div
-              className={styles.country}
-              style={{ backgroundColor: "#F4E8DA" }}
-            >
-              <div className={styles["country-intro"]}>
-                <Image
-                  src={images.brunei}
-                  loading="lazy"
-                  alt="brunei"
-                  className={styles["country-image"]}
-                />
-                <p className={styles["country-name"]}>Brunei</p>
-              </div>
-              <ul className={styles["country-info"]}>
-                <li>
-                  <span className={styles.equipment}>Equipment</span>
-                </li>
-              </ul>
-            </div>
+              <div
+                className={`${styles.tooltip} ${styles["tooltip-singapore"]}`}
+              ></div>
+            </LightTooltip>
+            <p className={styles["tooltip-country"]}>Singapore</p>
           </div>
-        </motion.div>
+
+          <div
+            className={`${styles["tooltip-wrapper"]} ${styles["tooltip-3"]}`}
+          >
+            <LightTooltip
+              title={
+                <TooltipContent>
+                  <p className={styles["tooltip-text"]}>
+                    <span className={styles.equipment}>Equipment</span>,{" "}
+                    <span className={styles.mnE}>
+                      Manufacturing & Engineering
+                    </span>
+                  </p>
+                </TooltipContent>
+              }
+            >
+              <div
+                className={`${styles.tooltip} ${styles["tooltip-china"]}`}
+              ></div>
+            </LightTooltip>
+            <p className={styles["tooltip-country"]}>China</p>
+          </div>
+
+          <div
+            className={`${styles["tooltip-wrapper"]} ${styles["tooltip-4"]}`}
+          >
+            <LightTooltip
+              title={
+                <TooltipContent>
+                  <p className={styles["tooltip-text"]}>
+                    <span className={styles.equipment}>Equipment</span>
+                  </p>
+                </TooltipContent>
+              }
+            >
+              <div
+                className={`${styles.tooltip} ${styles["tooltip-papua"]}`}
+              ></div>
+            </LightTooltip>
+            <p className={styles["tooltip-country"]}>Papua New Guinea</p>
+          </div>
+
+          <div
+            className={`${styles["tooltip-wrapper"]} ${styles["tooltip-5"]}`}
+          >
+            <LightTooltip
+              title={
+                <TooltipContent>
+                  <p className={styles["tooltip-text"]}>
+                    <span className={styles.equipment}>Equipment</span>
+                  </p>
+                </TooltipContent>
+              }
+            >
+              <div
+                className={`${styles.tooltip} ${styles["tooltip-vietnam"]}`}
+              ></div>
+            </LightTooltip>
+            <p className={styles["tooltip-country"]}>Vietnam</p>
+          </div>
+
+          <div
+            className={`${styles["tooltip-wrapper"]} ${styles["tooltip-6"]}`}
+          >
+            <LightTooltip
+              title={
+                <TooltipContent>
+                  <p className={styles["tooltip-text"]}>
+                    <span className={styles.equipment}>Equipment</span>
+                  </p>
+                </TooltipContent>
+              }
+            >
+              <div
+                className={`${styles.tooltip} ${styles["tooltip-myanmar"]}`}
+              ></div>
+            </LightTooltip>
+            <p className={styles["tooltip-country"]}>Myanmar</p>
+          </div>
+
+          <div
+            className={`${styles["tooltip-wrapper"]} ${styles["tooltip-7"]}`}
+          >
+            <LightTooltip
+              title={
+                <TooltipContent>
+                  <p className={styles["tooltip-text"]}>
+                    <span className={styles.mnE}>
+                      Manufacturing & Engineering
+                    </span>
+                  </p>
+                </TooltipContent>
+              }
+            >
+              <div
+                className={`${styles.tooltip} ${styles["tooltip-indonesia"]}`}
+              ></div>
+            </LightTooltip>
+            <p className={styles["tooltip-country"]}>Indonesia</p>
+          </div>
+
+          <div
+            className={`${styles["tooltip-wrapper"]} ${styles["tooltip-8"]}`}
+          >
+            <LightTooltip
+              title={
+                <TooltipContent>
+                  <p className={styles["tooltip-text"]}>
+                    <span className={styles.equipment}>Equipment</span>
+                  </p>
+                </TooltipContent>
+              }
+            >
+              <div
+                className={`${styles.tooltip} ${styles["tooltip-brunei"]}`}
+              ></div>
+            </LightTooltip>
+            <p className={styles["tooltip-country"]}>Brunei</p>
+          </div>
+        </div>
       </div>
     </section>
   );

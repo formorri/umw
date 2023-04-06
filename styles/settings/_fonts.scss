@@ -96,25 +96,25 @@ $url: '../../public/fonts/';
 
 
 @mixin header-1 {
-    @include font-settings ($desktop-font-size: 70px);
+    @include font-settings ($desktop-font-size: 50px);
     font-family: 'KievitOT';
     font-weight: bold;
 }
 
 @mixin header-2-regular {
-    @include font-settings ($desktop-font-size: 60px);
+    @include font-settings ($desktop-font-size: 50px);
     font-family: 'KievitOT';
     font-weight: normal;
 }
 
 @mixin header-2-bold {
-    @include font-settings ($desktop-font-size: 60px);
+    @include font-settings ($desktop-font-size: 50px);
     font-family: 'KievitOT';
     font-weight: bold;
 }
 
 @mixin header-3-bold {
-    @include font-settings ($desktop-font-size: 60px);
+    @include font-settings ($desktop-font-size: 50px);
     font-family: 'Kievit';
     font-weight: bold;
 }
@@ -139,6 +139,12 @@ $url: '../../public/fonts/';
 
 @mixin text-2-bold {
     @include font-settings ($desktop-font-size: 30px);
+    font-family: 'KievitOT';
+    font-weight: bold;
+}
+
+@mixin text-2-1-bold {
+    @include font-settings ($desktop-font-size: 22px);
     font-family: 'KievitOT';
     font-weight: bold;
 }

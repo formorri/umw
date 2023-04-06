@@ -241,7 +241,7 @@ const Navbar1 = ({ children, className }) => {
           <div className={styles["feedback-wrapper"]}>
             <p className={styles["text"]}>We need your feedback</p>
             <Button1
-              link="/"
+              link="https://nova-sr-consultancy.typeform.com/to/UwkxdQxz"
               text="Click Here"
               backgroundColor="#112F5E"
               textColor="white"

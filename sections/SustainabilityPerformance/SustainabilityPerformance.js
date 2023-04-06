@@ -27,7 +27,7 @@ const cardData = [
     highlights: [
       "KYB-UMW and UMWT subscribed to GET",
       "ASSB, Aerospace and KYB-UMW installed rooftop solar PV",
-      "157,000 mangrove and 10,000 bamboo trees planted"
+      "157,000 mangrove and 10,000 bamboo trees planted",
     ],
     sdg: ["sdg7", "sdg11", "sdg12", "sdg13", "sdg15", "sdg17"],
   },
@@ -54,7 +54,7 @@ const cardData = [
       "UMW Executive Development Programme (UEDP) for employees strategic and targeted leadership",
       "Flexible Benefit Scheme for employees",
       "46 high potential young talents selected since 2018",
-      "Employees received 63,716 training hours"
+      "Employees received 63,716 training hours",
     ],
     sdg: ["sdg1", "sdg2", "sdg3", "sdg4", "sdg5", "sdg8", "sdg10"],
   },
@@ -126,8 +126,8 @@ const SustainabilityPerformance = () => {
     <div className={styles.container}>
       <motion.div
         whileInView={{
-          y:[10,0],
-          opacity:[0,1]
+          y: [10, 0],
+          opacity: [0, 1],
         }}
         transition={{ duration: 0.8 }}
         className={styles["text-wrapper"]}
@@ -136,8 +136,8 @@ const SustainabilityPerformance = () => {
       </motion.div>
       <motion.div
         whileInView={{
-          y:[10,0],
-          opacity:[0,1]
+          y: [10, 0],
+          opacity: [0, 1],
         }}
         transition={{ duration: 0.8 }}
         className={styles["card-wrapper"]}
@@ -149,16 +149,23 @@ const SustainabilityPerformance = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -50, opacity: 0 }}
+          onClick={() => toggleActive(0)}
         >
-          <div className={styles.header} onClick={() => toggleActive(0)}>
+          <div className={styles.header}>
             <p className={styles["header-text"]}>
               Pillar{" "}
               <span className={styles["number"]}>{cardData[3].pillarNum} </span>
               : {cardData[3].pillar}
             </p>
-            <ArrowForwardIcon
-              className={`${styles.arrow} ${active === 0 ? styles.active : ""}`}
+            <Image
+              src={images.touch}
+              alt='touch'
+              loading="lazy"
+              className={styles["touch"]}
             />
+            {/* <ArrowForwardIcon
+              className={`${styles.arrow} ${active === 0 ? styles.active : ""}`}
+            /> */}
           </div>
           <AnimatePresence>
             {active === 0 && (
@@ -275,16 +282,23 @@ const SustainabilityPerformance = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -50, opacity: 0 }}
+          onClick={() => toggleActive(1)}
         >
-          <div className={styles.header} onClick={() => toggleActive(1)}>
+          <div className={styles.header}>
             <p className={styles["header-text"]}>
               Pillar{" "}
               <span className={styles["number"]}>{cardData[2].pillarNum} </span>
               : {cardData[2].pillar}
             </p>
-            <ArrowForwardIcon
-              className={`${styles.arrow} ${active === 1 ? styles.active : ""}`}
+            <Image
+              src={images.touch}
+              alt='touch'
+              loading="lazy"
+              className={styles["touch"]}
             />
+            {/* <ArrowForwardIcon
+              className={`${styles.arrow} ${active === 1 ? styles.active : ""}`}
+            /> */}
           </div>
           <AnimatePresence>
             {active === 1 && (
@@ -401,16 +415,23 @@ const SustainabilityPerformance = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -50, opacity: 0 }}
+          onClick={() => toggleActive(2)}
         >
-          <div className={styles.header} onClick={() => toggleActive(2)}>
+          <div className={styles.header}>
             <p className={styles["header-text"]}>
               Pillar{" "}
               <span className={styles["number"]}>{cardData[1].pillarNum} </span>
               : {cardData[1].pillar}
             </p>
-            <ArrowForwardIcon
-              className={`${styles.arrow} ${active === 2 ? styles.active : ""}`}
+            <Image
+              src={images.touch}
+              alt='touch'
+              loading="lazy"
+              className={styles["touch"]}
             />
+            {/* <ArrowForwardIcon
+              className={`${styles.arrow} ${active === 2 ? styles.active : ""}`}
+            /> */}
           </div>
           <AnimatePresence>
             {active === 2 && (
@@ -527,16 +548,23 @@ const SustainabilityPerformance = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -50, opacity: 0 }}
+          onClick={() => toggleActive(3)}
         >
-          <div className={styles.header} onClick={() => toggleActive(3)}>
+          <div className={styles.header}>
             <p className={styles["header-text"]}>
               Pillar{" "}
               <span className={styles["number"]}>{cardData[0].pillarNum} </span>
               : {cardData[0].pillar}
             </p>
-            <ArrowForwardIcon
-              className={`${styles.arrow} ${active === 3 ? styles.active : ""}`}
+            <Image
+              src={images.touch}
+              alt='touch'
+              loading="lazy"
+              className={styles["touch"]}
             />
+            {/* <ArrowForwardIcon
+              className={`${styles.arrow} ${active === 3 ? styles.active : ""}`}
+            /> */}
           </div>
           <AnimatePresence>
             {active === 3 && (
@@ -648,8 +676,8 @@ const SustainabilityPerformance = () => {
       </motion.div>
       <motion.div
         whileInView={{
-          y:[10,0],
-          opacity:[0,1]
+          y: [10, 0],
+          opacity: [0, 1],
         }}
         transition={{ duration: 0.8 }}
         className={styles["text-wrapper"]}
@@ -659,10 +687,10 @@ const SustainabilityPerformance = () => {
           text="Download This Section"
           backgroundColor="#112F5E"
           textColor="white"
-          icon="download"
+          icon="touch"
           className={styles.download}
         />
-        </motion.div>
+      </motion.div>
     </div>
   );
 };

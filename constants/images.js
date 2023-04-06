@@ -26,6 +26,7 @@ import linkedIn from "../public/assets/linkedin.png";
 import email from "../public/assets/email.png";
 import link from "../public/assets/link.png";
 import feedback from "../public/assets/feedback.png";
+import touch from "../public/assets/touch.png";
 
 // ? Home
 // import coverVid from '../public/assets/cover.mp4';
@@ -52,6 +53,8 @@ import vietnam from "../public/assets/vietnam.png";
 import myanmar from "../public/assets/myanmar.png";
 import indonesia from "../public/assets/indonesia.png";
 import brunei from "../public/assets/brunei.png";
+import map from "../public/assets/map.png";
+import mapSmall from "../public/assets/map-small.png";
 
 // ? Views from our leaders
 import chairman from "../public/assets/leader-1.png";
@@ -128,6 +131,7 @@ import A8 from "../public/assets/A-9.png";
 import A9 from "../public/assets/A-10.png";
 import A10 from "../public/assets/A-11.png";
 import AB from "../public/assets/AB-2.png";
+import B0 from "../public/assets/B-0.png";
 import B1 from "../public/assets/B-1.png";
 import B2 from "../public/assets/B-2.png";
 import B3 from "../public/assets/B-3.png";
@@ -175,6 +179,7 @@ const Images = {
   email,
   link,
   feedback,
+  touch,
 
   // ? Home
   // coverVid,
@@ -201,6 +206,8 @@ const Images = {
   myanmar,
   indonesia,
   brunei,
+  map,
+  mapSmall,
 
   // ? Views from our leaders
   chairman,
@@ -277,6 +284,7 @@ const Images = {
   A9,
   A10,
   AB,
+  B0,
   B1,
   B2,
   B3,

@@ -373,6 +373,7 @@ const TheWayWeCreateValue = () => {
   const [value2Modal, setValue2Modal] = useState(false);
   const [value3Modal, setValue3Modal] = useState(false);
   const [value4Modal, setValue4Modal] = useState(false);
+  const [value5Modal, setValue5Modal] = useState(false);
 
   return (
     <div className={styles.container}>
@@ -425,7 +426,7 @@ const TheWayWeCreateValue = () => {
               text="Download This Section"
               backgroundColor="#112F5E"
               textColor="white"
-              icon="download"
+              icon="touch"
               className={styles.download}
             />
           </motion.div>
@@ -666,6 +667,22 @@ const TheWayWeCreateValue = () => {
                   <AddIcon className={styles.icon} />
                 </div>
               </div>
+              <Image
+                src={images.valueArrow}
+                loading="lazy"
+                alt="arrow"
+                className={styles["arrow"]}
+              />
+              {/* Tradeoff button */}
+              <div
+                className={`${styles["outcomes"]} ${styles["sequence-item"]}`}
+                onClick={() => setValue5Modal(true)}
+              >
+                <p className={styles["input-text"]}>tradeoffs</p>
+                <div className={styles["button-container"]}>
+                  <AddIcon className={styles.icon} />
+                </div>
+              </div>
             </motion.div>
           </div>
           <motion.div
@@ -681,7 +698,7 @@ const TheWayWeCreateValue = () => {
               text="Download This Section"
               backgroundColor="#112F5E"
               textColor="white"
-              icon="download"
+              icon="touch"
               className={styles.download}
             />
           </motion.div>
@@ -2250,6 +2267,15 @@ const TheWayWeCreateValue = () => {
                   }}
                 />
               </div>
+              <div className={`${styles.next} ${styles["arrow-container"]}`}>
+                <ArrowForwardIcon
+                  className={styles["arrow-icon"]}
+                  onClick={() => {
+                    setValue4Modal(false);
+                    setValue5Modal(true);
+                  }}
+                />
+              </div>
               <div className={styles["sequence-modal"]}>
                 <div className={styles["modal-top"]}>
                   <div className={styles["modal-header"]}>
@@ -2425,6 +2451,212 @@ const TheWayWeCreateValue = () => {
                             integrating sustainability measures into our
                             businesses and carrying out conservation
                             initiatives.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Modal>
+          {/* tradeoffs modal */}
+          <Modal
+            open={value5Modal}
+            onClose={() => {
+              setValue5Modal(false);
+            }}
+            sx={{
+              overflow: "scroll",
+              maxHeight: "100vh",
+            }}
+          >
+            <div className={styles["modal-container"]}>
+              <div className={`${styles.prev} ${styles["arrow-container"]}`}>
+                <ArrowBackIcon
+                  className={styles["arrow-icon"]}
+                  onClick={() => {
+                    setValue4Modal(true);
+                    setValue5Modal(false);
+                  }}
+                />
+              </div>
+              <div className={styles["sequence-modal"]}>
+                <div className={styles["modal-top"]}>
+                  <div className={styles["modal-header"]}>
+                    <p className={styles["title"]}>Tradeoffs</p>
+                  </div>
+                  <IconButton
+                    onClick={() => {
+                      setValue5Modal(false);
+                    }}
+                    className={styles["close-container"]}
+                  >
+                    <CloseIcon className={styles["close"]} />
+                  </IconButton>
+                </div>
+                <div className={styles["content-wrapper"]}>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["financial-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value2}
+                        loading="lazy"
+                        alt="financial"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>Financial</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            Financial Capital is crucial to our smooth
+                            operations and the continued growth and preservation
+                            of all other Capitals. We are fully cognisant of the
+                            need to balance and optimise the use of our
+                            Financial Capital to ensure the best outcomes for
+                            the sustainability of the business and interests of
+                            our shareholders.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["manufactured-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value3}
+                        loading="lazy"
+                        alt="manufactured"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>manufactured</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            We invest in Manufactured Capital to ensure we can
+                            remain competitive and relevant in our business. Our
+                            ability to do this is reliant on the consistent use
+                            of Financial Capital, which will be reduced in the
+                            short to medium term but will most likely increase
+                            in the long term as we build and expand our business
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["human-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value4}
+                        loading="lazy"
+                        alt="human"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>human</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            Strong Human Capital is essential to the progress
+                            and growth of our organisation. To ensure that we
+                            can continue to advance our aspirations and
+                            organisational goals, we must invest in Human
+                            Capital to develop a resilient, capable and loyal
+                            workforce. We aspire to continue to create value for
+                            our employees as well as our organisation in our
+                            sustainability journey.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["intellectual-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value5}
+                        loading="lazy"
+                        alt="intellectual"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>intellectual</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            Intellectual Capital helps us to not only add value
+                            to our existing products and services, but to also
+                            generate new revenue streams through innovations
+                            that meet evolving market needs. Investing in
+                            Intellectual Capital will help to obtain operational
+                            efficiencies that will boost our Manufactured
+                            Capital and the productivity of our Human Capital.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["social-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value6}
+                        loading="lazy"
+                        alt="social"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>social & relationship</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            Maintaining and growing our Social and Relationship
+                            Capital will drive sustainable growth across all our
+                            Capitals, especially as our customers, partners and
+                            suppliers play an important role in supporting our
+                            business. In terms of communities, devoting
+                            resources to this Capital is what will essentially
+                            help us maintain our social licence to operate.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    className={`${styles["sequence-card"]} ${styles["natural-card"]}`}
+                  >
+                    <div className={styles["header-container"]}>
+                      <Image
+                        src={images.value7}
+                        loading="lazy"
+                        alt="natural"
+                        className={styles["icon"]}
+                      />
+                      <p className={styles["header"]}>natural</p>
+                    </div>
+                    <div className={styles["sequence-content"]}>
+                      <ul className={styles["content-list"]}>
+                        <li>
+                          <p className={styles.text}>
+                            Preserving Natural Capital is an important aspect of
+                            the value creation journey. We acknowledge that our
+                            activities have an impact on the environment and we
+                            therefore invest in ways to mitigate our impact and
+                            to optimise resource use.
                           </p>
                         </li>
                       </ul>

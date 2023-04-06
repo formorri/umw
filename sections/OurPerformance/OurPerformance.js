@@ -14,10 +14,12 @@ const tabData = [
     gif: "automotive.gif",
     iconText: "automotive",
     color: "#C65A81",
+    inactive: "#D49EB2",
     switcher: [
       {
         key: 0,
         color: "#C65A81",
+        colorFaded: "#D49EB2",
         backgroundColor: "#F7E8EE",
         title: "Toyota",
         category: "automotive",
@@ -44,7 +46,8 @@ const tabData = [
       },
       {
         key: 1,
-        color: "#C65A81",
+        color: "#07522A",
+        colorFaded: "#B7C6BE",
         backgroundColor: "#EAF7F8",
         title: "Perodua",
         category: "automotive",
@@ -75,7 +78,7 @@ const tabData = [
     gif: "equipment.gif",
     iconText: "equipment",
     color: "#F2A818",
-
+    inactive: "#EAC589",
     backgroundColor: "#FBF0D3",
     title: "equipment",
     category: "equipment",
@@ -104,6 +107,7 @@ const tabData = [
     gif: "mnE.gif",
     iconText: "manufacturing & engineering",
     color: "#4B4CA7",
+    inactive: "#9798C4",
     backgroundColor: "#EFE8F3",
     title: "MANUFACTURING & ENGINEERING",
     category: "m & e",
@@ -132,6 +136,7 @@ const tabData = [
     gif: "aerospace.gif",
     iconText: "aerospace",
     color: "#378DDB",
+    inactive: "#8FB9DE",
     backgroundColor: "#E4EFF9",
     title: "aerospace",
     category: "aerospace",
@@ -162,10 +167,12 @@ const tabData = [
     gif: "development.gif",
     iconText: "development",
     color: "#9E6D2B",
+    inactive: "#C0A88A",
     backgroundColor: "#E1D5C8",
     title: "development",
     category: "development",
-    image: "developmentPic",
+    // image: "developmentPic",
+    video: "development.mp4",
     description:
       "UMW Development Sdn Bhd’s primary role is to unlock the Group’s landbank in Serendah, with the development of UMW High Value Manufacturing (HVM) Park as a managed and greenrated industrial park.",
     data: [
@@ -208,6 +215,7 @@ const OurPerformance = () => {
 
   const tabBackgroundColor = activeTabData?.backgroundColor;
   const tabColor = activeTabData?.color;
+  const tabInactive = activeTabData?.inactive;
   const tabTitle = activeTabData?.title;
   const tabCategory = activeTabData?.category;
   const tabImage = activeTabData?.image;
@@ -217,6 +225,7 @@ const OurPerformance = () => {
 
   const switcherBackgroundColor = activeSwitcherData?.backgroundColor;
   const switcherColor = activeSwitcherData?.color;
+  const switcherColorFaded = activeSwitcherData?.colorFaded;
   const switcherTitle = activeSwitcherData?.title;
   const switcherCategory = activeSwitcherData?.category;
   const switcherImage = activeSwitcherData?.image;
@@ -260,41 +269,51 @@ const OurPerformance = () => {
         <h2 className={styles.title}>Our Performance</h2>
         {/* tabs */}
         <div className={styles["tab-container"]}>
-          {tabData.map((item, index) => (
-            <div
-              key={index}
-              onClick={handleTabClick(index)}
-              className={styles.tab}
-            >
+        <div className={styles["instructions"]}>
+            <div className={styles["indicator-wrapper"]}>
+              <Image
+                src={images.touch}
+                loading="lazy"
+                className={styles.indicator}
+                alt="tap-here"
+              />
+            </div>
+            <p className={styles["indicator-text"]}>tap to change tabs</p>
+          </div>
+          <div className={styles["tab-wrapper"]}>
+            {tabData.map((item, index) => (
               <div
-                className={`${styles["tab-label"]} ${
-                  activeTab === index ? styles["tab-label-active"] : ""
-                }`}
+                key={index}
+                onClick={handleTabClick(index)}
+                className={styles.tab}
               >
-                <p className={styles["tab-text"]}>{item.iconText}</p>
-              </div>
-              <div
-                className={styles["icon-container"]}
-                style={{
-                  backgroundColor: activeTab === index ? item.color : "#BCBEC0",
-                  ":hover": {
-                    backgroundColor: item.color,
-                  },
-                }}
-              >
-                {/* <Image
+                <div
+                  className={`${styles["tab-label"]} ${
+                    activeTab === index ? styles["tab-label-active"] : ""
+                  }`}
+                >
+                  <p className={styles["tab-text"]}>{item.iconText}</p>
+                </div>
+                <div
+                  className={styles["icon-container"]}
+                  style={{
+                    backgroundColor:
+                      activeTab === index ? item.color : item.inactive,
+                  }}
+                >
+                  {/* <Image
                   src={images[item.icon]}
                   loading="lazy"
                   className={styles.icon}
                   alt={item.icon}
                 /> */}
-                <img
-                  src={`assets/${item.gif}`}
-                  className={styles.icon}
-                  alt={item.icon}
-                  loading="lazy"
-                />
-                {/* <video
+                  <img
+                    src={`assets/${item.gif}`}
+                    className={styles.icon}
+                    alt={item.icon}
+                    loading="lazy"
+                  />
+                  {/* <video
                   src={`assets/${item.gif}`}
                   autoPlay={true}
                   muted
@@ -304,7 +323,7 @@ const OurPerformance = () => {
                   controls
                   className={styles.icon}
                 ></video> */}
-                {/* <video
+                  {/* <video
                     className={styles.icon}
                     muted
                     playsInline
@@ -313,9 +332,10 @@ const OurPerformance = () => {
                   >
                     <source src={`assets/${item.mov}`} type="video/quicktime" />
                   </video> */}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
         {/* {activeTabData?.switcher?.length > 0 && (
           <div className={styles["switch-container"]}>
@@ -378,7 +398,7 @@ const OurPerformance = () => {
                   <p
                     className={styles.category}
                     style={{
-                      color: tabBackgroundColor,
+                      color: tabColor,
                     }}
                   >
                     {tabCategory}
@@ -392,14 +412,16 @@ const OurPerformance = () => {
                     >
                       {tabDesc}
                     </p>
+                    <div className={styles['card-container']}>
+
                     {tabDataItem &&
                       tabDataItem.map((dataItem) => (
                         <div
                           className={styles.card}
                           key={dataItem.key}
-                          style={{
-                            background: `linear-gradient(to right, transparent, ${tabBackgroundColor})`,
-                          }}
+                          // style={{
+                          //   background: `linear-gradient(to right, transparent, ${tabInactive})`,
+                          // }}
                         >
                           <p
                             className={styles["data-title"]}
@@ -440,12 +462,13 @@ const OurPerformance = () => {
                           <p className={styles["data-year"]}>{dataItem.year}</p>
                         </div>
                       ))}
+                    </div>
                     <Button1
                       link="/"
                       text="Download This Section"
                       backgroundColor="#112F5E"
                       textColor="white"
-                      icon="download"
+                      icon="touch"
                       className={`${styles.download} ${styles["download-large"]}`}
                     />
                   </div>
@@ -487,7 +510,7 @@ const OurPerformance = () => {
                 text="Download This Section"
                 backgroundColor="#112F5E"
                 textColor="white"
-                icon="download"
+                icon="touch"
                 className={`${styles.download} ${styles["download-small"]}`}
               />
             </motion.div>
@@ -533,9 +556,9 @@ const OurPerformance = () => {
                     }}
                     style={{
                       backgroundColor:
-                        activeSwitch === 0 ? "#EBF7F8" : "#85CECC",
+                        activeSwitch === 0 ? "#B7C6BE" : "#07522A",
 
-                      color: activeSwitch === 0 ? "#85CECC" : "#EBF7F8",
+                      color: activeSwitch === 0 ? "#07522A" : "#B7C6BE",
                     }}
                   >
                     <p>UMW Perodua</p>
@@ -554,11 +577,22 @@ const OurPerformance = () => {
                     {switcherTitle}
                   </h3>
                 </div> */}
+                <div className={styles["instructions"]}>
+                  <div className={styles["indicator-wrapper"]}>
+                    <Image
+                      src={images.touch}
+                      loading="lazy"
+                      className={styles.indicator}
+                      alt="tap-here"
+                    />
+                  </div>
+                  <p className={styles["indicator-text"]}>tap to switch tabs</p>
+                </div>
                 <div className={styles["content-data-container"]}>
                   <p
                     className={styles.category}
                     style={{
-                      color: switcherBackgroundColor,
+                      color: switcherColor,
                     }}
                   >
                     {switcherCategory}
@@ -572,14 +606,15 @@ const OurPerformance = () => {
                     >
                       {switcherDesc}
                     </p>
+                    <div className={styles['card-container']}>
                     {switcherDataItem &&
                       switcherDataItem.map((dataItem) => (
                         <div
                           className={styles.card}
                           key={dataItem.key}
-                          style={{
-                            background: `linear-gradient(to right, transparent, ${switcherBackgroundColor})`,
-                          }}
+                          // style={{
+                          //   background: `linear-gradient(to right, transparent, ${switcherColorFaded})`,
+                          // }}
                         >
                           <p
                             className={styles["data-title"]}
@@ -617,12 +652,13 @@ const OurPerformance = () => {
                           <p className={styles["data-year"]}>{dataItem.year}</p>
                         </div>
                       ))}
+                    </div>
                     <Button1
                       link="/"
                       text="Download This Section"
                       backgroundColor="#112F5E"
                       textColor="white"
-                      icon="download"
+                      icon="touch"
                       className={`${styles.download} ${styles["download-large"]}`}
                     />
                   </div>
@@ -664,7 +700,7 @@ const OurPerformance = () => {
                 text="Download This Section"
                 backgroundColor="#112F5E"
                 textColor="white"
-                icon="download"
+                icon="touch"
                 className={`${styles.download} ${styles["download-small"]}`}
               />
             </motion.div>

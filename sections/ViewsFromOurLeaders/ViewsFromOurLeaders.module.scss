@@ -125,7 +125,7 @@
         display: flex;
         flex-direction: column;
         justify-self: flex-start;
-        row-gap: $s-gap;
+        row-gap: 10px;
         width: 100%;
     }
 
@@ -139,12 +139,12 @@
         padding: 30px;
         height: auto;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         .data-card-inner {
             max-width: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
             width: inherit;
         }
     }
@@ -284,7 +284,7 @@
             display: flex;
             flex-direction: column;
             justify-self: flex-start;
-            row-gap: $l-gap;
+            row-gap: 10px;
             width: 100%;
         }
 
@@ -296,7 +296,7 @@
 
         .data-card {
             padding: 30px;
-            min-height: 11rem;
+            min-height: 8rem;
 
             .data-card-inner {
                 max-width: 200px;

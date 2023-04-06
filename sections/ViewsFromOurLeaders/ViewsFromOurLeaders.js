@@ -113,7 +113,7 @@ const ViewsFromOurLeaders = () => {
                       <span className={styles.unit}> billion</span>
                     </p>
                     <p className={styles["unit"]}>
-                      Compared with{" "}
+                      compared with{" "}
                       <span className={styles["number-text"]}>RM 11.1 </span>
                       billion in 2021
                     </p>
@@ -132,7 +132,7 @@ const ViewsFromOurLeaders = () => {
               text="Download This Section"
               backgroundColor="#112F5E"
               textColor="white"
-              icon="download"
+              icon="touch"
             />
           </motion.div>
         </div>
@@ -243,7 +243,7 @@ const ViewsFromOurLeaders = () => {
               text="Download This Section"
               backgroundColor="#112F5E"
               textColor="white"
-              icon="download"
+              icon="touch"
             />
           </motion.div>
         </div>

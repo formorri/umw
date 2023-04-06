@@ -1,22 +1,22 @@
 @use '../../styles/settings/index.scss' as *;
 
 .card1{
-    .header-text{color: $teal-3;}
+    .header-text, .unit{color: $teal-3;}
 }
 .card2{
-    .header-text{color: $purple-2;}
+    .header-text, .unit{color: $purple-2;}
 }
 .card3{
-    .header-text{color: $green-6;}
+    .header-text, .unit{color: $green-6;}
 }
 .card4{
-    .header-text{color: $orange-1;}
+    .header-text, .unit{color: $orange-1;}
 }
 .card5{
-    .header-text{color: $blue-4;}
+    .header-text, .unit{color: $blue-4;}
 }
 .card6{
-    .header-text{color: $red-1;}
+    .header-text, .unit{color: $red-1;}
 }
 
 .header-text {
@@ -27,12 +27,12 @@
 
 .unit {
     @include text-4-regular;
-    color: $dark-1;
+    text-transform: none;
 }
 
 .financial {
-    padding: $s-y-gap $s-x-gap 0;
-    background-color: $theme-4;
+    padding: $s-y-gap $s-x-gap;
+    background-color: $blue-8;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -94,8 +94,7 @@
 
 @include gt-sm{
     .financial {
-        padding: $l-y-gap $l-x-gap 0;
-        background-color: $theme-4;
+        padding: $l-y-gap $l-x-gap;
         display: flex;
         flex-direction: column;
         align-items: left;
