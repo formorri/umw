@@ -265,7 +265,7 @@ const OurPerformance = () => {
       }}
       transition={{ duration: 1 }}
     >
-      <div className={styles.wrapper}>
+      <div id='our-performance' className={styles.wrapper}>
         <h2 className={styles.title}>Our Performance</h2>
         {/* tabs */}
         <div className={styles["tab-container"]}>

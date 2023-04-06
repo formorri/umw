@@ -16,7 +16,7 @@ $circle-size: 37rem;
     text-align: center
 }
 
-.map-text {
+.map-text, .map-text-phone {
     .text {
         @include text-1-bold;
         margin: 0;
@@ -136,11 +136,20 @@ $circle-size: 37rem;
 .region-info-wrapper-phone {
     padding-left: $s-x-gap;
     padding-bottom: $s-gap;
+    display: block;
+    .map-text{
+        display: block;
+    }
 }
 
 .region-info-wrapper {
     display: none;
 }
+.map-text{
+    display: none;
+}
+
+
 
 .region {
     position: relative;
@@ -394,6 +403,7 @@ $circle-size: 37rem;
         top: 50%;
         left: $l-x-gap;
         z-index: 10;
+        display: block;
     }
 
     .region-info-wrapper-phone {

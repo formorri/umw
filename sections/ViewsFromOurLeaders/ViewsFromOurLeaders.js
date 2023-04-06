@@ -21,7 +21,7 @@ const ViewsFromOurLeaders = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div id='views-from-our-leaders' className={styles.container}>
       <h2 className={styles.title}>Views From Our Leaders</h2>
       <div className={styles["leader-wrapper"]}>
         <div className={styles["chairman-wrapper"]}>

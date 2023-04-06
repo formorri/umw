@@ -167,7 +167,7 @@ const Leadership = () => {
   
 
   return (
-    <div className={styles.container}>
+    <div id='leadership' className={styles.container}>
       <div className={styles["wrapper-top"]}>
         <motion.div
           whileInView={{

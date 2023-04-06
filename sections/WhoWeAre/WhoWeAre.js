@@ -107,7 +107,7 @@ const WhoWeAre = () => {
 
   return (
     <section className={styles.container}>
-      <div className={styles["who-we-are"]}>
+      <div id='who-we-are' className={styles["who-we-are"]}>
         <motion.div
           className={styles.col1}
           whileInView={whileInView1}
@@ -183,7 +183,7 @@ const WhoWeAre = () => {
         </motion.div>
       </div>
 
-      <div className={styles["region-wrapper"]}>
+      <div id='our-regional-presence' className={styles["region-wrapper"]}>
         <div className={styles["region-info-wrapper-phone"]}>
           <div className={styles["region-title"]}>
             <h2 className={`${styles["title"]} ${styles["title2"]}`}>
@@ -199,7 +199,7 @@ const WhoWeAre = () => {
             scrollSpyOnce={true}
           >
             {({ countUpRef }) => (
-              <div className={styles["map-text"]}>
+              <div className={styles["map-text-phone"]}>
                 <p className={styles.text}>employees</p>
                 <p className={styles.number} ref={countUpRef}></p>
               </div>

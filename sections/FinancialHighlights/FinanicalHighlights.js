@@ -61,7 +61,7 @@ const FinanicalHighlights = () => {
   }, [inView, isPlaying]);
 
   return (
-    <div className={styles.financial} ref={ref}>
+    <div id='financial-highlights' className={styles.financial} ref={ref}>
       <motion.div
         whileInView={{
           y: [10, 0],

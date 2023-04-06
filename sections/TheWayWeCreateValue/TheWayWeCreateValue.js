@@ -377,7 +377,7 @@ const TheWayWeCreateValue = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles["yellow-wrapper"]}>
+      <div id='managing-our-material-matters' className={styles["yellow-wrapper"]}>
         <motion.div
           ref={ref1}
           variants={container1Variants}
@@ -513,7 +513,7 @@ const TheWayWeCreateValue = () => {
           </Modal>
         )}
       </div>
-      <div className={styles["orange-wrapper"]}>
+      <div id='our-value-creation-business-model' className={styles["orange-wrapper"]}>
         <div className={styles["value-wrapper"]}>
           <motion.div
             whileInView={{

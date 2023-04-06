@@ -57,7 +57,7 @@ const AGM = () => {
   }, []);
 
   return (
-    <div className={styles["container"]}>
+    <div id='agm' className={styles["container"]}>
       <motion.div
         whileInView={whileInView1}
         transition={{ duration: 0.8 }}

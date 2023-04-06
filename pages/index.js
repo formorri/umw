@@ -30,49 +30,29 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="favicon.ico" />
       </Head>
-    
+
       {/* <p className={styles.watermark}>INTEGRATED ANNUAL REPORT 2022</p> */}
-      <Navbar1 className={styles.navbar}/>
+      <Navbar1 className={styles.navbar} />
 
-      <section id="home">
-        <Hero id="home" />
-      </section>
+      <Hero />
 
-      <section id="who-we-are">
-        <WhoWeAre />
-      </section>
+      <WhoWeAre />
 
-      <section id="financial-highlights">
-        <FinancialHighlights />
-      </section>
+      <FinancialHighlights />
 
-      <section id="views-from-our-leaders">
-        <ViewsFromOurLeaders />
-      </section>
+      <ViewsFromOurLeaders />
 
-      <section id="our-performance">
-        <OurPerformance />
-      </section>
+      <OurPerformance />
 
-      <section id="the-way-we-create-value">
-        <TheWayWeCreateValue />
-      </section>
+      <TheWayWeCreateValue />
 
-      <section id="sustainability-performance">
-        <SustainabilityPerformance />
-      </section>
+      <SustainabilityPerformance />
 
-      <section id="leadership">
-        <Leadership />
-      </section>
+      <Leadership />
 
-      <section id="agm">
-        <AGM />
-      </section>
+      <AGM />
 
-      <section id="downloads">
-        <Downloads />
-      </section>
+      <Downloads />
 
       <div className={styles.copyright}>
         <p className={styles["text"]}>

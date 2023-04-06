@@ -44,7 +44,7 @@ const Hero = () => {
   }, [inView, isPlaying]);
 
   return (
-    <section className={styles.container} ref={ref}>
+    <section id='home' className={styles.container} ref={ref}>
       <Modal
         open={modal}
         onClose={() => {

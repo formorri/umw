@@ -37,7 +37,7 @@ const Downloads = () => {
   }, [inView, isPlaying1]);
 
   return (
-    <div className={styles.container}>
+    <div id='downloads' className={styles.container}>
       <motion.div
         whileInView={whileInView2}
         transition={{ duration: 0.8 }}
