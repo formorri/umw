@@ -44,7 +44,7 @@ const Hero = () => {
   }, [inView, isPlaying]);
 
   return (
-    <section id='home' className={styles.container} ref={ref}>
+    <section id="home" className={styles.container} ref={ref}>
       <Modal
         open={modal}
         onClose={() => {
@@ -87,16 +87,20 @@ const Hero = () => {
                   aspirations: to achieve RM20 billion in revenue, RM2 billion
                   PBT and RM1 billion PATAMI by 2030. The goal is to lead the
                   way with sustainable core businesses based on our five vital
-                  pillars, Customer, Relationship, Excellence, Sustainability
-                  and Teamwork, as we at UMW commit to driving change and
-                  delivering on our promises. In order to fully realise the
-                  objectives of CREST@ UMW, the core framework is bolstered by
-                  distinct underlying enablers. These include the ingenuity to
-                  innovate, a continuous push towards digitalisation and the
-                  cultivation of a shared attitude towards success. In meeting
-                  challenges and allaying prevailing uncertainties, our
-                  CREST@UMW strategy creates a firm pathway toward resolving
-                  emergent economic and sustainability concerns.
+                  pillars,{" "}
+                  <span className={styles.bold}>
+                    Customer, Relationship, Excellence, Sustainability and
+                    Teamwork
+                  </span>
+                  , as we at UMW commit to driving change and delivering on our
+                  promises. In order to fully realise the objectives of CREST@
+                  UMW, the core framework is bolstered by distinct underlying
+                  enablers. These include the ingenuity to innovate, a
+                  continuous push towards digitalisation and the cultivation of
+                  a shared attitude towards success. In meeting challenges and
+                  allaying prevailing uncertainties, our CREST@UMW strategy
+                  creates a firm pathway toward resolving emergent economic and
+                  sustainability concerns.
                 </p>
                 <p className={styles.text}>
                   As one of the industry leaders, it is our responsibility to
@@ -141,7 +145,7 @@ const Hero = () => {
           <source src="assets/cover.mp4" type="video/mp4" />
         </video>
         <video
-          className={styles['video-small']}
+          className={styles["video-small"]}
           ref={videoRefs.videoRef2}
           muted
           playsInline

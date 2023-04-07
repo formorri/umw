@@ -21,8 +21,8 @@ const tabData = [
         color: "#C65A81",
         colorFaded: "#D49EB2",
         backgroundColor: "#F7E8EE",
-        title: "Toyota",
-        category: "automotive",
+        title: "UMW Toyota",
+        // category: "automotive",
         // image: "toyotaPic",
         video: "toyota.mp4",
         description:
@@ -50,7 +50,7 @@ const tabData = [
         colorFaded: "#B7C6BE",
         backgroundColor: "#EAF7F8",
         title: "Perodua",
-        category: "automotive",
+        // category: "automotive",
         // image: "peroduaPic",
         video: "perodua.mp4",
         description:
@@ -81,11 +81,11 @@ const tabData = [
     inactive: "#EAC589",
     backgroundColor: "#FBF0D3",
     title: "equipment",
-    category: "equipment",
+    // category: "equipment",
     // image: "equipmentPic",
     video: "equipment.mp4",
     description:
-      "Equipment division's key initiatives launched during the pandemic yielded results in 2022",
+      "Equipment Division's key initiatives launched during the pandemic yielded results in 2022",
     data: [
       {
         title: "REVENUE",
@@ -110,23 +110,23 @@ const tabData = [
     inactive: "#9798C4",
     backgroundColor: "#EFE8F3",
     title: "MANUFACTURING & ENGINEERING",
-    category: "m & e",
+    // category: "m & e",
     // image: "mnEPic",
     video: "mnE.mp4",
     description:
-      "Reopening economies and borders accounted for a boost in mobility, intensifying demand for automotive components and lubricants",
+      "The reopening of economies and borders have improved mobility tremendously, intensifying demand for automotive components and lubricants",
     data: [
       {
         title: "REVENUE",
         units: "(RM million)",
         figure: "758.1",
-        year: "2021: 578.7 million",
+        year: "2021: 578.7",
       },
       {
         title: "PROFIT BEFORE TAX (PBT)",
         units: "(RM million)",
         figure: "75.7",
-        year: "2021: 56.0 million",
+        year: "2021: 56.0",
       },
     ],
   },
@@ -139,7 +139,7 @@ const tabData = [
     inactive: "#8FB9DE",
     backgroundColor: "#E4EFF9",
     title: "aerospace",
-    category: "aerospace",
+    // category: "aerospace",
     // image: "aerospacePic",
     video: "aerospace.mp4",
     description:
@@ -170,11 +170,11 @@ const tabData = [
     inactive: "#C0A88A",
     backgroundColor: "#E1D5C8",
     title: "development",
-    category: "development",
+    // category: "development",
     // image: "developmentPic",
     video: "development.mp4",
     description:
-      "UMW Development Sdn Bhd’s primary role is to unlock the Group’s landbank in Serendah, with the development of UMW High Value Manufacturing (HVM) Park as a managed and greenrated industrial park.",
+      "UMW Development Sdn Bhd’s primary role is to unlock the Group’s landbank in Serendah, with the development of UMW High Value Manufacturing (HVM) Park as a managed and greenrated industrial park",
     data: [
       {
         title: "INKED SALES AND PURCHASE AGREEMENTS VALUED AT",
@@ -561,7 +561,7 @@ const OurPerformance = () => {
                       color: activeSwitch === 0 ? "#07522A" : "#B7C6BE",
                     }}
                   >
-                    <p>UMW Perodua</p>
+                    <p>Perodua</p>
                   </div>
                 </div>
                 {/* <div

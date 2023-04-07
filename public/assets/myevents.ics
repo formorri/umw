@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ical.marudot.com//iCal Event Maker
+X-WR-CALNAME:41st Annual General Meeting (AGM)
+NAME:41st Annual General Meeting (AGM)
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:Asia/Kuala_Lumpur
+LAST-MODIFIED:20201011T015911Z
+TZURL:http://tzurl.org/zoneinfo-outlook/Asia/Kuala_Lumpur
+X-LIC-LOCATION:Asia/Kuala_Lumpur
+BEGIN:STANDARD
+TZNAME:+08
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20230407T060635Z
+UID:1680847155950-12572@ical.marudot.com
+DTSTART;TZID=Asia/Kuala_Lumpur:20230517T100000
+DTEND;TZID=Asia/Kuala_Lumpur:20230518T000000
+SUMMARY:41st Annual General Meeting
+DESCRIPTION:NOTICE IS HEREBY GIVEN THAT the 41st Annual General Meeting (AGM) of the Company will be held virtually via live streaming from the broadcast venue at Menara UMW\, Jalan Puncak\, Off Jalan P. Ramlee\, 50250 Kuala Lumpur\, Malaysia on Wednesday\, 17 May 2023 at 10.00 a.m.
+LOCATION:Menara UMW\, Jalan Puncak\, Off Jalan P. Ramlee\, 50250 Kuala Lumpur\, Malaysia
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:41st Annual General Meeting
+TRIGGER:-P1W
+END:VALARM
+END:VEVENT
+END:VCALENDAR

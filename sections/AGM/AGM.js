@@ -57,7 +57,7 @@ const AGM = () => {
   }, []);
 
   return (
-    <div id='agm' className={styles["container"]}>
+    <div id="agm" className={styles["container"]}>
       <motion.div
         whileInView={whileInView1}
         transition={{ duration: 0.8 }}
@@ -68,11 +68,13 @@ const AGM = () => {
         </h2>
         <div className={styles["paragraph-wrapper"]}>
           <p className={styles.paragraph}>
-            Notice is hereby given that the 41st Annual General Meeting (AGM) of
-            the Company will be held virtually via live streaming from the
+            <span className={styles.bold}>NOTICE IS HEREBY GIVEN THAT </span>
+            the 41st Annual General Meeting
+            <span className={styles.bold}> (AGM) </span>
+            of the Company will be held virtually via live streaming from the
             broadcast venue at Menara UMW, Jalan Puncak, Off Jalan P. Ramlee,
             50250 Kuala Lumpur, Malaysia on Wednesday, 17 May 2023 at 10.00 a.m.
-            to transact the following businesses.
+            to transact the following businesses:
           </p>
         </div>
         <div className={styles.button}>
@@ -81,7 +83,7 @@ const AGM = () => {
             <AddIcon />
           </div>
           <div className={styles.after}>
-            <Link href="/" target="_blank">
+            <Link href="assets/myevents.ics">
               <Image
                 src={images.apple}
                 loading="lazy"
@@ -89,7 +91,10 @@ const AGM = () => {
                 className={styles.icon}
               />
             </Link>
-            <Link href="/" target="_blank">
+            <Link
+              href="https://www.google.com/calendar/render?action=TEMPLATE&text=41st+Annual+General+Meeting+%28AGM%29&details=NOTICE+IS+HEREBY+GIVEN+THAT+the+41st+Annual+General+Meeting+%28AGM%29+of+the+Company+will+be+held+virtually+via+live+streaming+from+the+broadcast+venue+at+Menara+UMW%2C+Jalan+Puncak%2C+Off+Jalan+P.+Ramlee%2C+50250+Kuala+Lumpur%2C+Malaysia+on+Wednesday%2C+17+May+2023+at+10.00+a.m.&location=Menara+UMW%2C+Jalan+Puncak%2C+Off+Jalan+P.+Ramlee%2C+50250+Kuala+Lumpur%2C+Malaysia&dates=20230517T020000Z%2F20230517T160000Z"
+              target="_blank"
+            >
               <Image
                 src={images.google}
                 loading="lazy"
@@ -97,7 +102,7 @@ const AGM = () => {
                 className={styles.icon}
               />
             </Link>
-            <Link href="/" target="_blank">
+            <Link href="assets/myevents.ics">
               <Image
                 src={images.outlook}
                 loading="lazy"
@@ -153,7 +158,7 @@ const AGM = () => {
             />
             <div className={styles["info-info"]}>
               <p className={styles.bold}>TIME</p>
-              <p className={styles.text}>10.30 am</p>
+              <p className={styles.text}>10.00 am</p>
             </div>
           </div>
         </div>

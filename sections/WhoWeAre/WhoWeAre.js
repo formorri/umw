@@ -107,7 +107,7 @@ const WhoWeAre = () => {
 
   return (
     <section className={styles.container}>
-      <div id='who-we-are' className={styles["who-we-are"]}>
+      <div id="who-we-are" className={styles["who-we-are"]}>
         <motion.div
           className={styles.col1}
           whileInView={whileInView1}
@@ -160,15 +160,16 @@ const WhoWeAre = () => {
               <h3 className={styles["value-title"]}>our core values</h3>
             </div>
             <p className={styles["inner-text"]}>
-              Ways of Working, or “WoW” for short, is the clarion call for our
-              employees to pledge their unwavering commitment to this renowned
-              industrial conglomerate.
+              Ways of Working, or <span className={styles.bold}>“WoW”</span> for
+              short, is the clarion call for our employees to pledge their
+              unwavering commitment to this renowned industrial conglomerate.
             </p>
             <p className={styles["inner-text"]}>
               WoW encapsulates three core values –{" "}
               <span className={styles.bold}>
-                We Are One, We Drive Change and We Deliver Promises.
-              </span>
+                We Are One, We Drive Change
+              </span> and
+              <span className={styles.bold}> We Are One, We Drive Change and We Deliver Promises.</span>
             </p>
           </div>
 
@@ -183,7 +184,7 @@ const WhoWeAre = () => {
         </motion.div>
       </div>
 
-      <div id='our-regional-presence' className={styles["region-wrapper"]}>
+      <div id="our-regional-presence" className={styles["region-wrapper"]}>
         <div className={styles["region-info-wrapper-phone"]}>
           <div className={styles["region-title"]}>
             <h2 className={`${styles["title"]} ${styles["title2"]}`}>
@@ -215,21 +216,21 @@ const WhoWeAre = () => {
               </h2>
             </div>
           </div>
-            <CountUp
-              start={0}
-              end={6313}
-              delay={0}
-              enableScrollSpy={true}
-              scrollSpyDelay={1}
-              scrollSpyOnce={true}
-            >
-              {({ countUpRef }) => (
-                <div className={styles["map-text"]}>
-                  <p className={styles.text}>employees</p>
-                  <p className={styles.number} ref={countUpRef}></p>
-                </div>
-              )}
-            </CountUp>
+          <CountUp
+            start={0}
+            end={6313}
+            delay={0}
+            enableScrollSpy={true}
+            scrollSpyDelay={1}
+            scrollSpyOnce={true}
+          >
+            {({ countUpRef }) => (
+              <div className={styles["map-text"]}>
+                <p className={styles.text}>employees</p>
+                <p className={styles.number} ref={countUpRef}></p>
+              </div>
+            )}
+          </CountUp>
           <Image
             src={images.map}
             loading="lazy"

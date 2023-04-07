@@ -46,9 +46,9 @@ const cardData = [
       "Scholarship programme to nurture talent",
       "25% women’s representation in Senior Management roles",
     ],
-    focus: ["Employee wellbeing", "Education", "Diversity and inclusivity"],
+    focus: ["Employee well-being", "Education", "Diversity and inclusivity"],
     highlights: [
-      "RM1 mil spent, 92% utilisation of scholarship fund",
+      "RM1 million spent, 92% utilisation of scholarship fund",
       "UMW Aerospace has achieved zero LTI since started its operation in 2016, with 2,343 days of zero LTI as of to date",
       "EnergizeUMW: 24/7 helpline to provide remote therapy sessions for employees",
       "UMW Executive Development Programme (UEDP) for employees strategic and targeted leadership",
@@ -78,7 +78,7 @@ const cardData = [
       "Recycling (BRUSS)",
     ],
     highlights: [
-      "Introduction of Mirai as an alternative new energy vehicle technology that is being trialled in Sarawak",
+      "Introduction of Mirai as an alternative new energy vehicle technology that is being trialled in Sarawak.",
       "Launched of The Grantt Bio VG Hydraulic Oil",
       "Expansion of BRUSS and Water Reclamation Plant (in-house membrane)",
       "Parts manufacturer for E2W",
@@ -123,7 +123,7 @@ const SustainabilityPerformance = () => {
   };
 
   return (
-    <div className={styles.container} id='sustainability-performance'>
+    <div className={styles.container} id="sustainability-performance">
       <motion.div
         whileInView={{
           y: [10, 0],
@@ -159,7 +159,7 @@ const SustainabilityPerformance = () => {
             </p>
             <Image
               src={images.touch}
-              alt='touch'
+              alt="touch"
               loading="lazy"
               className={styles["touch"]}
             />
@@ -292,7 +292,7 @@ const SustainabilityPerformance = () => {
             </p>
             <Image
               src={images.touch}
-              alt='touch'
+              alt="touch"
               loading="lazy"
               className={styles["touch"]}
             />
@@ -425,7 +425,7 @@ const SustainabilityPerformance = () => {
             </p>
             <Image
               src={images.touch}
-              alt='touch'
+              alt="touch"
               loading="lazy"
               className={styles["touch"]}
             />
@@ -558,7 +558,7 @@ const SustainabilityPerformance = () => {
             </p>
             <Image
               src={images.touch}
-              alt='touch'
+              alt="touch"
               loading="lazy"
               className={styles["touch"]}
             />

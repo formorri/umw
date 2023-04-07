@@ -12,6 +12,10 @@
     text-align: justify;
 }
 
+.bold{
+    @include text-3-bold;
+}
+
 .number {
     @include number-5;
 }

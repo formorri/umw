@@ -96,9 +96,9 @@ const modalData = [
       "Bolster climate action and commit to investing in naturebased solutions that facilitate carbon sequestration to achieve 45% and 100% carbon neutrality by 2030 and 2050",
     ],
     shortMid: [
-      "Investing in renewable energy by installing solar panels at our KYB-UMW and Aerospace plants.",
-      "Investing in naturebased solutions for CO2 sequestration and collaborating with key stakeholders to undertake a reforestation initiative.",
-      "Our commitment to sustainable operational excellence reflects on our dedication to environmental stewardship.",
+      "Investing in renewable energy by installing solar panels at our KYB-UMW and Aerospace plants",
+      "Investing in naturebased solutions for CO2 sequestration and collaborating with key stakeholders to undertake a reforestation initiative",
+      "Our commitment to sustainable operational excellence reflects on our dedication to environmental stewardship",
     ],
     value: [
       "Broadened reporting scope to disclose GHG emissions according to Scope 1, Scope 2 and Scope 3",
@@ -114,15 +114,16 @@ const modalData = [
       "The innovation process necessitates the usage of inhouse engineering expertise",
     ],
     opportunities: [
-      "Strengthen product/ service quality and speed of delivery by understanding evolving customer needs and expectations to gain a competitive business advantage",
+      "Strengthen product/service quality and speed of delivery by understanding evolving customer needs and expectations to gain a competitive business advantage",
       "Drives innovative developments and ownership of intellectual property (IP) and proprietary technologies",
     ],
     shortMid: [
-      "Utilising customer insights to develop innovative products and solutions enhances competitiveness and futureproofs our business.",
+      "Utilising customer insights to develop innovative products and solutions enhances competitiveness and future-proof our business",
       "Creating in-house capabilities through cultivating an innovative and highperformance culture",
       "Leveraging on digitalisation and technology to boost efficiency",
     ],
     value: [
+      "UMW Toyota recaptured the top non-national automobile sales position",
       "Refurbished more than 500 forklifts",
       "UMW Aerospace was accorded the Supplier Best Practice Award by Rolls-Royce",
     ],
@@ -135,7 +136,7 @@ const modalData = [
     ],
     opportunities: [
       "Employees promote our organisation to their colleagues, future employers, and co-workers",
-      "Employees go above and engage in behaviours that help the Company succeed.",
+      "Employees go above and engage in behaviours that help the Company succeed",
     ],
     shortMid: [
       "Improved employee engagement through organised and personalised programmes",
@@ -144,7 +145,7 @@ const modalData = [
     ],
     value: [
       "Employees expressed a strong desire to be a part of and stay with the organisation",
-      "Launched Energize UMW for WoWriors’ mental health and overall wellbeing.",
+      "Launched Energize UMW for WOWriors’ mental health and overall wellbeing",
     ],
   },
   {
@@ -162,12 +163,9 @@ const modalData = [
       "Creating a dynamic and adaptable workforce that is well-versed in necessary and future-relevant skills to fuel the Group's growth",
       "Regularising skills and training requires assessment across divisions and business areas",
       "Developing and creating internal training and education programmes to boost productivity",
-      "Technical and leadership skills via a focused development course",
+      "Developing and improving technical and leadership skills via a focused development course",
     ],
-    value: [
-      "Employees received training for 63,716 hours",
-      "Launched Transformation Leadership Programme with IMD Business School to shape potential future leaders.",
-    ],
+    value: ["Employees received training for 63,716 hours"],
   },
   {
     key: 5,
@@ -180,11 +178,11 @@ const modalData = [
     ],
     shortMid: [
       "Mitigating risks achieved by regularly implementing energy and waste management initiatives",
-      "Environmental stewardship is demonstrated by complying with relevant laws and regulations, as well as engaging with the community.",
+      "Environmental stewardship is demonstrated by complying with relevant laws and regulations, as well as engaging with the community",
     ],
     value: [
-      "The KYB-UMW factory has commissioned a water reclamation plant that utilises in-house developed membrane technology",
-      "Improved UMW Environment Action Plan (UEAP) score from 0.5 in 2016 to 3.75 in 2022, higher than industry average score of 3.1.",
+      "The KYB-UMW factory has commissioned a water reclamation plant that utilises membrane technology developed inhouse",
+      "Improved UMW Environment Action Plan (UEAP) score from 0.5 in 2016 to 3.75 in 2022, higher than industry average score of 3.1",
     ],
   },
   {
@@ -202,29 +200,11 @@ const modalData = [
     ],
     value: [
       "Retained more than 30% of women’s representation on the Board",
-      "Improved UMW Environment Action Plan (UEAP) score from 0.5 in 2016 to 3.75 in 2022, higher than industry average score of 3.1.",
+      "14% of women in senior management roles",
     ],
   },
   {
     key: 7,
-    title: "Diversity and Inclusivity",
-    risks: [
-      "The Group's capacity to foster an exchange of ideas, perspectives, culture, creativity, etc., could be hindered by a lack of diversity",
-    ],
-    opportunities: [
-      "Enhancing workplace dynamics can be achieved by leveraging a variety of skill sets, diverse ethnic and cultural perspectives, gender diversity, and other factors",
-      "Fostering a culture of learning and growth, as well as promoting tolerance, patience, and perseverance throughout all levels of the organisation",
-    ],
-    shortMid: [
-      "The design and implementation of programs to enhance diversity across all significant dimensions",
-    ],
-    value: [
-      "Retained more than 30% of women’s representation on the Board",
-      "Improved UMW Environment Action Plan (UEAP) score from 0.5 in 2016 to 3.75 in 2022, higher than industry average score of 3.1.",
-    ],
-  },
-  {
-    key: 8,
     title: "Labour/Management Relations",
     risks: [
       "Employee morale and performance can be impacted by communication gaps resulting from inconsistent labour engagement",
@@ -237,63 +217,63 @@ const modalData = [
     ],
     value: [
       "62.47% of employees were unionised",
-      "Signed five Collective Agreements between UMW Group and Kesatuan Pekerja- Pekerja Perusahaan Kumpulan UMW (KPPPKUMW)",
+      "Signed five Collective Agreements between UMW Group and Kesatuan Pekerja-Pekerja Perusahaan Kumpulan UMW (KPPPKUMW)",
     ],
   },
   {
-    key: 9,
+    key: 8,
     title: "Business Ethics and Governance",
     risks: [
-      "Inadequate or ineffective anticorruption governance may result in regulatory pressures, increased noncompliance costs, and a negative reputation.",
+      "Inadequate or ineffective anticorruption governance may result in regulatory pressures, increased non-compliance costs, and a negative reputation",
     ],
     opportunities: [
       "Incorporating principles of good governance can enhance an organisation's resilience against external factors, thereby future proofing it",
     ],
     shortMid: [
-      "The reinforcement of the governance of the enterprise risk management framework and relevant policies and processes can facilitate the efficient implementation of EES programs and initiatives.",
+      "The reinforcement of the governance of the enterprise risk management framework and relevant policies and processes can facilitate the efficient implementation of EES programs and initiatives",
     ],
     value: [
       "Obtained zero corruption charges",
       "Reviewed and revised the Anti-Bribery and Corruption Policy and the Whistleblowing Policy",
-      "Attained the ISO 37001 Anti-Bribery Management System certificate.",
+      "Attained the ISO 37001 Anti-Bribery Management System certificate",
       "97% employees completed the Anti-Bribery and Corruption e-learning",
     ],
   },
   {
-    key: 10,
+    key: 9,
     title: "Sustainable Supply Chain",
     risks: [
-      "Irresponsible practices and procedures throughout the supply chain can result in additional operational costs and reputational harm.",
+      "Irresponsible practices and procedures throughout the supply chain can result in additional operational costs and reputational harm",
     ],
     opportunities: [
-      "By promoting sustainability practices in vendors and suppliers, we can strengthen our supply chain management and ensure sustainable business growth.",
+      "By promoting sustainability practices in vendors and suppliers, we can strengthen our supply chain management and ensure sustainable business growth",
     ],
     shortMid: [
       "Establishing guidelines for sustainable supply chain practises in order to increase industry collective capability and promote local suppliers",
-      "Raising suppliers' awareness on ESG.",
+      "Raising suppliers' awareness on ESG",
     ],
     value: [
-      "Local suppliers comprised 88% of the Group's suppliers.",
-      "57% of the Group's procurement budget went to local suppliers.",
-      "Held a supplier performance review exercise for 308 suppliers.",
+      "Local suppliers comprised 88% of the Group's suppliers",
+      "59% of the Group's procurement budget went to local suppliers",
+      "Held a supplier performance review exercise for 308 suppliers",
     ],
   },
   {
-    key: 11,
+    key: 10,
     title: "Occupational Health & Safety",
     risks: [
       "Inadequate OHS standards and practices may result in health hazards, workforce inefficiencies, and financial losses",
     ],
     opportunities: [
-      "Boosting employee health and well-being can enhance productivity and performance.",
+      "Boosting employee health and well-being can enhance productivity and performance",
     ],
     shortMid: [
-      "Cultivating a 'health and safety' culture across the organisation through education and awareness.",
+      "Boosting employee health and well-being can enhance productivity and performance",
     ],
     value: [
       "Maintained zero cases of fatalities",
-      "26 operational sites were assessed against the ISO 45001:2018 standard.",
-      "31 operational sites underwent statutory compliance audit.",
+      "26 operational sites were assessed against the ISO 45001:2018 standard",
+      "31 operational sites underwent statutory compliance audit",
     ],
   },
   {
@@ -306,13 +286,13 @@ const modalData = [
       "Increase our commitment to the community and as a result enhancing our market reputation",
     ],
     shortMid: [
-      "Implementing community development initiatives that nurture future generations and equip youths with industry-ready skills, such as our Apprenticeship Programme for entre-level technical mechanics",
-      "Creating a positive environmental impact on the country through naturebased initiatives such as reforestation.",
+      "Implementing community development initiatives that nurture future generations and equip youths with industryready skills, such as our Apprenticeship Programme for entre-level technical mechanics",
+      "Creating a positive environmental impact on the country through naturebased initiatives such as reforestation",
     ],
     value: [
-      "Enrolled 55 interns through internship programme.",
+      "Enrolled 55 interns through internship programme",
       "UMW Community Champions dedicated 11,344 volunteer hours.",
-      "Contributed about RM8.4 million in cash and in kind, including zakat, to communities.",
+      "Contributed about RM9.1 million in cash and in kind, to communities",
     ],
   },
 ];
@@ -377,7 +357,10 @@ const TheWayWeCreateValue = () => {
 
   return (
     <div className={styles.container}>
-      <div id='managing-our-material-matters' className={styles["yellow-wrapper"]}>
+      <div
+        id="managing-our-material-matters"
+        className={styles["yellow-wrapper"]}
+      >
         <motion.div
           ref={ref1}
           variants={container1Variants}
@@ -513,7 +496,10 @@ const TheWayWeCreateValue = () => {
           </Modal>
         )}
       </div>
-      <div id='our-value-creation-business-model' className={styles["orange-wrapper"]}>
+      <div
+        id="our-value-creation-business-model"
+        className={styles["orange-wrapper"]}
+      >
         <div className={styles["value-wrapper"]}>
           <motion.div
             whileInView={{
@@ -756,7 +742,7 @@ const TheWayWeCreateValue = () => {
                         Financial capital is defined as the pool of funds
                         available to UMW. We keep our capital structure optimal,
                         good access to capital, and undertake regular and
-                        cautious investment assessments
+                        cautious investment assessments.
                       </p>
                       <Image
                         src={images.divider}
@@ -989,6 +975,7 @@ const TheWayWeCreateValue = () => {
                           <div className={styles["border-bottom"]}>
                             <div className={styles["figures"]}>
                               <p style={{ margin: 0 }}>
+                                <span className={styles.unit}>RM </span>
                                 <span
                                   ref={countUpRef}
                                   className={styles.number}
@@ -1062,7 +1049,7 @@ const TheWayWeCreateValue = () => {
                             Collaborated with TM One{" "}
                           </span>
                           towards fast-tracking digitalisation, improving our
-                          current data centre architecture.
+                          current data centre architecture
                         </p>
                       </div>
                     </div>
@@ -1106,6 +1093,7 @@ const TheWayWeCreateValue = () => {
                           <div className={styles["border-bottom"]}>
                             <div className={styles["figures"]}>
                               <p style={{ margin: 0 }} className={styles.text}>
+                                <span className={styles.unit}>RM </span>
                                 <span
                                   ref={countUpRef}
                                   className={styles.number}
@@ -1241,8 +1229,8 @@ const TheWayWeCreateValue = () => {
                           <span className={styles["text-bold"]}>
                             Going Paperless
                           </span>{" "}
-                          Implementing a zeropaper culture across our operations
-                          to reduce waste
+                          Implementing a zero paper culture across our
+                          operations to reduce waste
                         </p>
                       </div>
                       <div className={styles["figures"]}>
@@ -1320,10 +1308,10 @@ const TheWayWeCreateValue = () => {
                       <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles.text}>
-                            <span className={styles["text-bold"]}>
+                            {/* <span className={styles["text-bold"]}>
                               Intensifying
-                            </span>{" "}
-                            customer retention and relationship
+                            </span>{" "} */}
+                            Intensifying customer retention and relationship
                           </p>
                         </li>
                         <li>
@@ -1343,24 +1331,21 @@ const TheWayWeCreateValue = () => {
                                   Cost optimisation efforts led to savings of
                                 </p>
                                 <p style={{ margin: 0 }}>
+                                  <span className={styles.unit}>RM </span>
                                   <span
                                     ref={countUpRef}
                                     className={styles.number}
                                   ></span>
                                   <span className={styles.unit}> million</span>
                                 </p>
-                                <p className={styles.text}>in FY2021</p>
+                                <p className={styles.text}>in FY2022</p>
                               </div>
                             )}
                           </CountUp>
                         </li>
                         <li>
                           <p className={styles.text}>
-                            Built{" "}
-                            <span className={styles["text-bold"]}>
-                              strong relationships
-                            </span>{" "}
-                            with our principles
+                            Built strong relationships with our principles
                           </p>
                         </li>
                       </ul>
@@ -1428,12 +1413,13 @@ const TheWayWeCreateValue = () => {
                         <li>
                           <p className={styles.text}>
                             Continue to provide training through the UMW
-                            Executive Development Programme (UEDP)
+                            Executive Development Programme
+                            <span className={styles["text-bold"]}> (UEDP)</span>
                           </p>
                         </li>
                         <li>
                           <p className={styles.text}>
-                            Organised the CREST@2021 Learning Series which
+                            Organised the CREST@UMW Learning Series which
                             includes discussions with business leaders and guest
                             experts on topics and trends related to CREST’s core
                             pillars and strategic enablers
@@ -1471,10 +1457,11 @@ const TheWayWeCreateValue = () => {
                         </li>
                         <li>
                           <p className={styles.text}>
-                            Collaborated with Telekom Malaysia (TM) on hybrid
-                            cloud, to consolidate and improve our data centre
-                            architecture as part of our efforts to optimise
-                            technology and operations.
+                            Collaborated with Telekom Malaysia
+                            <span className={styles["text-bold"]}> (TM) </span>
+                            on hybrid cloud, to consolidate and improve our data
+                            centre architecture as part of our efforts to
+                            optimise technology and operations.
                           </p>
                         </li>
                         <li>
@@ -1560,8 +1547,9 @@ const TheWayWeCreateValue = () => {
                         </li>
                         <li>
                           <p className={styles.text}>
-                            UMW Green Shoots (UGS) and Bamboo planting
-                            initiatives
+                            UMW Green Shoots
+                            <span className={styles["text-bold"]}> (UGS) </span>
+                            and Bamboo planting initiatives
                           </p>
                         </li>
                       </ul>
@@ -1727,47 +1715,44 @@ const TheWayWeCreateValue = () => {
                         <li>
                           <p className={styles["text-bold"]}>Automotive:</p>{" "}
                           <p className={styles.text}>
-                            Automotive: Both Toyota and Perodua maintained their
-                            leading positions in the nonnational and national
-                            car markets respectively
+                            Both Toyota and Perodua maintained their leading
+                            positions in the nonnational and national car
+                            markets respectively
                           </p>
                         </li>
                         <li>
                           <p className={styles["text-bold"]}>Automotive:</p>{" "}
                           <p className={styles.text}>
-                            Automotive: Introduced the Toyota Mirai which uses
-                            hydrogen fuel cell technology currently being used
-                            in Sarawak
+                            Introduced the Toyota Mirai which uses hydrogen fuel
+                            cell technology currently being used in Sarawak
                           </p>
                         </li>
                         <li>
                           <p className={styles["text-bold"]}>M&E:</p>{" "}
                           <p className={styles.text}>
-                            M&E: Grantt Bio VG Hydraulic Oil (VG46 and VG68)
-                            both obtained MyHijau certification
+                            Grantt Bio VG Hydraulic Oil (VG46 and VG68) both
+                            obtained MyHijau certification
                           </p>
                         </li>
                         <li>
                           <p className={styles["text-bold"]}>Equipment:</p>{" "}
                           <p className={styles.text}>
-                            Equipment: Industrial segment's business grew in
-                            sectors such as food & beverage, logistics, and
-                            warehousing.
+                            Industrial segment's business grew in sectors such
+                            as food & beverage, logistics, and warehousing.
                           </p>
                         </li>
                         <li>
                           <p className={styles["text-bold"]}>Aerospace:</p>{" "}
                           <p className={styles.text}>
-                            Aerospace: the Division retained its position in the
-                            top 5% of Rolls-Royce’s high performing suppliers
-                            group
+                            The Division retained its position in the top 5% of
+                            Rolls-Royce’s high performing suppliers group
                           </p>
                         </li>
                         <li>
                           <p className={styles["text-bold"]}>Green Products:</p>{" "}
                           <p className={styles.text}>
-                            Green Products: Expansion of BRUSS and Water
-                            Reclamation Plant (in-house membrane)
+                            Expansion of BRUSS and Water Reclamation Plant
+                            (in-house membrane)
                           </p>
                         </li>
                       </ul>
@@ -2126,9 +2111,47 @@ const TheWayWeCreateValue = () => {
                             <p className={styles.text}>
                               Improved GHG emissions disclosures by reporting
                               Scope 1 emissions (direct emissions from sources
-                              owned or controlled by UMW Group): XX tCO2e and
-                              Scope 2 emissions (indirect emissions from
-                              purchased energy such as electricity): XX tCO2e
+                              owned or controlled by UMW Group):{" "}
+                              <CountUp
+                                start={0}
+                                end={8069.4}
+                                delay={0}
+                                decimal="."
+                                decimals={1}
+                                enableScrollSpy={true}
+                                scrollSpyDelay={1}
+                                scrollSpyOnce={true}
+                              >
+                                {({ countUpRef }) => (
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                )}
+                              </CountUp>
+                              <span className={styles.text}>
+                                {" "}
+                                tCO2e and Scope 2 emissions (indirect emissions
+                                from purchased energy such as electricity):{" "}
+                              </span>
+                              <CountUp
+                                start={0}
+                                end={46321.1}
+                                delay={0}
+                                decimal="."
+                                decimals={1}
+                                enableScrollSpy={true}
+                                scrollSpyDelay={1}
+                                scrollSpyOnce={true}
+                              >
+                                {({ countUpRef }) => (
+                                  <span
+                                    ref={countUpRef}
+                                    className={styles.number}
+                                  ></span>
+                                )}
+                              </CountUp>
+                              <span className={styles.text}> tCO2e</span>
                             </p>
                           </div>
                         </li>
@@ -2545,7 +2568,8 @@ const TheWayWeCreateValue = () => {
                             ability to do this is reliant on the consistent use
                             of Financial Capital, which will be reduced in the
                             short to medium term but will most likely increase
-                            in the long term as we build and expand our business
+                            in the long term as we build and expand our
+                            business.
                           </p>
                         </li>
                       </ul>

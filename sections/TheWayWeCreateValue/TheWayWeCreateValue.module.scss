@@ -719,7 +719,7 @@ $margin-top: $s-gap;
             border-radius: $border-radius;
             display: flex;
             flex-direction: column;
-            row-gap: $l-gap;
+            // row-gap: $l-gap;
 
             .title-text {
                 text-transform: capitalize;
