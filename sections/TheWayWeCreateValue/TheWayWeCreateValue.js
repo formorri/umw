@@ -389,7 +389,12 @@ const TheWayWeCreateValue = () => {
                         className={styles["carousel-button"]}
                         onClick={() => handleModalClick(item.key)}
                       >
-                        <AddIcon />
+                        <Image
+                          src={images.touch}
+                          loading="lazy"
+                          alt="financial"
+                          className={styles["input-icon"]}
+                        />
                       </div>
                     </div>
                   </div>
