@@ -123,7 +123,7 @@ const WhoWeAre = () => {
             className={styles.wow}
           />
           <Button1
-            link="/"
+            link="pdf/who-we-are.pdf"
             text="Download This Section"
             backgroundColor="#112F5E"
             textColor="white"
@@ -166,15 +166,17 @@ const WhoWeAre = () => {
             </p>
             <p className={styles["inner-text"]}>
               WoW encapsulates three core values –{" "}
+              <span className={styles.bold}>We Are One, We Drive Change</span>{" "}
+              and
               <span className={styles.bold}>
-                We Are One, We Drive Change
-              </span> and
-              <span className={styles.bold}> We Are One, We Drive Change and We Deliver Promises.</span>
+                {" "}
+                We Are One, We Drive Change and We Deliver Promises.
+              </span>
             </p>
           </div>
 
           <Button1
-            link="/"
+            link="pdf/who-we-are.pdf"
             text="Download This Section"
             backgroundColor="#112F5E"
             textColor="white"
@@ -207,6 +209,17 @@ const WhoWeAre = () => {
             )}
           </CountUp>
         </div>
+        <div className={styles["instructions-small"]}>
+          <div className={styles["indicator-wrapper"]}>
+            <Image
+              src={images.touch}
+              loading="lazy"
+              className={styles.indicator}
+              alt="tap-here"
+            />
+          </div>
+          <p className={styles["indicator-text"]}>tap to see more</p>
+        </div>
 
         <div className={styles.region}>
           <div className={styles["region-info-wrapper"]}>
@@ -216,6 +229,17 @@ const WhoWeAre = () => {
               </h2>
             </div>
           </div>
+          <div className={styles["instructions-large"]}>
+          <div className={styles["indicator-wrapper"]}>
+            <Image
+              src={images.touch}
+              loading="lazy"
+              className={styles.indicator}
+              alt="tap-here"
+            />
+          </div>
+          <p className={styles["indicator-text"]}>tap to see more</p>
+        </div>
           <CountUp
             start={0}
             end={6313}
@@ -242,6 +266,14 @@ const WhoWeAre = () => {
             loading="lazy"
             alt="map"
             className={styles["map-image-small"]}
+          />
+          <Button1
+            link="pdf/our-regional-presence.pdf"
+            text="Download This Section"
+            backgroundColor="#112F5E"
+            textColor="white"
+            icon="touch"
+            className={styles["download-region-large"]}
           />
           <div
             className={`${styles["tooltip-wrapper"]} ${styles["tooltip-1"]}`}
@@ -405,6 +437,15 @@ const WhoWeAre = () => {
             <p className={styles["tooltip-country"]}>Brunei</p>
           </div>
         </div>
+
+        <Button1
+          link="pdf/our-regional-presence.pdf"
+          text="Download This Section"
+          backgroundColor="#112F5E"
+          textColor="white"
+          icon="touch"
+          className={styles["download-region-small"]}
+        />
       </div>
     </section>
   );

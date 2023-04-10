@@ -272,7 +272,7 @@ const Leadership = () => {
         transition={{ duration: 0.8 }}
       >
         <Button1
-          link="/"
+          link="pdf/leadership.pdf"
           text="Download This Section"
           backgroundColor="#112F5E"
           textColor="white"

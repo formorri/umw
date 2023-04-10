@@ -93,7 +93,7 @@ $padding-top: 3rem;
 
 .tab-container {
     display: flex;
-    flex-direction:column-reverse;
+    flex-direction:column;
     // row-gap: $s-gap;
 
     .instructions {
@@ -186,7 +186,7 @@ $padding-top: 3rem;
 
 .instructions {
     display: flex;
-    column-gap: $s-gap;
+    column-gap: 10px;
     align-items: center;
     // background-color: $white-1;
     padding: 5px 10px;
@@ -601,7 +601,7 @@ $padding-top: 3rem;
     }
 
     .indicator-wrapper {
-        $size: 40px;
+        $size: 30px;
         background-color: $blue-1;
         width: $size;
         height: $size;
@@ -611,7 +611,7 @@ $padding-top: 3rem;
         border-radius: 100%;
         // padding: 20px;
         .indicator{
-            width: calc($size - 20px);
+            width: calc($size - 15px);
             height: auto;
         }
     }
@@ -619,7 +619,7 @@ $padding-top: 3rem;
 
     .instructions {
         display: flex;
-        column-gap: $l-gap;
+        column-gap: 10px;
         align-items: center;
         // background-color: $white-1;
         padding: 5px 10px;

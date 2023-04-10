@@ -683,7 +683,7 @@ const SustainabilityPerformance = () => {
         className={styles["text-wrapper"]}
       >
         <Button1
-          link="/"
+          link="pdf/sustainability-performance.pdf"
           text="Download This Section"
           backgroundColor="#112F5E"
           textColor="white"

@@ -29,17 +29,17 @@ const Button1 = ({
           >
             {text}
           </div>
-        </div>
-        <div
-          className={styles["icon-container"]}
-          style={{ background: backgroundColor }}
-        >
           <Image
             src={images[icon]}
             priority
             alt={`${icon}icon`}
             className={styles.icon}
           />
+        </div>
+        <div
+          className={styles["icon-container"]}
+          style={{ background: backgroundColor }}
+        >
         </div>
       </Link>
     </div>

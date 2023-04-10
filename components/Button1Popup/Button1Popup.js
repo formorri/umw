@@ -26,11 +26,6 @@ const Button1Popup = ({
         >
           {text}
         </div>
-      </div>
-      <div
-        className={styles["icon-container"]}
-        style={{ background: backgroundColor }}
-      >
         <Image
           src={images[icon]}
           priority
@@ -38,6 +33,11 @@ const Button1Popup = ({
           className={styles.icon}
         />
       </div>
+      {/* <div
+        className={styles["icon-container"]}
+        style={{ background: backgroundColor }}
+      >
+      </div> */}
       {/* <div
         className={styles["inner"]}
         style={{ background: backgroundColor }}

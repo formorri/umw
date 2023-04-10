@@ -1,6 +1,17 @@
 @use '../../styles/settings/index.scss' as *;
 
 
+.financial,
+.manufactured,
+.human,
+.intellectual,
+.social,
+.natural {
+    .input-text{
+        filter:brightness(0.85) saturate(200%);
+    }
+}
+
 .financial {
     color: $teal-3;
 }
@@ -374,6 +385,10 @@ $margin-top: $s-gap;
             display: flex;
             column-gap: $s-gap;
             align-items: center;
+        }
+        .input-icon{
+            width: 50px;
+            height: auto;
         }
     }
 }

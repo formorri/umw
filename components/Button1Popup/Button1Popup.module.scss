@@ -24,17 +24,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.icon-container {
-    $size: 44px;
-    height: $size;
-    width: $size; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    column-gap: 10px;
     .icon{
-        width: calc($size - 32px);
+        width: 15px;
         height: auto;
     }
 }
+
+// .icon-container {
+//     $size: 44px;
+//     height: $size;
+//     width: $size; 
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     .icon{
+//         width: calc($size - 32px);
+//         height: auto;
+//     }
+// }

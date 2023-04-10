@@ -16,7 +16,8 @@ $circle-size: 37rem;
     text-align: center
 }
 
-.map-text, .map-text-phone {
+.map-text,
+.map-text-phone {
     .text {
         @include text-1-bold;
         margin: 0;
@@ -49,6 +50,11 @@ $circle-size: 37rem;
     color: $purple-1;
     text-transform: uppercase;
     margin: 5px 0;
+}
+
+.indicator-text {
+    @include text-4-regular;
+    text-transform: capitalize;
 }
 
 .reach-title {
@@ -131,13 +137,16 @@ $circle-size: 37rem;
 
 .region-wrapper {
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .region-info-wrapper-phone {
     padding-left: $s-x-gap;
     padding-bottom: $s-gap;
     display: block;
-    .map-text{
+
+    .map-text {
         display: block;
     }
 }
@@ -145,10 +154,39 @@ $circle-size: 37rem;
 .region-info-wrapper {
     display: none;
 }
-.map-text{
+
+.map-text {
     display: none;
 }
 
+.indicator-wrapper {
+    $size: 30px;
+    background-color: $blue-1;
+    width: $size;
+    height: $size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+
+    .indicator {
+        width: calc($size - 15px);
+        height: auto;
+    }
+}
+
+.instructions-small {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    // padding: 5px 10px;
+    margin-left: $s-x-gap;
+    // align-self: flex-end;
+}
+
+.instructions-large {
+    display: none;
+}
 
 
 .region {
@@ -264,69 +302,77 @@ $circle-size: 37rem;
     background-color: $purple-2;
 }
 
+.download-region-small {
+    margin: $s-gap $s-x-gap $s-y-gap;
+}
+
+.download-region-large {
+    display: none;
+}
+
 
 
 @include gt-xs {
-.region {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    row-gap: $s-gap;
-
-    .map-image {
-        display: none;
-    }
-
-    .map-image-small {
+    .region {
         position: relative;
-        width: 100%;
-        height: 100%;
-    }
+        display: flex;
+        flex-direction: column;
+        row-gap: $s-gap;
 
-    .tooltip-wrapper {
-        position: absolute;
-    }
+        .map-image {
+            display: none;
+        }
 
-    .tooltip-1 {
-        top: 52%;
-        left: 16%;
-    }
+        .map-image-small {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
 
-    .tooltip-2 {
-        top: 62%;
-        left: 21%;
-    }
+        .tooltip-wrapper {
+            position: absolute;
+        }
 
-    .tooltip-3 {
-        top: 11%;
-        left: 25%;
-    }
+        .tooltip-1 {
+            top: 52%;
+            left: 16%;
+        }
 
-    .tooltip-4 {
-        top: 74%;
-        left: 76%;
-    }
+        .tooltip-2 {
+            top: 62%;
+            left: 21%;
+        }
 
-    .tooltip-5 {
-        top: 39%;
-        left: 26%;
-    }
+        .tooltip-3 {
+            top: 11%;
+            left: 25%;
+        }
 
-    .tooltip-6 {
-        top: 19%;
-        left: 1%;
-    }
+        .tooltip-4 {
+            top: 74%;
+            left: 76%;
+        }
 
-    .tooltip-7 {
-        top: 83%;
-        left: 38%;
-    }
+        .tooltip-5 {
+            top: 39%;
+            left: 26%;
+        }
 
-    .tooltip-8 {
-        top: 51%;
-        left: 45%;
+        .tooltip-6 {
+            top: 19%;
+            left: 1%;
+        }
+
+        .tooltip-7 {
+            top: 83%;
+            left: 38%;
+        }
+
+        .tooltip-8 {
+            top: 51%;
+            left: 45%;
+        }
     }
-}
 
 }
 
@@ -398,7 +444,7 @@ $circle-size: 37rem;
         z-index: 10;
     }
 
-    .map-text{
+    .map-text {
         position: absolute;
         top: 50%;
         left: $l-x-gap;
@@ -408,6 +454,21 @@ $circle-size: 37rem;
 
     .region-info-wrapper-phone {
         display: none;
+    }
+
+    .instructions-small {
+        display: none;
+    }
+    
+    .instructions-large {
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+        margin-left: $s-x-gap;
+        position: absolute;
+        top: $l-gap;
+        right: $l-x-gap;
+        z-index: 10;
     }
 
     .region {
@@ -495,6 +556,15 @@ $circle-size: 37rem;
     }
 
 
+    .download-region-small {
+        display: none;
+    }
 
+    .download-region-large {
+        display: block;
+        position: absolute;
+        bottom: $l-gap;
+        left: $l-x-gap;
+    }
 
 }

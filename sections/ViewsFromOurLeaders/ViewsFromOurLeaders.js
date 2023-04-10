@@ -128,7 +128,7 @@ const ViewsFromOurLeaders = () => {
             className={styles["download-container"]}
           >
             <Button1
-              link="/"
+              link="pdf/group-chairman-message.pdf"
               text="Download This Section"
               backgroundColor="#112F5E"
               textColor="white"
@@ -239,7 +239,7 @@ const ViewsFromOurLeaders = () => {
             className={styles["download-container"]}
           >
             <Button1
-              link="/"
+              link="pdf/president-ceo-review.pdf"
               text="Download This Section"
               backgroundColor="#112F5E"
               textColor="white"

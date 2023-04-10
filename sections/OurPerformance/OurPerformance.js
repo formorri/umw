@@ -14,7 +14,7 @@ const tabData = [
     gif: "automotive.gif",
     iconText: "automotive",
     color: "#C65A81",
-    inactive: "#D49EB2",
+    inactive: "#DAB9C5",
     switcher: [
       {
         key: 0,
@@ -78,7 +78,7 @@ const tabData = [
     gif: "equipment.gif",
     iconText: "equipment",
     color: "#F2A818",
-    inactive: "#EAC589",
+    inactive: "#E7D1AD",
     backgroundColor: "#FBF0D3",
     title: "equipment",
     // category: "equipment",
@@ -107,7 +107,7 @@ const tabData = [
     gif: "mnE.gif",
     iconText: "manufacturing & engineering",
     color: "#4B4CA7",
-    inactive: "#9798C4",
+    inactive: "#B5B6D0",
     backgroundColor: "#EFE8F3",
     title: "MANUFACTURING & ENGINEERING",
     // category: "m & e",
@@ -136,7 +136,7 @@ const tabData = [
     gif: "aerospace.gif",
     iconText: "aerospace",
     color: "#378DDB",
-    inactive: "#8FB9DE",
+    inactive: "#B0CAE0",
     backgroundColor: "#E4EFF9",
     title: "aerospace",
     // category: "aerospace",
@@ -167,7 +167,7 @@ const tabData = [
     gif: "development.gif",
     iconText: "development",
     color: "#9E6D2B",
-    inactive: "#C0A88A",
+    inactive: "#CEBFAD",
     backgroundColor: "#E1D5C8",
     title: "development",
     // category: "development",
@@ -464,7 +464,7 @@ const OurPerformance = () => {
                       ))}
                     </div>
                     <Button1
-                      link="/"
+                      link="pdf/our-performance.pdf"
                       text="Download This Section"
                       backgroundColor="#112F5E"
                       textColor="white"
@@ -506,7 +506,7 @@ const OurPerformance = () => {
                 </div>
               )}
               <Button1
-                link="/"
+                link="pdf/our-performance.pdf"
                 text="Download This Section"
                 backgroundColor="#112F5E"
                 textColor="white"
@@ -544,7 +544,7 @@ const OurPerformance = () => {
                       backgroundColor:
                         activeSwitch === 0 ? "#C65A81" : "#F7E8EE",
 
-                      color: activeSwitch === 0 ? "#F7E8EE" : "#C65A81",
+                      color: activeSwitch === 0 ? "#F7E8EE" : "#D39FB2",
                     }}
                   >
                     <p>UMW Toyota</p>
@@ -558,7 +558,7 @@ const OurPerformance = () => {
                       backgroundColor:
                         activeSwitch === 0 ? "#B7C6BE" : "#07522A",
 
-                      color: activeSwitch === 0 ? "#07522A" : "#B7C6BE",
+                      color: activeSwitch === 0 ? "#779A87" : "#B7C6BE",
                     }}
                   >
                     <p>Perodua</p>
@@ -654,7 +654,7 @@ const OurPerformance = () => {
                       ))}
                     </div>
                     <Button1
-                      link="/"
+                      link="pdf/our-performance.pdf"
                       text="Download This Section"
                       backgroundColor="#112F5E"
                       textColor="white"
@@ -696,7 +696,7 @@ const OurPerformance = () => {
                 </div>
               )}
               <Button1
-                link="/"
+                link="pdf/our-performance.pdf"
                 text="Download This Section"
                 backgroundColor="#112F5E"
                 textColor="white"

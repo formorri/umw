@@ -153,8 +153,8 @@
         .video-col {
             grid-area: 1/1/2/3;
             width: 100%;
-            height: clamp(660px, 100vh, 770px);
             .video{
+                height: clamp(660px, 100vh, 770px);
                 object-fit: cover;
             }
         }

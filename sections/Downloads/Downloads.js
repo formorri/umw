@@ -56,7 +56,7 @@ const Downloads = () => {
         <div className={styles["download-wrapper"]}>
           <h2 className={styles.title}>Downloads</h2>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
-            <Link href="/" target="_blank">
+            <Link href="pdf/IR2022.pdf" target="_blank">
               <p className={styles["item-text"]}>
                 Integrated Annual Report 2022
               </p>
@@ -112,8 +112,8 @@ const Downloads = () => {
             </Link>
           </div>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
-            <Link href="/" target="_blank">
-              <p className={styles["item-text"]}>Notice of 40th AGM</p>
+            <Link href="pdf/notice-of-agm.pdf" target="_blank">
+              <p className={styles["item-text"]}>Notice of 41st AGM</p>
               <div className={styles["icon-container"]}>
                 <Image
                   src={images.touch}
@@ -125,7 +125,7 @@ const Downloads = () => {
             </Link>
           </div>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
-            <Link href="/" target="_blank">
+            <Link href="pdf/proxy-form.pdf" target="_blank">
               <p className={styles["item-text"]}>Proxy Form</p>
               <div className={styles["icon-container"]}>
                 <Image
@@ -138,7 +138,7 @@ const Downloads = () => {
             </Link>
           </div>
           <div className={styles.item}>
-            <Link href="/" target="_blank">
+            <Link href="pdf/administrative-guide.pdf" target="_blank">
               <p className={styles["item-text"]}>Administrative Guide</p>
               <div className={styles["icon-container"]}>
                 <Image
@@ -152,7 +152,7 @@ const Downloads = () => {
           </div>
         </div>
         <div className={styles["archive-wrapper"]}>
-          <Link href="/" target="_blank">
+          <Link href="https://www.umw.com.my/web/guest/financial-report" target="_blank">
             <p className={styles["item-text"]}>Annual Reports Archive</p>
             <div className={styles["icon-container"]}>
               <Image
@@ -165,7 +165,7 @@ const Downloads = () => {
           </Link>
         </div>
         <div className={styles["archive-wrapper"]}>
-          <Link href="/" target="_blank">
+          <Link href="https://www.umw.com.my/web/guest/sustain-report" target="_blank">
             <p className={styles["item-text"]}>
               Sustainability Reports Archive
             </p>

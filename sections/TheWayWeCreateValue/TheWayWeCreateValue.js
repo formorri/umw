@@ -410,7 +410,7 @@ const TheWayWeCreateValue = () => {
             transition={{ duration: 0.8 }}
           >
             <Button1
-              link="/"
+              link="pdf/managing-our-material-matters.pdf"
               text="Download This Section"
               backgroundColor="#112F5E"
               textColor="white"
@@ -536,9 +536,11 @@ const TheWayWeCreateValue = () => {
                   className={`${styles["input-item"]} ${styles["financial"]}`}
                 >
                   <Image
-                    src={images.value2}
+                    src="assets/value-2.gif"
                     loading="lazy"
                     alt="financial"
+                    width={50}
+                    height={50}
                     className={styles["input-icon"]}
                   />
                   <p className={styles["input-text"]}>financial</p>
@@ -547,16 +549,20 @@ const TheWayWeCreateValue = () => {
                   className={`${styles["input-item"]} ${styles["manufactured"]}`}
                 >
                   <Image
-                    src={images.value3}
+                    src="assets/value-3.gif"
                     loading="lazy"
                     alt="manufactured"
+                    width={50}
+                    height={50}
                     className={styles["input-icon"]}
                   />
                   <p className={styles["input-text"]}>manufactured</p>
                 </div>
                 <div className={`${styles["input-item"]} ${styles["human"]}`}>
                   <Image
-                    src={images.value4}
+                    src="assets/value-4.gif"
+                    width={50}
+                    height={50}
                     loading="lazy"
                     alt="human"
                     className={styles["input-icon"]}
@@ -567,7 +573,9 @@ const TheWayWeCreateValue = () => {
                   className={`${styles["input-item"]} ${styles["intellectual"]}`}
                 >
                   <Image
-                    src={images.value5}
+                    src="assets/value-5.gif"
+                    width={50}
+                    height={50}
                     loading="lazy"
                     alt="intellectual"
                     className={styles["input-icon"]}
@@ -576,7 +584,9 @@ const TheWayWeCreateValue = () => {
                 </div>
                 <div className={`${styles["input-item"]} ${styles["social"]}`}>
                   <Image
-                    src={images.value6}
+                    src="assets/value-6.gif"
+                    width={50}
+                    height={50}
                     loading="lazy"
                     alt="social"
                     className={styles["input-icon"]}
@@ -585,7 +595,9 @@ const TheWayWeCreateValue = () => {
                 </div>
                 <div className={`${styles["input-item"]} ${styles["natural"]}`}>
                   <Image
-                    src={images.value7}
+                    src="assets/value-7.gif"
+                    width={50}
+                    height={50}
                     loading="lazy"
                     alt="natural"
                     className={styles["input-icon"]}
@@ -685,7 +697,7 @@ const TheWayWeCreateValue = () => {
             className={styles.flex}
           >
             <Button1
-              link="/"
+              link="pdf/our-value-creation-business-model.pdf"
               text="Download This Section"
               backgroundColor="#112F5E"
               textColor="white"
