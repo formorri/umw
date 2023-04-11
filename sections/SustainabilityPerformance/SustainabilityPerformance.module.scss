@@ -120,7 +120,6 @@ $width-card: calc(90vw - ($margin-card * 3));
     }
 }
 
-
 .arrow {
     color: $white-1
 }
@@ -302,8 +301,6 @@ $width-card: calc(90vw - ($margin-card * 3));
         padding: $s-x-gap;
     }
 
-
-
     .header {
         padding: 0 10px;
     }
@@ -334,28 +331,12 @@ $width-card: calc(90vw - ($margin-card * 3));
         &:nth-child(4) {
             margin-top: calc(-1 * ($height-card - 4rem));
         }
-
-        .header {
-            cursor: pointer;
-        }
     }
 
     .subheader {
-        display: flex;
         flex-direction: row;
         column-gap: $s-gap;
         margin: 10px 0;
-
-        .pillar-icon {
-            height: 3rem;
-            width: auto;
-        }
-
-        .subheader-text-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
     }
 
     .item-container {
@@ -366,7 +347,6 @@ $width-card: calc(90vw - ($margin-card * 3));
         row-gap: $s-gap;
 
         .item-wrapper {
-
             &:nth-child(1) {
                 grid-area: 1/1/2/2
             }
@@ -393,31 +373,10 @@ $width-card: calc(90vw - ($margin-card * 3));
 @include gt-sm {
     $margin-card: 2.5rem;
     $height-card: 29rem;
-    $width-card: calc(90vw - ($margin-card * 3));
+    $width-card: calc(85vw - ($margin-card * 3));
 
     .container {
-        background-color: $theme-4;
         padding: $l-y-gap $l-x-gap;
-        display: flex;
-        flex-direction: column;
-        row-gap: $s-gap;
-    }
-
-
-    .text-wrapper {
-        display: flex;
-        flex-direction: column;
-        padding-right: 30px;
-
-        .text {
-            margin: 20px 0;
-        }
-    }
-
-    .card-wrapper {
-        display: flex;
-        flex-direction: column;
-        border-radius: $border-radiusx2;
     }
 
     .card {
@@ -446,25 +405,11 @@ $width-card: calc(90vw - ($margin-card * 3));
         &:nth-child(4) {
             margin-top: calc(-1 * ($height-card - 4rem));
         }
-
-        .header {
-            cursor: pointer;
-        }
     }
 
 
     .header {
         padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-radius: $border-radius $border-radius 0 0;
-
-        .header-text {
-            @include text-4-bold;
-            text-transform: uppercase;
-            color: $white-1;
-        }
     }
 
     .content {
@@ -472,20 +417,8 @@ $width-card: calc(90vw - ($margin-card * 3));
     }
 
     .subheader {
-        display: flex;
         column-gap: $s-gap;
         margin: 10px 0;
-
-        .pillar-icon {
-            height: 3rem;
-            width: auto;
-        }
-
-        .subheader-text-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
     }
 
     .item-container {
@@ -496,7 +429,6 @@ $width-card: calc(90vw - ($margin-card * 3));
         row-gap: $s-gap;
 
         .item-wrapper {
-
             &:nth-child(1) {
                 grid-area: 1/1/2/2
             }
@@ -519,66 +451,10 @@ $width-card: calc(90vw - ($margin-card * 3));
         }
     }
 
-
-    .item-wrapper {
-        height: 100%;
-        background-color: $white-1;
-        height: inherit;
-        border-radius: $border-radius;
-
-
-        .item-header {
-            border-radius: $border-radius $border-radius 0 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            .item-header-text {
-                padding: 10px 20px;
-                color: $white-1;
-                text-align: center;
-            }
-        }
-
-        .content-wrapper {
-            @include text-4-regular;
-            height: inherit;
-            padding: 10px 5px;
-
-            ul {
-                margin: 0;
-            }
-
-            .sdg-wrapper {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                row-gap: 5px;
-                column-gap: 5px;
-            }
-        }
-    }
-
-
-
     .sdg-icon-wrapper {
-        display: flex;
-
         .sdg-icon {
             width: 3.5rem;
             height: auto;
-        }
-    }
-
-    .item-list-wrapper {
-        margin: 20px 0;
-
-        .item-list {
-            display: flex;
-            flex-direction: column;
-            row-gap: $s-gap;
-            margin: 0;
-            padding: 0 20px;
         }
     }
 }

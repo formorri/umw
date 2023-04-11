@@ -59,8 +59,6 @@ $padding-top: 3rem;
         grid-area: 3/1/4/2;
         z-index: 1;
         align-self: flex-start;
-        // margin-top: 8rem;
-        // padding-bottom: 8rem;
     }
 
     .content-video-container {
@@ -77,24 +75,14 @@ $padding-top: 3rem;
 .background {
     display: grid;
     grid-template-columns: 65% auto;
-    // grid-template-columns: 65% auto;
     grid-template-rows: auto;
     height: 100%;
     width: 100%;
-
-    // .background-inner {
-    //     background-color: $white-1;
-    //     grid-area: 1/1/2/2;
-    //     height: 100%;
-    //     width: 100%;
-    //     border-radius: 0 $background-radius 0 0;
-    // }
 }
 
 .tab-container {
     display: flex;
     flex-direction:column;
-    // row-gap: $s-gap;
 
     .instructions {
         align-self: flex-start;
@@ -105,7 +93,6 @@ $padding-top: 3rem;
 .tab-wrapper {
     $size: 3rem;
     display: flex;
-    // column-gap: $s-gap;
     align-items: flex-end;
     justify-content: space-between;
     width: 90vw;
@@ -163,8 +150,6 @@ $padding-top: 3rem;
                 height: auto;
             }
         }
-
-
     }
 
 }
@@ -174,6 +159,21 @@ $padding-top: 3rem;
     background-color: $blue-1;
     width: $size;
     height: $size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    .indicator{
+        width: calc($size - 15px);
+        height: auto;
+    }
+}
+
+.indicator-switcher {
+    $size: 30px;
+    // background-color: $blue-1;
+    // width: $size;
+    // height: $size;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -245,14 +245,11 @@ $padding-top: 3rem;
         .card-container{
             display: grid;
             grid-template-columns: repeat(2,1fr);
-            // column-gap: $s-gap;
             
         }
 
         .card {
             padding: 10px;
-            // display: flex;
-            // flex-direction: column;
             row-gap: 10px;
             display: grid;
             grid-template-columns: auto;
@@ -299,7 +296,6 @@ $padding-top: 3rem;
 .content-image-container {
     width: 100%;
     height: 100%;
-    aspect-ratio: 1.1;
     overflow: hidden;
     position: relative;
 
@@ -365,6 +361,7 @@ $padding-top: 3rem;
         justify-content: center;
         padding: 10px;
         cursor: pointer;
+        column-gap: 10px;
 
         p {
             margin: 0;
@@ -388,13 +385,11 @@ $padding-top: 3rem;
 }
 
 @include gt-xs {
-
     .content-wrapper {
         .content {
             padding: 120px $s-x-gap $s-x-gap;
         }
     }
-
 
     .content-wrapper {
         grid-template-columns: auto;
@@ -402,15 +397,8 @@ $padding-top: 3rem;
         place-items: center;
     }
 
-    .tab-container{
-        flex-direction: column;
-    }
-
     .tab-wrapper {
         $size: 5rem;
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
         padding: 0 $s-x-gap;
 
         .tab {
@@ -452,20 +440,17 @@ $padding-top: 3rem;
             grid-area: 1/1/2/2;
             justify-self: flex-start;
             align-self: flex-end;
-            z-index: 1;
             padding-left: $l-x-gap;
             padding-top: $padding-top;
         }
 
         .tab-container {
             grid-area: 1/2/2/3;
-            z-index: 1;
             padding-top: $l-gap;
         }
 
         .content-wrapper {
             grid-area: 1/1/4/3;
-            z-index: 0;
         }
     }
 
@@ -483,40 +468,25 @@ $padding-top: 3rem;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: calc(15rem + $padding-top) auto auto;
         column-gap: $l-gap;
-        // place-items: center;
         
         .background {
             grid-area: 1/1/4/3;
-            z-index: 0;
         }
         
         .content {
             grid-area: 2/1/4/2;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            // row-gap: $l-gap;
             padding: 0 0 $l-y-gap $l-x-gap;
         }
 
         .content-image-container {
             grid-area: 2/2/4/3;
-            z-index: 1;
-            align-self: flex-start;
-            // margin-top: $margin-top;
             padding-bottom: 8rem;
         }
 
         .content-video-container {
             grid-area: 2/2/4/3;
-            z-index: 1;
-            align-self: flex-start;
-            // margin-top: $margin-top;
         }
     }
-
-
-
 
     .background {
         display: grid;
@@ -524,155 +494,40 @@ $padding-top: 3rem;
         grid-template-rows: auto;
         height: 100%;
         width: 100%;
-
-        .background-inner {
-            // background-color: $white-1;
-            // grid-area: 1/1/2/2;
-            // height: 100%;
-            // width: 100%;
-            // border-radius: 0 $background-radius 0 0;
-            display: none;
-        }
     }
 
     .tab-wrapper {
         $size: 5rem;
-        display: flex;
         column-gap: 40px;
         justify-self: flex-end;
         width: auto;
 
         .tab {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             max-width: $size;
-            cursor: pointer;
-
-            .tab-label {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin: 10px;
-
-                .tab-text {
-                    @include text-4-bold;
-                    text-transform: uppercase;
-                    text-align: center;
-                    color: $grey-2;
-                    margin: 0;
-                }
-
-                &::after {
-                    @include triangle;
-                    background-color: $grey-2;
-                }
-
-
-            }
-
-            .tab-label-active {
-                .tab-text {
-                    color: $dark-2;
-                }
-
-                &::after {
-                    background-color: $dark-1;
-                }
-            }
-
             .icon-container {
                 width: $size;
                 height: $size;
-                border-radius: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
 
                 .icon {
                     width: calc($size - 20px);
                     height: auto;
                 }
             }
-
-
         }
-
     }
 
     .indicator-wrapper {
         $size: 30px;
-        background-color: $blue-1;
         width: $size;
         height: $size;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 100%;
-        // padding: 20px;
         .indicator{
             width: calc($size - 15px);
             height: auto;
         }
     }
 
-
-    .instructions {
-        display: flex;
-        column-gap: 10px;
-        align-items: center;
-        // background-color: $white-1;
-        padding: 5px 10px;
-    }
-
-
     .content {
-        display: flex;
-        flex-direction: column;
-
-
-        .content-title {
-            width: 100%;
-
-            .content-title-text {
-                @include text-1-bold;
-                @include shadow;
-                background-color: $white-1;
-                text-transform: uppercase;
-                margin: 0;
-                padding: 10px;
-            }
-
-            &::before {
-                @include accent;
-                background-color: var(--tab-color);
-            }
-        }
-
         .content-data-container {
-            display: flex;
-
-            .category {
-                @include header-1;
-                margin: 1rem 0;
-                text-transform: uppercase;
-                writing-mode: vertical-lr;
-                transform: rotate(180deg);
-                text-align: right
-            }
-
-            .content-desc {
-                // @include text-2-bold;
-                // text-transform: capitalize;
-                // margin: 20px 0 0;
-
-                &::after {
-                    @include accent;
-                    background-color: var(--tab-color);
-                    margin-top: 0.5rem;
-                }
-            }
-
             .content-data-wrapper {
                 display: flex;
                 flex-direction: column;
@@ -681,43 +536,8 @@ $padding-top: 3rem;
 
 
             .card {
-                padding: 10px;
-                // display: flex;
-                // flex-direction: column;
-                // row-gap: 10px;
-
                 &:nth-child(2){
                     padding-left: 30px;
-                }
-
-                .data-title,
-                .data-units,
-                .data-year,
-                .data-figure {
-                    margin: 0;
-                }
-
-                .data-title {
-                    @include text-3-bold;
-                    text-transform: uppercase;
-                }
-
-                .data-year {
-                    @include number-3;
-                }
-
-                .data-units {
-                    @include text-4-regular;
-
-                    &::after {
-                        @include triangle;
-                        margin-top: 0.5rem;
-                        background-color: var(--tab-color);
-                    }
-                }
-
-                .data-figure {
-                    @include number-2;
                 }
             }
         }
@@ -726,24 +546,57 @@ $padding-top: 3rem;
     .content-image-container {
         width: 100%;
         height: 30rem;
-        overflow: hidden;
-        position: relative;
-
-        .image {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transform: scale(1.2);
-        }
     }
-
-
 
     .content-video-container {
         width: 100%;
         height: 30rem;
+
+        .video {
+            width: inherit;
+            height: inherit;
+            object-position: 0% 50%;
+            object-fit: cover;
+        }
+    }
+
+    .download {
+        padding-top: 30px;
+    }
+
+    .download-large {
+        display: block;
+    }
+
+    .download-small {
+        display: none;
+    }
+
+}
+
+@include gt-lg{
+    .tab-wrapper {
+        $size: 5rem;
+        column-gap: 80px;
+
+        .tab {
+            max-width: $size;
+
+            .icon-container {
+                width: $size;
+                height: $size;
+
+                .icon {
+                    width: calc($size - 20px);
+                    height: auto;
+                }
+            }
+        }
+
+    }
+    .content-video-container {
+        width: 100%;
+        height: 35rem;
         z-index: 10;
         padding: 0;
 
@@ -754,38 +607,4 @@ $padding-top: 3rem;
             object-fit: cover;
         }
     }
-
-    .inner-tab {
-        display: flex;
-
-        .inner-tab-content {
-            @include text-1-bold;
-            text-transform: uppercase;
-            flex-grow: 1;
-            border-radius: $border-radiusx2 $border-radiusx2 0 0;
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-            cursor: pointer;
-
-            p {
-                margin: 0;
-            }
-        }
-
-    }
-
-    .download {
-        padding-top: 30px;
-    }
-
-    .download-large {
-        display: block;
-        // $padding-bottom: $l-y-gap;
-    }
-
-    .download-small {
-        display: none;
-    }
-
 }

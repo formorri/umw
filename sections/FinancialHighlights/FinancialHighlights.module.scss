@@ -95,9 +95,6 @@
 @include gt-sm{
     .financial {
         padding: $l-y-gap $l-x-gap;
-        display: flex;
-        flex-direction: column;
-        align-items: left;
         row-gap: $l-gap;
     }
     
@@ -106,38 +103,12 @@
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
         width: 100%;
-        border-radius: $border-radiusx2;
-        overflow: hidden;
         row-gap: $l-gap;
         column-gap: $l-gap;
     }
     
     
     .card {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
         row-gap: 10px;
-    
-        .header,
-        .graph-container {
-            @include shadow;
-            background-color: $white-1;
-            border-radius: $border-radiusx2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    
-        .graph-container {
-            width: 100%;
-            height: auto;
-            padding: 10px 5px;
-    
-            .graph {
-                width: inherit;
-                height: auto;
-            }
-        }
     }
 }

@@ -98,10 +98,6 @@
         grid-template-rows: auto;
         align-items: center;
 
-        a {
-            text-decoration: none;
-        }
-
         .link-wrapper{
             grid-area: 1/1/2/2
         }
@@ -111,80 +107,17 @@
         }
     }
 
-    .item-text {
-        @include text-3-regular;
-        color: $dark-1;
-        margin: 0;
-    }
-
     .link-wrapper {
-        display: flex;
-        flex-direction: column;
         row-gap: $l-gap;
-    }
-
-    .download-wrapper {
-        background-color: $green-9;
-        padding: 20px;
-        border-radius: $border-radiusx2;
-    }
-
-    .border-bottom {
-        border-bottom: 1px solid $grey-2;
-    }
-
-    .item {
-        padding: 10px 0;
-        width: inherit;
-
-        a {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-        }
-
     }
 
     .icon-container {
         $size: 40px;
         width: $size;
         height: $size;
-        border-radius: 100%;
-        background-color: $blue-1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: ease-in 0.2s;
 
         .download-icon {
             width: 12px;
-            height: auto;
-        }
-
-        &:hover {
-            background-color: $blue-2;
-        }
-    }
-
-    .archive-wrapper {
-        background-color: $purple-4;
-        padding: 10px 20px;
-        border-radius: $border-radiusx2;
-
-        a {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-    }
-
-    .report-wrapper {
-        width: inherit;
-        height: inherit;
-
-        .mockup {
-            width: 100%;
             height: auto;
         }
     }

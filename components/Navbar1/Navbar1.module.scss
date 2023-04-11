@@ -97,7 +97,7 @@
 .social-wrapper{
     margin: 0 $s-x-gap;
     padding: 5px 0;
-    border-top: $border-weight $grey-2;
+    // border-top: $border-weight $grey-2;
     .social-links{
         display: flex;
         column-gap: $l-gap;
@@ -136,7 +136,7 @@
     .top-flex {
         display: flex;
         flex-direction: column;
-        padding: 0px 30px 0px 30px;
+        padding: 0px 20px 0px 20px;
     }
     .open-navbar {
         width: auto;

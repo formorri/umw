@@ -2,8 +2,6 @@
 
 $circle-size: 37rem;
 
-
-
 .title,
 .paragraph,
 .inner-text,
@@ -179,9 +177,7 @@ $circle-size: 37rem;
     display: flex;
     column-gap: 10px;
     align-items: center;
-    // padding: 5px 10px;
     margin-left: $s-x-gap;
-    // align-self: flex-end;
 }
 
 .instructions-large {
@@ -314,19 +310,8 @@ $circle-size: 37rem;
 
 @include gt-xs {
     .region {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        row-gap: $s-gap;
-
         .map-image {
             display: none;
-        }
-
-        .map-image-small {
-            position: relative;
-            width: 100%;
-            height: 100%;
         }
 
         .tooltip-wrapper {
@@ -389,33 +374,20 @@ $circle-size: 37rem;
 
         .col1 {
             grid-area: 1 / 1 / 2 / 2;
-            z-index: 0;
-            display: flex;
-            flex-direction: column;
             row-gap: $l-gap;
         }
 
         .col3 {
             grid-area: 1 / 2 / 2 / 3;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
             row-gap: $l-gap;
 
             .card1,
             .card2,
             .card3 {
-                border-radius: $border-radiusx2;
-                background-color: $purple-3;
                 padding: 20px;
-                text-align: center;
 
                 .value-title-deco {
                     padding: 5px auto;
-                    background: $white-1;
-                    border-radius: 10rem;
-                    display: flex;
-                    justify-content: center;
                 }
             }
         }
@@ -472,9 +444,6 @@ $circle-size: 37rem;
     }
 
     .region {
-        position: relative;
-        display: flex;
-
         .map-image {
             position: relative;
             width: 100%;
@@ -533,25 +502,15 @@ $circle-size: 37rem;
         }
     }
 
-    .tooltip-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
 
     .tooltip {
-        @include shadow;
         $size: 25px;
         width: $size;
         height: $size;
-        border-radius: 100%;
-        border: 5px solid $white-1;
     }
 
 
     .tooltip-country {
-        @include text-3-bold;
         margin: 5px 0 0;
     }
 
