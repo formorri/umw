@@ -69,11 +69,11 @@ const AGM = () => {
         <div className={styles["paragraph-wrapper"]}>
           <p className={styles.paragraph}>
             <span className={styles.bold}>NOTICE IS HEREBY GIVEN THAT </span>
-            the 41st Annual General Meeting
+            the <span>41</span><sup>st</sup> Annual General Meeting
             <span className={styles.bold}> (AGM) </span>
             of the Company will be held virtually via live streaming from the
-            broadcast venue at Menara UMW, Jalan Puncak, Off Jalan P. Ramlee,
-            50250 Kuala Lumpur, Malaysia on Wednesday, 17 May 2023 at 10.00 a.m.
+            broadcast venue at Menara UMW, Jalan Puncak, Off Jalan P. Ramlee,<span> 50250 </span>
+             Kuala Lumpur, Malaysia on Wednesday, <span>17</span> May <span>2023</span> at <span>10.00</span> a.m.
             to transact the following businesses:
           </p>
         </div>
@@ -146,7 +146,7 @@ const AGM = () => {
             />
             <div className={styles["info-info"]}>
               <p className={styles.bold}>DATE</p>
-              <p className={styles.text}>Wednesday, 17 May 2023</p>
+              <p className={styles.text}>Wednesday, <span>17</span> May <span>2023</span></p>
             </div>
           </div>
           <div className={styles.info}>
@@ -158,7 +158,7 @@ const AGM = () => {
             />
             <div className={styles["info-info"]}>
               <p className={styles.bold}>TIME</p>
-              <p className={styles.text}>10.00 am</p>
+              <p className={styles.text}><span>10.00</span> am</p>
             </div>
           </div>
         </div>

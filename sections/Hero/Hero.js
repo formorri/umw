@@ -80,12 +80,12 @@ const Hero = () => {
                 <h3 className={styles.title}>cover rationale</h3>
                 <p className={styles.text}>
                   UMW's approach to comprehensive growth is encircled in our
-                  CREST@UMW strategy framework. Launched in January 2021 as
-                  CREST@2021, it has since been retitled to CREST@UMW. The
-                  numbers 20-2-1 inscribed in the CREST@UMW logo not only refers
+                  CREST@UMW strategy framework. Launched in January <span className={styles['modal-number']}>2021</span> as
+                  CREST@<span className={styles['modal-number']}>2021</span>, it has since been retitled to CREST@UMW. The
+                  numbers <span className={styles['modal-number']}>20-2-1</span> inscribed in the CREST@UMW logo not only refers
                   to the year it was launched but also the strategic framework’s
-                  aspirations: to achieve RM20 billion in revenue, RM2 billion
-                  PBT and RM1 billion PATAMI by 2030. The goal is to lead the
+                  aspirations: to achieve <span className={styles['modal-number']}>RM20</span> billion in revenue, <span className={styles['modal-number']}>RM2</span> billion
+                  PBT and <span className={styles['modal-number']}>RM1</span> billion PATAMI by <span className={styles['modal-number']}>2030</span>. The goal is to lead the
                   way with sustainable core businesses based on our five vital
                   pillars,{" "}
                   <span className={styles.bold}>
@@ -169,7 +169,7 @@ const Hero = () => {
           <h2 className={styles["header-subtitle"]}>
             INTEGRATED ANNUAL REPORT <span className={styles.number}>2022</span>
           </h2>
-          <p className={styles["header-subtitle-1"]}>UMW Holdings Berhad</p>
+          {/* <p className={styles["header-subtitle-1"]}>UMW Holdings Berhad</p> */}
         </div>
         <Button1Popup
           link="/"

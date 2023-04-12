@@ -14,6 +14,9 @@
     @include text-3-regular;
     color: $dark-1;
     margin: 0;
+    span{
+        @include number-5;
+    }
 }
 
 .link-wrapper {

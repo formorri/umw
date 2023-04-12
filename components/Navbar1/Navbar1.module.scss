@@ -52,9 +52,8 @@
     z-index: 2000;
     display: flex;
     flex-direction: column;
-    background-color: $theme-4;
+    background-color: #E9F3DC;
     height: 100vh;
-    width: auto;
     justify-content: space-between;
     width: 70vw;
 }
@@ -62,11 +61,12 @@
 .top-flex {
     display: flex;
     flex-direction: column;
-    padding: 0px 0px 0px $s-x-gap;
+    padding: 0px $s-x-gap;
 }
 
 .close-container {
     align-self: flex-end;
+    padding: 10px 0;
 
     .close {
         font-size: $s-close-button;
@@ -80,7 +80,8 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 12px;
+    text-align: center;
     a {
         @include text-3-regular;
         text-decoration: none;
@@ -97,10 +98,11 @@
 .social-wrapper{
     margin: 0 $s-x-gap;
     padding: 5px 0;
-    // border-top: $border-weight $grey-2;
+    text-align: center;
+
     .social-links{
         display: flex;
-        column-gap: $l-gap;
+        justify-content: space-between;
         align-items: flex-end;
     }
     .social-icon{
@@ -113,14 +115,26 @@
 }
 
 .feedback-wrapper {
-    background-color: $teal-2;
     padding: 20px $s-x-gap;
+    display: flex;
+    flex-direction: column;
+    align-items: center
 }
 
 .text {
     @include text-3-bold;
     text-transform: uppercase;
     margin: 10px 0;
+}
+
+@include gt-xs{
+    .open-navbar {
+        width: auto;
+    }
+    .list {
+        row-gap: 20px;
+    }
+    
 }
 
 @include gt-sm{
@@ -137,6 +151,9 @@
         display: flex;
         flex-direction: column;
         padding: 0px 20px 0px 20px;
+    }
+    .list {
+        row-gap: 10px;
     }
     .open-navbar {
         width: auto;

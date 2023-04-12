@@ -72,7 +72,7 @@ const Downloads = () => {
           </div>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
             <Link href="/" target="_blank">
-              <p className={styles["item-text"]}>Sustainability Report 2022</p>
+              <p className={styles["item-text"]}>Sustainability Report <span>2022</span></p>
               <div className={styles["icon-container"]}>
                 <Image
                   src={images.touch}
@@ -86,7 +86,7 @@ const Downloads = () => {
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
             <Link href="/" target="_blank">
               <p className={styles["item-text"]}>
-                Corporate Governance Report 2022
+                Corporate Governance Report <span>2022</span>
               </p>
               <div className={styles["icon-container"]}>
                 <Image
@@ -113,7 +113,7 @@ const Downloads = () => {
           </div>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
             <Link href="pdf/notice-of-agm.pdf" target="_blank">
-              <p className={styles["item-text"]}>Notice of 41st AGM</p>
+              <p className={styles["item-text"]}>Notice of <span>41</span><sup>st</sup> AGM</p>
               <div className={styles["icon-container"]}>
                 <Image
                   src={images.touch}

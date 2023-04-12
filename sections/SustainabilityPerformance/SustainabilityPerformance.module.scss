@@ -259,6 +259,10 @@ $width-card: calc(90vw - ($margin-card * 3));
             margin: 0;
         }
 
+        span{
+            @include number-6;
+        }
+
         .sdg-wrapper {
             display: flex;
             flex-wrap: wrap;

@@ -201,11 +201,11 @@ $padding-top: 3rem;
 
         .content-title-text {
             @include text-1-bold;
-            @include shadow;
-            background-color: $white-1;
+            // @include shadow;
+            // background-color: $white-1;
             text-transform: uppercase;
             margin: 0;
-            padding: 10px;
+            padding: 10px 0;
         }
 
         &::before {

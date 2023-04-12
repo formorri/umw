@@ -10,6 +10,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
 
 const sections = [
   {
@@ -168,6 +171,7 @@ const Navbar1 = ({ children, className }) => {
           <div className={styles["social-wrapper"]}>
             <p className={styles["text"]}>Contact Us</p>
             <div className={styles["social-links"]}>
+              {/* facebook */}
               <a href="https://www.facebook.com/UMWofficial/" target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -184,6 +188,94 @@ const Navbar1 = ({ children, className }) => {
                   />
                 </svg>
               </a>
+              {/* youtube */}
+              <a href="https://www.youtube.com/channel/UCrnboEyn-rHnepGEJRZZLxw/videos" target="_blank">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="29.455"
+                  height="20.558"
+                  viewBox="0 0 29.455 20.558"
+                  className={styles["social-icon"]}
+                >
+                  <g
+                    id="_2y8bId.tif"
+                    data-name="2y8bId.tif"
+                    transform="translate(-226.299 -167.477)"
+                  >
+                    <g
+                      id="Group_6183"
+                      data-name="Group 6183"
+                      transform="translate(226.299 167.477)"
+                    >
+                      <path
+                        id="Path_12084"
+                        data-name="Path 12084"
+                        d="M226.3,179V176.52c.016-.142.042-.283.047-.425a36.128,36.128,0,0,1,.417-4.755,4.063,4.063,0,0,1,1.555-2.724,4.28,4.28,0,0,1,2.374-.777c2.174-.141,4.351-.313,6.528-.342,3.274-.043,6.55-.015,9.823.061,1.666.039,3.333.211,4.992.394a3.626,3.626,0,0,1,3.209,2.91,20.839,20.839,0,0,1,.5,4.51c.029,1.9.015,3.8-.063,5.7a24.242,24.242,0,0,1-.4,3.4,3.492,3.492,0,0,1-3.088,3.054,36.98,36.98,0,0,1-4.269.381q-4.089.136-8.181.133a76.662,76.662,0,0,1-9.461-.457,3.705,3.705,0,0,1-3.441-3.152c-.206-1.138-.294-2.3-.411-3.453C226.358,180.317,226.339,179.656,226.3,179Zm11.822,3.174,7.694-4.428-7.694-4.427Z"
+                        transform="translate(-226.299 -167.477)"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </a>
+              {/* instagram */}
+              <a href="https://www.instagram.com/umwofficial/" target="_blank">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25.094"
+                  height="25.102"
+                  viewBox="0 0 25.094 25.102"
+                  className={styles["social-icon"]}
+                >
+                  <g id="iGRskD.tif" transform="translate(-126.488 -167.477)">
+                    <g
+                      id="Group_6182"
+                      data-name="Group 6182"
+                      transform="translate(126.488 167.477)"
+                    >
+                      <g id="abACf7.tif" transform="translate(0 0)">
+                        <g id="Group_6181" data-name="Group 6181">
+                          <path
+                            id="Path_12081"
+                            data-name="Path 12081"
+                            d="M132.761,167.477h12.546l.188.048a11.8,11.8,0,0,1,1.675.425,6.749,6.749,0,0,1,4.354,5.573,6.331,6.331,0,0,1,.052.928q.005,5.575,0,11.15a6.444,6.444,0,0,1-.566,2.807,6.724,6.724,0,0,1-6.406,4.152c-3.716.035-7.433.007-11.15.01a6.534,6.534,0,0,1-2-.274,6.81,6.81,0,0,1-4.761-4.949c-.094-.343-.139-.7-.206-1.05V173.75c.042-.239.072-.481.127-.717a6.819,6.819,0,0,1,5.094-5.349C132.052,167.587,132.41,167.545,132.761,167.477Zm6.273,5.676a6.87,6.87,0,1,0,6.87,6.883A6.871,6.871,0,0,0,139.035,173.153Zm7.284-2.5a2.08,2.08,0,1,0,2.087,2.076A2.094,2.094,0,0,0,146.319,170.652Z"
+                            transform="translate(-126.488 -167.477)"
+                          />
+                          <path
+                            id="Path_12082"
+                            data-name="Path 12082"
+                            d="M155.345,190.936a5.4,5.4,0,1,1-5.4,5.4A5.394,5.394,0,0,1,155.345,190.936Z"
+                            transform="translate(-142.798 -183.787)"
+                          />
+                          <path
+                            id="Path_12083"
+                            data-name="Path 12083"
+                            d="M190.79,183.322a.625.625,0,0,1-.589.625.653.653,0,0,1-.631-.617.628.628,0,0,1,.611-.6A.6.6,0,0,1,190.79,183.322Z"
+                            transform="translate(-170.345 -178.079)"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+              {/* Twitter */}
+              <a href="https://twitter.com/UMWOfficial" target="_blank">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30.559"
+                  height="25.102"
+                  viewBox="0 0 30.559 25.102"
+                  className={styles["social-icon"]}
+                >
+                  <path
+                    id="Path_12085"
+                    data-name="Path 12085"
+                    d="M80.117,398.3h.225a.9.9,0,0,0,.179.048,6.333,6.333,0,0,1,4.186,1.853.455.455,0,0,0,.359.067,12.534,12.534,0,0,0,3.421-1.283c.09-.05.187-.088.33-.155a6.284,6.284,0,0,1-2.6,3.4l.063.109,3.3-.921c-.05.083-.095.17-.15.249a12.936,12.936,0,0,1-2.693,2.8.6.6,0,0,0-.225.411,16.811,16.811,0,0,1-.553,4.933,17.407,17.407,0,0,1-7.857,10.91,17.74,17.74,0,0,1-17.008.972c-.714-.308-1.383-.72-2.073-1.084l.033-.1a12.667,12.667,0,0,0,4.811-.394,12,12,0,0,0,4.335-2.191c-3.045-.432-5.237-2.107-5.785-4.41h2.626l.021-.129a6.393,6.393,0,0,1-4.862-6.24,6.353,6.353,0,0,0,2.781.757,6.925,6.925,0,0,1-2.594-3.879,6.091,6.091,0,0,1,.727-4.509,17.863,17.863,0,0,0,12.911,6.553,1.458,1.458,0,0,0,0-.189,6.321,6.321,0,0,1,4.582-7.323C79.1,398.425,79.613,398.383,80.117,398.3Z"
+                    transform="translate(-59.021 -398.303)"
+                  />
+                </svg>
+              </a>
+              {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/company/umw-corporation/"
                 target="_blank"
@@ -221,7 +313,7 @@ const Navbar1 = ({ children, className }) => {
                   </g>
                 </svg>
               </a>
-              <a
+              {/* <a
                 href="mailto:?subject=Here is the Annual Review Website for UMW&amp;body=Check out this site https://www.annualreport.umw.com.my/."
                 target="_blank"
               >
@@ -245,7 +337,7 @@ const Navbar1 = ({ children, className }) => {
                     />
                   </g>
                 </svg>
-              </a>
+              </a> */}
             </div>
           </div>
           <div className={styles["feedback-wrapper"]}>

@@ -39,7 +39,8 @@
 }
 
 .quote-text {
-    @include text-3-regular;
+    @include text-3-bold;
+    color: #3AA1A9;
 }
 
 .leader-title {
@@ -53,8 +54,7 @@
 .number-text,
 .text,
 .number,
-.quote-header,
-.quote-text {
+.quote-header {
     color: $dark-2;
 }
 

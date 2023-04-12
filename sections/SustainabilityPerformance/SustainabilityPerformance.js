@@ -19,7 +19,7 @@ const cardData = [
       "Environmental leadership via sustainable operational excellence",
       "Invest in nature-based solution for CO2 sequestration",
     ],
-    target: ["45% CO2 neutrality by 2030", "100% CO2 neutrality by 2050"],
+    target: ["<span>45%</span> CO2 neutrality by <span>2030</span>", "<span>100%</span> CO2 neutrality by <span>2050</span>"],
     focus: [
       "Renewable Energy (Solar PV installations, Green Electricity Tarriff subscription)",
       "Reforestation",
@@ -27,7 +27,7 @@ const cardData = [
     highlights: [
       "KYB-UMW and UMWT subscribed to GET",
       "ASSB, Aerospace and KYB-UMW installed rooftop solar PV",
-      "157,000 mangrove and 10,000 bamboo trees planted",
+      "<span>157,000</span> mangrove and <span>10,000</span> bamboo trees planted",
     ],
     sdg: ["sdg7", "sdg11", "sdg12", "sdg13", "sdg15", "sdg17"],
   },
@@ -42,19 +42,19 @@ const cardData = [
       "Foster sustainable culture, support and funding for employee wellbeing",
     ],
     target: [
-      "Accident rate not more than 2.13",
+      "Accident rate not more than <span>2.13</span>",
       "Scholarship programme to nurture talent",
-      "25% women’s representation in Senior Management roles",
+      "<span>25%</span> women’s representation in Senior Management roles",
     ],
     focus: ["Employee well-being", "Education", "Diversity and inclusivity"],
     highlights: [
-      "RM1 million spent, 92% utilisation of scholarship fund",
-      "UMW Aerospace has achieved zero LTI since started its operation in 2016, with 2,343 days of zero LTI as of to date",
-      "EnergizeUMW: 24/7 helpline to provide remote therapy sessions for employees",
+      "<span>RM1</span> million spent, <span>92%</span> utilisation of scholarship fund",
+      "UMW Aerospace has achieved zero LTI since started its operation in <span>2016</span>, with <span>2,343</span> days of zero LTI as of to date",
+      "EnergizeUMW: <span>24/7</span> helpline to provide remote therapy sessions for employees",
       "UMW Executive Development Programme (UEDP) for employees strategic and targeted leadership",
       "Flexible Benefit Scheme for employees",
-      "46 high potential young talents selected since 2018",
-      "Employees received 63,716 training hours",
+      "<span>46</span> high potential young talents selected since <span>2018</span>",
+      "Employees received <span>63,716</span> training hours",
     ],
     sdg: ["sdg1", "sdg2", "sdg3", "sdg4", "sdg5", "sdg8", "sdg10"],
   },
@@ -81,7 +81,7 @@ const cardData = [
       "Introduction of Mirai as an alternative new energy vehicle technology that is being trialled in Sarawak.",
       "Launched of The Grantt Bio VG Hydraulic Oil",
       "Expansion of BRUSS and Water Reclamation Plant (in-house membrane)",
-      "Parts manufacturer for E2W",
+      "Parts manufacturer for <span>E2W</span>",
     ],
     sdg: ["sdg6", "sdg7", "sdg9", "sdg12", "sdg13"],
   },
@@ -96,14 +96,14 @@ const cardData = [
       "Foster sustainable culture, support and funding for community well-being",
     ],
     target: [
-      "1% of PATAMI goes to community investments by 2025",
-      "2% of PATAMI goes to community investments by 2030",
+      "<span>1%</span> of PATAMI goes to community investments by <span>2025</span>",
+      "<span>2%</span> of PATAMI goes to community investments by <span>2030</span>",
     ],
     focus: ["Community", "Education"],
     highlights: [
-      "2,187 community champions",
-      "11,344 volunteer hours",
-      "RM9.1 million spent on initiatives, sponsorship, donations",
+      "<span>2,187</span> community champions",
+      "<span>11,344</span> volunteer hours",
+      "<span>RM1.9</span> million spent on initiatives, sponsorship, donations",
     ],
     sdg: ["sdg1", "sdg2", "sdg3", "sdg4", "sdg8", "sdg10"],
   },
@@ -203,7 +203,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[3].action.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -217,7 +220,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[3].target.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -231,7 +237,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[3].focus.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -245,7 +254,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[3].highlights.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -336,7 +348,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[2].action.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -350,7 +365,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[2].target.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -364,7 +382,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[2].focus.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -378,7 +399,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[2].highlights.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -469,7 +493,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[1].action.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -483,7 +510,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[1].target.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -497,7 +527,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[1].focus.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -511,7 +544,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[1].highlights.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -602,7 +638,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[0].action.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -616,7 +655,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[0].target.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -630,7 +672,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[0].focus.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -644,7 +689,10 @@ const SustainabilityPerformance = () => {
                     <div className={styles["content-wrapper"]}>
                       <ul>
                         {cardData[0].highlights.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>

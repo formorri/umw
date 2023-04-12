@@ -15,7 +15,10 @@
 
 .paragraph {
     @include text-3-regular;
-    letter-spacing: 2px
+    letter-spacing: 2px;
+    span{
+        @include number-5;
+    }
 }
 
 .countdown-number {
@@ -29,6 +32,9 @@
 
 .text {
     @include text-3-regular;
+    span{
+        @include number-5;
+    }
 }
 
 .superscript {

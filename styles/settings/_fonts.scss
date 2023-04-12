@@ -102,15 +102,31 @@ $url: '../../public/fonts/';
 }
 
 @mixin header-2-regular {
-    @include font-settings ($desktop-font-size: 50px);
     font-family: 'KievitOT';
     font-weight: normal;
+    $font-size: 30px;
+    font-size: $font-size;
+    line-height: calc( $font-size * 1.18) ;
+
+    @include gt-sm{
+        $font-size: 50px;
+        font-size: $font-size;
+        line-height: calc( $font-size * 1.18) ;
+    }
 }
 
 @mixin header-2-bold {
-    @include font-settings ($desktop-font-size: 50px);
     font-family: 'KievitOT';
     font-weight: bold;
+    $font-size: 30px;
+    font-size: $font-size;
+    line-height: calc( $font-size * 1.18) ;
+
+    @include gt-sm{
+        $font-size: 50px;
+        font-size: $font-size;
+        line-height: calc( $font-size * 1.18) ;
+    }
 }
 
 @mixin header-3-bold {
@@ -222,9 +238,20 @@ $url: '../../public/fonts/';
 }
 
 @mixin number-5 {
-    @include font-settings ($desktop-font-size: 14px);
+    @include font-settings ($desktop-font-size: 18px);
     font-family: 'Kievit';
     font-weight: 500;
+}
+
+@mixin number-6 {
+    @include font-settings ($desktop-font-size: 16px);
+    font-family: 'Kievit';
+    font-weight: 500;
+}
+@mixin number-6-bold {
+    @include font-settings ($desktop-font-size: 16px);
+    font-family: 'Kievit';
+    font-weight: bold;
 }
 
 .title {

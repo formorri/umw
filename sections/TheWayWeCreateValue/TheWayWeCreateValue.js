@@ -93,7 +93,7 @@ const modalData = [
       "Transition risk pertains to the impact of shifting strategies, regulations, or investments as society and industry move towards reducing their carbon dependency and mitigating the resulting environmental impact",
     ],
     opportunities: [
-      "Bolster climate action and commit to investing in naturebased solutions that facilitate carbon sequestration to achieve 45% and 100% carbon neutrality by 2030 and 2050",
+      "Bolster climate action and commit to investing in naturebased solutions that facilitate carbon sequestration to achieve <span>45%</span> and <span>100%</span> carbon neutrality by <span>2030</span> and <span>2050</span>",
     ],
     shortMid: [
       "Investing in renewable energy by installing solar panels at our KYB-UMW and Aerospace plants",
@@ -101,9 +101,9 @@ const modalData = [
       "Our commitment to sustainable operational excellence reflects on our dedication to environmental stewardship",
     ],
     value: [
-      "Broadened reporting scope to disclose GHG emissions according to Scope 1, Scope 2 and Scope 3",
-      "GHG emissions intensity reduced by 19.2% in 2022",
-      "Planted 157,000 mangrove trees in various states throughout Malaysia in 2022",
+      "Broadened reporting scope to disclose GHG emissions according to Scope <span>1</span>, Scope <span>2</span> and Scope <span>3</span>",
+      "GHG emissions intensity reduced by <span>19.2%</span> in <span>2022</span>",
+      "Planted <span>157,000</span> mangrove trees in various states throughout Malaysia in <span>2022</span>",
     ],
   },
   {
@@ -124,7 +124,7 @@ const modalData = [
     ],
     value: [
       "UMW Toyota recaptured the top non-national automobile sales position",
-      "Refurbished more than 500 forklifts",
+      "Refurbished more than <span>500</span> forklifts",
       "UMW Aerospace was accorded the Supplier Best Practice Award by Rolls-Royce",
     ],
   },
@@ -165,7 +165,7 @@ const modalData = [
       "Developing and creating internal training and education programmes to boost productivity",
       "Developing and improving technical and leadership skills via a focused development course",
     ],
-    value: ["Employees received training for 63,716 hours"],
+    value: ["Employees received training for <span>63,716</span> hours"],
   },
   {
     key: 5,
@@ -182,7 +182,7 @@ const modalData = [
     ],
     value: [
       "The KYB-UMW factory has commissioned a water reclamation plant that utilises membrane technology developed inhouse",
-      "Improved UMW Environment Action Plan (UEAP) score from 0.5 in 2016 to 3.75 in 2022, higher than industry average score of 3.1",
+      "Improved UMW Environment Action Plan (UEAP) score from <span>0.5</span> in <span>2016</span> to <span>3.75</span> in <span>2022</span>, higher than industry average score of <span>3.1</span>",
     ],
   },
   {
@@ -200,7 +200,7 @@ const modalData = [
     ],
     value: [
       "Retained more than 30% of women’s representation on the Board",
-      "14% of women in senior management roles",
+      "<span>14%</span> of women in senior management roles",
     ],
   },
   {
@@ -216,7 +216,7 @@ const modalData = [
       "The reinforcement of labour management guidelines and governance to ensure the efficient and effective resolution of all labour issues and concerns",
     ],
     value: [
-      "62.47% of employees were unionised",
+      "<span>62.47%</span> of employees were unionised",
       "Signed five Collective Agreements between UMW Group and Kesatuan Pekerja-Pekerja Perusahaan Kumpulan UMW (KPPPKUMW)",
     ],
   },
@@ -235,8 +235,8 @@ const modalData = [
     value: [
       "Obtained zero corruption charges",
       "Reviewed and revised the Anti-Bribery and Corruption Policy and the Whistleblowing Policy",
-      "Attained the ISO 37001 Anti-Bribery Management System certificate",
-      "97% employees completed the Anti-Bribery and Corruption e-learning",
+      "Attained the ISO <span>37001</span> Anti-Bribery Management System certificate",
+      "<span>97%</span> employees completed the Anti-Bribery and Corruption e-learning",
     ],
   },
   {
@@ -254,8 +254,8 @@ const modalData = [
     ],
     value: [
       "Local suppliers comprised 88% of the Group's suppliers",
-      "59% of the Group's procurement budget went to local suppliers",
-      "Held a supplier performance review exercise for 308 suppliers",
+      "<span>59%</span> of the Group's procurement budget went to local suppliers",
+      "Held a supplier performance review exercise for <span>308</span> suppliers",
     ],
   },
   {
@@ -272,8 +272,8 @@ const modalData = [
     ],
     value: [
       "Maintained zero cases of fatalities",
-      "26 operational sites were assessed against the ISO 45001:2018 standard",
-      "31 operational sites underwent statutory compliance audit",
+      "<span>26</span> operational sites were assessed against the ISO <span>45001:2018</span> standard",
+      "<span>31</span> operational sites underwent statutory compliance audit",
     ],
   },
   {
@@ -290,9 +290,9 @@ const modalData = [
       "Creating a positive environmental impact on the country through naturebased initiatives such as reforestation",
     ],
     value: [
-      "Enrolled 55 interns through internship programme",
-      "UMW Community Champions dedicated 11,344 volunteer hours.",
-      "Contributed about RM9.1 million in cash and in kind, to communities",
+      "Enrolled <span>55</span> interns through internship programme",
+      "UMW Community Champions dedicated <span>11,344</span> volunteer hours.",
+      "Contributed about <span>RM9.1</span> million in cash and in kind, to communities",
     ],
   },
 ];
@@ -446,7 +446,10 @@ const TheWayWeCreateValue = () => {
                       </div>
                       <ul className={styles.list}>
                         {activeModal.risks.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -460,7 +463,10 @@ const TheWayWeCreateValue = () => {
                       </div>
                       <ul className={styles.list}>
                         {activeModal.opportunities.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -476,7 +482,10 @@ const TheWayWeCreateValue = () => {
                       </div>
                       <ul className={styles.list}>
                         {activeModal.shortMid.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -490,7 +499,10 @@ const TheWayWeCreateValue = () => {
                       </div>
                       <ul className={styles.list}>
                         {activeModal.value.map((item, index) => (
-                          <li key={index}>{item}</li>
+                          <li
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -1355,7 +1367,7 @@ const TheWayWeCreateValue = () => {
                                   ></span>
                                   <span className={styles.unit}> million</span>
                                 </p>
-                                <p className={styles.text}>in FY2022</p>
+                                <p className={styles.text}>in <span className={styles['text-number']}>FY2022</span></p>
                               </div>
                             )}
                           </CountUp>
@@ -1468,7 +1480,7 @@ const TheWayWeCreateValue = () => {
                       <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles.text}>
-                            Deployed a total of 21 RPA (Robotic Process
+                            Deployed a total of <span className={styles['text-number']}>21</span> RPA (Robotic Process
                             Automation) projects to improve productivity
                           </p>
                         </li>
@@ -1916,7 +1928,7 @@ const TheWayWeCreateValue = () => {
                         </li>
                         <li>
                           <p style={{ margin: 0 }} className={styles.text}>
-                            46 high potential young talents selected since 2018
+                          <span className={styles['text-number']}>46</span> high potential young talents selected since <span className={styles['text-number']}>2018</span>
                           </p>
                         </li>
                       </ul>
@@ -2111,7 +2123,7 @@ const TheWayWeCreateValue = () => {
                                   className={styles.text}
                                 >
                                   Solar rooftop PV capacity increased from 2MW
-                                  to 4MW, a {""}
+                                  to <span className={styles['text-number']}>4MW</span>, a {""}
                                   <span
                                     ref={countUpRef}
                                     className={styles.number}

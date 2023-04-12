@@ -264,7 +264,23 @@ $circle-size: 37rem;
     height: $size;
     border-radius: 100%;
     border: 4px solid $white-1;
+    animation: pulse 3s infinite;
 }
+
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+  }
 
 .tooltip-malaysia {
     background-color: $blue-4;

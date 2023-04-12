@@ -209,7 +209,7 @@ const WhoWeAre = () => {
             )}
           </CountUp>
         </div>
-        <div className={styles["instructions-small"]}>
+        {/* <div className={styles["instructions-small"]}>
           <div className={styles["indicator-wrapper"]}>
             <Image
               src={images.touch}
@@ -219,7 +219,7 @@ const WhoWeAre = () => {
             />
           </div>
           <p className={styles["indicator-text"]}>tap to see more</p>
-        </div>
+        </div> */}
 
         <div className={styles.region}>
           <div className={styles["region-info-wrapper"]}>
@@ -229,17 +229,17 @@ const WhoWeAre = () => {
               </h2>
             </div>
           </div>
-          <div className={styles["instructions-large"]}>
-          <div className={styles["indicator-wrapper"]}>
-            <Image
-              src={images.touch}
-              loading="lazy"
-              className={styles.indicator}
-              alt="tap-here"
-            />
-          </div>
-          <p className={styles["indicator-text"]}>tap to see more</p>
-        </div>
+          {/* <div className={styles["instructions-large"]}>
+            <div className={styles["indicator-wrapper"]}>
+              <Image
+                src={images.touch}
+                loading="lazy"
+                className={styles.indicator}
+                alt="tap-here"
+              />
+            </div>
+            <p className={styles["indicator-text"]}>tap to see more</p>
+          </div> */}
           <CountUp
             start={0}
             end={6313}
