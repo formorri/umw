@@ -19,91 +19,47 @@
     text-transform: capitalize;
 }
 
+.tab-text{
+    @include text-3-bold;
+    text-transform: uppercase;
+    margin: 0;
+}
+
 
 .wrapper-top {
     display: flex;
     flex-direction: column;
-
-    .instructions {
-        display: flex;
-        flex-direction: column;
-        row-gap: $s-gap;
-        align-items: flex-start;
-    }
-
-    .indicator {
-        display: flex;
-        align-items: center;
-        column-gap: $s-gap;
-
-        .indicator-text {
-            @include text-4-bold;
-            text-transform: uppercase;
-        }
-    }
-
+    row-gap: $s-gap;
 }
 
-
-$switcherSize: 50px;
-$switcherWidth: 18rem;
-
-.switch-container {
+.tab-container{
     display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.tab{
+    display: flex;
+    column-gap: 10px;
     align-items: center;
-}
-
-.switch-wrapper {
-    position: relative;
-}
-
-.switch-text {
-    @include text-4-bold;
-    color: $white-1;
-    align-self: center;
-    justify-content: center;
-    position: absolute;
-    text-transform: uppercase;
-    left: 10%;
-    right: 10%;
-    z-index: 1;
-    text-align: center;
-}
-
-
-.switch {
-    width: $switcherWidth;
-    height: calc($switcherSize / 1.6);
-    background-color: $blue-3;
-    display: flex;
-    justify-content: flex-start;
-    border-radius: 50px;
-    padding: calc($switcherSize / 16);
+    padding: 10px 20px;
+    border-radius: 10rem;
+    justify-content: space-between;
     cursor: pointer;
 }
 
-.switch[data-ison='true'] {
-    justify-content: flex-end;
-    background-color: $blue-3;
-}
-
-.handle {
-    width: calc($switcherSize / 2);
-    height: calc($switcherSize / 2);
-    background-color: white;
-    border-radius: 100%;
-}
-
-
 .content-wrapper {
-    margin-top: 30px;
+    $gap: 10px;
+    margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    row-gap: $gap;
+    column-gap: $gap;
 
     .card {
         &:nth-child(1) {
             grid-column: 1/3;
-            width: calc(50vw - $s-x-gap);
+            width: calc(50vw - $s-x-gap - $gap);
         }
     }
 }
@@ -124,23 +80,9 @@ $switcherWidth: 18rem;
 
 @include gt-xs {
     .wrapper-top {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    $switcherSize: 80px;
-    $switcherWidth: 23rem;
-
-    .switch {
-        width: $switcherWidth;
-        height: calc($switcherSize / 1.6);
-        padding: calc($switcherSize / 16);
-    }
-
-    .handle {
-        width: calc($switcherSize / 2);
-        height: calc($switcherSize / 2);
+        // flex-direction: row;
+        // align-items: center;
+        // justify-content: space-between;
     }
 
     .content-wrapper {
@@ -162,34 +104,15 @@ $switcherWidth: 18rem;
         padding: $l-y-gap $l-x-gap;
     }
 
-    .wrapper-top {
-        align-items: center;
-        justify-content: space-between;
-
-        .instructions {
-            row-gap: $l-gap;
-            align-items: flex-end;
-        }
-
-        .indicator {
-            column-gap: $l-gap;
-        }
+    .tab-container{
+        flex-direction: row;
+        column-gap: 10px;
     }
 
-
-    $switcherSize: 80px;
-    $switcherWidth: 23rem;
-
-    .switch {
-        width: $switcherWidth;
-        height: calc($switcherSize / 1.6);
-        padding: calc($switcherSize / 16);
+    .tab{
+        flex-grow: 1;
     }
 
-    .handle {
-        width: calc($switcherSize / 2);
-        height: calc($switcherSize / 2);
-    }
 
     .content-wrapper {
         display: grid;

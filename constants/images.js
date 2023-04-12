@@ -138,6 +138,12 @@ import B3 from "../public/assets/B-3.png";
 import B4 from "../public/assets/B-4.png";
 import B5 from "../public/assets/B-5.png";
 import B6 from "../public/assets/B-6.png";
+
+import C1 from "../public/assets/C-1.png";
+import C2 from "../public/assets/C-2.png";
+import C3 from "../public/assets/C-3.png";
+import C4 from "../public/assets/C-4.png";
+import C5 from "../public/assets/C-5.png";
 import leadershipBackground from "../public/assets/leadership-background.png";
 
 // ? AGM
@@ -291,6 +297,11 @@ const Images = {
   B4,
   B5,
   B6,
+  C1,
+  C2,
+  C3,
+  C4,
+  C5,
   leadershipBackground,
 
   // ? AGM

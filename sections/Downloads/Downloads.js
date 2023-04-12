@@ -153,7 +153,7 @@ const Downloads = () => {
         </div>
         <div className={styles["archive-wrapper"]}>
           <Link href="https://www.umw.com.my/web/guest/financial-report" target="_blank">
-            <p className={styles["item-text"]}>Annual Reports Archive</p>
+            <p className={styles["archive-text"]}>Annual Reports Archive</p>
             <div className={styles["icon-container"]}>
               <Image
                 src={images.link}
@@ -166,7 +166,7 @@ const Downloads = () => {
         </div>
         <div className={styles["archive-wrapper"]}>
           <Link href="https://www.umw.com.my/web/guest/sustain-report" target="_blank">
-            <p className={styles["item-text"]}>
+            <p className={styles["archive-text"]}>
               Sustainability Reports Archive
             </p>
             <div className={styles["icon-container"]}>
