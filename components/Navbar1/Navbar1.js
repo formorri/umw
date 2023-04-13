@@ -109,6 +109,14 @@ const Navbar1 = ({ children, className }) => {
     setOpenNavbar(false);
   };
 
+  // function scrollToSection(id) {
+  //   const section = document.querySelector(`#${id}`);
+  //   const yOffset = -80;
+  //   const y =
+  //     section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  //   window.scrollTo({ top: y, behavior: "smooth" });
+  // }
+
   return (
     <navbar className={className}>
       <div
@@ -162,7 +170,15 @@ const Navbar1 = ({ children, className }) => {
           <ul className={styles.list}>
             {sections.map((item) => (
               <li key={item.key} className={styles.link}>
-                <a href={`#${item.link}`}>{item.name}</a>
+                <a
+                  href={`#${item.link}`}
+                  onClick={() => {
+                    setOpenNavbar(false);
+                    // scrollToSection(item.link);
+                  }}
+                >
+                  {item.name}
+                </a>
               </li>
             ))}
           </ul>
@@ -189,7 +205,10 @@ const Navbar1 = ({ children, className }) => {
                 </svg>
               </a>
               {/* youtube */}
-              <a href="https://www.youtube.com/channel/UCrnboEyn-rHnepGEJRZZLxw/videos" target="_blank">
+              <a
+                href="https://www.youtube.com/channel/UCrnboEyn-rHnepGEJRZZLxw/videos"
+                target="_blank"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="29.455"

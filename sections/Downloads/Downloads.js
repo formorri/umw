@@ -58,7 +58,7 @@ const Downloads = () => {
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
             <Link href="pdf/IR2022.pdf" target="_blank">
               <p className={styles["item-text"]}>
-                Integrated Annual Report 2022
+                Integrated Annual Report <span>2022</span>
               </p>
               <div className={styles["icon-container"]}>
                 <Image
@@ -71,7 +71,7 @@ const Downloads = () => {
             </Link>
           </div>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
-            <Link href="/" target="_blank">
+            <Link href="pdf/SR-report.pdf" target="_blank">
               <p className={styles["item-text"]}>Sustainability Report <span>2022</span></p>
               <div className={styles["icon-container"]}>
                 <Image
@@ -84,7 +84,7 @@ const Downloads = () => {
             </Link>
           </div>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
-            <Link href="/" target="_blank">
+            <Link href="pdf/CG-report.pdf" target="_blank">
               <p className={styles["item-text"]}>
                 Corporate Governance Report <span>2022</span>
               </p>
@@ -99,7 +99,7 @@ const Downloads = () => {
             </Link>
           </div>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
-            <Link href="/" target="_blank">
+            <Link href="pdf/circular-to-shareholders.pdf" target="_blank">
               <p className={styles["item-text"]}>Circular To Shareholders</p>
               <div className={styles["icon-container"]}>
                 <Image

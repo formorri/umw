@@ -38,7 +38,7 @@ $padding-top: 3rem;
 .content-wrapper {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: calc(8rem + $padding-top) auto auto auto;
+    grid-template-rows: calc(5rem + $padding-top) auto auto auto;
     place-items: center;
 
     .background {
@@ -228,8 +228,12 @@ $padding-top: 3rem;
 
         .content-desc {
             @include text-2-1-bold;
-            text-transform: capitalize;
+            // text-transform: capitalize;
             margin: 10px 0 0;
+
+            span{
+                @include  number-7-bold;
+            }
 
             &::after {
                 @include accent;
@@ -393,7 +397,7 @@ $padding-top: 3rem;
 
     .content-wrapper {
         grid-template-columns: auto;
-        grid-template-rows: calc(12rem + $padding-top) auto auto auto;
+        grid-template-rows: calc(7rem + $padding-top) auto auto auto;
         place-items: center;
     }
 
@@ -466,7 +470,7 @@ $padding-top: 3rem;
     .content-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: calc(15rem + $padding-top) auto auto;
+        grid-template-rows: calc(10rem + $padding-top) auto auto;
         column-gap: $l-gap;
         
         .background {

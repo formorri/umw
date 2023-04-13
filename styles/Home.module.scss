@@ -28,5 +28,8 @@
         @include text-4-regular;
         color: $white-1;
         text-align: center;
+        span{
+            @include number-6;
+        }
     }
 }

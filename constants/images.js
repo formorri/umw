@@ -3,29 +3,29 @@ import logo from "../public/assets/logo.png";
 import download from "../public/assets/download.svg";
 import play from "../public/assets/play.png";
 import add from "../public/assets/add.png";
-import quote from "../public/assets/quote.png";
-import share from "../public/assets/share.svg";
+// import quote from "../public/assets/quote.png";
+// import share from "../public/assets/share.svg";
 import divider from "../public/assets/divider.png";
-import switcher from "../public/assets/switcher.png";
+// import switcher from "../public/assets/switcher.png";
 import arrow from "../public/assets/arrow.png";
 import burger from "../public/assets/burger.png";
-import financial from "../public/assets/value-2.png";
-import manufacturing from "../public/assets/value-3.png";
-import human from "../public/assets/value-4.png";
-import intellectual from "../public/assets/value-5.png";
-import social from "../public/assets/value-6.png";
-import natural from "../public/assets/value-7.png";
-import automotive from "../public/assets/automotive.png";
-import equipment from "../public/assets/equipment.png";
-import MnE from "../public/assets/m&e.png";
-import aerospace from "../public/assets/aerospace.png";
-import development from "../public/assets/development.png";
-import peroduaToyota from "../public/assets/perodua-toyota.png";
+// import financial from "../public/assets/value-2.png";
+// import manufacturing from "../public/assets/value-3.png";
+// import human from "../public/assets/value-4.png";
+// import intellectual from "../public/assets/value-5.png";
+// import social from "../public/assets/value-6.png";
+// import natural from "../public/assets/value-7.png";
+// import automotive from "../public/assets/automotive.png";
+// import equipment from "../public/assets/equipment.png";
+// import MnE from "../public/assets/m&e.png";
+// import aerospace from "../public/assets/aerospace.png";
+// import development from "../public/assets/development.png";
+// import peroduaToyota from "../public/assets/perodua-toyota.png";
 import fb from "../public/assets/fb.png";
 import linkedIn from "../public/assets/linkedin.png";
 import email from "../public/assets/email.png";
 import link from "../public/assets/link.png";
-import feedback from "../public/assets/feedback.png";
+// import feedback from "../public/assets/feedback.png";
 import touch from "../public/assets/touch.png";
 
 // ? Home
@@ -35,42 +35,42 @@ import scroll from "../public/assets/scroll.png";
 
 // ? Who we are
 import wow from "../public/assets/wow.png";
-import wowText1 from "../public/assets/wow-1.png";
-import wowText2 from "../public/assets/wow-2.png";
-import wowText3 from "../public/assets/wow-3.png";
-import wowLogo1 from "../public/assets/wow-logo-1.png";
-import wowLogo2 from "../public/assets/wow-logo-2.png";
-import wowLogo3 from "../public/assets/wow-logo-3.png";
-import reachMapHorizontal from "../public/assets/reach-1-desktop.png";
-import reachMapVertical from "../public/assets/reach-1-phone.png";
-import reachCountryVertical from "../public/assets/reach-2-desktop.png";
-import reachCountryHorizontal from "../public/assets/reach-2-phone.png";
-import malaysia from "../public/assets/malaysia.png";
-import singapore from "../public/assets/singapore.png";
-import china from "../public/assets/china.png";
-import papua from "../public/assets/papua.png";
-import vietnam from "../public/assets/vietnam.png";
-import myanmar from "../public/assets/myanmar.png";
-import indonesia from "../public/assets/indonesia.png";
-import brunei from "../public/assets/brunei.png";
+// import wowText1 from "../public/assets/wow-1.png";
+// import wowText2 from "../public/assets/wow-2.png";
+// import wowText3 from "../public/assets/wow-3.png";
+// import wowLogo1 from "../public/assets/wow-logo-1.png";
+// import wowLogo2 from "../public/assets/wow-logo-2.png";
+// import wowLogo3 from "../public/assets/wow-logo-3.png";
+// import reachMapHorizontal from "../public/assets/reach-1-desktop.png";
+// import reachMapVertical from "../public/assets/reach-1-phone.png";
+// import reachCountryVertical from "../public/assets/reach-2-desktop.png";
+// import reachCountryHorizontal from "../public/assets/reach-2-phone.png";
+// import malaysia from "../public/assets/malaysia.png";
+// import singapore from "../public/assets/singapore.png";
+// import china from "../public/assets/china.png";
+// import papua from "../public/assets/papua.png";
+// import vietnam from "../public/assets/vietnam.png";
+// import myanmar from "../public/assets/myanmar.png";
+// import indonesia from "../public/assets/indonesia.png";
+// import brunei from "../public/assets/brunei.png";
 import map from "../public/assets/map.png";
 import mapSmall from "../public/assets/map-small.png";
 
 // ? Views from our leaders
 import chairman from "../public/assets/leader-1.png";
 import president from "../public/assets/leader-2.png";
-import chairmanSignature from "../public/assets/leader-1-signature.png";
-import presidentSignature from "../public/assets/leader-2-signature.png";
+// import chairmanSignature from "../public/assets/leader-1-signature.png";
+// import presidentSignature from "../public/assets/leader-2-signature.png";
 import leaderBackground from "../public/assets/leader-background.png";
 import leaderBackground1 from "../public/assets/leader-background1.png";
 
 // ? Our performance
-import toyotaPic from "../public/assets/performance-1-a-pic.png";
-import peroduaPic from "../public/assets/performance-1-b-pic.png";
-import equipmentPic from "../public/assets/performance-2-pic.png";
-import mnEPic from "../public/assets/performance-3-pic.png";
-import aerospacePic from "../public/assets/performance-4-pic.png";
-import developmentPic from "../public/assets/performance-5-pic.png";
+// import toyotaPic from "../public/assets/performance-1-a-pic.png";
+// import peroduaPic from "../public/assets/performance-1-b-pic.png";
+// import equipmentPic from "../public/assets/performance-2-pic.png";
+// import mnEPic from "../public/assets/performance-3-pic.png";
+// import aerospacePic from "../public/assets/performance-4-pic.png";
+// import developmentPic from "../public/assets/performance-5-pic.png";
 
 // ? Managing our material matters
 import material1 from "../public/assets/material-1.png";
@@ -93,7 +93,7 @@ import value4 from "../public/assets/value-4.png";
 import value5 from "../public/assets/value-5.png";
 import value6 from "../public/assets/value-6.png";
 import value7 from "../public/assets/value-7.png";
-import valueAccent from "../public/assets/value-accent.png";
+// import valueAccent from "../public/assets/value-accent.png";
 import valueArrow from "../public/assets/sequence-arrow.png";
 
 // ? Sustainability performance
@@ -162,29 +162,29 @@ const Images = {
   download,
   play,
   add,
-  quote,
-  share,
+  // quote,
+  // share,
   divider,
-  switcher,
+  // switcher,
   arrow,
   burger,
-  financial,
-  manufacturing,
-  human,
-  intellectual,
-  social,
-  natural,
-  automotive,
-  equipment,
-  MnE,
-  aerospace,
-  development,
-  peroduaToyota,
+  // financial,
+  // manufacturing,
+  // human,
+  // intellectual,
+  // social,
+  // natural,
+  // automotive,
+  // equipment,
+  // MnE,
+  // aerospace,
+  // development,
+  // peroduaToyota,
   fb,
   linkedIn,
   email,
   link,
-  feedback,
+  // feedback,
   touch,
 
   // ? Home
@@ -194,42 +194,42 @@ const Images = {
 
   // ? Who we are
   wow,
-  wowText1,
-  wowText2,
-  wowText3,
-  wowLogo1,
-  wowLogo2,
-  wowLogo3,
-  reachMapHorizontal,
-  reachMapVertical,
-  reachCountryVertical,
-  reachCountryHorizontal,
-  malaysia,
-  singapore,
-  china,
-  papua,
-  vietnam,
-  myanmar,
-  indonesia,
-  brunei,
+  // wowText1,
+  // wowText2,
+  // wowText3,
+  // wowLogo1,
+  // wowLogo2,
+  // wowLogo3,
+  // reachMapHorizontal,
+  // reachMapVertical,
+  // reachCountryVertical,
+  // reachCountryHorizontal,
+  // malaysia,
+  // singapore,
+  // china,
+  // papua,
+  // vietnam,
+  // myanmar,
+  // indonesia,
+  // brunei,
   map,
   mapSmall,
 
   // ? Views from our leaders
   chairman,
   president,
-  chairmanSignature,
-  presidentSignature,
+  // chairmanSignature,
+  // presidentSignature,
   leaderBackground,
   leaderBackground1,
 
   // ? Our performance
-  toyotaPic,
-  peroduaPic,
-  equipmentPic,
-  mnEPic,
-  aerospacePic,
-  developmentPic,
+  // toyotaPic,
+  // peroduaPic,
+  // equipmentPic,
+  // mnEPic,
+  // aerospacePic,
+  // developmentPic,
 
   // ? Managing our material matters
   material1,
@@ -252,7 +252,7 @@ const Images = {
   value5,
   value6,
   value7,
-  valueAccent,
+  // valueAccent,
   valueArrow,
 
   // ? Sustainability performance

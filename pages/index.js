@@ -27,6 +27,7 @@ export default function Home() {
       <Head>
         <title>UMW Holdings Integrated Annual Report 2022</title>
         <link rel="icon" href="favicon.ico" />
+        <meta name="format-detection" content="telephone=no"></meta>
         {/* metadata */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:type" content="website" />
@@ -39,16 +40,14 @@ export default function Home() {
           content="UMW Holdings Integrated Annual Report 2022"
         />
         <meta property="og:description" content="ACCELERATING CREST@UMW" />
-        {/* <meta property="og:image" content="preview-image.png" /> */}
+        <meta property="og:image" content="preview-image.png" />
         <meta
           name="keywords"
           content="UMW, UMW Integrated Annual Report, UMW Integrated Annual Report 2022, UMW Holdings Berhad, Integrated Annual Report 2022, Integrated Annual Report, Annual Report"
         />
         <meta name="author" content="NovaFusion" />
-        {/* <link rel='canonical' hrefLang="en" href='https://www.umw.com/' /> */}
       </Head>
 
-      {/* <p className={styles.watermark}>INTEGRATED ANNUAL REPORT 2022</p> */}
       <Navbar1 className={styles.navbar} />
       <Hero />
       <WhoWeAre />
@@ -63,7 +62,7 @@ export default function Home() {
 
       <div className={styles.copyright}>
         <p className={styles["text"]}>
-          © 2023 UMW Holdings Berhad 198201010554 (90278-P). All rights
+          © <span>2023</span> UMW Holdings Berhad <span>198201010554 (90278-P)</span>. All rights
           reserved.
         </p>
       </div>

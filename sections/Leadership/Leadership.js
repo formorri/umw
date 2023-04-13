@@ -19,6 +19,8 @@ const leaderData = [
     tabName: "Board of directors",
     colorActive: "#00A4E2",
     colorInactive: "#C7EAF6",
+    download: "pdf/board-of-directors.pdf",
+    class: 'content-wrapper',
     tab: [
       {
         key: 0,
@@ -96,6 +98,8 @@ const leaderData = [
     tabName: "management comittee members",
     colorActive: "#37BDBA",
     colorInactive: "#EAF6F5",
+    download: "pdf/management-committee-members.pdf",
+    class: 'content-wrapper',
     tab: [
       {
         key: 0,
@@ -152,6 +156,8 @@ const leaderData = [
     tabName: "ex officio members",
     colorActive: "#8E71A1",
     colorInactive: "#E9E1EF",
+    download: "pdf/ex-officio-members.pdf",
+    class: 'content-wrapper-officio',
     tab: [
       {
         key: 0,
@@ -163,7 +169,7 @@ const leaderData = [
         key: 1,
         image: "C2",
         name: "CHEW KAR KEAN, ERIC",
-        title: ["Group Director, Property & Development"],
+        title: ["Group Director,", "Property & Development"],
       },
       {
         key: 2,
@@ -349,57 +355,59 @@ const Leadership = () => {
       <div>
         {activeTabData && (
           <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ x: 10, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: -10, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className={styles["content-wrapper"]}
-            >
-              {activeTabData.tab.map((dataItem) => (
-                <motion.div
-                  whileInView={{
-                    y: [10, 0],
-                    opacity: [0, 1],
-                  }}
-                  transition={{ duration: 0.8 }}
-                  className={styles["card"]}
-                >
-                  <Image
-                    src={images[dataItem.image]}
-                    alt={dataItem.name}
-                    className={styles.image}
-                  />
-                  <div className={styles["content"]}>
-                    <p className={styles["leader-name"]}>{dataItem.name}</p>
-                    {Array.isArray(dataItem.title) &&
-                      dataItem.title.map((item) => (
-                        <p className={styles["leader-title"]}>{item}</p>
-                      ))}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+            <div>
+              <motion.div
+                key={activeTab}
+                initial={{ x: 10, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -10, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className={styles[activeTabData.class]}
+              >
+                {activeTabData.tab.map((dataItem) => (
+                  <motion.div
+                    whileInView={{
+                      y: [10, 0],
+                      opacity: [0, 1],
+                    }}
+                    transition={{ duration: 0.8 }}
+                    className={styles["card"]}
+                  >
+                    <Image
+                      src={images[dataItem.image]}
+                      alt={dataItem.name}
+                      className={styles.image}
+                    />
+                    <div className={styles["content"]}>
+                      <p className={styles["leader-name"]}>{dataItem.name}</p>
+                      {Array.isArray(dataItem.title) &&
+                        dataItem.title.map((item) => (
+                          <p className={styles["leader-title"]}>{item}</p>
+                        ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+              <motion.div
+                whileInView={{
+                  y: [10, 0],
+                  opacity: [0, 1],
+                }}
+                transition={{ duration: 0.8 }}
+              >
+                <Button1
+                  link={activeTabData.download}
+                  text="Download This Section"
+                  backgroundColor="#112F5E"
+                  textColor="white"
+                  icon="touch"
+                  className={styles.download}
+                />
+              </motion.div>
+            </div>
           </AnimatePresence>
         )}
       </div>
-      <motion.div
-        whileInView={{
-          y: [10, 0],
-          opacity: [0, 1],
-        }}
-        transition={{ duration: 0.8 }}
-      >
-        <Button1
-          link="pdf/leadership.pdf"
-          text="Download This Section"
-          backgroundColor="#112F5E"
-          textColor="white"
-          icon="touch"
-          className={styles.download}
-        />
-      </motion.div>
     </div>
   );
 };

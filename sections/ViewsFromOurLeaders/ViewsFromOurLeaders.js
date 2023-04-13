@@ -30,7 +30,7 @@ const ViewsFromOurLeaders = () => {
               src={images.leaderBackground}
               loading="lazy"
               alt="background"
-              className={styles["background"]}
+              className={styles["background-chairman"]}
             />
           </div>
           <motion.div
@@ -56,7 +56,7 @@ const ViewsFromOurLeaders = () => {
             <p className={styles["quote-header"]}>Group Chairman message</p>
             <p className={styles["quote-dear"]}>Dear Valued Shareholders,</p>
             <p className={styles["quote-text"]}>
-              The Board's priority in 2022 for the UMW Group was to strengthen
+              The Board's priority in <span>2022</span> for the UMW Group was to strengthen
               resilience by actively managing risks, while operating in a world
               facing global macro-economic and geo-political headwinds.
             </p>
@@ -64,7 +64,7 @@ const ViewsFromOurLeaders = () => {
               <p className={styles["leader-name"]}>
                 Tan Sri Dato’ Sri Hamad Kama Piah Che Othman
               </p>
-              <p className={styles["leader-title"]}>Chairman</p>
+              <p className={styles["leader-title"]}>Group Chairman</p>
             </div>
           </motion.div>
           <motion.div
@@ -115,7 +115,8 @@ const ViewsFromOurLeaders = () => {
                     <p className={styles["unit"]}>
                       compared with{" "}
                       <span className={styles["number-text"]}>RM 11.1 </span>
-                      billion in 2021
+                      billion in 
+                      <span className={styles["number-text"]}> 2021 </span>
                     </p>
                   </div>
                 )}
@@ -142,7 +143,7 @@ const ViewsFromOurLeaders = () => {
               src={images.leaderBackground1}
               loading="lazy"
               alt="background"
-              className={styles["background"]}
+              className={styles["background-president"]}
             />
           </div>
           <motion.div
@@ -170,8 +171,8 @@ const ViewsFromOurLeaders = () => {
             </p>
             <p className={styles["quote-dear"]}>Dear Valued Shareholders,</p>
             <p className={styles["quote-text"]}>
-              2022 was a good year for Malaysia and the UMW Group. The recovery,
-              buoyed by the transition of COVID-19 from pandemic to endemic
+            <span>2022</span> was a good year for Malaysia and the UMW Group. The recovery,
+              buoyed by the transition of COVID-<span>19</span> from pandemic to endemic
               phase, improved business and consumer confidence.
             </p>
             <div className={styles["designation-container"]}>
@@ -199,12 +200,12 @@ const ViewsFromOurLeaders = () => {
               >
                 {({ countUpRef }) => (
                   <div className={styles["data-card-inner"]}>
-                    <p className={styles.unit}>Group Revenue Growth</p>
+                    <p className={styles.unit}>Group’s Revenue</p>
                     <p style={{ margin: 0 }}>
                       <span className={styles.number}>RM</span>
                       <span className={styles.number} ref={countUpRef}></span>
+                      <span className={styles.unit}> billion</span>
                     </p>
-                    <p className={styles.unit}> billion</p>
                   </div>
                 )}
               </CountUp>
@@ -212,7 +213,7 @@ const ViewsFromOurLeaders = () => {
             <div className={styles["data-card"]}>
               <CountUp
                 start={0}
-                end={869.5}
+                end={896.5}
                 delay={0}
                 decimal="."
                 decimals={1}

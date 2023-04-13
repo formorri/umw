@@ -25,6 +25,7 @@ const tabData = [
         // category: "automotive",
         // image: "toyotaPic",
         video: "toyota.mp4",
+        download: "pdf/our-performance-toyota.pdf",
         description:
           "Reclaimed its position as the number-one non-national car manufacturer in Malaysia for the second year running",
         data: [
@@ -55,6 +56,7 @@ const tabData = [
         video: "perodua.mp4",
         description:
           "As a national carmaker, Perodua is steadfast about benefitting Malaysians",
+        download: "pdf/our-performance-perodua.pdf",
         data: [
           {
             title: "perodua sales volume",
@@ -85,7 +87,8 @@ const tabData = [
     // image: "equipmentPic",
     video: "equipment.mp4",
     description:
-      "Equipment Division's key initiatives launched during the pandemic yielded results in 2022",
+      "Equipment Division's key initiatives launched during the pandemic yielded results in <span>2022</span>",
+    download: "pdf/our-performance-equipment.pdf",
     data: [
       {
         title: "REVENUE",
@@ -115,6 +118,7 @@ const tabData = [
     video: "mnE.mp4",
     description:
       "The reopening of economies and borders have improved mobility tremendously, intensifying demand for automotive components and lubricants",
+    download: "pdf/our-performance-manufacturing.pdf",
     data: [
       {
         title: "REVENUE",
@@ -143,7 +147,8 @@ const tabData = [
     // image: "aerospacePic",
     video: "aerospace.mp4",
     description:
-      "UMW Aerospace is Malaysia’s first homegrown High Performing Supplier Group (HPSG) Tier-1 aero engine component supplier",
+      "UMW Aerospace is Malaysia’s first homegrown High Performing Supplier Group (HPSG) Tier-<span>1</span> aero engine component supplier to Rolls-Royce",
+    download: "pdf/our-performance-aerospace.pdf",
     data: [
       {
         title: "REVENUE",
@@ -174,18 +179,19 @@ const tabData = [
     // image: "developmentPic",
     video: "development.mp4",
     description:
-      "UMW Development Sdn Bhd’s primary role is to unlock the Group’s landbank in Serendah, with the development of UMW High Value Manufacturing (HVM) Park as a managed and greenrated industrial park",
+      "UMW Development Sdn Bhd’s primary role is to unlock the Group’s landbank in Serendah, with the development of UMW High Value Manufacturing (HVM) Park as a managed and green-rated industrial park",
+    download: "pdf/our-performance-development.pdf",
     data: [
       {
         title: "INKED SALES AND PURCHASE AGREEMENTS VALUED AT",
         units: "(RM million)",
-        figure: "460",
+        figure: "460.0",
         year: "2021: 42.9",
       },
       {
         title: "REVENUE",
         units: "(RM million)",
-        figure: "73.7",
+        figure: "73.9",
         year: "2021: 17.1",
       },
     ],
@@ -222,6 +228,7 @@ const OurPerformance = () => {
   const tabVideo = activeTabData?.video;
   const tabDesc = activeTabData?.description;
   const tabDataItem = activeTabData?.data;
+  const tabDataDownload = activeTabData?.download;
 
   const switcherBackgroundColor = activeSwitcherData?.backgroundColor;
   const switcherColor = activeSwitcherData?.color;
@@ -232,6 +239,7 @@ const OurPerformance = () => {
   const switcherVideo = activeSwitcherData?.video;
   const switcherDesc = activeSwitcherData?.description;
   const switcherDataItem = activeSwitcherData?.data;
+  const switcherDataDownload = activeSwitcherData?.download;
 
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
@@ -269,7 +277,7 @@ const OurPerformance = () => {
         <h2 className={styles.title}>Our Performance</h2>
         {/* tabs */}
         <div className={styles["tab-container"]}>
-          <div className={styles["instructions"]}>
+          {/* <div className={styles["instructions"]}>
             <div className={styles["indicator-wrapper"]}>
               <Image
                 src={images.touch}
@@ -279,7 +287,7 @@ const OurPerformance = () => {
               />
             </div>
             <p className={styles["indicator-text"]}>tap to change tabs</p>
-          </div>
+          </div> */}
           <div className={styles["tab-wrapper"]}>
             {tabData.map((item, index) => (
               <div
@@ -409,9 +417,9 @@ const OurPerformance = () => {
                       style={{
                         "--tab-color": tabColor,
                       }}
-                    >
-                      {tabDesc}
-                    </p>
+                      dangerouslySetInnerHTML={{ __html: tabDesc }}
+                    />
+
                     <div className={styles["card-container"]}>
                       {tabDataItem &&
                         tabDataItem.map((dataItem) => (
@@ -441,20 +449,24 @@ const OurPerformance = () => {
                         </p> */}
                             <CountUp
                               start={0}
-                              end={dataItem.figure}
+                              end={Number(dataItem.figure.replace(",", ""))}
                               delay={0}
-                              decimal="."
-                              decimals={1}
+                              decimals={
+                                dataItem.figure.includes(".")
+                                  ? dataItem.figure.split(".")[1].length
+                                  : 0
+                              }
                               enableScrollSpy={true}
                               scrollSpyDelay={1}
                               scrollSpyOnce={true}
                             >
                               {({ countUpRef }) => (
                                 <div>
-                                  <p
-                                    className={styles["data-figure"]}
-                                    ref={countUpRef}
-                                  ></p>
+                                  <p className={styles["data-figure"]}>
+                                    <span>{dataItem.prefix1}</span>
+                                    <span ref={countUpRef}></span>
+                                    <span>{dataItem.prefix2}</span>
+                                  </p>
                                 </div>
                               )}
                             </CountUp>
@@ -464,14 +476,16 @@ const OurPerformance = () => {
                           </div>
                         ))}
                     </div>
-                    <Button1
-                      link="pdf/our-performance.pdf"
-                      text="Download This Section"
-                      backgroundColor="#112F5E"
-                      textColor="white"
-                      icon="touch"
-                      className={`${styles.download} ${styles["download-large"]}`}
-                    />
+                    {activeTabData?.download?.length > 0 && (
+                      <Button1
+                        link={tabDataDownload}
+                        text="Download This Section"
+                        backgroundColor="#112F5E"
+                        textColor="white"
+                        icon="touch"
+                        className={`${styles.download} ${styles["download-large"]}`}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
@@ -506,14 +520,16 @@ const OurPerformance = () => {
                   </video>
                 </div>
               )}
-              <Button1
-                link="pdf/our-performance.pdf"
-                text="Download This Section"
-                backgroundColor="#112F5E"
-                textColor="white"
-                icon="touch"
-                className={`${styles.download} ${styles["download-small"]}`}
-              />
+              {activeTabData?.download?.length > 0 && (
+                <Button1
+                  link={tabDataDownload}
+                  text="Download This Section"
+                  backgroundColor="#112F5E"
+                  textColor="white"
+                  icon="touch"
+                  className={`${styles.download} ${styles["download-small"]}`}
+                />
+              )}
             </motion.div>
           </AnimatePresence>
         )}
@@ -550,7 +566,7 @@ const OurPerformance = () => {
                   >
                     <p>UMW Toyota</p>
                     <div className={styles["indicator-switcher"]}>
-                    <svg
+                      <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="15.997"
                         height="24.833"
@@ -691,10 +707,13 @@ const OurPerformance = () => {
                             </p>
                             <CountUp
                               start={0}
-                              end={dataItem.figure}
+                              end={Number(dataItem.figure.replace(",", ""))}
                               delay={0}
-                              decimal="."
-                              decimals={1}
+                              decimals={
+                                dataItem.figure.includes(".")
+                                  ? dataItem.figure.split(".")[1].length
+                                  : 0
+                              }
                               enableScrollSpy={true}
                               scrollSpyDelay={1}
                               scrollSpyOnce={true}
@@ -715,7 +734,7 @@ const OurPerformance = () => {
                         ))}
                     </div>
                     <Button1
-                      link="pdf/our-performance.pdf"
+                      link={switcherDataDownload}
                       text="Download This Section"
                       backgroundColor="#112F5E"
                       textColor="white"
@@ -757,7 +776,7 @@ const OurPerformance = () => {
                 </div>
               )}
               <Button1
-                link="pdf/our-performance.pdf"
+                link={switcherDataDownload}
                 text="Download This Section"
                 backgroundColor="#112F5E"
                 textColor="white"

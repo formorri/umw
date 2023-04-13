@@ -19,6 +19,10 @@
     span{
         @include number-5;
     }
+    .bold {
+        @include text-3-bold;
+    }
+    
 }
 
 .countdown-number {

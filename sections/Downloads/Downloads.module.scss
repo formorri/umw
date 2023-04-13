@@ -104,9 +104,9 @@
     .container {
         padding: $l-y-gap $l-x-gap;
         display: grid;
-        grid-template-columns: 2fr 3fr;
+        grid-template-columns: 3.5fr 6.5fr;
         grid-template-rows: auto;
-        align-items: center;
+        // align-items: center;
 
         .link-wrapper{
             grid-area: 1/1/2/2
@@ -131,4 +131,15 @@
             height: auto;
         }
     }
+    .report-wrapper {
+        width: inherit;
+        height: inherit;
+    
+        .mockup {
+            width: 100%;
+            height: auto;
+            margin-top: -5rem;
+        }
+    }
+    
 }

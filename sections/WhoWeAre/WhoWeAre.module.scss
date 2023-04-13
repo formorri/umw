@@ -9,6 +9,10 @@ $circle-size: 37rem;
     color: $dark-2;
 }
 
+// .title2{
+//     mar
+// }
+
 .tooltip-text {
     @include text-3-bold;
     text-align: center
@@ -20,7 +24,7 @@ $circle-size: 37rem;
         @include text-1-bold;
         margin: 0;
         text-transform: uppercase;
-        color: $purple-2;
+        color: #4da7ab;
     }
 
     .number {
@@ -144,8 +148,9 @@ $circle-size: 37rem;
     padding-bottom: $s-gap;
     display: block;
 
-    .map-text {
+    .map-text-phone {
         display: block;
+        margin-top: $s-gap;
     }
 }
 
@@ -216,8 +221,8 @@ $circle-size: 37rem;
     }
 
     .tooltip-3 {
-        top: 11%;
-        left: 25%;
+        top: 1%;
+        left: 22%;
     }
 
     .tooltip-4 {
@@ -226,13 +231,13 @@ $circle-size: 37rem;
     }
 
     .tooltip-5 {
-        top: 37%;
-        left: 23%;
+        top: 29%;
+        left: 27%;
     }
 
     .tooltip-6 {
-        top: 19%;
-        left: 1%;
+        top: 24%;
+        left: 5%;
     }
 
     .tooltip-7 {
@@ -345,8 +350,8 @@ $circle-size: 37rem;
         }
 
         .tooltip-3 {
-            top: 11%;
-            left: 25%;
+            top: 3%;
+            left: 24%;
         }
 
         .tooltip-4 {
@@ -355,13 +360,13 @@ $circle-size: 37rem;
         }
 
         .tooltip-5 {
-            top: 39%;
-            left: 26%;
+            top: 29%;
+            left: 31%;
         }
 
         .tooltip-6 {
-            top: 19%;
-            left: 1%;
+            top: 26%;
+            left: 9%;
         }
 
         .tooltip-7 {
@@ -434,7 +439,7 @@ $circle-size: 37rem;
 
     .map-text {
         position: absolute;
-        top: 50%;
+        top: 60%;
         left: $l-x-gap;
         z-index: 10;
         display: block;
@@ -478,42 +483,42 @@ $circle-size: 37rem;
         }
 
         .tooltip-1 {
-            top: 52%;
-            left: 41%;
+            top: 56%;
+            left: 40%;
         }
 
         .tooltip-2 {
-            top: 62%;
+            top: 68%;
             left: 44%;
         }
 
         .tooltip-3 {
             top: 7%;
-            left: 46%;
+            left: 45%;
         }
 
         .tooltip-4 {
-            top: 74%;
-            left: 80%;
+            top: 81%;
+            left: 84%;
         }
 
         .tooltip-5 {
-            top: 37%;
-            left: 46%;
+            top: 34%;
+            left: 50%;
         }
 
         .tooltip-6 {
-            top: 17%;
-            left: 32%;
+            top: 30%;
+            left: 36%;
         }
 
         .tooltip-7 {
-            top: 87%;
+            top: 89%;
             left: 54%;
         }
 
         .tooltip-8 {
-            top: 50%;
+            top: 58%;
             left: 59%;
         }
     }

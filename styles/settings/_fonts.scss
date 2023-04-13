@@ -243,6 +243,12 @@ $url: '../../public/fonts/';
     font-weight: 500;
 }
 
+@mixin number-5-bold {
+    @include font-settings ($desktop-font-size: 18px);
+    font-family: 'Kievit';
+    font-weight: bold;
+}
+
 @mixin number-6 {
     @include font-settings ($desktop-font-size: 16px);
     font-family: 'Kievit';
@@ -250,6 +256,11 @@ $url: '../../public/fonts/';
 }
 @mixin number-6-bold {
     @include font-settings ($desktop-font-size: 16px);
+    font-family: 'Kievit';
+    font-weight: bold;
+}
+@mixin number-7-bold {
+    @include font-settings ($desktop-font-size: 22px);
     font-family: 'Kievit';
     font-weight: bold;
 }

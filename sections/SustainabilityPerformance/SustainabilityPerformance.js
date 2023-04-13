@@ -17,9 +17,9 @@ const cardData = [
     tagline: "100% Carbon Neutrality by 2050",
     action: [
       "Environmental leadership via sustainable operational excellence",
-      "Invest in nature-based solution for CO2 sequestration",
+      "Invest in nature-based solution for CO<span>2</span> sequestration",
     ],
-    target: ["<span>45%</span> CO2 neutrality by <span>2030</span>", "<span>100%</span> CO2 neutrality by <span>2050</span>"],
+    target: ["<span>45%</span> CO<span>2</span> neutrality by <span>2030</span>", "<span>100%</span> CO<span>2</span> neutrality by <span>2050</span>"],
     focus: [
       "Renewable Energy (Solar PV installations, Green Electricity Tarriff subscription)",
       "Reforestation",
@@ -71,9 +71,9 @@ const cardData = [
     ],
     target: ["Production of Green Energy", "Production of Green Products"],
     focus: [
-      "Value chain of H2",
+      "Value chain of H<span>2</span>",
       "Hybrid vehicle",
-      "Electrification (components & 2-wheeler)",
+      "Electrification (components & <span>2</span>-wheeler)",
       "Products (Bio-Lubricant & Membrane)",
       "Recycling (BRUSS)",
     ],
@@ -103,7 +103,7 @@ const cardData = [
     highlights: [
       "<span>2,187</span> community champions",
       "<span>11,344</span> volunteer hours",
-      "<span>RM1.9</span> million spent on initiatives, sponsorship, donations",
+      "<span>RM9.1</span> million spent on initiatives, sponsorship, donations",
     ],
     sdg: ["sdg1", "sdg2", "sdg3", "sdg4", "sdg8", "sdg10"],
   },

@@ -67,7 +67,7 @@
     display: flex;
     flex-direction: column;
     margin: auto 2rem;
-    background-image: linear-gradient(to right, #FFFFFF, #E8F3F4);
+    background-image: linear-gradient(90deg,#88c358,#e8f3f4);
     border-radius: $border-radius;
     flex-flow: column-reverse;
 }
@@ -156,6 +156,7 @@
 
             .video {
                 object-fit: cover;
+                object-position: 50% 15%;
                 height: clamp(640px, 100vh, 770px);
             }
         }

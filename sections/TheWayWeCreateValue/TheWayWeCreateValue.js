@@ -23,7 +23,7 @@ const carouselData = [
   },
   {
     key: 2,
-    title: "Customer, Product & Innovation Excellence",
+    title: "Customer, Product and Innovation Excellence",
     image: "material2",
     onClick: () => handleModalClick("modal2"),
   },
@@ -35,19 +35,19 @@ const carouselData = [
   },
   {
     key: 4,
-    title: "Training & Education",
+    title: "Training and Education",
     image: "material4",
     onClick: () => handleModalClick("modal4"),
   },
   {
     key: 5,
-    title: "Energy, Waste & Water Management",
+    title: "Energy, Waste and Water Management",
     image: "material5",
     onClick: () => handleModalClick("modal5"),
   },
   {
     key: 6,
-    title: "Diversity & Inclusivity",
+    title: "Diversity and Inclusivity",
     image: "material6",
     onClick: () => handleModalClick("modal6"),
   },
@@ -59,7 +59,7 @@ const carouselData = [
   },
   {
     key: 8,
-    title: "Business Ethics & Governance",
+    title: "Business Ethics and Governance",
     image: "material8",
     onClick: () => handleModalClick("modal8"),
   },
@@ -71,7 +71,7 @@ const carouselData = [
   },
   {
     key: 10,
-    title: "Occupational Health & Safety",
+    title: "Occupational Health and Safety",
     image: "material10",
     onClick: () => handleModalClick("modal10"),
   },
@@ -93,7 +93,7 @@ const modalData = [
       "Transition risk pertains to the impact of shifting strategies, regulations, or investments as society and industry move towards reducing their carbon dependency and mitigating the resulting environmental impact",
     ],
     opportunities: [
-      "Bolster climate action and commit to investing in naturebased solutions that facilitate carbon sequestration to achieve <span>45%</span> and <span>100%</span> carbon neutrality by <span>2030</span> and <span>2050</span>",
+      "Bolster climate action and commit to investing in nature-based solutions that facilitate carbon sequestration to achieve <span>45%</span> and <span>100%</span> carbon neutrality by <span>2030</span> and <span>2050</span>",
     ],
     shortMid: [
       "Investing in renewable energy by installing solar panels at our KYB-UMW and Aerospace plants",
@@ -119,11 +119,11 @@ const modalData = [
     ],
     shortMid: [
       "Utilising customer insights to develop innovative products and solutions enhances competitiveness and future-proof our business",
-      "Creating in-house capabilities through cultivating an innovative and highperformance culture",
+      "Creating in-house capabilities through cultivating an innovative and high performance culture",
       "Leveraging on digitalisation and technology to boost efficiency",
     ],
     value: [
-      "UMW Toyota recaptured the top non-national automobile sales position",
+      "UMW Toyota recaptured the top non-national position",
       "Refurbished more than <span>500</span> forklifts",
       "UMW Aerospace was accorded the Supplier Best Practice Award by Rolls-Royce",
     ],
@@ -136,7 +136,7 @@ const modalData = [
     ],
     opportunities: [
       "Employees promote our organisation to their colleagues, future employers, and co-workers",
-      "Employees go above and engage in behaviours that help the Company succeed",
+      "Employees go above and engage in behaviours that help the company succeed",
     ],
     shortMid: [
       "Improved employee engagement through organised and personalised programmes",
@@ -157,7 +157,7 @@ const modalData = [
     ],
     opportunities: [
       "Excellent chances for growth and upskilling boost talent recruitment and retention",
-      "Employees who are welltrained strengthen the Group's resilience in the face of future difficulties and market shifts",
+      "Employees who are well-trained strengthen the Group's resilience in the face of future difficulties and market shifts",
     ],
     shortMid: [
       "Creating a dynamic and adaptable workforce that is well-versed in necessary and future-relevant skills to fuel the Group's growth",
@@ -171,7 +171,7 @@ const modalData = [
     key: 5,
     title: "Energy, Waste and Water Management",
     risks: [
-      "Failure to responsibly manage natural resources could result in resource scarcity for the business and regulatory sanctions.",
+      "Failure to responsibly manage natural resources could result in resource scarcity for the business and regulatory sanctions",
     ],
     opportunities: [
       "The Group's operating expenses can be improved and direct environmental impacts from its operations and business activities can be reduced through the systematic management of energy and resources",
@@ -181,7 +181,7 @@ const modalData = [
       "Environmental stewardship is demonstrated by complying with relevant laws and regulations, as well as engaging with the community",
     ],
     value: [
-      "The KYB-UMW factory has commissioned a water reclamation plant that utilises membrane technology developed inhouse",
+      "The KYB-UMW factory has commissioned a water reclamation plant that utilises membrane technology developed in-house",
       "Improved UMW Environment Action Plan (UEAP) score from <span>0.5</span> in <span>2016</span> to <span>3.75</span> in <span>2022</span>, higher than industry average score of <span>3.1</span>",
     ],
   },
@@ -196,10 +196,10 @@ const modalData = [
       "Fostering a culture of learning and growth, as well as promoting tolerance, patience, and perseverance throughout all levels of the organisation",
     ],
     shortMid: [
-      "The design and implementation of programs to enhance diversity across all significant dimensions",
+      "The design and implementation of programmes to enhance diversity across all significant dimensions",
     ],
     value: [
-      "Retained more than 30% of women’s representation on the Board",
+      "Retained more than <span>30%</span> of women’s representation on the Board",
       "<span>14%</span> of women in senior management roles",
     ],
   },
@@ -224,7 +224,7 @@ const modalData = [
     key: 8,
     title: "Business Ethics and Governance",
     risks: [
-      "Inadequate or ineffective anticorruption governance may result in regulatory pressures, increased non-compliance costs, and a negative reputation",
+      "Inadequate or ineffective anti-corruption governance may result in regulatory pressures, increased non-compliance costs, and a negative reputation",
     ],
     opportunities: [
       "Incorporating principles of good governance can enhance an organisation's resilience against external factors, thereby future proofing it",
@@ -253,14 +253,14 @@ const modalData = [
       "Raising suppliers' awareness on ESG",
     ],
     value: [
-      "Local suppliers comprised 88% of the Group's suppliers",
+      "Local suppliers comprised <span>88%</span> of the Group's suppliers",
       "<span>59%</span> of the Group's procurement budget went to local suppliers",
       "Held a supplier performance review exercise for <span>308</span> suppliers",
     ],
   },
   {
     key: 10,
-    title: "Occupational Health & Safety",
+    title: "Occupational Health and Safety",
     risks: [
       "Inadequate OHS standards and practices may result in health hazards, workforce inefficiencies, and financial losses",
     ],
@@ -268,7 +268,7 @@ const modalData = [
       "Boosting employee health and well-being can enhance productivity and performance",
     ],
     shortMid: [
-      "Boosting employee health and well-being can enhance productivity and performance",
+      "Cultivating a “health and safety” culture across the organisation through education and awareness",
     ],
     value: [
       "Maintained zero cases of fatalities",
@@ -278,7 +278,7 @@ const modalData = [
   },
   {
     key: 11,
-    title: "Occupational Health & Safety",
+    title: "Community Investment",
     risks: [
       "Negative social and economic impacts from our operations on local communities can potentially give rise to reputational repercussions",
     ],
@@ -286,8 +286,8 @@ const modalData = [
       "Increase our commitment to the community and as a result enhancing our market reputation",
     ],
     shortMid: [
-      "Implementing community development initiatives that nurture future generations and equip youths with industryready skills, such as our Apprenticeship Programme for entre-level technical mechanics",
-      "Creating a positive environmental impact on the country through naturebased initiatives such as reforestation",
+      "Implementing community development initiatives that nurture future generations and equip youths with industry-ready skills, such as our Apprenticeship Programme for entry-level technical mechanics",
+      "Creating a positive environmental impact on the country through nature based initiatives such as reforestation",
     ],
     value: [
       "Enrolled <span>55</span> interns through internship programme",
@@ -430,12 +430,15 @@ const TheWayWeCreateValue = () => {
           >
             <div className={styles["modal-container"]}>
               <div className={styles["modal"]}>
-                <IconButton
-                  onClick={handleModalClose}
-                  className={styles["close-container"]}
-                >
-                  <CloseIcon className={styles["close"]} />
-                </IconButton>
+                <div className={styles["modal-top"]}>
+                  <h3 className={styles["modal-title"]}>{activeModal.title}</h3>
+                  <IconButton
+                    onClick={handleModalClose}
+                    className={styles["close-container"]}
+                  >
+                    <CloseIcon className={styles["close"]} />
+                  </IconButton>
+                </div>
                 <div className={styles["modal-card-container"]}>
                   <div className={styles["modal-card"]}>
                     <div className={styles["content"]}>
@@ -555,7 +558,7 @@ const TheWayWeCreateValue = () => {
                     height={50}
                     className={styles["input-icon"]}
                   />
-                  <p className={styles["input-text"]}>financial</p>
+                  <p className={styles["input-text"]}>financial capital</p>
                 </div>
                 <div
                   className={`${styles["input-item"]} ${styles["manufactured"]}`}
@@ -568,7 +571,7 @@ const TheWayWeCreateValue = () => {
                     height={50}
                     className={styles["input-icon"]}
                   />
-                  <p className={styles["input-text"]}>manufactured</p>
+                  <p className={styles["input-text"]}>manufactured capital</p>
                 </div>
                 <div className={`${styles["input-item"]} ${styles["human"]}`}>
                   <Image
@@ -579,7 +582,7 @@ const TheWayWeCreateValue = () => {
                     alt="human"
                     className={styles["input-icon"]}
                   />
-                  <p className={styles["input-text"]}>human</p>
+                  <p className={styles["input-text"]}>human capital</p>
                 </div>
                 <div
                   className={`${styles["input-item"]} ${styles["intellectual"]}`}
@@ -592,7 +595,7 @@ const TheWayWeCreateValue = () => {
                     alt="intellectual"
                     className={styles["input-icon"]}
                   />
-                  <p className={styles["input-text"]}>intellectual</p>
+                  <p className={styles["input-text"]}>intellectual capital</p>
                 </div>
                 <div className={`${styles["input-item"]} ${styles["social"]}`}>
                   <Image
@@ -603,7 +606,7 @@ const TheWayWeCreateValue = () => {
                     alt="social"
                     className={styles["input-icon"]}
                   />
-                  <p className={styles["input-text"]}>social</p>
+                  <p className={styles["input-text"]}>social capital</p>
                 </div>
                 <div className={`${styles["input-item"]} ${styles["natural"]}`}>
                   <Image
@@ -614,7 +617,7 @@ const TheWayWeCreateValue = () => {
                     alt="natural"
                     className={styles["input-icon"]}
                   />
-                  <p className={styles["input-text"]}>natural</p>
+                  <p className={styles["input-text"]}>natural capital</p>
                 </div>
               </div>
             </motion.div>
@@ -770,8 +773,8 @@ const TheWayWeCreateValue = () => {
                       <p className={styles["text"]}>
                         Financial capital is defined as the pool of funds
                         available to UMW. We keep our capital structure optimal,
-                        good access to capital, and undertake regular and
-                        cautious investment assessments.
+                        good access to capital, and undertake regular investment
+                        assessments.
                       </p>
                       <Image
                         src={images.divider}
@@ -794,6 +797,7 @@ const TheWayWeCreateValue = () => {
                             <div className={styles["figures"]}>
                               <p className={styles.text}>Revenue</p>
                               <p style={{ margin: 0 }}>
+                                <span className={styles.unit}>RM </span>
                                 <span
                                   ref={countUpRef}
                                   className={styles.number}
@@ -821,6 +825,7 @@ const TheWayWeCreateValue = () => {
                                 Market Capitalization
                               </p>
                               <p style={{ margin: 0 }}>
+                                <span className={styles.unit}>RM </span>
                                 <span
                                   ref={countUpRef}
                                   className={styles.number}
@@ -848,6 +853,7 @@ const TheWayWeCreateValue = () => {
                                 Total Shareholders' Fund
                               </p>
                               <p style={{ margin: 0 }}>
+                                <span className={styles.unit}>RM </span>
                                 <span
                                   ref={countUpRef}
                                   className={styles.number}
@@ -909,6 +915,12 @@ const TheWayWeCreateValue = () => {
                         className={styles["divider"]}
                       />
                       <div className={styles["border-bottom"]}>
+                        <p className={styles["text-bold"]}>Automotive:</p>{" "}
+                        <p className={styles.text}>
+                          State of the art automotive plant in Bukit Raja
+                        </p>
+                      </div>
+                      <div className={styles["border-bottom"]}>
                         <p className={styles["text-bold"]}>Equipment:</p>{" "}
                         <p className={styles.text}>
                           Customer Centre in Kota Kemuning, Shah Alam
@@ -969,9 +981,7 @@ const TheWayWeCreateValue = () => {
                         {({ countUpRef }) => (
                           <div className={styles["border-bottom"]}>
                             <div className={styles["figures"]}>
-                              <p className={styles.text}>
-                                Total employees more than
-                              </p>
+                              <p className={styles.text}>Total employees</p>
                               <p style={{ margin: 0 }}>
                                 <span
                                   ref={countUpRef}
@@ -1221,7 +1231,10 @@ const TheWayWeCreateValue = () => {
                                 <span className={styles.unit}> %</span>
                               </p>
                               <p className={styles.text}>
-                                Carbon Neutrality by 2050
+                                Carbon Neutrality by{" "}
+                                <span className={styles["text-number"]}>
+                                  2050
+                                </span>
                               </p>
                             </div>
                           </div>
@@ -1246,8 +1259,8 @@ const TheWayWeCreateValue = () => {
                                   ref={countUpRef}
                                   className={styles.number}
                                 ></span>
-                                <span className={styles.unit}>MW</span>
-                                {""}capacity Solar Panels installed
+                                <span className={styles.unit}>MW </span>
+                                {""}capacity rooftop Solar PV installed
                               </p>
                             </div>
                           </div>
@@ -1258,7 +1271,7 @@ const TheWayWeCreateValue = () => {
                           <span className={styles["text-bold"]}>
                             Going Paperless
                           </span>{" "}
-                          Implementing a zero paper culture across our
+                          Implementing a zero-paper culture across our
                           operations to reduce waste
                         </p>
                       </div>
@@ -1366,8 +1379,11 @@ const TheWayWeCreateValue = () => {
                                     className={styles.number}
                                   ></span>
                                   <span className={styles.unit}> million</span>
+                                  <span className={styles.text}> in </span>
+                                  <span className={styles["text-number"]}>
+                                    FY2022
+                                  </span>
                                 </p>
-                                <p className={styles.text}>in <span className={styles['text-number']}>FY2022</span></p>
                               </div>
                             )}
                           </CountUp>
@@ -1480,8 +1496,10 @@ const TheWayWeCreateValue = () => {
                       <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles.text}>
-                            Deployed a total of <span className={styles['text-number']}>21</span> RPA (Robotic Process
-                            Automation) projects to improve productivity
+                            Deployed a total of{" "}
+                            <span className={styles["text-number"]}>21</span>{" "}
+                            RPA (Robotic Process Automation) projects to improve
+                            productivity
                           </p>
                         </li>
                         <li>
@@ -1490,7 +1508,7 @@ const TheWayWeCreateValue = () => {
                             <span className={styles["text-bold"]}> (TM) </span>
                             on hybrid cloud, to consolidate and improve our data
                             centre architecture as part of our efforts to
-                            optimise technology and operations.
+                            optimise technology and operations
                           </p>
                         </li>
                         <li>
@@ -1563,15 +1581,17 @@ const TheWayWeCreateValue = () => {
                         <li>
                           <p className={styles.text}>
                             Accelerating our sustainability agenda of achieving
-                            carbon neutrality by 2050 by further integrating
-                            sustainability into our business operations
+                            carbon neutrality by{" "}
+                            <span className={styles["text-number"]}>2050</span>{" "}
+                            by further integrating sustainability into our
+                            business operations
                           </p>
                         </li>
                         <li>
                           <p className={styles.text}>
                             Introduced hybrid electric vehicle (Corolla Cross),
                             expanded forklift refurbishments and battery-powered
-                            forklift business.
+                            forklift business
                           </p>
                         </li>
                         <li>
@@ -1745,7 +1765,7 @@ const TheWayWeCreateValue = () => {
                           <p className={styles["text-bold"]}>Automotive:</p>{" "}
                           <p className={styles.text}>
                             Both Toyota and Perodua maintained their leading
-                            positions in the nonnational and national car
+                            positions in the non-national and national car
                             markets respectively
                           </p>
                         </li>
@@ -1759,8 +1779,11 @@ const TheWayWeCreateValue = () => {
                         <li>
                           <p className={styles["text-bold"]}>M&E:</p>{" "}
                           <p className={styles.text}>
-                            Grantt Bio VG Hydraulic Oil (VG46 and VG68) both
-                            obtained MyHijau certification
+                            Grantt Bio VG Hydraulic Oil (
+                            <span className={styles["text-number"]}>VG46</span>{" "}
+                            and{" "}
+                            <span className={styles["text-number"]}>VG68</span>)
+                            both obtained MyHijau certification
                           </p>
                         </li>
                         <li>
@@ -1773,7 +1796,8 @@ const TheWayWeCreateValue = () => {
                         <li>
                           <p className={styles["text-bold"]}>Aerospace:</p>{" "}
                           <p className={styles.text}>
-                            The Division retained its position in the top 5% of
+                            The Division retained its position in the top{" "}
+                            <span className={styles["text-number"]}>5%</span> of
                             Rolls-Royce’s high performing suppliers group
                           </p>
                         </li>
@@ -1890,7 +1914,7 @@ const TheWayWeCreateValue = () => {
                         <li>
                           <CountUp
                             start={0}
-                            end={90}
+                            end={93}
                             delay={0}
                             // decimal="."
                             // decimals={1}
@@ -1917,7 +1941,7 @@ const TheWayWeCreateValue = () => {
                         </li>
                         <li>
                           <p style={{ margin: 0 }} className={styles.text}>
-                            Zero fatality cases
+                            Zero fatality
                           </p>
                         </li>
                         <li>
@@ -1928,7 +1952,9 @@ const TheWayWeCreateValue = () => {
                         </li>
                         <li>
                           <p style={{ margin: 0 }} className={styles.text}>
-                          <span className={styles['text-number']}>46</span> high potential young talents selected since <span className={styles['text-number']}>2018</span>
+                            <span className={styles["text-number"]}>46</span>{" "}
+                            high potential young talents selected since{" "}
+                            <span className={styles["text-number"]}>2018</span>
                           </p>
                         </li>
                       </ul>
@@ -1999,10 +2025,10 @@ const TheWayWeCreateValue = () => {
                         <li>
                           <CountUp
                             start={0}
-                            end={56.7}
+                            end={58.99}
                             delay={0}
                             decimal="."
-                            decimals={1}
+                            decimals={2}
                             enableScrollSpy={true}
                             scrollSpyDelay={1}
                             scrollSpyOnce={true}
@@ -2049,7 +2075,7 @@ const TheWayWeCreateValue = () => {
                               </CountUp>
                               <span className={styles.text}>
                                 {" "}
-                                UMW Community Champions clocked{" "}
+                                UMW Community Volunteers clocked{" "}
                               </span>
                               <CountUp
                                 start={0}
@@ -2122,8 +2148,15 @@ const TheWayWeCreateValue = () => {
                                   style={{ margin: 0 }}
                                   className={styles.text}
                                 >
-                                  Solar rooftop PV capacity increased from 2MW
-                                  to <span className={styles['text-number']}>4MW</span>, a {""}
+                                  Rooftop Solar PV capacity increased from{" "}
+                                  <span className={styles["text-number"]}>
+                                    2MW
+                                  </span>
+                                  to{" "}
+                                  <span className={styles["text-number"]}>
+                                    4MW
+                                  </span>
+                                  , a {""}
                                   <span
                                     ref={countUpRef}
                                     className={styles.number}
@@ -2139,8 +2172,10 @@ const TheWayWeCreateValue = () => {
                           <div className={styles["figures-list"]}>
                             <p className={styles.text}>
                               Improved GHG emissions disclosures by reporting
-                              Scope 1 emissions (direct emissions from sources
-                              owned or controlled by UMW Group):{" "}
+                              Scope{" "}
+                              <span className={styles["text-number"]}>1</span>{" "}
+                              emissions (direct emissions from sources owned or
+                              controlled by UMW Group):{" "}
                               <CountUp
                                 start={0}
                                 end={8069.4}
@@ -2160,8 +2195,10 @@ const TheWayWeCreateValue = () => {
                               </CountUp>
                               <span className={styles.text}>
                                 {" "}
-                                tCO2e and Scope 2 emissions (indirect emissions
-                                from purchased energy such as electricity):{" "}
+                                tCO<sub>2</sub>e and Scope{" "}
+                                <span className={styles["text-number"]}>2</span>{" "}
+                                emissions (indirect emissions from purchased
+                                energy such as electricity):{" "}
                               </span>
                               <CountUp
                                 start={0}
@@ -2180,7 +2217,10 @@ const TheWayWeCreateValue = () => {
                                   ></span>
                                 )}
                               </CountUp>
-                              <span className={styles.text}> tCO2e</span>
+                              <span className={styles.text}>
+                                {" "}
+                                tCO<sub>2</sub>e
+                              </span>
                             </p>
                           </div>
                         </li>
@@ -2359,7 +2399,7 @@ const TheWayWeCreateValue = () => {
                       <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles["text-bold"]}>
-                            Financial strength:
+                            Financial strength
                           </p>{" "}
                           <p className={styles.text}>
                             Value comes from prudent financial management and
@@ -2385,7 +2425,7 @@ const TheWayWeCreateValue = () => {
                     <div className={styles["sequence-content"]}>
                       <ul className={styles["content-list"]}>
                         <li>
-                          <p className={styles["text-bold"]}>Embedded trust:</p>{" "}
+                          <p className={styles["text-bold"]}>Embedded trust</p>{" "}
                           <p className={styles.text}>
                             The strength of our assets serves to bring about a
                             competitive advantage and provide assurance on our
@@ -2411,7 +2451,7 @@ const TheWayWeCreateValue = () => {
                       <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles["text-bold"]}>
-                            Increased productivity:
+                            Increased productivity
                           </p>{" "}
                           <p className={styles.text}>
                             Ensuring productivity not only constantly improves,
@@ -2439,7 +2479,7 @@ const TheWayWeCreateValue = () => {
                       <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles["text-bold"]}>
-                            Greater innovation;
+                            Greater innovation
                           </p>{" "}
                           <p className={styles.text}>
                             Creating limitless value through inventive courses
@@ -2467,7 +2507,7 @@ const TheWayWeCreateValue = () => {
                       <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles["text-bold"]}>
-                            Better relationships:
+                            Better relationships
                           </p>{" "}
                           <p className={styles.text}>
                             Investing in building stronger relationships with
@@ -2495,7 +2535,7 @@ const TheWayWeCreateValue = () => {
                       <ul className={styles["content-list"]}>
                         <li>
                           <p className={styles["text-bold"]}>
-                            Sustainable environment:
+                            Sustainable environment
                           </p>{" "}
                           <p className={styles.text}>
                             Mitigating our impact on the environment through
