@@ -17,7 +17,7 @@ const Button1 = ({
   
   return (
     <div className={`${styles["container"]} ${className}`}>
-      <Link className={styles.link} href={link} target="_blank">
+      <a className={styles.link} href={link} target="_blank">
         <div
           className={styles["text-container"]}
           style={{ background: backgroundColor }}
@@ -41,7 +41,7 @@ const Button1 = ({
           style={{ background: backgroundColor }}
         >
         </div>
-      </Link>
+      </a>
     </div>
   );
 };

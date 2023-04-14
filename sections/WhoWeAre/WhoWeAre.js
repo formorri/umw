@@ -172,6 +172,14 @@ const WhoWeAre = () => {
                 {" "}
                 We Are One, We Drive Change and We Deliver Promises.
               </span>
+              <p className={styles["inner-text"]}>
+                Embracing these three core values will take us to the next level
+                in fulfilling our roles and responsibilities to the UMW Group.
+              </p>
+              <p className={styles["inner-text"]}>
+                WOW advocates collaboration and going the extra mile towards
+                driving excellence and success for the businesses.
+              </p>
             </p>
           </div>
 

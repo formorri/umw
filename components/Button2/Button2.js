@@ -63,14 +63,14 @@ const Button2 = ({ link, icon, backgroundColor, textColor }) => {
           >
             {link.map((item, index) => (
               <motion.li key={index} variants={itemVariants}>
-                <Link href={item.link} className={styles.link}>
+                <a href={item.link} className={styles.link}>
                   <Image
                     src={images[item.content]}
                     priority
                     alt={`${icon}icon`}
                     className={styles.icon}
                   />
-                </Link>
+                </a>
               </motion.li>
             ))}
           </motion.ul>

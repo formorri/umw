@@ -83,15 +83,15 @@ const AGM = () => {
             <AddIcon />
           </div>
           <div className={styles.after}>
-            <Link href="assets/myevents.ics">
+            <a href="assets/myevents.ics">
               <Image
                 src={images.apple}
                 loading="lazy"
                 alt="apple"
                 className={styles.icon}
               />
-            </Link>
-            <Link
+            </a>
+            <a
               href="https://www.google.com/calendar/render?action=TEMPLATE&text=41st+Annual+General+Meeting+%28AGM%29&details=NOTICE+IS+HEREBY+GIVEN+THAT+the+41st+Annual+General+Meeting+%28AGM%29+of+the+Company+will+be+held+virtually+via+live+streaming+from+the+broadcast+venue+at+Menara+UMW%2C+Jalan+Puncak%2C+Off+Jalan+P.+Ramlee%2C+50250+Kuala+Lumpur%2C+Malaysia+on+Wednesday%2C+17+May+2023+at+10.00+a.m.&location=Menara+UMW%2C+Jalan+Puncak%2C+Off+Jalan+P.+Ramlee%2C+50250+Kuala+Lumpur%2C+Malaysia&dates=20230517T020000Z%2F20230517T160000Z"
               target="_blank"
             >
@@ -101,15 +101,15 @@ const AGM = () => {
                 alt="google"
                 className={styles.icon}
               />
-            </Link>
-            <Link href="assets/myevents.ics">
+            </a>
+            <a href="assets/myevents.ics">
               <Image
                 src={images.outlook}
                 loading="lazy"
                 alt="outlook"
                 className={styles.icon}
               />
-            </Link>
+            </a>
           </div>
         </div>
       </motion.div>

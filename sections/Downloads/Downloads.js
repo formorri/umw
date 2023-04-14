@@ -56,7 +56,7 @@ const Downloads = () => {
         <div className={styles["download-wrapper"]}>
           <h2 className={styles.title}>Downloads</h2>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
-            <Link href="pdf/IR2022.pdf" target="_blank">
+            <a href="pdf/IR2022.pdf" target="_blank">
               <p className={styles["item-text"]}>
                 Integrated Annual Report <span>2022</span>
               </p>
@@ -68,10 +68,10 @@ const Downloads = () => {
                   className={styles["download-icon"]}
                 />
               </div>
-            </Link>
+            </a>
           </div>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
-            <Link href="pdf/SR-report.pdf" target="_blank">
+            <a href="pdf/SR-report.pdf" target="_blank">
               <p className={styles["item-text"]}>Sustainability Report <span>2022</span></p>
               <div className={styles["icon-container"]}>
                 <Image
@@ -81,10 +81,10 @@ const Downloads = () => {
                   className={styles["download-icon"]}
                 />
               </div>
-            </Link>
+            </a>
           </div>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
-            <Link href="pdf/CG-report.pdf" target="_blank">
+            <a href="pdf/CG-report.pdf" target="_blank">
               <p className={styles["item-text"]}>
                 Corporate Governance Report <span>2022</span>
               </p>
@@ -96,10 +96,10 @@ const Downloads = () => {
                   className={styles["download-icon"]}
                 />
               </div>
-            </Link>
+            </a>
           </div>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
-            <Link href="pdf/circular-to-shareholders.pdf" target="_blank">
+            <a href="pdf/circular-to-shareholders.pdf" target="_blank">
               <p className={styles["item-text"]}>Circular To Shareholders</p>
               <div className={styles["icon-container"]}>
                 <Image
@@ -109,10 +109,10 @@ const Downloads = () => {
                   className={styles["download-icon"]}
                 />
               </div>
-            </Link>
+            </a>
           </div>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
-            <Link href="pdf/notice-of-agm.pdf" target="_blank">
+            <a href="pdf/notice-of-agm.pdf" target="_blank">
               <p className={styles["item-text"]}>Notice of <span>41</span><sup>st</sup> AGM</p>
               <div className={styles["icon-container"]}>
                 <Image
@@ -122,10 +122,10 @@ const Downloads = () => {
                   className={styles["download-icon"]}
                 />
               </div>
-            </Link>
+            </a>
           </div>
           <div className={`${styles.item} ${styles["border-bottom"]}`}>
-            <Link href="pdf/proxy-form.pdf" target="_blank">
+            <a href="pdf/proxy-form.pdf" target="_blank">
               <p className={styles["item-text"]}>Proxy Form</p>
               <div className={styles["icon-container"]}>
                 <Image
@@ -135,10 +135,10 @@ const Downloads = () => {
                   className={styles["download-icon"]}
                 />
               </div>
-            </Link>
+            </a>
           </div>
           <div className={styles.item}>
-            <Link href="pdf/administrative-guide.pdf" target="_blank">
+            <a href="pdf/administrative-guide.pdf" target="_blank">
               <p className={styles["item-text"]}>Administrative Guide</p>
               <div className={styles["icon-container"]}>
                 <Image
@@ -148,11 +148,11 @@ const Downloads = () => {
                   className={styles["download-icon"]}
                 />
               </div>
-            </Link>
+            </a>
           </div>
         </div>
         <div className={styles["archive-wrapper"]}>
-          <Link href="https://www.umw.com.my/web/guest/financial-report" target="_blank">
+          <a href="https://www.umw.com.my/web/guest/financial-report" target="_blank">
             <p className={styles["archive-text"]}>Annual Reports Archive</p>
             <div className={styles["icon-container"]}>
               <Image
@@ -162,10 +162,10 @@ const Downloads = () => {
                 className={styles.icon}
               />
             </div>
-          </Link>
+          </a>
         </div>
         <div className={styles["archive-wrapper"]}>
-          <Link href="https://www.umw.com.my/web/guest/sustain-report" target="_blank">
+          <a href="https://www.umw.com.my/web/guest/sustain-report" target="_blank">
             <p className={styles["archive-text"]}>
               Sustainability Reports Archive
             </p>
@@ -177,7 +177,7 @@ const Downloads = () => {
                 className={styles.icon}
               />
             </div>
-          </Link>
+          </a>
         </div>
       </motion.div>
     </div>

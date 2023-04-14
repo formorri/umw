@@ -95,7 +95,7 @@ const leaderData = [
   },
   {
     key: 1,
-    tabName: "management comittee members",
+    tabName: "management committee members",
     colorActive: "#37BDBA",
     colorInactive: "#EAF6F5",
     download: "pdf/management-committee-members.pdf",

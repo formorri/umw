@@ -97,7 +97,7 @@ const modalData = [
     ],
     shortMid: [
       "Investing in renewable energy by installing solar panels at our KYB-UMW and Aerospace plants",
-      "Investing in naturebased solutions for CO2 sequestration and collaborating with key stakeholders to undertake a reforestation initiative",
+      "Investing in naturebased solutions for CO<span>2</span> sequestration and collaborating with key stakeholders to undertake a reforestation initiative",
       "Our commitment to sustainable operational excellence reflects on our dedication to environmental stewardship",
     ],
     value: [
@@ -606,7 +606,7 @@ const TheWayWeCreateValue = () => {
                     alt="social"
                     className={styles["input-icon"]}
                   />
-                  <p className={styles["input-text"]}>social capital</p>
+                  <p className={styles["input-text"]}>social and relationship capital</p>
                 </div>
                 <div className={`${styles["input-item"]} ${styles["natural"]}`}>
                   <Image
@@ -696,7 +696,7 @@ const TheWayWeCreateValue = () => {
                 className={`${styles["outcomes"]} ${styles["sequence-item"]}`}
                 onClick={() => setValue5Modal(true)}
               >
-                <p className={styles["input-text"]}>tradeoffs</p>
+                <p className={styles["input-text"]}>trade-offs</p>
                 <div className={styles["button-container"]}>
                   <AddIcon className={styles.icon} />
                 </div>
@@ -2576,7 +2576,7 @@ const TheWayWeCreateValue = () => {
               <div className={styles["sequence-modal"]}>
                 <div className={styles["modal-top"]}>
                   <div className={styles["modal-header"]}>
-                    <p className={styles["title"]}>Tradeoffs</p>
+                    <p className={styles["title"]}>Trade-offs</p>
                   </div>
                   <IconButton
                     onClick={() => {

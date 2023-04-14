@@ -53,7 +53,7 @@ const ViewsFromOurLeaders = () => {
             transition={{ duration: 0.8 }}
             className={styles["quote-container"]}
           >
-            <p className={styles["quote-header"]}>Group Chairman message</p>
+            <p className={styles["quote-header"]}>Group Chairman's message</p>
             <p className={styles["quote-dear"]}>Dear Valued Shareholders,</p>
             <p className={styles["quote-text"]}>
               The Board's priority in <span>2022</span> for the UMW Group was to strengthen

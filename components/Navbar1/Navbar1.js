@@ -125,7 +125,7 @@ const Navbar1 = ({ children, className }) => {
           backgroundColor: navbarClass ? "white" : "",
         }}
       >
-        <Link href="/" className={styles["icon-container"]}>
+        <a href="#home" className={styles["icon-container"]}>
           <Image
             src={images.logo}
             loading="lazy"
@@ -135,7 +135,7 @@ const Navbar1 = ({ children, className }) => {
               opacity: navbarClass ? "1" : "0",
             }}
           />
-        </Link>
+        </a>
 
         <div
           onClick={() => setOpenNavbar(true)}
