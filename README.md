@@ -1,26 +1,22 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+To begin editing this project, some setup is required:
+1. Install node.js from https://nodejs.org/en
+2. Download the file into your local machine and in your terminal run 'npm i' to install all the required dependencies
+3. To begin the server, run 'npm run dev'
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Creating a production ready folder
+1. Next uses absolute paths instead of relative paths. This means that the production folder, without a basePath value or post editing of the out files will result in broken links unless you upload it into the root folder. 
+2. For example, if you upload the out files into novafusion.my/development/UMW, without the basePath or post-editing, it will link all href tags to novafusion.my.
+3. To overcome this issue, I have two next.config.js setups. Before you build the production file, kindly read through my comments in next.config.js and follow the instructions 
+4. To read more on this issue, please refer to https://github.com/vercel/next.js/discussions/32216
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Building the files
+1. Run 'npm run build' in your terminal. The production ready folder will be in out.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 
@@ -30,9 +26,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

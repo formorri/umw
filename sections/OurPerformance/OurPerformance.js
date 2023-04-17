@@ -418,7 +418,7 @@ const OurPerformance = () => {
                         "--tab-color": tabColor,
                       }}
                       dangerouslySetInnerHTML={{ __html: tabDesc }}
-                    />
+                    ></p>
 
                     <div className={styles["card-container"]}>
                       {tabDataItem &&

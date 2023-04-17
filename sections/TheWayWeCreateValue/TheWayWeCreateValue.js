@@ -452,7 +452,7 @@ const TheWayWeCreateValue = () => {
                           <li
                             key={index}
                             dangerouslySetInnerHTML={{ __html: item }}
-                          />
+                          ></li>
                         ))}
                       </ul>
                     </div>
@@ -469,7 +469,7 @@ const TheWayWeCreateValue = () => {
                           <li
                             key={index}
                             dangerouslySetInnerHTML={{ __html: item }}
-                          />
+                          ></li>
                         ))}
                       </ul>
                     </div>
@@ -488,7 +488,7 @@ const TheWayWeCreateValue = () => {
                           <li
                             key={index}
                             dangerouslySetInnerHTML={{ __html: item }}
-                          />
+                          ></li>
                         ))}
                       </ul>
                     </div>
@@ -505,7 +505,7 @@ const TheWayWeCreateValue = () => {
                           <li
                             key={index}
                             dangerouslySetInnerHTML={{ __html: item }}
-                          />
+                          ></li>
                         ))}
                       </ul>
                     </div>

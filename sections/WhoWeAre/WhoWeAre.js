@@ -164,6 +164,7 @@ const WhoWeAre = () => {
               short, is the clarion call for our employees to pledge their
               unwavering commitment to this renowned industrial conglomerate.
             </p>
+
             <p className={styles["inner-text"]}>
               WoW encapsulates three core values –{" "}
               <span className={styles.bold}>We Are One, We Drive Change</span>{" "}
@@ -172,14 +173,14 @@ const WhoWeAre = () => {
                 {" "}
                 We Are One, We Drive Change and We Deliver Promises.
               </span>
-              <p className={styles["inner-text"]}>
-                Embracing these three core values will take us to the next level
-                in fulfilling our roles and responsibilities to the UMW Group.
-              </p>
-              <p className={styles["inner-text"]}>
-                WOW advocates collaboration and going the extra mile towards
-                driving excellence and success for the businesses.
-              </p>
+            </p>
+            <p className={styles["inner-text"]}>
+              Embracing these three core values will take us to the next level
+              in fulfilling our roles and responsibilities to the UMW Group.
+            </p>
+            <p className={styles["inner-text"]}>
+              WOW advocates collaboration and going the extra mile towards
+              driving excellence and success for the businesses.
             </p>
           </div>
 
@@ -217,17 +218,6 @@ const WhoWeAre = () => {
             )}
           </CountUp>
         </div>
-        {/* <div className={styles["instructions-small"]}>
-          <div className={styles["indicator-wrapper"]}>
-            <Image
-              src={images.touch}
-              loading="lazy"
-              className={styles.indicator}
-              alt="tap-here"
-            />
-          </div>
-          <p className={styles["indicator-text"]}>tap to see more</p>
-        </div> */}
 
         <div className={styles.region}>
           <div className={styles["region-info-wrapper"]}>
@@ -237,17 +227,6 @@ const WhoWeAre = () => {
               </h2>
             </div>
           </div>
-          {/* <div className={styles["instructions-large"]}>
-            <div className={styles["indicator-wrapper"]}>
-              <Image
-                src={images.touch}
-                loading="lazy"
-                className={styles.indicator}
-                alt="tap-here"
-              />
-            </div>
-            <p className={styles["indicator-text"]}>tap to see more</p>
-          </div> */}
           <CountUp
             start={0}
             end={6313}

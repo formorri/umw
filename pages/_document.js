@@ -18,7 +18,7 @@ export default function Document() {
                 gtag('config', 'G-54RE1B45DF');
               `,
           }}
-        />
+        ></script>
       </Head>
       <body>
         <Main />
